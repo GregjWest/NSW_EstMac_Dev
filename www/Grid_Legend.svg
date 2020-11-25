@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 126 176" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-14.9565,-15.1304)">
+        <path d="M140.87,21.068C140.87,17.791 138.209,15.13 134.932,15.13L20.894,15.13C17.617,15.13 14.957,17.791 14.957,21.068L14.957,184.497C14.957,187.774 17.617,190.435 20.894,190.435L134.932,190.435C138.209,190.435 140.87,187.774 140.87,184.497L140.87,21.068Z" style="fill:white;"/>
+    </g>
+    <g transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,52.4402,205.875)">
+        <clipPath id="_clip1">
+            <rect x="24.023" y="50.024" width="17.992" height="120.985"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <clipPath id="_clip2">
+                <rect x="24.023" y="50.024" width="17.992" height="120.985"/>
+            </clipPath>
+            <g clip-path="url(#_clip2)">
+                <g transform="matrix(-1,-1.22465e-16,1.22465e-16,-1,52.4402,205.875)">
+                    <use xlink:href="#_Image3" x="10.429" y="34.869" width="17.992px" height="120.985px" transform="matrix(0.999577,0,0,0.999879,0,0)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,-13.5985,-15.1592)">
+        <text x="23.172px" y="33.717px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:14.667px;">Change <tspan x="77.814px 87.596px " y="33.717px 33.717px ">Ar</tspan>ea m</text>
+        <text x="125.086px" y="33.717px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:14.667px;">²</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-22.333,-16.2914)">
+        <text x="50.507px" y="55.083px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:13.333px;">-   300,000</text>
+        <text x="50.507px" y="75.083px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:13.333px;">-   200,000</text>
+        <text x="50.507px" y="95.083px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:13.333px;">-   100,000</text>
+        <text x="50.507px" y="115.083px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:13.333px;">-              0</text>
+        <text x="50.507px" y="135.083px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:13.333px;">-  -100,000</text>
+        <text x="50.507px" y="155.083px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:13.333px;">-  -200,000</text>
+        <text x="50.507px" y="175.083px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:13.333px;">-  -300,000</text>
+    </g>
+    <defs>
+        <image id="_Image3" width="18px" height="121px" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAB5ABIDAREAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAEFAwQGB//EAB4QAAICAwEBAQEAAAAAAAAAAABhExQBAhJRIQQx/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAEDBAIFBv/EABgRAQEBAQEAAAAAAAAAAAAAAAASERMB/9oADAMBAAIRAxEAPwD0Ssj5+3n6VkLNKyFp1d1kZbVaishZqaqFmrmvjwz76rK+PBvomtjwb6LSBFkusIEJMIEJMWkCLpd4QISYQISY340aua2SNDmSRocyW1Gb+a+SMcySMcyWbrT02Z4vg609GeEJ609GeJj1T2mU228y0xZzTaYs5qG0zLbfzLTFp5lpizmoLjKm7mXGDmXGDm53P7Pv9DfzLjBzTcYObn7GxDZnhY2BnhY2BnjUzt9O8UWdDE2dDC2HO30sxktHQws6GFsZ0pAAH//Z"/>
+    </defs>
+</svg>

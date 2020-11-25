@@ -1,0 +1,1 @@
+forfiles /S /M * /C "cmd /c if @isdir== FALSE if @fsize EQU 1246 del @path"

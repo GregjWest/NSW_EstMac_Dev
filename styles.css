@@ -1,0 +1,107 @@
+input[type="number"] {
+  max-width: 80%;
+}
+
+.outer {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+
+.navbar-default {
+    background-color: #053f5c;
+}
+
+.navbar-default .navbar-brand:hover {color: white;}
+
+
+
+/* Customize fonts */
+body, label, input, button, select { 
+  font-family: 'Helvetica Neue', Helvetica;
+  font-weight: 200;
+}
+h1, h2, h3, h4 { font-weight: 400; }
+
+#controls {
+  /* Appearance */
+  background-color: white;
+  padding: 0 10px 10px 10px;
+  cursor: move;
+  /* Fade out while not hovering */
+  opacity: 0.9;
+  zoom: 0.9;
+  transition: opacity 500ms 0.5s;
+}
+
+#controls:hover {
+  /* Fade in while hovering */
+  opacity: 0.9;
+  transition-delay: 0;
+}
+
+
+#controls4 {
+  /* Appearance */
+  background-color: white;
+  padding: 0 10px 10px 10px;
+  cursor: move;
+  /* Fade out while not hovering */
+  opacity: 0.4;
+  zoom: 0.9;
+  transition: opacity 500ms 0.5s;
+}
+
+#controls4:hover {
+  /* Fade in while hovering */
+  opacity: 0.9;
+  transition-delay: 0;
+}
+
+#img-id{
+  position: fixed;
+  right: 0px;
+  top: 5px;
+}
+
+#logo {
+  /* Appearance */
+  background-color: transparent;
+  cursor: move;
+  /* Fade out while not hovering */
+  opacity: 0.25;
+  zoom: 0.9;
+  transition: opacity 500ms 1s;
+}
+
+
+
+#logo:hover {
+  /* Fade in while hovering */
+  opacity: 0.95;
+  transition-delay: 0;
+}
+
+
+#legend1 {
+  /* Appearance */
+  background-color: transparent;
+  cursor: move;
+  /* Fade out while not hovering */
+  opacity: 0.9;
+  zoom: 1;
+  transition: opacity 500ms 1s;
+}
+
+
+
+#legend1:hover {
+  /* Fade in while hovering */
+  opacity: 0.95;
+  transition-delay: 0;
+}

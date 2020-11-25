@@ -1,0 +1,13 @@
+name: Pittwater_test
+title: Pittwater_test
+username:
+account: nsw-dpi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2740763
+bundleId: 3821289
+url: https://nsw-dpi.shinyapps.io/Pittwater_test/
+when: 1604527782.14163
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Multi_Estuary_All_Years_Grid_old.csv|Pittwater_Estuary_All_Years_Grid.xlsx|shp
