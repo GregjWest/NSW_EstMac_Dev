@@ -340,10 +340,7 @@ tabPanel(
     ),
 
 
-
-
-
-            
+        
                                 
 ##### Data Summary NEW Tab UI                  ----
 tabPanel(
@@ -371,9 +368,9 @@ tabPanel(
             
             tags$p("Area (hectares) of mapped habitat in the selected estuary are graphed for each year that mapping has been done."),
             
-            column(6, offset = 3,
-                   style = "height:1000px; ", 
-                   plotOutput("habitat_plot"))
+            column(6, offset = 0,
+                   style = "height:650px; ", 
+                   plotOutput("habitat_plot", width = "100%"))
         ),
         fluidRow(
             tags$br(),tags$br(),
@@ -402,23 +399,11 @@ tabPanel(
             
             column(6, offset = 3,plotOutput("MVS"))
 
-        ),
-        fluidRow(
-            tags$br(),tags$br(),tags$br(),tags$br(),
-            h4("Explore all data"),
-            tags$p("Below is an interactive table, where each column can be sorted in ascending or descending order by clicking on the column heading.
-               You can also use the search and filter any combinaiton of text or numbers (For example Port Stephens 1985)."),
-            tags$br(),
-            DT::dataTableOutput("sum_data")
-        )
     )
-     
-)
-        
-        
+    )
+    ),
     
-,
-
+        
 
 
 #### Download report tab UI -----
@@ -1082,20 +1067,20 @@ server <- function(input, output, session) {
     
     output$habitat_plot <- renderPlot({
         ggplot(data=plot_dat(), aes(x=Map_Year, y=Area/10000)) +
-            geom_point(colour="#053f5c", size=5) +
-            geom_line(colour="#053f5c", size=2) +
+            geom_point(colour="#053f5c", size=1) +
+            geom_line(colour="#053f5c", size=1) +
             #geom_col(fill="#053f5c") + # change the x = fMap_Year
             ylim(0,NA) +
             ylab("Hectares") +
             xlab("Years Mapped") +
             scale_x_continuous(breaks=seq(1985, 2020, 3)) +
-            facet_grid(Habitat ~ . ) +
-            theme(axis.title.x = element_text(face="bold", size=14),
-                  axis.text.x  = element_text(size=14, angle=90, vjust=0.5),
-                  axis.title.y = element_text(face="bold", size=14),
-                  axis.text.y  = element_text(size=14),
-                  strip.text.y = element_text(size = 12))
-    },height = 1000)
+            facet_wrap(Habitat ~ . ) +
+            theme_bw() +
+            theme(axis.title.x = element_text(face="bold", size=14), axis.text.x  = element_text(angle=90, vjust=0.5, size=12),
+                    axis.title.y = element_text(face="bold", size=14),
+                    axis.text.y  = element_text(size=14),
+                    strip.text.x = element_text(size = 14))
+    },height = 650, width = 1000 )
     
     
     
@@ -1188,33 +1173,7 @@ server <- function(input, output, session) {
     #     
     #     
     #     
-    # # Summary data table
-    
-    
-    filtered_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary2) %>%
-            dplyr::select(input$habitat2)
-    })
-    
-    
-    
-    
-    
-    
-    
-    output$sum_data <- DT::renderDataTable({
-        dat_summary
-        # options = list(
-        #     pageLength = 5,
-        #     initComplete = I("function(settings, json) {alert('Done.');}")
-        # )
-    })
-    
-    
-    
-    
-    
+  
     
     
     
