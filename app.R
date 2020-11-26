@@ -1060,14 +1060,14 @@ server <- function(input, output, session) {
             #dplyr::filter(Habitat == c( "Mangrove", "Saltmarsh","Seagrass","Halophila","Posidonia","Ruppia", "Zostera")) %>%
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(Area > 0)
+            dplyr::filter(Area >= 0)
         
     })
     
     
     output$habitat_plot <- renderPlot({
         ggplot(data=plot_dat(), aes(x=Map_Year, y=Area/10000)) +
-            geom_point(colour="#053f5c", size=1) +
+            geom_point(colour="#053f5c", size=3) +
             geom_line(colour="#053f5c", size=1) +
             #geom_col(fill="#053f5c") + # change the x = fMap_Year
             ylim(0,NA) +
