@@ -329,8 +329,8 @@ tabPanel(
                     tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
                            tags$img(src='DPI_LOGO_left.svg')), 
             
-            absolutePanel(id = "legend1", class = "card", bottom = 396, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                  tags$img(src='Macrophyte_Legend.svg',height='300',width='150'))
+                    absolutePanel(id = "legend1", class = "card", bottom = 475, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                                  tags$img(src='Macrophyte_Legend.svg',height='300',width='200'))
             ),
 
             )
@@ -974,19 +974,20 @@ server <- function(input, output, session) {
     
     
     ### Create an asymmetric color range
-    scale_range <- c(-62500, 62500)
+    # scale_range <- c(-62500, 62500)
     ## Make vector of colors for values smaller than 0 (20 colors)
-    rc1 <- colorRampPalette(colors = c("dark red", "red", "white"), space = "Lab")(10)
+    # rc1 <- colorRampPalette(colors = c("dark red", "red", "white"), space = "Lab")(10)
     
     ## Make vector of colors for values larger than 0 (180 colors)
-    rc2 <- colorRampPalette(colors = c("white","green", "dark green"), space = "Lab")(10)
+    #rc2 <- colorRampPalette(colors = c("white","green", "dark green"), space = "Lab")(10)
     
     ## Combine the two color palettes
-    rampcols <- c(rc1, rc2)
+    #rampcols <- c(rc1, rc2)
     
-    mypal <- colorNumeric(palette = rampcols, domain = scale_range,  na.color = "transparent")
+    # mypal <- colorNumeric(palette = rampcols, domain = scale_range,  na.color = "transparent")
     
-   
+    bins <- c(62500, 32000, 3200, 320, 32, .1, -.1, -32, -320, -3200, -32000, -65000)
+    grdpal <- colorBin ("RdYlBu", bins = bins, na.color = "transparent") 
     
     output$map_change <- renderLeaflet({
         leaflet() %>% 
@@ -999,7 +1000,7 @@ server <- function(input, output, session) {
                                  layerId = "0",
                                  options (maxZoom = 16)) %>%
             #Add change raster layer
-            addStarsImage(diff_raster(), colors = mypal, opacity = 0.5, group = "Change map", project = FALSE) %>%
+            addStarsImage(diff_raster(), colors = grdpal, opacity = 0.5, group = "Change map", project = FALSE) %>%
             
             #Add side by side comparison slider   
             addMapPane("left", zIndex = 200) %>%
@@ -1012,7 +1013,7 @@ server <- function(input, output, session) {
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
             addMiniMap() %>%
-            addLegend(position = "bottomright", pal = mypal, values = scale_range,
+            addLegend(position = "bottomright", pal = grdpal, values = bins,
                       title = ("Change Area m<sup>2")) %>%
             addLayersControl(
                 baseGroups = c("OSM (default)", "Photo basemap"),
