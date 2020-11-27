@@ -332,7 +332,9 @@ tabPanel(
                     absolutePanel(id = "legend1", class = "card", bottom = 475, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
                                   tags$img(src='Macrophyte_Legend.svg',height='300',width='200'))
             ),
-
+                    absolutePanel(id = "legend1", class = "card", bottom = 200, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                                tags$img(src='Grid_Legend_Curved.svg',height='275',width='170'))
+          
             )
         )
     )
@@ -1013,8 +1015,8 @@ server <- function(input, output, session) {
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
             addMiniMap() %>%
-            addLegend(position = "bottomright", pal = grdpal, values = bins,
-                      title = ("Change Area m<sup>2")) %>%
+            # ----- addLegend(position = "bottomright", pal = grdpal, values = bins,
+            # -----           title = ("Change Area m<sup>2")) %>%
             addLayersControl(
                 baseGroups = c("OSM (default)", "Photo basemap"),
                 overlayGroups = c("Change map", "Time 1 - (Left)", "Time 2 - (Right)"),
