@@ -69,7 +69,7 @@
             <path d="M311.2,217.5L300,206.5L300,213L286,213L286,222L300,222L300,228.5L311.2,217.5Z" style="fill:rgb(51,51,51);fill-rule:nonzero;"/>
         </g>
     </g>
-    <g transform="matrix(6.12323e-17,1,-1,6.12323e-17,285.4,58.7611)">
-        <text x="15.775px" y="115.131px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:14.667px;fill:rgb(51,51,51);">I<tspan x="20.29px 28.887px 36.66px 41.984px 50.581px 59.178px 66.951px 75.548px 80.063px 84.578px 89.093px 93.608px 98.123px 102.637px 107.152px 111.667px 116.182px 120.697px 131.729px 140.326px 148.099px 151.797px 155.496px 164.093px " y="115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px ">ncrease          Decline</tspan></text>
+    <g transform="matrix(6.12323e-17,1,-1,6.12323e-17,285.505,35.4167)">
+        <text x="52.943px" y="115.131px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:14.667px;fill:rgb(51,51,51);">G<tspan x="64.791px 73.388px 77.087px 85.684px 90.199px 94.713px 99.228px 103.743px 108.258px 112.773px 117.288px 121.803px 126.318px 130.832px 135.347px 139.862px 144.377px 148.892px 153.407px 157.922px 166.519px 175.115px 182.889px " y="115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px 115.131px ">ain                Loss</tspan></text>
     </g>
 </svg>
