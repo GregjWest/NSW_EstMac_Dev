@@ -34,11 +34,10 @@ if(!require(leaflet.esri)) install.packages("leaflet.esri", repos = "http://cran
 if(!require(stars)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leafem)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.extras2)) install.packages("leaflet.extras2", repos = "http://cran.us.r-project.org")
-
+if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.org")
 
 #pittwater_grid <- rgdal::readOGR("json/Pittwater_Grid.geojson")
 #mooring_area <- rgdal::readOGR("json/MooringArea.geojson")
-
 
 
 
@@ -1070,8 +1069,8 @@ server <- function(input, output, session) {
     
     output$habitat_plot <- renderPlot({
         ggplot(data=plot_dat(), aes(x=Map_Year, y=Area/10000)) +
-            geom_line(colour="#999999", size=1) +
-            geom_point(colour="#000000", size=2) +
+            geom_line(colour="#989898", size=1) +
+            geom_point(colour="#404040", size=1.2) +
             
             #geom_col(fill="#053f5c") + # change the x = fMap_Year
             ylim(0,NA) +
@@ -1083,7 +1082,7 @@ server <- function(input, output, session) {
             theme(axis.title.x = element_text(face="bold", size=14), axis.text.x  = element_text(angle=90, vjust=0.5, size=12),
                     axis.title.y = element_text(face="bold", size=14),
                     axis.text.y  = element_text(size=14),
-                    strip.text.x = element_text(size = 14))
+                    strip.text.x = element_text(size = 14, face = "italic"))
     },height = 650, width = 1000 )
     
     
@@ -1147,14 +1146,14 @@ server <- function(input, output, session) {
     output$MVS <- renderPlot({
         ggplot(mvs_diff_dat()) +
             theme_geometry(mvs_diff_dat()$delta_mangrove, mvs_diff_dat()$delta_saltmarsh) +
-            geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = 1, color = "#053f5c") +
+            geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = .5, color = "#053f5c") +
             annotate("text", x = -52000, y = 62000, label = "- Mangrove", color = "red", size = 5) +
-            annotate("text", x = -52000, y = 52000, label = "+ Saltmarsh", color = "green", size = 5) +
+            annotate("text", x = -52000, y = 52000, label = "+ Saltmarsh", color = "green4", size = 5) +
             annotate("text", x = -52000, y = -52000, label = "- Mangrove", color = "red", size = 5) +
             annotate("text", x = -52000, y = -62000, label = "- Saltmarsh", color = "red", size = 5) +
-            annotate("text", x = 52000, y = 62000, label = "+ Mangrove", color = "green", size = 5) +
-            annotate("text", x = 52000, y = 52000, label = "+ Saltmarsh", color = "green", size = 5) +
-            annotate("text", x = 52000, y = -62000, label = "+ Mangrove", color = "green", size = 5) +
+            annotate("text", x = 52000, y = 62000, label = "+ Mangrove", color = "green4", size = 5) +
+            annotate("text", x = 52000, y = 52000, label = "+ Saltmarsh", color = "green4", size = 5) +
+            annotate("text", x = 52000, y = -62000, label = "+ Mangrove", color = "green4", size = 5) +
             annotate("text", x = 52000, y = -52000, label = "- Saltmarsh", color = "red", size = 5) #+
         
         # geom_segment(aes(x = 250000, xend = 250000, y= 1, yend= -250000),
