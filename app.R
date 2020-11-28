@@ -1070,8 +1070,9 @@ server <- function(input, output, session) {
     
     output$habitat_plot <- renderPlot({
         ggplot(data=plot_dat(), aes(x=Map_Year, y=Area/10000)) +
-            geom_point(colour="#053f5c", size=3) +
-            geom_line(colour="#053f5c", size=1) +
+            geom_line(colour="#999999", size=1) +
+            geom_point(colour="#000000", size=2) +
+            
             #geom_col(fill="#053f5c") + # change the x = fMap_Year
             ylim(0,NA) +
             ylab("Hectares") +
