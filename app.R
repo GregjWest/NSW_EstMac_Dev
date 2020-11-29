@@ -370,7 +370,7 @@ tabPanel(
             tags$p("Area (hectares) of mapped habitat in the selected estuary are graphed for each year that mapping has been done."),
             
             column(6, offset = 0,
-                   style = "height:650px; ", 
+                   style = "height:750px; ", 
                    plotOutput("habitat_plot", width = "100%"))
         ),
         fluidRow(
@@ -1073,17 +1073,18 @@ server <- function(input, output, session) {
             geom_point(colour="#404040", size=1.2) +
             
             #geom_col(fill="#053f5c") + # change the x = fMap_Year
-            ylim(0,NA) +
+            #ylim(0,NA) +
             ylab("Hectares") +
             xlab("Years Mapped") +
             scale_x_continuous(breaks=seq(1985, 2020, 3)) +
-            facet_wrap(Habitat ~ . ) +
+            facet_wrap(~Habitat, scales = "free_y") +
+            scale_y_continuous(limits = c(0, NA)) +
             theme_bw() +
             theme(axis.title.x = element_text(face="bold", size=14), axis.text.x  = element_text(angle=90, vjust=0.5, size=12),
                     axis.title.y = element_text(face="bold", size=14),
                     axis.text.y  = element_text(size=14),
                     strip.text.x = element_text(size = 14, face = "italic"))
-    },height = 650, width = 1000 )
+    },height = 750, width = 1000 )
     
     
     
