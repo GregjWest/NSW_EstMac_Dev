@@ -342,14 +342,14 @@ tabPanel(
 
         
                                 
-##### Data Summary NEW Tab UI                  ----
+##### Data Summary Tab UI                  ----
 tabPanel(
     "Data Summary",
     fluidPage(
         tags$style(type="text/css", "body {padding-top: 70px; width: 1140px; text-align: justify; margin: auto;}"),
         fluidRow(
-            h3("Explore the data"),
-            h5("First select the region and estuary of interest."),
+            h3("Estuary overview"),
+            h5("Select the region then select the estuary of interest."),
             div(style="display:flex",
             selectInput("region2", 
                         label = "Region:", 
@@ -361,6 +361,31 @@ tabPanel(
                         selected = list_estuary[index_estuary])
             )
         ),
+        
+        fluidRow(
+            column(11, offset = 0.5,
+                   
+                   tags$h3(textOutput("summary_title")
+                   ),
+                   tags$p(textOutput("estuary_type")
+                   ),
+                   tags$p(htmlOutput("catchment_area")
+                   ),
+                   tags$p(htmlOutput("estuary_area")
+                   ),
+                   tags$p(textOutput("ave_depth")
+                   ),
+                   tags$p("Years mapped: "), textOutput("years_mapped")
+                   ,
+                   
+                   tags$br(),
+                   
+                   tags$p("Macrophyte maps for the latest time of sampling can be donwloaded from the", 
+                          tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "Spatial Data Portal.") ) 
+                   
+                   
+            )),
+        
         fluidRow(
             tags$br(),tags$br(),tags$br(),tags$br(),
             
@@ -408,155 +433,6 @@ tabPanel(
         
 
 
-#### Download report tab UI -----
-tabPanel("Download Report",
-
-        fluidRow(style = "border: 4px double #bbb;",
-            HTML('<button data-toggle="collapse" data-target="#demo2">Show/Hide</button>'),
-            tags$div(id = 'demo2',  class="collapse in",
-                     
-             column(12, offset = 0.5,
-                    h4("Download an Estuary Report"),
-                    tags$p("This is under construction. Soon you will be able to click on a button to save a PDF version of this report. For the time being you can select a region, estuary and two years to compare, then review the report below. You can save the report as HTML by right clicking on the page and selecting 'save as'. Otherwise, this can be saved as a PDF by right clicking on the page, select print, then select 'print as PDF'. Before saving or printing, click on the hide button to minimise this menu."),
-                    ),
-             
-             column(3, offset = 0.5,
-                    
-                    selectInput("region4", 
-                                label = "Region:", 
-                                choices = list_region, 
-                                selected = list_region[index_region])
-                    ),
-             column(3, offset = 0.5,
-                    selectInput("estuary4",
-                                label = "Estuary:",
-                                choices = list_estuary,
-                                selected = list_estuary[index_estuary])
-             ),
-             
-             column(2, offset = 0.5,
-                    selectInput("report_t2", 
-                                label = "Year: ", 
-                                choices = NULL, 
-                                selected = "2017")
-                    ),
-             
-             column(2, offset = 0.5,
-                    selectInput("report_t1",
-                                label = "Compared to: ",
-                                choices = NULL,
-                                selected = "1985")
-                    )
-            )
-             ),
-        
-        fluidRow(
-            column(11, offset = 0.5,
-                    
-         tags$h3(textOutput("summary_title")
-         ),
-         tags$p(textOutput("estuary_type")
-         ),
-         tags$p(htmlOutput("catchment_area")
-         ),
-         tags$p(htmlOutput("estuary_area")
-         ),
-         tags$p(textOutput("ave_depth")
-         ),
-         tags$p("Years mapped: "), textOutput("years_mapped")
-         ,
-         
-         tags$br(),
-
-         tags$p("Macrophyte maps for the latest time of sampling can be donwloaded from the", 
-                 tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "Spatial Data Portal.") ) 
-         
-         
-         )),
-         
-         
-         
-         
-         fluidRow(
-             column(3, offset = 0.5,
-                    tags$h4(tags$em("Posidonia"), "change"),
-                    
-                    leafletOutput("report_pos_map", height = 520, width = 520)
-                    
-             ),
-             column(4, offset = 3,
-                    tags$h4(tags$em("Zostera"), "change"),
-                    leafletOutput("report_zos_map", height = 520, width = 520)
-             )
-         ),
-         fluidRow(
-             column(3, offset = 0.5,
-                    tags$h4("Mangrove change"),
-                    leafletOutput("report_mang_map", height = 520, width = 520)
-                    
-             ),
-             column(4, offset = 3,
-                    tags$h4("Saltmarsh change"),
-                    leafletOutput("report_salt_map", height = 520, width = 520)
-                    
-             )
-         ),
-        
-        tags$br(), tags$br(),        tags$br(), tags$br(),
-
-        
-        fluidRow(
-            column(3, offset = 0.5,
-                   tags$h4(tags$em("Posidonia"), "change over time"),
-
-                   plotOutput("pos_plot")
-            ),
-                   
-            column(4, offset = 3,
-                    tags$h4(tags$em("Zostera"), "change over time"),
-                    plotOutput("zos_plot")
-            )
-
-            
-            ),
-        
-        fluidRow(
-            column(3, offset = 0.5,
-                   tags$h4("Mangrove change over time"),
-                   
-                   plotOutput("man_plot")
-            ),
-            
-            column(4, offset = 3,
-                   tags$h4("Saltmarsh change over time"),
-                   plotOutput("sal_plot")
-            )
-            
-            
-        ),
-         
-        tags$br(), tags$br(),        tags$br(), 
-        
-        fluidRow(column(6, offset = 0.5,
-                         tags$br(),
-                         h4("Change in Mangrove relative to Saltmarsh"),  
-                         column(8, offset = 2,
-                                style = "height:500px; width:500px ",
-                                tags$br(),
-                                
-                                plotOutput("report_MVS")
-                         )
-         )),
-         
-         fluidRow(column(6, offset = 0.5,
-                         h5("Disclaimer: The information provided in this report is a guide and the authors are not responsible..... "),
-                         h5("Acknowledgments.....")
-                         
-                         
-         ))
-         
-                    
-         ),
 
 
 ##### About Tab ----
@@ -1056,6 +932,41 @@ server <- function(input, output, session) {
                           selected = "Pittwater")
     })
     
+    # Estuary Summary Table
+    estuary_report_dat <- reactive({ report_dat %>%
+            dplyr::filter(Estuary == input$estuary2) 
+    })
+
+    output$estuary_type <- renderText({ 
+        paste("Estuary type:", unique(estuary_report_dat()$RoyEstuarytype))
+    })
+    
+    output$catchment_area <- renderText({ 
+        paste("Catchment area:", round(unique(estuary_report_dat()$Catchmentarea), digits = 0),"km<sup>2</sup>")
+    })
+    
+    output$estuary_area <- renderText({ 
+        paste("Estuary area:", round(unique(estuary_report_dat()$Estuaryarea), digits = 0),"km<sup>2</sup>")
+    })
+    
+    output$ave_depth <- renderText({ 
+        paste("Average depth:", round(unique(estuary_report_dat()$AveDepth), digits = 1),"m")
+    })
+    
+    
+    years_dat <- reactive({
+        dat %>%
+            dplyr::filter(Estuary == input$estuary2)
+    })
+    
+    
+    output$years_mapped <- renderText({ 
+        paste(unique(years_dat()$Map_Year))
+    })
+    
+    
+    
+    
     # Plot estuary by habitat over time    
     plot_dat <- reactive({
         dat1 %>%
@@ -1174,7 +1085,7 @@ server <- function(input, output, session) {
         # geom_segment(aes(x = 1, xend = 250000, y= 250000, yend= 250000),
         #              arrow=arrow(length=unit(0.2,"cm")), color = "green") 
         
-    },height = 500, width = 500 )
+    },height = 500, width = 800 )
     
     
     
@@ -1196,599 +1107,8 @@ server <- function(input, output, session) {
     
     
     
-       
-##### REPORT TAB ###########################################
-    
-    # UI preparation
-    observe({
-        x4_1 <- dat %>% 
-            dplyr::filter(Region == input$region4) %>% 
-            dplyr::select(Estuary)
-        updateSelectInput(session, 
-                          "estuary4", 
-                          label = "Estuary:",
-                          choices = unique(x4_1),
-                          selected = "Pittwater")
-    })
-    
-    observe({
-        x4_2 <- dat %>% 
-            dplyr::filter(Estuary == input$estuary4) %>% 
-            dplyr::select(Map_Year) %>% 
-            dplyr::arrange(desc(Map_Year))
-        updateSelectInput(session, "report_t2", 
-                          "Year: ", 
-                          choices = unique(x4_2))
-    })
-    
-    observe({
-        x4_3 <- dat %>% 
-            dplyr::filter(Estuary == input$estuary4) %>% 
-            dplyr::select(Map_Year)%>% 
-            dplyr::arrange(Map_Year) %>% 
-            dplyr::filter(Map_Year <= input$report_t2)
-        updateSelectInput(session, "report_t1", 
-                          "Compared to: ", 
-                          choices = unique(x4_3))
-    })
-    
-    
-    
-    # Estuary Summary Table
-    estuary_report_dat <- reactive({ report_dat %>%
-            dplyr::filter(Estuary == input$estuary4) 
-        })
-    
-    output$summary_title <- renderText({ 
-        paste(input$estuary4,"- ", input$report_t2, " compared to ", input$report_t1)
-    })
-    
-    output$estuary_type <- renderText({ 
-        paste("Estuary type:", unique(estuary_report_dat()$RoyEstuarytype))
-    })
-    
-    output$catchment_area <- renderText({ 
-       paste("Catchment area:", round(unique(estuary_report_dat()$Catchmentarea), digits = 0),"km<sup>2</sup>")
-    })
-    
-    output$estuary_area <- renderText({ 
-        paste("Estuary area:", round(unique(estuary_report_dat()$Estuaryarea), digits = 0),"km<sup>2</sup>")
-    })
-    
-    output$ave_depth <- renderText({ 
-        paste("Average depth:", round(unique(estuary_report_dat()$AveDepth), digits = 1),"m")
-    })
-    
-    
-    years_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4)
-    })
-    
-    
-    output$years_mapped <- renderText({ 
-        paste(unique(years_dat()$Map_Year))
-    })
-    
-    
-    
-    
-    
-    # #Posidonia change leaflet map
-    pos_t2_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t2) %>%
-            dplyr::select(GRID_ID, Easting, Northing, Posidonia)
-    })
-    pos_t1_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t1) %>%
-            dplyr::select(GRID_ID, Easting, Northing, Posidonia)
-    })
-    pos_diff_dat <- reactive({
-        inner_join(pos_t2_dat(),
-                   pos_t1_dat(),
-                   by = c("GRID_ID", "Easting", "Northing")) %>%
-            mutate(Diff = .[[4]] - .[[5]])
-    })
-    pos_diff_negs <- reactive({
-        pos_diff_dat() %>%
-            dplyr::filter(Diff < 0) %>%
-            dplyr::mutate(Percent = Diff / .[[5]] * 100)
-    })
-    pos_diff_posi <- reactive({
-        pos_diff_dat() %>%
-            dplyr::filter(Diff >= 0) %>%
-            dplyr::mutate(Percent = Diff / .[[4]] * 100) %>%
-            mutate_all( ~ replace(., is.na(.), 0))
-    })
-    pos_diff_dat1 <- reactive({
-        dplyr::union(pos_diff_negs(), pos_diff_posi())
-    })
-    #select coordinates
-    pos_raster_points <- reactive({
-        pos_diff_dat1() %>%
-            dplyr::select(Easting, Northing)
-    })
-    #Filter and select values
-    pos_raster_values <- reactive({
-        pos_diff_dat1() %>%
-            dplyr::select(Diff)
-    })
-    # Set raster max and min based on estuary selection
-    pos_lon_min <- reactive({min(pos_raster_points()$Easting)})
-    pos_lon_max <- reactive({max(pos_raster_points()$Easting)})
-    pos_lat_min <- reactive({min(pos_raster_points()$Northing)})
-    pos_lat_max <- reactive({max(pos_raster_points()$Northing)})
-    pos_ncols <- reactive({((pos_lon_max() - pos_lon_min())/cell_size)})
-    pos_nrows <- reactive({((pos_lat_max() - pos_lat_min())/cell_size)})
-    # Create and empty raster that covers the estuary selected
-    pos_empty_raster <- reactive({
-        raster(nrows=pos_nrows(), ncols=pos_ncols(),
-               xmn=pos_lon_min(), xmx=pos_lon_max(),
-               ymn=pos_lat_min(), ymx=pos_lat_max(),
-               res=c(cell_size,cell_size), crs=myproj)
-    })
-    # Convert dataframe to a spatial data frame
-    pos_raster_pts <- reactive({
-        SpatialPointsDataFrame(coords=pos_raster_points(), data=data.frame(pos_raster_values()))
-    })
-    # Rasterize spatial data frame
-    pos_diff_raster <- reactive({
-        rasterize(pos_raster_points(), pos_empty_raster(), pos_raster_values(), fun= mean)
-    })
-    ### Create an asymmetric color range
-    scale_range <- c(-62500, 62500)
-    ## Make vector of colors for values smaller than 0 (20 colors)
-    rc1 <- colorRampPalette(colors = c("dark red", "red", "white"), space = "Lab")(10)
-    ## Make vector of colors for values larger than 0 (180 colors)
-    rc2 <- colorRampPalette(colors = c("white","green", "dark green"), space = "Lab")(10)
-    ## Combine the two color palettes
-    rampcols <- c(rc1, rc2)
-    mypal <- colorNumeric(palette = rampcols, domain = scale_range,  na.color = "transparent")
-    map1 = reactive({
-        leaflet() %>% 
-        addProviderTiles(providers$CartoDB.Positron) %>% 
-        # addLegend(position = "bottomright", pal = mypal, values = scale_range,
-        #           title = ("Change Area m<sup>2")) %>%
-        addRasterImage(pos_diff_raster(), colors = mypal, opacity = 0.75)
-    })
-    output$report_pos_map = renderLeaflet(map1())
-    
-    
-    
-    
-    
-    # #Zostera change leaflet map
-    zos_t2_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t2) %>%
-            dplyr::select(GRID_ID, Easting, Northing, Zostera)
-    })
-    zos_t1_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t1) %>%
-            dplyr::select(GRID_ID, Easting, Northing, Zostera)
-    })
-    zos_diff_dat <- reactive({
-        inner_join(zos_t2_dat(),
-                   zos_t1_dat(),
-                   by = c("GRID_ID", "Easting", "Northing")) %>%
-            mutate(Diff = .[[4]] - .[[5]])
-    })
-    zos_diff_negs <- reactive({
-        zos_diff_dat() %>%
-            dplyr::filter(Diff < 0) %>%
-            dplyr::mutate(Percent = Diff / .[[5]] * 100)
-    })
-    zos_diff_posi <- reactive({
-        zos_diff_dat() %>%
-            dplyr::filter(Diff >= 0) %>%
-            dplyr::mutate(Percent = Diff / .[[4]] * 100) %>%
-            mutate_all( ~ replace(., is.na(.), 0))
-    })
-    zos_diff_dat1 <- reactive({
-        dplyr::union(zos_diff_negs(), zos_diff_posi())
-    })
-    #select coordinates
-    zos_raster_points <- reactive({
-        zos_diff_dat1() %>%
-            dplyr::select(Easting, Northing)
-    })
-    #Filter and select values
-    zos_raster_values <- reactive({
-        zos_diff_dat1() %>%
-            dplyr::select(Diff)
-    })
-    # Set raster max and min based on estuary selection
-    zos_lon_min <- reactive({min(zos_raster_points()$Easting)})
-    zos_lon_max <- reactive({max(zos_raster_points()$Easting)})
-    zos_lat_min <- reactive({min(zos_raster_points()$Northing)})
-    zos_lat_max <- reactive({max(zos_raster_points()$Northing)})
-    zos_ncols <- reactive({((zos_lon_max() - zos_lon_min())/cell_size)+1})
-    zos_nrows <- reactive({((zos_lat_max() - zos_lat_min())/cell_size)+1})
-    # Create and empty raster that covers the estuary selected
-    zos_empty_raster <- reactive({
-        raster(nrows=zos_nrows(), ncols=zos_ncols(),
-               xmn=zos_lon_min(), xmx=zos_lon_max(),
-               ymn=zos_lat_min(), ymx=zos_lat_max(),
-               res=c(cell_size,cell_size), crs=myproj)
-    })
-    # Convert dataframe to a spatial data frame
-    zos_raster_pts <- reactive({
-        SpatialPointsDataFrame(coords=zos_raster_points(), data=data.frame(zos_raster_values()))
-    })
-    # Rasterize spatial data frame
-    zos_diff_raster <- reactive({
-        rasterize(zos_raster_points(), zos_empty_raster(), zos_raster_values(), fun= mean)
-    })
-    ### Create an asymmetric color range
-    scale_range <- c(-62500, 62500)
-    ## Make vector of colors for values smaller than 0 (20 colors)
-    rc1 <- colorRampPalette(colors = c("dark red", "red", "white"), space = "Lab")(10)
-    ## Make vector of colors for values larger than 0 (180 colors)
-    rc2 <- colorRampPalette(colors = c("white","green", "dark green"), space = "Lab")(10)
-    ## Combine the two color palettes
-    rampcols <- c(rc1, rc2)
-    mypal <- colorNumeric(palette = rampcols, domain = scale_range,  na.color = "transparent")
-    map2 = reactive({
-        leaflet() %>% 
-            addProviderTiles(providers$CartoDB.Positron) %>% 
-            # addLegend(position = "bottomright", pal = mypal, values = scale_range,
-            #           title = ("Change Area m<sup>2")) %>%
-            addRasterImage(zos_diff_raster(), colors = mypal, opacity = 0.75)
-    })
-    output$report_zos_map = renderLeaflet(map2())
-    
-    
-
-    
-    # #Mangrove change leaflet map
-    mang_t2_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t2) %>%
-            dplyr::select(GRID_ID, Easting, Northing, Mangrove)
-    })
-    mang_t1_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t1) %>%
-            dplyr::select(GRID_ID, Easting, Northing, Mangrove)
-    })
-    mang_diff_dat <- reactive({
-        inner_join(mang_t2_dat(),
-                   mang_t1_dat(),
-                   by = c("GRID_ID", "Easting", "Northing")) %>%
-            mutate(Diff = .[[4]] - .[[5]])
-    })
-    mang_diff_negs <- reactive({
-        mang_diff_dat() %>%
-            dplyr::filter(Diff < 0) %>%
-            dplyr::mutate(Percent = Diff / .[[5]] * 100)
-    })
-    mang_diff_posi <- reactive({
-        mang_diff_dat() %>%
-            dplyr::filter(Diff >= 0) %>%
-            dplyr::mutate(Percent = Diff / .[[4]] * 100) %>%
-            mutate_all( ~ replace(., is.na(.), 0))
-    })
-    mang_diff_dat1 <- reactive({
-        dplyr::union(mang_diff_negs(), mang_diff_posi())
-    })
-    #select coordinates
-    mang_raster_points <- reactive({
-        mang_diff_dat1() %>%
-            dplyr::select(Easting, Northing)
-    })
-    #Filter and select values
-    mang_raster_values <- reactive({
-        mang_diff_dat1() %>%
-            dplyr::select(Diff)
-    })
-    # Set raster max and min based on estuary selection
-    mang_lon_min <- reactive({min(mang_raster_points()$Easting)})
-    mang_lon_max <- reactive({max(mang_raster_points()$Easting)})
-    mang_lat_min <- reactive({min(mang_raster_points()$Northing)})
-    mang_lat_max <- reactive({max(mang_raster_points()$Northing)})
-    mang_ncols <- reactive({((mang_lon_max() - mang_lon_min())/cell_size)+1})
-    mang_nrows <- reactive({((mang_lat_max() - mang_lat_min())/cell_size)+1})
-    # Create and empty raster that covers the estuary selected
-    mang_empty_raster <- reactive({
-        raster(nrows=mang_nrows(), ncols=mang_ncols(),
-               xmn=mang_lon_min(), xmx=mang_lon_max(),
-               ymn=mang_lat_min(), ymx=mang_lat_max(),
-               res=c(cell_size,cell_size), crs=myproj)
-    })
-    # Convert dataframe to a spatial data frame
-    mang_raster_pts <- reactive({
-        SpatialPointsDataFrame(coords=mang_raster_points(), data=data.frame(mang_raster_values()))
-    })
-    # Rasterize spatial data frame
-    mang_diff_raster <- reactive({
-        rasterize(mang_raster_points(), mang_empty_raster(), mang_raster_values(), fun= mean)
-    })
-    ### Create an asymmetric color range
-    scale_range <- c(-62500, 62500)
-    ## Make vector of colors for values smaller than 0 (20 colors)
-    rc1 <- colorRampPalette(colors = c("dark red", "red", "white"), space = "Lab")(10)
-    ## Make vector of colors for values larger than 0 (180 colors)
-    rc2 <- colorRampPalette(colors = c("white","green", "dark green"), space = "Lab")(10)
-    ## Combine the two color palettes
-    rampcols <- c(rc1, rc2)
-    mypal <- colorNumeric(palette = rampcols, domain = scale_range,  na.color = "transparent")
-    map3 = reactive({
-        leaflet() %>% 
-            addProviderTiles(providers$CartoDB.Positron) %>% 
-            # addLegend(position = "bottomright", pal = mypal, values = scale_range,
-            #           title = ("Change Area m<sup>2")) %>%
-            addRasterImage(mang_diff_raster(), colors = mypal, opacity = 0.75)
-    })
-    output$report_mang_map = renderLeaflet(map3())
-    
-    
-    # #Saltmarsh change leaflet map
-    salt_t2_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t2) %>%
-            dplyr::select(GRID_ID, Easting, Northing, Saltmarsh)
-    })
-    salt_t1_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t1) %>%
-            dplyr::select(GRID_ID, Easting, Northing, Saltmarsh)
-    })
-    salt_diff_dat <- reactive({
-        inner_join(salt_t2_dat(),
-                   salt_t1_dat(),
-                   by = c("GRID_ID", "Easting", "Northing")) %>%
-            mutate(Diff = .[[4]] - .[[5]])
-    })
-    salt_diff_negs <- reactive({
-        salt_diff_dat() %>%
-            dplyr::filter(Diff < 0) %>%
-            dplyr::mutate(Percent = Diff / .[[5]] * 100)
-    })
-    salt_diff_posi <- reactive({
-        salt_diff_dat() %>%
-            dplyr::filter(Diff >= 0) %>%
-            dplyr::mutate(Percent = Diff / .[[4]] * 100) %>%
-            mutate_all( ~ replace(., is.na(.), 0))
-    })
-    salt_diff_dat1 <- reactive({
-        dplyr::union(salt_diff_negs(), salt_diff_posi())
-    })
-    #select coordinates
-    salt_raster_points <- reactive({
-        salt_diff_dat1() %>%
-            dplyr::select(Easting, Northing)
-    })
-    #Filter and select values
-    salt_raster_values <- reactive({
-        salt_diff_dat1() %>%
-            dplyr::select(Diff)
-    })
-    # Set raster max and min based on estuary selection
-    salt_lon_min <- reactive({min(salt_raster_points()$Easting)})
-    salt_lon_max <- reactive({max(salt_raster_points()$Easting)})
-    salt_lat_min <- reactive({min(salt_raster_points()$Northing)})
-    salt_lat_max <- reactive({max(salt_raster_points()$Northing)})
-    salt_ncols <- reactive({((salt_lon_max() - salt_lon_min())/cell_size)})
-    salt_nrows <- reactive({((salt_lat_max() - salt_lat_min())/cell_size)})
-    # Create and empty raster that covers the estuary selected
-    salt_empty_raster <- reactive({
-        raster(nrows=salt_nrows(), ncols=salt_ncols(),
-               xmn=salt_lon_min(), xmx=salt_lon_max(),
-               ymn=salt_lat_min(), ymx=salt_lat_max(),
-               res=c(cell_size,cell_size), crs=myproj)
-    })
-    # Convert dataframe to a spatial data frame
-    salt_raster_pts <- reactive({
-        SpatialPointsDataFrame(coords=salt_raster_points(), data=data.frame(salt_raster_values()))
-    })
-    # Rasterize spatial data frame
-    salt_diff_raster <- reactive({
-        rasterize(salt_raster_points(), salt_empty_raster(), salt_raster_values(), fun= mean)
-    })
-    ### Create an asymmetric color range
-    scale_range <- c(-62500, 62500)
-    ## Make vector of colors for values smaller than 0 (20 colors)
-    rc1 <- colorRampPalette(colors = c("dark red", "red", "white"), space = "Lab")(10)
-    ## Make vector of colors for values larger than 0 (180 colors)
-    rc2 <- colorRampPalette(colors = c("white","green", "dark green"), space = "Lab")(10)
-    ## Combine the two color palettes
-    rampcols <- c(rc1, rc2)
-    mypal <- colorNumeric(palette = rampcols, domain = scale_range,  na.color = "transparent")
-    map4 = reactive({
-        leaflet() %>% 
-            addProviderTiles(providers$CartoDB.Positron) %>% 
-            # addLegend(position = "bottomright", pal = mypal, values = scale_range,
-            #           title = ("Change Area m<sup>2")) %>%
-            addRasterImage(salt_diff_raster(), colors = mypal, opacity = 0.75)
-    })
-    output$report_salt_map = renderLeaflet(map4())
-    
-    
-    
-    
-    #### Habitat line graphs for report
-    # Plot estuary by habitat over time    
-    pos_plot_dat <- reactive({
-        dat1 %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Habitat == "Posidonia") %>%
-            dplyr::group_by(Map_Year) %>%
-            dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(Area > 0)
-        
-    })
-    zos_plot_dat <- reactive({
-        dat1 %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Habitat == "Zostera") %>%
-            dplyr::group_by(Map_Year) %>%
-            dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(Area > 0)
-
-    })
-    man_plot_dat <- reactive({
-        dat1 %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Habitat == "Mangrove") %>%
-            dplyr::group_by(Map_Year) %>%
-            dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(Area > 0)
-
-    })
-    sal_plot_dat <- reactive({
-        dat1 %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Habitat == "Saltmarsh") %>%
-            dplyr::group_by(Map_Year) %>%
-            dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(Area > 0)
-
-    })
-    
-    output$pos_plot <- renderPlot({
-        ggplot(data=pos_plot_dat(), aes(x=Map_Year, y=Area/10000)) +
-            geom_point(colour="#053f5c", size=5) +
-            geom_line(colour="#053f5c", size=2) +
-            #geom_col(fill="#053f5c") + # change the x = fMap_Year
-            ylim(0,NA) +
-            ylab("Hectares") +
-            xlab("Years Mapped") +
-            scale_x_continuous(breaks=seq(1985, 2019, 3)) +
-            theme_classic() +
-            theme(axis.title.x = element_text(face="bold", size=14),
-                  axis.text.x  = element_text(size=14, angle=90, vjust=0.5),
-                  axis.title.y = element_text(face="bold", size=14),
-                  axis.text.y  = element_text(size=14),
-                  strip.text.y = element_text(size = 12)) 
-    },height = 400, width = 400)
-    
-    output$zos_plot <- renderPlot({
-        ggplot(data=zos_plot_dat(), aes(x=Map_Year, y=Area/10000)) +
-            geom_point(colour="#053f5c", size=5) +
-            geom_line(colour="#053f5c", size=2) +
-            #geom_col(fill="#053f5c") + # change the x = fMap_Year
-            ylim(0,NA) +
-            ylab("Hectares") +
-            xlab("Years Mapped") +
-            scale_x_continuous(breaks=seq(1985, 2019, 3)) +
-            theme_classic() +
-            theme(axis.title.x = element_text(face="bold", size=14),
-                  axis.text.x  = element_text(size=14, angle=90, vjust=0.5),
-                  axis.title.y = element_text(face="bold", size=14),
-                  axis.text.y  = element_text(size=14),
-                  strip.text.y = element_text(size = 12)) 
-    },height = 400, width = 400)
-    
-    output$man_plot <- renderPlot({
-        ggplot(data=man_plot_dat(), aes(x=Map_Year, y=Area/10000)) +
-            geom_point(colour="#053f5c", size=5) +
-            geom_line(colour="#053f5c", size=2) +
-            #geom_col(fill="#053f5c") + # change the x = fMap_Year
-            ylim(0,NA) +
-            ylab("Hectares") +
-            xlab("Years Mapped") +
-            scale_x_continuous(breaks=seq(1985, 2019, 3)) +
-            theme_classic() +
-            theme(axis.title.x = element_text(face="bold", size=14),
-                  axis.text.x  = element_text(size=14, angle=90, vjust=0.5),
-                  axis.title.y = element_text(face="bold", size=14),
-                  axis.text.y  = element_text(size=14),
-                  strip.text.y = element_text(size = 12)) 
-    },height = 400, width = 400)
-    
-    output$sal_plot <- renderPlot({
-        ggplot(data=sal_plot_dat(), aes(x=Map_Year, y=Area/10000)) +
-            geom_point(colour="#053f5c", size=5) +
-            geom_line(colour="#053f5c", size=2) +
-            #geom_col(fill="#053f5c") + # change the x = fMap_Year
-            ylim(0,NA) +
-            ylab("Hectares") +
-            xlab("Years Mapped") +
-            scale_x_continuous(breaks=seq(1985, 2019, 3)) +
-            theme_classic() +
-            theme(axis.title.x = element_text(face="bold", size=14),
-                  axis.text.x  = element_text(size=14, angle=90, vjust=0.5),
-                  axis.title.y = element_text(face="bold", size=14),
-                  axis.text.y  = element_text(size=14),
-                  strip.text.y = element_text(size = 12)) 
-    },height = 400, width = 400)
-    
-    
-    
-    
-    #### Mangrove relative to saltmarsh plot for report
-    
-    report_mvs_t2_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t2) %>%
-            dplyr::select(GRID_ID, Mangrove, Saltmarsh)
-        
-    })
-    
-    
-    
-    report_mvs_t1_dat <- reactive({
-        dat %>%
-            dplyr::filter(Estuary == input$estuary4) %>%
-            dplyr::filter(Map_Year == input$report_t1) %>%
-            dplyr::select(GRID_ID, Mangrove, Saltmarsh)
-    })
-    
-    
-    
-    
-    report_mvs_diff_dat <- reactive({
-        inner_join(report_mvs_t2_dat(),
-                   report_mvs_t1_dat(),
-                   by = c("GRID_ID")) %>%
-            mutate(delta_mangrove = .[[2]] - .[[4]]) %>%
-            mutate(delta_saltmarsh = .[[3]] - .[[5]]) %>%
-            filter(delta_saltmarsh != 0) %>%
-            filter(delta_mangrove != 0)
-    })
-    
-    output$report_MVS <- renderPlot({
-        ggplot(report_mvs_diff_dat()) +
-            theme_geometry(report_mvs_diff_dat()$delta_mangrove, report_mvs_diff_dat()$delta_saltmarsh) +
-            geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = 1, color = "#053f5c") +
-            annotate("text", x = -52000, y = 62000, label = "- Mangrove", color = "red", size = 5) +
-            annotate("text", x = -52000, y = 52000, label = "+ Saltmarsh", color = "green", size = 5) +
-            annotate("text", x = -52000, y = -52000, label = "- Mangrove", color = "red", size = 5) +
-            annotate("text", x = -52000, y = -62000, label = "- Saltmarsh", color = "red", size = 5) +
-            annotate("text", x = 52000, y = 62000, label = "+ Mangrove", color = "green", size = 5) +
-            annotate("text", x = 52000, y = 52000, label = "+ Saltmarsh", color = "green", size = 5) +
-            annotate("text", x = 52000, y = -62000, label = "+ Mangrove", color = "green", size = 5) +
-            annotate("text", x = 52000, y = -52000, label = "- Saltmarsh", color = "red", size = 5) #+
-            # geom_segment(aes(x = 250000, xend = 250000, y= 1, yend= -250000),
-            #              arrow=arrow(length=unit(0.2,"cm")), colour = "red") +
-            # geom_segment(aes(x = 250000, xend = 250000, y= 1, yend= 250000),
-            #              arrow=arrow(length=unit(0.2,"cm")), color = "green") +
-            # geom_segment(aes(x = 1, xend = -250000, y= 250000, yend= 250000),
-            #              arrow=arrow(length=unit(0.2,"cm")), colour = "red") +
-            # geom_segment(aes(x = 1, xend = 250000, y= 250000, yend= 250000),
-            #              arrow=arrow(length=unit(0.2,"cm")), color = "green") 
-        
-    })
-    
-
-    
-    
-    
-    
-    
 }
+
 
 shinyApp(ui, server)
 
