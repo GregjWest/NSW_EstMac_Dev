@@ -252,6 +252,11 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                                    label = "Estuary:", 
                                                    choices = NULL, 
                                                    selected = "Port Stephens"),
+                                       selectInput("date_t1", 
+                                                   label = "Year Mapped:", 
+                                                   choices = NULL, 
+                                                   selected = "2017"),
+                                       
                                        # selectInput("habitat1",
                                        #             label = "Habitat:",
                                        #             choices = list_habs,
@@ -314,21 +319,23 @@ tabPanel(
                         choices = list_estuary,
                         selected = list_estuary[index_estuary]
             ),
+            selectInput("change_t1",
+                        label = "Time 1: ",
+                        choices = NULL,
+                        selected = "1985"
+            ),
+            selectInput("change_t2", 
+                        label = "Time 2: ", 
+                        choices = NULL, 
+                        selected = "2017"
+            ),
             selectInput("habitat3",
                         label= "Habitat: ",
                         choices = list_habs, 
                         selected = list_habs[index_habs]
             ),
-            selectInput("change_t2", 
-                        label = "Year: ", 
-                        choices = NULL, 
-                        selected = "2017"
-            ),
-            selectInput("change_t1",
-                        label = "Compared to: ",
-                        choices = NULL,
-                        selected = "1985"
-            ),
+            
+        
             tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal.", 
                     tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
                            tags$img(src='DPI_LOGO_left.svg')), 
@@ -387,7 +394,7 @@ tabPanel(
                    tags$br(),
                    
                    tags$p("Macrophyte maps for the latest time of sampling can be donwloaded from the", 
-                          tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "Spatial Data Portal.") ) 
+                          tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.") ) 
                    
                    
             )),
@@ -395,7 +402,7 @@ tabPanel(
         fluidRow(
             tags$br(),tags$br(),tags$br(),tags$br(),
             
-            h4("Change in time for each species"),
+            h4("Change in area (ha) over time for each species"),
             
             tags$p("Area (hectares) of mapped habitat in the selected estuary are graphed for each year that mapping has been done."),
             
@@ -405,26 +412,26 @@ tabPanel(
         ),
         fluidRow(
             tags$br(),tags$br(),
-            h4("Change in Mangrove relative to Saltmarshes"),
+            h4(" Relative change in Mangrove and Saltmarsh"),
             tags$p("To examine changes in the ratio of mangrove to saltmarsh over time, first select the years to compare.  The predominance of plotted points in different quadrants of the graph indicate the type of change in these two habitats, e.g.  whether mangroves have increased at the expense of saltmarshes, or some other pattern. Each point represents the change in ratio of mangrove area to saltmarsh area in a 250 x 250 m map grid. "),
             
         ),
         fluidRow(column(4,
-                       
-            selectInput("mvs_t2", 
-                        label = "Latest Year: ", 
-                        choices = NULL, 
-                        selected = "2017"
-            )
-            ),
-            column(4,
-            selectInput("mvs_t1",
-                        label = "Compared to previous: ",
+                        selectInput("mvs_t1",
+                        label = "Year (Time 1): ",
                         choices = NULL,
                         selected = "1985"
             
                         )
             ),
+            column(4,
+                    selectInput("mvs_t2", 
+                    label = "Latest Year (Time 2): ", 
+                    choices = NULL, 
+                    selected = "2017"
+            )
+            ),
+
             tags$br(),
             tags$br(),
             
@@ -503,7 +510,7 @@ tabPanel(
 server <- function(input, output, session) {
 
     
-## User selections carry through to each tabe forwards and backwards
+## User selections carry through to each tab forwards and backwards
     observeEvent(
         input$region1,
         updateSelectizeInput(session, "region2", selected = input$region1)
@@ -571,7 +578,7 @@ server <- function(input, output, session) {
     # DATA PREPERATION
     # Update Year selector to only provide the estuaries per region
     observe({
-        x0 <- presence_dat %>% dplyr::filter(Region == input$region1) %>% dplyr::select(Estuary)
+        x0 <- dat %>% dplyr::filter(Region == input$region1) %>% dplyr::select(Estuary)
         updateSelectInput(session, 
                           "estuary1", 
                           label = "Estuary:",
@@ -580,9 +587,9 @@ server <- function(input, output, session) {
     })
     # Update Year selector to only provide the years that have been mapped
     observe({
-        x1 <- presence_dat %>% dplyr::filter(Estuary == input$estuary1) %>% dplyr::select(Map_Year)
+        x1 <- dat %>% dplyr::filter(Estuary == input$estuary1) %>% dplyr::select(Map_Year)
         updateSelectInput(session, 
-                          "year1", 
+                          "date_t1", 
                           label = "Year:",
                           choices = unique(x1))
     })
@@ -723,11 +730,11 @@ server <- function(input, output, session) {
     
     observe({
         x2 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year) %>% dplyr::arrange(desc(Map_Year))
-        updateSelectInput(session, "change_t2", "Year: ", choices = unique(x2))
+        updateSelectInput(session, "change_t2", "Time 2: ", choices = unique(x2))
     })
     observe({
         x3 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year)%>% dplyr::arrange(Map_Year) %>% dplyr::filter(Map_Year <= input$change_t2)
-        updateSelectInput(session, "change_t1", "Compared to: ", choices = unique(x3))
+        updateSelectInput(session, "change_t1", "Time 1: ", choices = unique(x3))
     })
 
     
@@ -1003,28 +1010,28 @@ server <- function(input, output, session) {
     # Change in mangrove v saltmarsh (MVS)
     
     # Update Year selector to only provide the years that have been mapped
-    observe({
-        
-        x4 <- dat %>% 
-            dplyr::filter(Estuary == input$estuary2) %>% 
-            dplyr::select(Map_Year) %>% 
-            dplyr::arrange(desc(Map_Year))
-        
-        updateSelectInput(session, "mvs_t2", "Year: ", choices = unique(x4), selected = max(x4$Map_Year))
-    })
-    
+
     observe({
         
         x5 <- dat %>% 
             dplyr::filter(Estuary == input$estuary2) %>% 
             dplyr::select(Map_Year) %>% 
-            dplyr::arrange(Map_Year) %>% 
-            dplyr::filter(Map_Year <= input$mvs_t2) 
+            dplyr::arrange(desc(Map_Year))
+            #dplyr::filter(Map_Year <= input$mvs_t2) 
         
-        updateSelectInput(session, "mvs_t1", "Compared to: ", choices = unique(x5), selected = min(x5$Map_Year))
+        updateSelectInput(session, "mvs_t2", "Time 2: ", choices = unique(x5), selected = max(x5$Map_Year))
     })
     
-    
+       observe({
+        
+        x4 <- dat %>% 
+            dplyr::filter(Estuary == input$estuary2) %>% 
+            dplyr::select(Map_Year) %>% 
+            #dplyr::arrange(desc(Map_Year)) %>%
+            dplyr::filter(Map_Year <= input$mvs_t2)
+        updateSelectInput(session, "mvs_t1", "Time 1: ", choices = unique(x4), selected = min(x4$Map_Year))
+    })
+     
     #     # DATA PREPERATION
     mvs_t2_dat <- reactive({
         dat %>%
