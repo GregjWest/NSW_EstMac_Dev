@@ -51,7 +51,7 @@ report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
 
 presence_dat <- read.csv("NSW_Estuarine_Macrophytes_Presence.csv", stringsAsFactors = T)
 
-img <- readPNG("Man_SM_Background.png")
+img <- readPNG("www/Man_SM_Background.png")
 
 g <- rasterGrob(img, interpolate=TRUE)
 
@@ -428,7 +428,7 @@ tabPanel(
             tags$br(),
             tags$br(),
             
-            column(6, offset = 0,
+            column(6, offset = 2,
                    style = "height:700px; ",
                    plotOutput("MVS", width = "100%"))
 
