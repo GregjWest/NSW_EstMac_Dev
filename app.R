@@ -35,6 +35,8 @@ if(!require(stars)) install.packages("leaflet.esri", repos = "http://cran.us.r-p
 if(!require(leafem)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.extras2)) install.packages("leaflet.extras2", repos = "http://cran.us.r-project.org")
 if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.org")
+if(!require(png)) install.packages("png", repos = "http://cran.us.r-project.org")
+if(!require(grid)) install.packages("grid", repos = "http://cran.us.r-project.org")
 
 #pittwater_grid <- rgdal::readOGR("json/Pittwater_Grid.geojson")
 #mooring_area <- rgdal::readOGR("json/MooringArea.geojson")
@@ -48,6 +50,10 @@ dat <-  read.csv("Multi_Estuary_All_Years_Grid.csv", stringsAsFactors = T)
 report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
 
 presence_dat <- read.csv("NSW_Estuarine_Macrophytes_Presence.csv", stringsAsFactors = T)
+
+img <- readPNG("Man_SM_Background.png")
+
+g <- rasterGrob(img, interpolate=TRUE)
 
 dat$fMap_Year <- factor(dat$Map_Year)
 
@@ -363,7 +369,7 @@ tabPanel(
         ),
         
         fluidRow(
-            column(11, offset = 0.5,
+            column(11, offset = 0,
                    
                    tags$h3(textOutput("summary_title")
                    ),
@@ -1056,6 +1062,8 @@ server <- function(input, output, session) {
             filter(delta_mangrove != 0)
     })
     
+    
+    
     output$MVS <- renderPlot({
         ggplot(mvs_diff_dat()) +
             theme_geometry(mvs_diff_dat()$delta_mangrove, mvs_diff_dat()$delta_saltmarsh) +
@@ -1067,14 +1075,15 @@ server <- function(input, output, session) {
                   axis.text.y=element_blank(),
                   axis.ticks.y=element_blank()) +
             geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = 3, shape = 21, fill="lightgray", color = "black", alpha = .5) +
-            annotate("text", x = -52000, y = 62000, label = "- Mangrove", color = "red", size = 5) +
-            annotate("text", x = -52000, y = 52000, label = "+ Saltmarsh", color = "green4", size = 5) +
-            annotate("text", x = -52000, y = -52000, label = "- Mangrove", color = "red", size = 5) +
-            annotate("text", x = -52000, y = -62000, label = "- Saltmarsh", color = "red", size = 5) +
-            annotate("text", x = 52000, y = 62000, label = "+ Mangrove", color = "green4", size = 5) +
-            annotate("text", x = 52000, y = 52000, label = "+ Saltmarsh", color = "green4", size = 5) +
-            annotate("text", x = 52000, y = -62000, label = "+ Mangrove", color = "green4", size = 5) +
-            annotate("text", x = 52000, y = -52000, label = "- Saltmarsh", color = "red", size = 5) #+
+            annotation_custom(g, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf) #+
+            # annotate("text", x = -52000, y = 62000, label = "- Mangrove", color = "red", size = 5) +
+            # annotate("text", x = -52000, y = 52000, label = "+ Saltmarsh", color = "green4", size = 5) +
+            # annotate("text", x = -52000, y = -52000, label = "- Mangrove", color = "red", size = 5) +
+            # annotate("text", x = -52000, y = -62000, label = "- Saltmarsh", color = "red", size = 5) +
+            # annotate("text", x = 52000, y = 62000, label = "+ Mangrove", color = "green4", size = 5) +
+            # annotate("text", x = 52000, y = 52000, label = "+ Saltmarsh", color = "green4", size = 5) +
+            # annotate("text", x = 52000, y = -62000, label = "+ Mangrove", color = "green4", size = 5) +
+            # annotate("text", x = 52000, y = -52000, label = "- Saltmarsh", color = "red", size = 5) #+
         
         # geom_segment(aes(x = 250000, xend = 250000, y= 1, yend= -250000),
         #              arrow=arrow(length=unit(0.2,"cm")), colour = "red") +
