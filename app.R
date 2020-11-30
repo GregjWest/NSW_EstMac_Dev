@@ -53,18 +53,17 @@ dat$fMap_Year <- factor(dat$Map_Year)
 
 # Transpose data to long format to enable filtering by species.
 dat1 <- dat %>%
-    gather("Habitat", "Area", 7:14) %>%
+    gather("Habitat", "Area", 7:13) %>%
     dplyr::filter(Habitat != "Mangrove_Saltmarsh")
-dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Saltmarsh","Seagrass_all_species","Posidonia", "Zostera","Halophila","Ruppia"))
+dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia"))
 
 
 # Create a data frame of the total area of each species by estuary and year. To be graphed and tabled in the data summary tab.
 dat_summary <- dat %>%
     group_by(Estuary,Map_Year) %>%
-    summarise(Seagrass = sum(Seagrass_all_species/10000),
-              Mangrove = sum(Mangrove/10000),
+    summarise(Mangrove = sum(Mangrove/10000),
               Saltmarsh = sum(Saltmarsh/10000)) %>%
-    mutate(Seagrass = round(Seagrass, 0)) %>%
+    #mutate(Seagrass = round(Seagrass, 0)) %>%
     mutate(Mangrove = round(Mangrove, 0)) %>%
     mutate(Saltmarsh = round(Saltmarsh, 0)) %>%
     ungroup()
@@ -370,7 +369,7 @@ tabPanel(
             tags$p("Area (hectares) of mapped habitat in the selected estuary are graphed for each year that mapping has been done."),
             
             column(6, offset = 0,
-                   style = "height:750px; ", 
+                   style = "height:600px; ", 
                    plotOutput("habitat_plot", width = "100%"))
         ),
         fluidRow(
@@ -398,7 +397,9 @@ tabPanel(
             tags$br(),
             tags$br(),
             
-            column(6, offset = 3,plotOutput("MVS"))
+            column(6, offset = 0,
+                   style = "height:700px; ",
+                   plotOutput("MVS", width = "100%"))
 
     )
     )
@@ -1070,7 +1071,7 @@ server <- function(input, output, session) {
     output$habitat_plot <- renderPlot({
         ggplot(data=plot_dat(), aes(x=Map_Year, y=Area/10000)) +
             geom_line(colour="#989898", size=1) +
-            geom_point(colour="#404040", size=1.2) +
+            geom_point(shape = 23, fill="lightgray", color = "black", size=3) +
             
             #geom_col(fill="#053f5c") + # change the x = fMap_Year
             #ylim(0,NA) +
@@ -1084,7 +1085,7 @@ server <- function(input, output, session) {
                     axis.title.y = element_text(face="bold", size=14),
                     axis.text.y  = element_text(size=14),
                     strip.text.x = element_text(size = 14, face = "italic"))
-    },height = 750, width = 1000 )
+    },height = 550, width = 1000 )
     
     
     
@@ -1147,7 +1148,14 @@ server <- function(input, output, session) {
     output$MVS <- renderPlot({
         ggplot(mvs_diff_dat()) +
             theme_geometry(mvs_diff_dat()$delta_mangrove, mvs_diff_dat()$delta_saltmarsh) +
-            geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = .5, color = "#053f5c") +
+            theme_light() +
+            theme(axis.title.x=element_blank(),
+                  axis.text.x=element_blank(),
+                  axis.ticks.x=element_blank(),
+                  axis.title.y=element_blank(),
+                  axis.text.y=element_blank(),
+                  axis.ticks.y=element_blank()) +
+            geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = 3, shape = 21, fill="lightgray", color = "black", alpha = .5) +
             annotate("text", x = -52000, y = 62000, label = "- Mangrove", color = "red", size = 5) +
             annotate("text", x = -52000, y = 52000, label = "+ Saltmarsh", color = "green4", size = 5) +
             annotate("text", x = -52000, y = -52000, label = "- Mangrove", color = "red", size = 5) +
@@ -1166,7 +1174,7 @@ server <- function(input, output, session) {
         # geom_segment(aes(x = 1, xend = 250000, y= 250000, yend= 250000),
         #              arrow=arrow(length=unit(0.2,"cm")), color = "green") 
         
-    })
+    },height = 500, width = 500 )
     
     
     
