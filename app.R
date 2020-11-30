@@ -333,10 +333,10 @@ tabPanel(
                     tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
                            tags$img(src='DPI_LOGO_left.svg')), 
             
-                    absolutePanel(id = "legend1", class = "card", bottom = 475, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                    absolutePanel(id = "legend1", class = "card", bottom = 300, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
                                   tags$img(src='Macrophyte_Legend.svg',height='300',width='200'))
             ),
-                    absolutePanel(id = "legend1", class = "card", bottom = 200, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                    absolutePanel(id = "legend1", class = "card", bottom = 20, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
                                 tags$img(src='Grid_Legend_Curved.svg',height='275',width='170'))
           
             )
@@ -659,18 +659,13 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "Pittwater/Shore/{z}/{x}/{y}.png", group = "Foreshore",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            addTiles(urlTemplate = "Pittwater/Pittwater1985/{z}/{x}/{y}.png", group = "West et al. 1985",
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Westetal1985/{z}/{x}/{y}.png", group = "West et al. 1985",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = "Pittwater/Pittwater2000/{z}/{x}/{y}.png", group = "Pittwater 2000",
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/LatestTiles/{z}/{x}/{y}.png", group = "Latest Mapping",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = "Pittwater/Pittwater2005/{z}/{x}/{y}.png", group = "Pittwater 2005",
-                     options = tileOptions(maxZoom=18, zIndex = 1000),
-                     attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = "Pittwater/Pittwater2019/{z}/{x}/{y}.png", group = "Pittwater 2019",
-                     options = tileOptions(maxZoom=18, zIndex = 1000),
-                     attribution = "&copy; Department of Primary Industries 2020") %>%
+
             addRasterImage(empty_raster()) %>%
             
             #add geojson
@@ -682,7 +677,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("West et al. 1985", "Pittwater 2000", "Pittwater 2005", "Pittwater 2019", "Foreshore", "Disturbance", "Slipways", "Mooring"),
+                overlayGroups = c("West et al. 1985", "Latest Mapping", "Foreshore", "Disturbance", "Slipways", "Mooring"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -692,8 +687,7 @@ server <- function(input, output, session) {
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
             hideGroup("West et al. 1985") %>% 
-            hideGroup("Pittwater 2000") %>%
-            hideGroup("Pittwater 2005") %>%
+            #hideGroup("Latest Mapping") %>%
             hideGroup("Foreshore") %>%
             hideGroup("Disturbance") %>%
             hideGroup("Slipways") %>%
@@ -889,14 +883,14 @@ server <- function(input, output, session) {
             #Add side by side comparison slider   
             addMapPane("left", zIndex = 200) %>%
             addMapPane("right", zIndex = 200) %>%
-            addTiles(urlTemplate = "Pittwater/Pittwater1985/{z}/{x}/{y}.png", group = "Time 1 - (Left)", layerId = "Time1",
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Westetal1985/{z}/{x}/{y}.png", group = "Time 1 - (Left)", layerId = "Time1",
                      options = pathOptions(pane = "left"),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = "Pittwater/Pittwater2000/{z}/{x}/{y}.png", group = "Time 2 - (Right)", layerId = "Time2",
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/LatestTiles/{z}/{x}/{y}.png", group = "Time 2 - (Right)", layerId = "Time2",
                      options = pathOptions(pane = "right"),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
-            addMiniMap() %>%
+            #addMiniMap() %>%
             # ----- addLegend(position = "bottomright", pal = grdpal, values = bins,
             # -----           title = ("Change Area m<sup>2")) %>%
             addLayersControl(
