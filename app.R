@@ -378,15 +378,15 @@ tabPanel(
         fluidRow(
             column(11, offset = 0,
                    
-                   tags$h3(textOutput("summary_title")
+                   tags$h3(htmlOutput("summary_title")
                    ),
-                   tags$p(textOutput("estuary_type")
+                   tags$p(htmlOutput("estuary_type")
                    ),
                    tags$p(htmlOutput("catchment_area")
                    ),
                    tags$p(htmlOutput("estuary_area")
                    ),
-                   tags$p(textOutput("ave_depth")
+                   tags$p(htmlOutput("ave_depth")
                    ),
                    tags$p("Years mapped: "), textOutput("years_mapped")
                    ,
@@ -402,7 +402,7 @@ tabPanel(
         fluidRow(
             tags$br(),tags$br(),tags$br(),tags$br(),
             
-            h4("Change in area (ha) over time for each species"),
+            h4("Change in area over time for each species"),
             
             tags$p("Area (hectares) of mapped habitat in the selected estuary are graphed for each year that mapping has been done."),
             
@@ -435,6 +435,10 @@ tabPanel(
             tags$br(),
             tags$br(),
             
+            column(6, offset = 2,
+                   style = "height:50px; ",
+            
+            ),
             column(6, offset = 2,
                    style = "height:700px; ",
                    plotOutput("MVS", width = "100%"))
@@ -945,19 +949,19 @@ server <- function(input, output, session) {
     })
 
     output$estuary_type <- renderText({ 
-        paste("Estuary type:", unique(estuary_report_dat()$RoyEstuarytype))
+        paste("<b>Estuary type:</b>", unique(estuary_report_dat()$RoyEstuarytype))
     })
     
     output$catchment_area <- renderText({ 
-        paste("Catchment area:", round(unique(estuary_report_dat()$Catchmentarea), digits = 0),"km<sup>2</sup>")
+        paste("<b>Catchment area:</b>", round(unique(estuary_report_dat()$Catchmentarea), digits = 0),"km<sup>2</sup>")
     })
     
     output$estuary_area <- renderText({ 
-        paste("Estuary area:", round(unique(estuary_report_dat()$Estuaryarea), digits = 0),"km<sup>2</sup>")
+        paste("<b>Estuary area:</b>", round(unique(estuary_report_dat()$Estuaryarea), digits = 0),"km<sup>2</sup>")
     })
     
     output$ave_depth <- renderText({ 
-        paste("Average depth:", round(unique(estuary_report_dat()$AveDepth), digits = 1),"m")
+        paste("<b>Average depth:</b>", round(unique(estuary_report_dat()$AveDepth), digits = 1),"m")
     })
     
     
