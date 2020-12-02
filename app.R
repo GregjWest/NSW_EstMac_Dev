@@ -37,6 +37,8 @@ if(!require(leaflet.extras2)) install.packages("leaflet.extras2", repos = "http:
 if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.org")
 if(!require(png)) install.packages("png", repos = "http://cran.us.r-project.org")
 if(!require(grid)) install.packages("grid", repos = "http://cran.us.r-project.org")
+if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-project.org")
+
 
 #pittwater_grid <- rgdal::readOGR("json/Pittwater_Grid.geojson")
 #mooring_area <- rgdal::readOGR("json/MooringArea.geojson")
@@ -598,7 +600,7 @@ server <- function(input, output, session) {
                           label = "Year:",
                           choices = unique(x1))
     })
-    
+
     
     # Raster building based on users selection
     # Filter and select coordinates
@@ -627,15 +629,14 @@ server <- function(input, output, session) {
 
     
     
-    # OUTPUTS    
+    # OUTPUTS  
     
     # Summary table
     output$sum_stats <- renderPrint({
         summary(raster_values())
-    })    
-    
-    
+    })  
 
+    
     output$map <- renderLeaflet({
         
         
@@ -654,8 +655,8 @@ server <- function(input, output, session) {
                         #                        info_format = 'text/html'),
                         #attribution = "&copy; Department of Customer Service 2020") %>% 
 
-
-        
+           
+            
             addTiles(urlTemplate = "Pittwater/Jetty/{z}/{x}/{y}.png", group = "Disturbance",
                        options = tileOptions(maxZoom=18, zIndex = 1000),
                        attribution = "&copy; Department of Primary Industries 2020") %>% 
@@ -674,10 +675,11 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Westetal1985/{z}/{x}/{y}.png", group = "West et al. 1985",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/LatestTiles/{z}/{x}/{y}.png", group = "Latest Mapping",
-                     options = tileOptions(maxZoom=18, zIndex = 1000),
-                     attribution = "&copy; Department of Primary Industries 2020") %>%
-
+            #addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/LatestTiles/{z}/{x}/{y}.png", group = "Latest Mapping",
+            #         options = tileOptions(maxZoom=18, zIndex = 1000),
+            #         attribution = "&copy; Department of Primary Industries 2020") %>%
+            addWMSTiles("http://localhost:8080/geoserver/dpi/wms", layers = "NSW_Estuarine_Macrophytes", group = "Latest Mapping", 
+                        options = WMSTileOptions(transparent = TRUE, format = "image/png", zIndex = 1000)) %>%
             addRasterImage(empty_raster()) %>%
             
             #add geojson
