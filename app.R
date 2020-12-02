@@ -591,7 +591,8 @@ server <- function(input, output, session) {
     })
     # Update Year selector to only provide the years that have been mapped
     observe({
-        x1 <- dat %>% dplyr::filter(Estuary == input$estuary1) %>% dplyr::select(Map_Year)
+        #x1 <- dat %>% dplyr::filter(Estuary == input$estuary1) %>% dplyr::select(Map_Year)
+        x1 <- dat$Map_Year[dat$Estuary ==input$estuary1]
         updateSelectInput(session, 
                           "date_t1", 
                           label = "Year:",
@@ -728,16 +729,20 @@ server <- function(input, output, session) {
     
     #select habitats based on selected years and estuary, only habitats present for the selected years will be listed
     observe({
-        x3_2 <- presence_dat %>% dplyr::filter(Map_Year == input$change_t1 | Map_Year== input$change_t2) %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Macrophyte)
-        updateSelectInput(session, "habitat3", label = "Habitat:", choices = unique(x3_2))
+        #x3_2 <- presence_dat %>% dplyr::filter(Map_Year == input$change_t1 | Map_Year== input$change_t2) %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Macrophyte)
+        x3_2 <- presence_dat %>% dplyr::filter(Map_Year == input$change_t1 | Map_Year== input$change_t2)
+        x3_3 <- x3_2$Macrophyte[x3_2$Estuary == input$estuary3]
+        updateSelectInput(session, "habitat3", label = "Habitat:", choices = unique(x3_3))
     })
     
     observe({
-        x2 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year) %>% dplyr::arrange(desc(Map_Year))
-        updateSelectInput(session, "change_t2", "Time 2: ", choices = unique(x2))
+        #x2 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year) %>% dplyr::arrange(desc(Map_Year))
+        x2 <- presence_dat$Map_Year[presence_dat$Estuary == input$estuary3]
+        updateSelectInput(session, "change_t2", "Time 2: ", choices = sort(unique(x2),decreasing = TRUE))
     })
     observe({
-        x3 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year)%>% dplyr::arrange(Map_Year) %>% dplyr::filter(Map_Year <= input$change_t2)
+        #x3 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year)%>% dplyr::arrange(Map_Year) %>% dplyr::filter(Map_Year <= input$change_t2)
+        x3 <- presence_dat$Map_Year[presence_dat$Estuary == input$estuary3] 
         updateSelectInput(session, "change_t1", "Time 1: ", choices = unique(x3))
     })
 
