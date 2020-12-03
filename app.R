@@ -438,7 +438,7 @@ tabPanel(
             tags$br(),
             
             column(6, offset = 2,
-                   style = "height:50px; ",
+                   style = "height:50px; "
             
             ),
             column(6, offset = 2,
@@ -601,7 +601,12 @@ server <- function(input, output, session) {
                           choices = unique(x1))
     })
 
-    
+   
+
+    # estmap <- "Botany Bay"
+    # 
+    # cqlfltr <- stringr::str_interp("Estuary = '${estmap}'")
+
     # Raster building based on users selection
     # Filter and select coordinates
     raster_points <- reactive({
@@ -609,6 +614,7 @@ server <- function(input, output, session) {
             dplyr::filter(Estuary == input$estuary1) %>%
             dplyr::select(Easting, Northing)
     })    
+    
     
 
     # Set raster max and min based on estuary selection
@@ -679,7 +685,7 @@ server <- function(input, output, session) {
             #         options = tileOptions(maxZoom=18, zIndex = 1000),
             #         attribution = "&copy; Department of Primary Industries 2020") %>%
             addWMSTiles("http://localhost:8080/geoserver/dpi/wms", layers = "NSW_Estuarine_Macrophytes", group = "Latest Mapping", 
-                        options = WMSTileOptions(transparent = TRUE, format = "image/png", zIndex = 1000)) %>%
+                        options = WMSTileOptions(transparent = TRUE, format = "image/png", zIndex = 1000)) %>% #, CQL_FILTER = cqlfltr)
             addRasterImage(empty_raster()) %>%
             
             #add geojson
