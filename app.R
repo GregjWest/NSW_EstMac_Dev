@@ -678,8 +678,6 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat", 
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                     attribution = "&copy; Department of Primary Industries 2020") %>%
-            # addWMSTiles("http://localhost:8080/geoserver/dpi/wms", layers = "NSW_Estuarine_Macrophytes", group = "Latest Mapping", 
-            #             options = WMSTileOptions(transparent = TRUE, format = "image/png", zIndex = 1000, CQL_FILTER = stringr::str_interp("Estuary = '${input$estuary1}' and Map_Year = ${input$date_t1}"))) %>% #, CQL_FILTER = cqlfltr)
             addRasterImage(empty_raster()) %>%
 
         
@@ -687,7 +685,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("West et al. 1985", "Latest Mapping", "Foreshore", "Disturbance", "Slipways", "Mooring"),
+                overlayGroups = c("Mapped Habitat", "Foreshore", "Disturbance", "Slipways", "Mooring"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -697,7 +695,7 @@ server <- function(input, output, session) {
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
             # hideGroup("West et al. 1985") %>% 
-            #hideGroup("Latest Mapping") %>%
+            # hideGroup("Mapped Habitat") %>%
             hideGroup("Foreshore") %>%
             hideGroup("Disturbance") %>%
             hideGroup("Slipways") %>%
@@ -740,8 +738,8 @@ server <- function(input, output, session) {
     })
     observe({
         #x3 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year)%>% dplyr::arrange(Map_Year) %>% dplyr::filter(Map_Year <= input$change_t2)
-        x3 <- presence_dat$Map_Year[presence_dat$Estuary == input$estuary3] 
-        updateSelectInput(session, "change_t1", "Time 1: ", choices = unique(x3))
+        x3 <- presence_dat$Map_Year[presence_dat$Estuary == input$estuary3 & presence_dat$Map_Year <= input$change_t2] 
+        updateSelectInput(session, "change_t1", "Time 1: ", choices = unique(x3), )
     })
 
     
