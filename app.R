@@ -40,10 +40,6 @@ if(!require(grid)) install.packages("grid", repos = "http://cran.us.r-project.or
 if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-project.org")
 
 
-#pittwater_grid <- rgdal::readOGR("json/Pittwater_Grid.geojson")
-#mooring_area <- rgdal::readOGR("json/MooringArea.geojson")
-
-
 
 # Read in master data .csv
 # THe data is supplied by Greg West and should be in the exact same layout (column names, species names and all are case sensitive. Ensure there are no unknown spaces)
@@ -601,6 +597,11 @@ server <- function(input, output, session) {
                           choices = unique(x1))
     })
 
+    estuary_report_dat <- reactive({ report_dat %>%
+            dplyr::filter(Estuary == input$estuary1) 
+    })
+    
+
     
     raster_points <- reactive({
         dat %>%
@@ -671,20 +672,16 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "Pittwater/Shore/{z}/{x}/{y}.png", group = "Foreshore",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Westetal1985/{z}/{x}/{y}.png", group = "West et al. 1985",
+            # addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Westetal1985/{z}/{x}/{y}.png", group = "West et al. 1985",
+            #          options = tileOptions(maxZoom=18, zIndex = 1000),
+            #          attribution = "&copy; Department of Primary Industries 2020") %>%
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat", 
                      options = tileOptions(maxZoom=18, zIndex = 1000),
-                     attribution = "&copy; Department of Primary Industries 2020") %>%
-            #addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/LatestTiles/{z}/{x}/{y}.png", group = "Latest Mapping",
-            #         options = tileOptions(maxZoom=18, zIndex = 1000),
-            #         attribution = "&copy; Department of Primary Industries 2020") %>%
-            addWMSTiles("http://localhost:8080/geoserver/dpi/wms", layers = "NSW_Estuarine_Macrophytes", group = "Latest Mapping", 
-                        options = WMSTileOptions(transparent = TRUE, format = "image/png", zIndex = 1000, CQL_FILTER = stringr::str_interp("Estuary = '${input$estuary1}' and Map_Year = ${input$date_t1}"))) %>% #, CQL_FILTER = cqlfltr)
+                    attribution = "&copy; Department of Primary Industries 2020") %>%
+            # addWMSTiles("http://localhost:8080/geoserver/dpi/wms", layers = "NSW_Estuarine_Macrophytes", group = "Latest Mapping", 
+            #             options = WMSTileOptions(transparent = TRUE, format = "image/png", zIndex = 1000, CQL_FILTER = stringr::str_interp("Estuary = '${input$estuary1}' and Map_Year = ${input$date_t1}"))) %>% #, CQL_FILTER = cqlfltr)
             addRasterImage(empty_raster()) %>%
-            
-            #add geojson
-            # addPolygons(data = grid_shp, color = "#444", stroke = TRUE, weight = .1, smoothFactor = 0.3, fillOpacity = .1,  popup = ~htmlEscape(GRID_ID), group = "Change Grid") %>%  
-            #addPolygons(data = mooring_area, fillColor = "#35D6F0", stroke = TRUE, color = "#1D7582", weight = 1, smoothFactor = 0.3, fillOpacity = .2, group = "Mooring Areas") %>%
-         
+
         
             addMiniMap() %>%
             addScaleBar(position = "bottomleft") %>%
@@ -699,7 +696,7 @@ server <- function(input, output, session) {
                        secondaryAreaUnit = "hectares",
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
-            hideGroup("West et al. 1985") %>% 
+            # hideGroup("West et al. 1985") %>% 
             #hideGroup("Latest Mapping") %>%
             hideGroup("Foreshore") %>%
             hideGroup("Disturbance") %>%
@@ -750,6 +747,9 @@ server <- function(input, output, session) {
     
     # DATA PREPERATION
     
+    estuary_report_dat1 <- reactive({ report_dat %>%
+            dplyr::filter(Estuary == input$estuary3) 
+    })
     
     t2_dat <- reactive({
         dat %>%
@@ -902,10 +902,10 @@ server <- function(input, output, session) {
             addMapPane("right", zIndex = 200) %>%
             
             
-            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/input$estuary3/{z}/{x}/{y}.png", group = "Time 1 - (Left)", layerId = "Time1",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Time 1 - (Left)", layerId = "Time1",
                      options = pathOptions(pane = "left"),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/LatestTiles/{z}/{x}/{y}.png", group = "Time 2 - (Right)", layerId = "Time2",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Time 2 - (Right)", layerId = "Time2",
                      options = pathOptions(pane = "right"),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
