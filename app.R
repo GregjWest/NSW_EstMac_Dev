@@ -706,12 +706,7 @@ server <- function(input, output, session) {
         
     })
 
-    
 
-    
-    
-
-    
 ##### CHANGE OVER TIME TAB #####
     
     # UI preparation
