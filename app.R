@@ -232,16 +232,12 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        fixed = TRUE, draggable = TRUE,
                                        #HTML('<button data-toggle="collapse" data-target="#demo">Show/Hide</button>'),
                                        tags$div(id = 'demo',  class="collapse in",
-                                       h3("Welcome"),
-                                       h4("Demonstration Version"),
-                                       
-                                       h6("This interactive map allows the comparison of macrophytes (seagrasses, mangroves, saltmarshes) between two times in any 
-                                          NSW estuary that is known to contain macrophytes.  These habitats have been mapped by DPI Fisheries since the 1980s 
-                                          and the various estuaries have been mapped different numbers of times and often in different years."),
+                                       h3("Map Explorer", style="text-align:center"),
+                                    
+                                       h6("This interactive map presents the results of 35 years of mapping seagrass, mangrove and saltmarsh in NSW. These habitats have been mapped by DPI Fisheries since the 1980s 
+                                          and various estuaries have been mapped different numbers of times and often in different years."),
                                        tags$br(),
-                                       h6("This Interactive Explorer displays the latest mapped habitats."),
-                                       tags$br(),
-                                       h6("Please select a region and estuary.  The map can be panned or zoomed."),
+                                       h6("Select a region, estuary and the desired year to view the mapped data"),
                                        selectInput("region1", 
                                                    label = "Region:", 
                                                    choices = list_region, 
@@ -303,9 +299,8 @@ tabPanel(
             draggable = TRUE,
             #HTML('<button data-toggle="collapse" data-target="#demo1">Show/Hide</button>'),
             tags$div(id = 'demo1',  class="collapse in",
-            h3("Where is change occuring?"
-            ),
-            h6("Change is represent by the area increase or decrease of habitat per 250x250m grid."
+            h3("Change Analysis", style="text-align:center"),
+            h6("The derived change map represents change in area as either increase or decrease of the selected habitat per 250x250m grid for the selected years."
             ),
             
             selectInput("region3", 
@@ -328,7 +323,7 @@ tabPanel(
                         selected = "2017"
             ),
             selectInput("habitat3",
-                        label= "Habitat: ",
+                        label= "Habitat for change analysis: ",
                         choices = list_habs, 
                         selected = list_habs[index_habs]
             ),
@@ -675,10 +670,10 @@ server <- function(input, output, session) {
             # addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Westetal1985/{z}/{x}/{y}.png", group = "West et al. 1985",
             #          options = tileOptions(maxZoom=18, zIndex = 1000),
             #          attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat", 
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                     attribution = "&copy; Department of Primary Industries 2020") %>%
-            addRasterImage(empty_raster()) %>%
+            addRasterImage(empty_raster(), group = "rastimg") %>%
 
         
             addMiniMap() %>%
@@ -706,7 +701,13 @@ server <- function(input, output, session) {
         
     })
 
-
+     observeEvent(input$date_t1,{
+         leafletProxy("map") %>%
+             removeTiles("Mapped Habitat") %>%
+             addTiles("Mapped Habitat")
+    
+    })
+    
 ##### CHANGE OVER TIME TAB #####
     
     # UI preparation
@@ -723,7 +724,7 @@ server <- function(input, output, session) {
         #x3_2 <- presence_dat %>% dplyr::filter(Map_Year == input$change_t1 | Map_Year== input$change_t2) %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Macrophyte)
         x3_2 <- presence_dat %>% dplyr::filter(Map_Year == input$change_t1 | Map_Year== input$change_t2)
         x3_3 <- x3_2$Macrophyte[x3_2$Estuary == input$estuary3]
-        updateSelectInput(session, "habitat3", label = "Habitat:", choices = unique(x3_3))
+        updateSelectInput(session, "habitat3", label = "Habitat for change map:", choices = unique(x3_3))
     })
     
     observe({
