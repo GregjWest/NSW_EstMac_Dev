@@ -49,9 +49,9 @@ report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
 
 presence_dat <- read.csv("NSW_Estuarine_Macrophytes_Presence.csv", stringsAsFactors = T)
 
-img <- readPNG("www/Man_SM_Background.png")
+mvsimg <- readPNG("www/Man_SM_Background.png")
 
-g <- rasterGrob(img, interpolate=TRUE)
+mvsbgimg <- rasterGrob(mvsimg, interpolate=TRUE)
 
 dat$fMap_Year <- factor(dat$Map_Year)
 
@@ -250,27 +250,15 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                                    label = "Year Mapped:", 
                                                    choices = NULL, 
                                                    selected = "2017"),
-                                       
-                                       # selectInput("habitat1",
-                                       #             label = "Habitat:",
-                                       #             choices = list_habs,
-                                       #             selected = list_habs[index_habs]),
-                                       # selectInput("year1",
-                                       #             label = "Year:",
-                                       #             choices = NULL,
-                                       #             selected = "2017"),
-                                       tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal.", 
-                                              tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
-                                                      tags$img(src='DPI_LOGO_left.svg')) 
+                                                tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal.", 
+                                                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
+                                                tags$img(src='DPI_LOGO_left.svg')) 
                                                )
                                        
                                        
                                        )
                                        
                          ),
-                         #absolutePanel(id = "logo", class = "card", bottom = 0, right = 290,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                         #              tags$a(href='https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal', target="_blank", 
-                         #                     tags$img(src='Spatial Data Portal small.png',height='35',width='100'))),
                          absolutePanel(id = "legend1", class = "card", bottom = 170, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
                                                                                 tags$img(src='Macrophyte_Legend.svg',height='300',width='150'))
                      )
@@ -381,7 +369,7 @@ tabPanel(
                    ),
                    tags$p(htmlOutput("ave_depth")
                    ),
-                   tags$p("Years mapped: "), textOutput("years_mapped")
+                   tags$b("Years mapped: "), textOutput("years_mapped")
                    ,
                    
                    tags$br(),
@@ -556,21 +544,7 @@ server <- function(input, output, session) {
         updateSelectizeInput(session, "estuary2", selected = input$estuary3)
     )
 
-    # observeEvent(
-    #     input$habitat1,
-    #     updateSelectizeInput(session, "habitat3", selected = input$habitat1)
-    # )
-    # 
-    # observeEvent(
-    #     input$habitat3,
-    #     updateSelectizeInput(session, "habitat1", selected = input$habitat3)
-   # )
-#
-    #
-    #
-    
-    
-    
+
 ######## HABITAT EXPLORER TAB ########
     # DATA PREPERATION
     # Update Year selector to only provide the estuaries per region
@@ -604,8 +578,6 @@ server <- function(input, output, session) {
             dplyr::select(Easting, Northing)
     })    
     
-    
-
     # Set raster max and min based on estuary selection
     lon_min <- reactive({min(raster_points()$Easting)}) 
     lon_max <- reactive({max(raster_points()$Easting)})
@@ -622,8 +594,7 @@ server <- function(input, output, session) {
                res=c(cell_size,cell_size), crs=myproj)
     })
 
-    
-    
+   
     # OUTPUTS  
     
     # Summary table
@@ -637,27 +608,15 @@ server <- function(input, output, session) {
         
         leaflet() %>% 
             addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                             options = tileOptions(maxZoom=18)) %>%
+                     options = tileOptions(maxZoom=18)) %>%
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
-                        layerId = "0",
-                        options (maxZoom = 18)) %>%
-                        #,WMSTileOptions(format = "image/png", 
-                        #                         
-                        #                        transparent = TRUE, 
-                        #                        continuousWorld = TRUE, 
-                        #                        tiled = TRUE,
-                        #                        tms = TRUE,
-                        #                        info_format = 'text/html'),
-                        #attribution = "&copy; Department of Customer Service 2020") %>% 
-
-           
-            
+                     layerId = "0", options (maxZoom = 18)) %>%
             addTiles(urlTemplate = "Pittwater/Jetty/{z}/{x}/{y}.png", group = "Disturbance",
-                       options = tileOptions(maxZoom=18, zIndex = 1000),
-                       attribution = "&copy; Department of Primary Industries 2020") %>% 
-            #addTiles(urlTemplate = "Pittwater/MArea/{z}/{x}/{y}.png", group = "Mooring Areas",
-            #         options = tileOptions(maxZoom=18, zIndex = 1000),
-            #         attribution = "&copy; Transport for NSW 2020") %>% 
+                     options = tileOptions(maxZoom=18, zIndex = 1000),
+                     attribution = "&copy; Department of Primary Industries 2020") %>% 
+            addTiles(urlTemplate = "Pittwater/MArea/{z}/{x}/{y}.png", group = "Mooring Areas",
+                     options = tileOptions(maxZoom=18, zIndex = 1000),
+                     attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "Pittwater/Slip/{z}/{x}/{y}.png", group = "Slipways",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
@@ -667,9 +626,6 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "Pittwater/Shore/{z}/{x}/{y}.png", group = "Foreshore",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            # addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Westetal1985/{z}/{x}/{y}.png", group = "West et al. 1985",
-            #          options = tileOptions(maxZoom=18, zIndex = 1000),
-            #          attribution = "&copy; Department of Primary Industries 2020") %>%
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                     attribution = "&copy; Department of Primary Industries 2020") %>%
@@ -680,7 +636,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Mapped Habitat", "Foreshore", "Disturbance", "Slipways", "Mooring"),
+                overlayGroups = c("Mapped Habitat", "Foreshore", "Disturbance", "Slipways", "Mooring Areas", "Mooring"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -689,11 +645,10 @@ server <- function(input, output, session) {
                        secondaryAreaUnit = "hectares",
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
-            # hideGroup("West et al. 1985") %>% 
-            # hideGroup("Mapped Habitat") %>%
             hideGroup("Foreshore") %>%
             hideGroup("Disturbance") %>%
             hideGroup("Slipways") %>%
+            hideGroup("Mooring Areas") %>%
             hideGroup("Mooring")
 
         
@@ -738,7 +693,6 @@ server <- function(input, output, session) {
         updateSelectInput(session, "change_t1", "Time 1: ", choices = unique(x3), )
     })
 
-    
     # DATA PREPERATION
     
     estuary_report_dat1 <- reactive({ report_dat %>%
@@ -763,8 +717,6 @@ server <- function(input, output, session) {
     })
     
 
-    
-    
     diff_dat <- reactive({
         inner_join(t2_dat(),
                    t1_dat(),
@@ -777,23 +729,7 @@ server <- function(input, output, session) {
         diff_dat() %>%
             dplyr::mutate(Chnge = .[[4]] + .[[5]])
     })    
-    #negs <- reactive({
-    #    diff_dat() %>%
-    #        dplyr::filter(Diff < 0) %>%
-    #        dplyr::mutate(Percent = Diff / .[[5]] * 100)
-    #})
 
-    #posi <- reactive({
-    #    diff_dat() %>%
-    #        dplyr::filter(Diff >= 0) %>%
-    #        dplyr::mutate(Percent = Diff / .[[4]] * 100) %>%
-    #        mutate_all( ~ replace(., is.na(.), 0))
-    #})
-
-    #diff_dat1 <- reactive({
-    #    dplyr::union(negs(), posi())
-    #})
-    
     #Filter out the true zeros, select only the values greater than 0
     diff_dat1 <- reactive({
         Chnge_dat() %>%
@@ -903,9 +839,6 @@ server <- function(input, output, session) {
                      options = pathOptions(pane = "right"),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
-            #addMiniMap() %>%
-            # ----- addLegend(position = "bottomright", pal = grdpal, values = bins,
-            # -----           title = ("Change Area m<sup>2")) %>%
             addLayersControl(
                 baseGroups = c("OSM (default)", "Photo basemap"),
                 overlayGroups = c("Change map", "Time 1 - (Left)", "Time 2 - (Right)"),
@@ -977,14 +910,11 @@ server <- function(input, output, session) {
         paste(unique(years_dat()$Map_Year))
     })
     
-    
-    
-    
+
     # Plot estuary by habitat over time    
     plot_dat <- reactive({
         dat1 %>%
             dplyr::filter(Estuary == input$estuary2) %>%
-            #dplyr::filter(Habitat == c( "Mangrove", "Saltmarsh","Seagrass","Halophila","Posidonia","Ruppia", "Zostera")) %>%
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
             dplyr::filter(Area >= 0)
@@ -998,10 +928,7 @@ server <- function(input, output, session) {
             geom_line(colour="#989898", size=1) +
             geom_point(shape = 23, fill="lightgray", color = "black", size=3) +
             
-            # geom_area( fill="#0037A5", alpha=0.1) +
-            # geom_line(color="#0037A5", size=1) +
-            # geom_point(size=3, color="#0037A5") +
-        
+
             
             #geom_col(fill="#053f5c") + # change the x = fMap_Year
             #ylim(0,NA) +
@@ -1088,84 +1015,18 @@ server <- function(input, output, session) {
                   axis.text.y=element_blank(),
                   axis.ticks.y=element_blank()) +
             geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = 3, shape = 21, fill="lightgray", color = "black", alpha = .5) +
-            annotation_custom(g, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf) #+
-            # annotate("text", x = -52000, y = 62000, label = "- Mangrove", color = "red", size = 5) +
-            # annotate("text", x = -52000, y = 52000, label = "+ Saltmarsh", color = "green4", size = 5) +
-            # annotate("text", x = -52000, y = -52000, label = "- Mangrove", color = "red", size = 5) +
-            # annotate("text", x = -52000, y = -62000, label = "- Saltmarsh", color = "red", size = 5) +
-            # annotate("text", x = 52000, y = 62000, label = "+ Mangrove", color = "green4", size = 5) +
-            # annotate("text", x = 52000, y = 52000, label = "+ Saltmarsh", color = "green4", size = 5) +
-            # annotate("text", x = 52000, y = -62000, label = "+ Mangrove", color = "green4", size = 5) +
-            # annotate("text", x = 52000, y = -52000, label = "- Saltmarsh", color = "red", size = 5) #+
-        
-        # geom_segment(aes(x = 250000, xend = 250000, y= 1, yend= -250000),
-        #              arrow=arrow(length=unit(0.2,"cm")), colour = "red") +
-        # geom_segment(aes(x = 250000, xend = 250000, y= 1, yend= 250000),
-        #              arrow=arrow(length=unit(0.2,"cm")), color = "green") +
-        # geom_segment(aes(x = 1, xend = -250000, y= 250000, yend= 250000),
-        #              arrow=arrow(length=unit(0.2,"cm")), colour = "red") +
-        # geom_segment(aes(x = 1, xend = 250000, y= 250000, yend= 250000),
-        #              arrow=arrow(length=unit(0.2,"cm")), color = "green") 
+            annotation_custom(mvsbgimg, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf) #+
+
         
     },height = 500, width = 800 )
     
     
-    
-    #     
-    #     
-    #     
-    #     
-    #     
-    #     
-    #     
-  
-    
-    
-    
-    
-        
-    
-    
-    
-    
+ 
     
 }
 
 
 shinyApp(ui, server)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
