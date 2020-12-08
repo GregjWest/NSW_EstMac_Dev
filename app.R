@@ -459,7 +459,7 @@ tabPanel(
         tags$p("Funding for the various mapping projects has come from numerous sources, primarily via the NSW State government through a variety of funding programs and from short-term contracts funded by organisations including: Lake Macquarie City Council, Eurobodalla Shire Council, North Rivers Catchment Management Authority, Sydney Metro Catchment Management Authority and NSW Roads and Maritime"),
         tags$br(),
         tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
-        tags$p(strong("Shiny App development:"), "Joel Williams"),
+        tags$p(strong("Shiny App development:"), "Joel Williams & Greg"),
         tags$p(strong("Data compilation:"), "Greg West"),
         tags$p(strong("Last mapping update:"), "2019"),
         tags$p(strong("Last Shiny App update:"), "18 August 2020"),
@@ -613,15 +613,15 @@ server <- function(input, output, session) {
                      options = tileOptions(maxZoom=18)) %>%
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
                      layerId = "0", options (maxZoom = 18)) %>%
-            addTiles(urlTemplate = "Pittwater/Jetty/{z}/{x}/{y}.png", group = "Artificial Structures",
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial Structures",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "Pittwater/MArea/{z}/{x}/{y}.png", group = "Mooring Areas",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Transport for NSW 2020") %>% 
-            addTiles(urlTemplate = "Pittwater/Slip/{z}/{x}/{y}.png", group = "Slipways",
-                     options = tileOptions(maxZoom=18, zIndex = 1000),
-                     attribution = "&copy; Department of Primary Industries 2020") %>% 
+            # addTiles(urlTemplate = "Pittwater/Slip/{z}/{x}/{y}.png", group = "Slipways",
+            #          options = tileOptions(maxZoom=18, zIndex = 1000),
+            #          attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "Pittwater/Mooring/{z}/{x}/{y}.png", group = "Mooring",
                      options = tileOptions(maxZoom=18, zIndex = 1000),
                      attribution = "&copy; Transport for NSW 2020") %>% 
@@ -638,7 +638,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Mapped Habitat", "Foreshore", "Artificial Structures", "Slipways", "Mooring Areas", "Mooring"),
+                overlayGroups = c("Mapped Habitat", "Foreshore", "Artificial Structures", "Mooring Areas", "Mooring"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -649,7 +649,7 @@ server <- function(input, output, session) {
                        completedColor = "#7D4479") %>%
             hideGroup("Foreshore") %>%
             hideGroup("Artificial Structures") %>%
-            hideGroup("Slipways") %>%
+            #hideGroup("Slipways") %>%
             hideGroup("Mooring Areas") %>%
             hideGroup("Mooring")
 
@@ -825,7 +825,7 @@ server <- function(input, output, session) {
             #Spatial Sevices Photo base layer
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
                                  layerId = "0",
-                                 options (maxZoom = 16)) %>%
+                                 options (maxZoom = 17)) %>%
             #Add change raster layer
             addStarsImage(diff_raster(), colors = grdpal, opacity = 0.5, group = "Change map", project = FALSE) %>%
             
