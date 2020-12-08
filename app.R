@@ -1,9 +1,9 @@
-### Williams, West, Glasby, June 2020
+### West, Williams, Glasby  Dec 2020
 ## A Shiny map to display and explore the estuarine macorphyte mapping data
 
-# Last update 18 August 2020 1312
+# Last update 8 Dec 2020 1312
 
-# v0.01
+# v0.6
 
 #
 # This is a Shiny web application. You can run the application by clicking
@@ -42,7 +42,7 @@ if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-proj
 
 
 # Read in master data .csv
-# THe data is supplied by Greg West and should be in the exact same layout (column names, species names and all are case sensitive. Ensure there are no unknown spaces)
+# THe data is supplied by Greg West and should be in the exact same layout (column names, species names and all are case sensitive. Ensure there are no spaces in headers)
 dat <-  read.csv("Multi_Estuary_All_Years_Grid.csv", stringsAsFactors = T)
 
 report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
@@ -72,13 +72,6 @@ dat_summary <- dat %>%
     mutate(Saltmarsh = round(Saltmarsh, 0)) %>%
     ungroup()
 
-#List of habitats that are available for the user to select
-# Can and added and removed by the host ensuring that the spelling and case is the exact same as the raw data file.
- #------list_habs <- c( "Mangrove", "Saltmarsh","Seagrass_all_species","Posidonia", "Zostera","Halophila","Ruppia") 
-# Index/select the default habitat based on order in the above list i.e. 3 = Seagrass
- #-----index_habs <- 3
-
-
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
 # List the estuaries available
@@ -92,7 +85,7 @@ index_estuary <- 2
 
 list_habs <- c(levels(presence_dat$Macrophyte))
 index_habs <- 0
-# Cell size for building rasters at 200x200m
+# Cell size for building rasters at 250x250m
 cell_size <- 250
 
 myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84 + towgs8"
@@ -480,13 +473,7 @@ tabPanel(
 
 )
                              
-
-
-
-
-#                             
-                             
-                    
+                   
 
 # Server logic ----
 #
@@ -600,9 +587,9 @@ server <- function(input, output, session) {
     # OUTPUTS  
     
     # Summary table
-    output$sum_stats <- renderPrint({
-        summary(raster_values())
-    })  
+    # output$sum_stats <- renderPrint({
+    #     summary(raster_values())
+    # })  
 
     
     output$map <- renderLeaflet({
@@ -653,8 +640,6 @@ server <- function(input, output, session) {
             hideGroup("Mooring Areas") %>%
             hideGroup("Mooring")
 
-        
- 
         
     })
 
@@ -926,7 +911,7 @@ server <- function(input, output, session) {
     
     output$habitat_plot <- renderPlot({
         ggplot(data=plot_dat(), aes(x=Map_Year, y=Area/10000)) +
-            geom_area( fill="#989898", alpha=0.1) +
+            geom_area( fill="#989898", alpha=0.15) +
             geom_line(colour="#989898", size=1) +
             geom_point(shape = 23, fill="lightgray", color = "black", size=3) +
             
