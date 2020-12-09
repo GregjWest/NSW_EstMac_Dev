@@ -452,7 +452,7 @@ tabPanel(
         tags$p("Funding for the various mapping projects has come from numerous sources, primarily via the NSW State government through a variety of funding programs and from short-term contracts funded by organisations including: Lake Macquarie City Council, Eurobodalla Shire Council, North Rivers Catchment Management Authority, Sydney Metro Catchment Management Authority and NSW Roads and Maritime"),
         tags$br(),
         tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
-        tags$p(strong("Shiny App development:"), "Joel Williams & Greg West"),
+        tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
         tags$p(strong("Data compilation:"), "Greg West"),
         tags$p(strong("Last mapping update:"), "2020"),
         tags$p(strong("Last Shiny App update:"), "Dec 2020"),
@@ -597,26 +597,26 @@ server <- function(input, output, session) {
         
         leaflet() %>% 
             addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                     options = tileOptions(maxZoom=18)) %>%
+                     options = tileOptions(maxZoom=17)) %>%
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
-                     layerId = "0", options (maxZoom = 18)) %>%
+                     layerId = "0", options (maxZoom = 17)) %>%
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial Structures",
-                     options = tileOptions(maxZoom=18, zIndex = 1000),
+                     options = tileOptions(maxZoom=17, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            addTiles(urlTemplate = "Pittwater/MArea/{z}/{x}/{y}.png", group = "Mooring Areas",
-                     options = tileOptions(maxZoom=18, zIndex = 1000),
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
+                     options = tileOptions(maxZoom=17, zIndex = 1000, opacity = .6),
                      attribution = "&copy; Transport for NSW 2020") %>% 
             # addTiles(urlTemplate = "Pittwater/Slip/{z}/{x}/{y}.png", group = "Slipways",
             #          options = tileOptions(maxZoom=18, zIndex = 1000),
             #          attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "Pittwater/Mooring/{z}/{x}/{y}.png", group = "Mooring",
-                     options = tileOptions(maxZoom=18, zIndex = 1000),
+                     options = tileOptions(maxZoom=17, zIndex = 1000),
                      attribution = "&copy; Transport for NSW 2020") %>% 
-            addTiles(urlTemplate = "Pittwater/Shore/{z}/{x}/{y}.png", group = "Foreshore",
-                     options = tileOptions(maxZoom=18, zIndex = 1000),
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
+                     options = tileOptions(maxZoom=17, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat",
-                     options = tileOptions(maxZoom=18, zIndex = 1000),
+                     options = tileOptions(maxZoom=17, zIndex = 1000),
                     attribution = "&copy; Department of Primary Industries 2020") %>%
             addRasterImage(empty_raster(), group = "rastimg") %>%
 
@@ -643,12 +643,12 @@ server <- function(input, output, session) {
         
     })
 
-     observeEvent(input$date_t1,{
-         leafletProxy("map") %>%
-             removeTiles("Mapped Habitat") %>%
-             addTiles("Mapped Habitat")
-    
-    })
+    #  observeEvent(input$date_t1,{
+    #      leafletProxy("map") %>%
+    #          removeTiles("Mapped Habitat") %>%
+    #          addTiles("Mapped Habitat")
+    # 
+    # })
     
 ##### CHANGE OVER TIME TAB #####
     
@@ -805,12 +805,11 @@ server <- function(input, output, session) {
         leaflet() %>% 
         #leaflet::addTiles() %>%
             #Open Street Map base layer
-            addProviderTiles(providers$CartoDB.Positron) %>%
-            
+            addProviderTiles(providers$CartoDB.Positron,
+                    options = tileOptions(maxZoom=17)) %>%
             #Spatial Sevices Photo base layer
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
-                                 layerId = "0",
-                                 options (maxZoom = 17)) %>%
+                                 layerId = "0", options = tileOptions(maxZoom=17)) %>%
             #Add change raster layer
             addStarsImage(diff_raster(), colors = grdpal, opacity = 0.5, group = "Change map", project = FALSE) %>%
             
