@@ -568,10 +568,10 @@ server <- function(input, output, session) {
     })    
     
     # Set raster max and min based on estuary selection
-    lon_min <- reactive({min(raster_points()$Easting)}) 
-    lon_max <- reactive({max(raster_points()$Easting)})
-    lat_min <- reactive({min(raster_points()$Northing)})
-    lat_max <- reactive({max(raster_points()$Northing)})    
+    lon_min <- reactive({min(raster_points()$Easting)-10}) 
+    lon_max <- reactive({max(raster_points()$Easting)+10})
+    lat_min <- reactive({min(raster_points()$Northing)-10})
+    lat_max <- reactive({max(raster_points()$Northing)+10})    
     ncols <- reactive({((lon_max() - lon_min())/cell_size)}) 
     nrows <- reactive({((lat_max() - lat_min())/cell_size)})  
     
@@ -609,7 +609,7 @@ server <- function(input, output, session) {
             # addTiles(urlTemplate = "Pittwater/Slip/{z}/{x}/{y}.png", group = "Slipways",
             #          options = tileOptions(maxZoom=18, zIndex = 1000),
             #          attribution = "&copy; Department of Primary Industries 2020") %>% 
-            addTiles(urlTemplate = "Pittwater/Mooring/{z}/{x}/{y}.png", group = "Mooring",
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Moorings",
                      options = tileOptions(maxZoom=17, zIndex = 1000),
                      attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
@@ -625,7 +625,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Mapped Habitat", "Foreshore", "Artificial Structures", "Mooring Areas", "Mooring"),
+                overlayGroups = c("Mapped Habitat", "Foreshore", "Artificial Structures", "Mooring Areas", "Moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -638,7 +638,7 @@ server <- function(input, output, session) {
             hideGroup("Artificial Structures") %>%
             #hideGroup("Slipways") %>%
             hideGroup("Mooring Areas") %>%
-            hideGroup("Mooring")
+            hideGroup("Moorings")
 
         
     })
