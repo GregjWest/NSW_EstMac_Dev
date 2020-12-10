@@ -604,23 +604,21 @@ server <- function(input, output, session) {
                      options = tileOptions(maxZoom=17, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
-                     options = tileOptions(maxZoom=17, zIndex = 1000, opacity = .6),
+                     options = tileOptions(maxZoom=17, zIndex = 10000, opacity = .6),
                      attribution = "&copy; Transport for NSW 2020") %>% 
             # addTiles(urlTemplate = "Pittwater/Slip/{z}/{x}/{y}.png", group = "Slipways",
             #          options = tileOptions(maxZoom=18, zIndex = 1000),
             #          attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Moorings",
-                     options = tileOptions(maxZoom=17, zIndex = 1000),
+                     options = tileOptions(maxZoom=17, zIndex = 10000),
                      attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
                      options = tileOptions(maxZoom=17, zIndex = 1000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat",
-                     options = tileOptions(maxZoom=17, zIndex = 1000),
-                    attribution = "&copy; Department of Primary Industries 2020") %>%
-            addRasterImage(empty_raster(), group = "rastimg") %>%
-
-        
+            
+            addRasterImage(empty_raster()) %>%
+            
+            
             addMiniMap() %>%
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
@@ -643,12 +641,15 @@ server <- function(input, output, session) {
         
     })
 
-    #  observeEvent(input$date_t1,{
-    #      leafletProxy("map") %>%
-    #          removeTiles("Mapped Habitat") %>%
-    #          addTiles("Mapped Habitat")
-    # 
-    # })
+    observeEvent(input$date_t1,{
+          leafletProxy("map") %>%
+
+            removeTiles("macmap") %>%
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat", layerId = "macmap",
+                     options = tileOptions(maxZoom=17, zIndex = 5),
+                     attribution = "&copy; Department of Primary Industries 2020")    
+     
+     })
     
 ##### CHANGE OVER TIME TAB #####
     
