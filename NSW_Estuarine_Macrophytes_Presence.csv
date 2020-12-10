@@ -536,64 +536,21 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 34899,Shoalhaven River,South East,2010,Saltmarsh,Shoalhaven_River
 34941,Lake Wollumboola,South East,1985,Ruppia,Lake_Wollumboola
 34941,Lake Wollumboola,South East,2004,Ruppia,Lake_Wollumboola
-34991,Wowly Gully,South East,1985,Saltmarsh,Wowly_Gully
-34991,Wowly Gully,South East,2004,Saltmarsh,Wowly_Gully
-34991,Wowly Gully,South East,2020,Mangrove,Wowly_Gully
-34991,Wowly Gully,South East,2020,Saltmarsh,Wowly_Gully
-34998,Cararma Creek,South East,1985,Posidonia,Cararma_Creek
-34998,Cararma Creek,South East,1985,Zostera,Cararma_Creek
-34998,Cararma Creek,South East,1985,Mangrove,Cararma_Creek
-34998,Cararma Creek,South East,1985,Saltmarsh,Cararma_Creek
-34998,Cararma Creek,South East,2004,Posidonia,Cararma_Creek
-34998,Cararma Creek,South East,2004,Zostera,Cararma_Creek
-34998,Cararma Creek,South East,2004,Mangrove,Cararma_Creek
-34998,Cararma Creek,South East,2004,Saltmarsh,Cararma_Creek
-34998,Cararma Creek,South East,2020,Posidonia,Cararma_Creek
-34998,Cararma Creek,South East,2020,Mangrove,Cararma_Creek
-34998,Cararma Creek,South East,2020,Saltmarsh,Cararma_Creek
-35001,Callala Creek,South East,1985,Zostera,Callala_Creek
-35001,Callala Creek,South East,1985,Mangrove,Callala_Creek
-35001,Callala Creek,South East,1985,Saltmarsh,Callala_Creek
-35001,Callala Creek,South East,2020,Mangrove,Callala_Creek
-35001,Callala Creek,South East,2020,Saltmarsh,Callala_Creek
-35027,Currambene Creek,South East,1985,Zostera,Currambene_Creek
-35027,Currambene Creek,South East,1985,Mangrove,Currambene_Creek
-35027,Currambene Creek,South East,1985,Saltmarsh,Currambene_Creek
-35027,Currambene Creek,South East,2004,Zostera,Currambene_Creek
-35027,Currambene Creek,South East,2004,Mangrove,Currambene_Creek
-35027,Currambene Creek,South East,2004,Saltmarsh,Currambene_Creek
-35027,Currambene Creek,South East,2020,Zostera,Currambene_Creek
-35027,Currambene Creek,South East,2020,Mangrove,Currambene_Creek
-35027,Currambene Creek,South East,2020,Saltmarsh,Currambene_Creek
-35052,Moona Moona Creek,South East,1985,Zostera,Moona_Moona_Creek
-35052,Moona Moona Creek,South East,1985,Mangrove,Moona_Moona_Creek
-35052,Moona Moona Creek,South East,1985,Saltmarsh,Moona_Moona_Creek
-35052,Moona Moona Creek,South East,2004,Zostera,Moona_Moona_Creek
-35052,Moona Moona Creek,South East,2004,Mangrove,Moona_Moona_Creek
-35052,Moona Moona Creek,South East,2020,Zostera,Moona_Moona_Creek
-35052,Moona Moona Creek,South East,2020,Mangrove,Moona_Moona_Creek
-35052,Moona Moona Creek,South East,2020,Saltmarsh,Moona_Moona_Creek
-35063,Jervis Bay,South East,1985,Posidonia,Jervis_Bay
-35063,Jervis Bay,South East,1985,Zostera,Jervis_Bay
 35063,Jervis Bay,South East,1985,Halophila,Jervis_Bay
-35063,Jervis Bay,South East,1985,Mangrove,Jervis_Bay
-35063,Jervis Bay,South East,2004,Posidonia,Jervis_Bay
-35063,Jervis Bay,South East,2004,Zostera,Jervis_Bay
-35063,Jervis Bay,South East,2004,Halophila,Jervis_Bay
-35063,Jervis Bay,South East,2004,Mangrove,Jervis_Bay
-35063,Jervis Bay,South East,2004,Saltmarsh,Jervis_Bay
-35063,Jervis Bay,South East,2020,Posidonia,Jervis_Bay
-35063,Jervis Bay,South East,2020,Zostera,Jervis_Bay
-35063,Jervis Bay,South East,2020,Halophila,Jervis_Bay
-35063,Jervis Bay,South East,2020,Mangrove,Jervis_Bay
-35063,Jervis Bay,South East,2020,Saltmarsh,Jervis_Bay
-35125,Flat Rock Creek,South East,1985,Posidonia,Flat_Rock_Creek
-35125,Flat Rock Creek,South East,1985,Mangrove,Flat_Rock_Creek
-35125,Flat Rock Creek,South East,2004,Saltmarsh,Flat_Rock_Creek
-35125,Flat Rock Creek,South East,2020,Saltmarsh,Flat_Rock_Creek
-35131,Captains Beach Lagoon,South East,2004,Mangrove,Captains_Beach_Lagoon
-35131,Captains Beach Lagoon,South East,2020,Mangrove,Captains_Beach_Lagoon
-35131,Captains Beach Lagoon,South East,2020,Saltmarsh,Captains_Beach_Lagoon
+35064,Jervis Bay,South East,1985,Mangrove,Jervis_Bay
+35065,Jervis Bay,South East,1985,Posidonia,Jervis_Bay
+35066,Jervis Bay,South East,1985,Saltmarsh,Jervis_Bay
+35067,Jervis Bay,South East,1985,Zostera,Jervis_Bay
+35068,Jervis Bay,South East,2004,Halophila,Jervis_Bay
+35069,Jervis Bay,South East,2004,Mangrove,Jervis_Bay
+35070,Jervis Bay,South East,2004,Posidonia,Jervis_Bay
+35071,Jervis Bay,South East,2004,Saltmarsh,Jervis_Bay
+35072,Jervis Bay,South East,2004,Zostera,Jervis_Bay
+35073,Jervis Bay,South East,2020,Halophila,Jervis_Bay
+35074,Jervis Bay,South East,2020,Mangrove,Jervis_Bay
+35075,Jervis Bay,South East,2020,Posidonia,Jervis_Bay
+35076,Jervis Bay,South East,2020,Saltmarsh,Jervis_Bay
+35077,Jervis Bay,South East,2020,Zostera,Jervis_Bay
 35184,St Georges Basin,South East,1985,Posidonia,St_Georges_Basin
 35184,St Georges Basin,South East,1985,Zostera,St_Georges_Basin
 35184,St Georges Basin,South East,1985,Halophila,St_Georges_Basin
