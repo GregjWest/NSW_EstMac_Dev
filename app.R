@@ -590,18 +590,18 @@ server <- function(input, output, session) {
     # output$sum_stats <- renderPrint({
     #     summary(raster_values())
     # })  
-
+    
     
     output$map <- renderLeaflet({
         
         
         leaflet() %>% 
             addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                     options = tileOptions(maxZoom=17)) %>%
+                             options = tileOptions(maxZoom=17)) %>%
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
-                     layerId = "0", options (maxZoom = 17)) %>%
+                                 layerId = "0", options (maxZoom = 17)) %>%
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial Structures",
-                     options = tileOptions(maxZoom=17, zIndex = 1000),
+                     options = tileOptions(maxZoom=17, zIndex = 10000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
                      options = tileOptions(maxZoom=17, zIndex = 10000, opacity = .6),
@@ -613,7 +613,7 @@ server <- function(input, output, session) {
                      options = tileOptions(maxZoom=17, zIndex = 10000),
                      attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
-                     options = tileOptions(maxZoom=17, zIndex = 1000),
+                     options = tileOptions(maxZoom=17, zIndex = 10000),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             
             addRasterImage(empty_raster()) %>%
@@ -637,19 +637,19 @@ server <- function(input, output, session) {
             #hideGroup("Slipways") %>%
             hideGroup("Mooring Areas") %>%
             hideGroup("Moorings")
-
+        
         
     })
-
+    
     observeEvent(input$date_t1,{
-          leafletProxy("map") %>%
-
+        leafletProxy("map") %>%
+            
             removeTiles("macmap") %>%
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat", layerId = "macmap",
                      options = tileOptions(maxZoom=17, zIndex = 5),
                      attribution = "&copy; Department of Primary Industries 2020")    
-     
-     })
+        
+    })
     
 ##### CHANGE OVER TIME TAB #####
     
