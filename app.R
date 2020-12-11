@@ -252,8 +252,8 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        )
                                        
                          ),
-                         absolutePanel(id = "legend1", class = "card", bottom = 170, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                                                                tags$img(src='Macrophyte_Legend.svg',height='300',width='150'))
+                         absolutePanel(id = "legend1", class = "card", bottom = 190, right = 5,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                                                                                tags$img(src='Explore_legend.svg',height='300',width='160'))
                      )
                  ),
 
