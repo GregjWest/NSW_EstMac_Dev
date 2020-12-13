@@ -645,7 +645,9 @@ server <- function(input, output, session) {
         
     })
     # watch the year selector and load macrophytes for the selected year without resetting the map
-    observeEvent(input$date_t1,{
+    observe({
+        input$date_t1
+        input$estuary1
         leafletProxy("map") %>%
             
             removeTiles("macmap") %>%
@@ -816,7 +818,7 @@ server <- function(input, output, session) {
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
                                  layerId = "0", options = tileOptions(maxZoom=17)) %>%
             #Add change raster layer
-            addStarsImage(diff_raster(), colors = grdpal, opacity = 0.5, group = "Change map", project = FALSE) %>%
+            addStarsImage(diff_raster(), colors = grdpal, opacity = 0.5, group = "Change grid", project = FALSE) %>%
             
             #Add side by side comparison slider   
             addMapPane("left", zIndex = 200) %>%
@@ -824,15 +826,15 @@ server <- function(input, output, session) {
             
             
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Time 1 - (Left)", layerId = "Time1",
-                     options = pathOptions(pane = "left"),
+                     options = pathOptions(pane = "left", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Time 2 - (Right)", layerId = "Time2",
-                     options = pathOptions(pane = "right"),
+                     options = pathOptions(pane = "right", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
             addLayersControl(
                 baseGroups = c("OSM (default)", "Photo basemap"),
-                overlayGroups = c("Change map", "Time 1 - (Left)", "Time 2 - (Right)"),
+                overlayGroups = c("Change grid", "Time 1 - (Left)", "Time 2 - (Right)"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             
             #Add side by Side control
