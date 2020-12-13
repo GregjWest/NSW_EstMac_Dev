@@ -542,8 +542,7 @@ server <- function(input, output, session) {
         updateSelectInput(session, 
                           "estuary1", 
                           label = "Estuary:",
-                          choices = unique(x0),
-                          selected = "Port Stephens")
+                          choices = unique(x0))
     })
     # Update Year selector to only provide the years that have been mapped
     observe({
@@ -867,8 +866,7 @@ server <- function(input, output, session) {
         updateSelectInput(session, 
                           "estuary2", 
                           label = "Estuary:",
-                          choices = unique(x2_1),
-                          selected = "Pittwater")
+                          choices = unique(x2_1))
     })
     
     # Estuary Summary Table
