@@ -596,27 +596,31 @@ server <- function(input, output, session) {
         
         
         leaflet() %>% 
+            addMapPane("basemaps", zIndex=200) %>% #add map pane for baselayers
+            addMapPane("macromap", zIndex=400) %>% #add map pane for macrophyte map
+            addMapPane("othermap", zIndex=450) %>% #add map pane for all other layers
+            
             addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                             options = tileOptions(maxZoom=17)) %>%
+                             options = pathOptions(pane="basemaps", maxZoom=17)) %>%
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
-                                 layerId = "0", options (maxZoom = 17)) %>%
+                                 layerId = "0", pathOptions(pane="basemaps", maxZoom=17)) %>%
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial Structures",
-                     options = tileOptions(maxZoom=17, zIndex = 10000),
+                     options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
-                     options = tileOptions(maxZoom=17, zIndex = 10000, opacity = .6),
+                     options = pathOptions(pane="macromap", maxZoom=17, opacity=.6),
                      attribution = "&copy; Transport for NSW 2020") %>% 
             # addTiles(urlTemplate = "Pittwater/Slip/{z}/{x}/{y}.png", group = "Slipways",
             #          options = tileOptions(maxZoom=18, zIndex = 1000),
             #          attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Moorings",
-                     options = tileOptions(maxZoom=17, zIndex = 10000),
+                     options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
-                     options = tileOptions(maxZoom=17, zIndex = 10000),
+                     options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             
-            addRasterImage(empty_raster()) %>%
+            addRasterImage(empty_raster()) %>% #add empty file for map extent
             
             
             addMiniMap() %>%
@@ -640,13 +644,13 @@ server <- function(input, output, session) {
         
         
     })
-    
+    # watch the year selector and load macrophytes for the selected year without resetting the map
     observeEvent(input$date_t1,{
         leafletProxy("map") %>%
             
             removeTiles("macmap") %>%
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat", layerId = "macmap",
-                     options = tileOptions(maxZoom=17, zIndex = 5),
+                     options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020")    
         
     })
