@@ -81,7 +81,7 @@ index_region <- 1
 # Index/select the default estuary based on order in the above list i.e. 3 = Port Stephens (at the test state)
 # List the estuaries available
 list_estuary <- c(levels(presence_dat$Estuary))
-index_estuary <- 2
+index_estuary <- 1
 
 list_habs <- c(levels(presence_dat$Macrophyte))
 index_habs <- 0
@@ -253,7 +253,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        
                          ),
                          absolutePanel(id = "legend1", class = "card", bottom = 190, right = 5,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                                                                tags$img(src='Explore_legend.svg',height='300',width='160'))
+                                                                                tags$img(src='Explore_legend.svg',height='330',width='160'))
                      )
                  ),
 
