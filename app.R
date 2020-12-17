@@ -824,16 +824,16 @@ server <- function(input, output, session) {
             addMapPane("right", zIndex = 200) %>%
             
             
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Macrophyte layers", layerId = "Time1",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped macrophytes", layerId = "Time1",
                      options = pathOptions(pane = "left", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Macrophyte layers", layerId = "Time2",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Mapped macrophytes", layerId = "Time2",
                      options = pathOptions(pane = "right", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
             addLayersControl(
                 baseGroups = c("OSM (default)", "Photo basemap"),
-                overlayGroups = c("Change grid", "Macrophyte layers"),
+                overlayGroups = c("Change grid", "Mapped macrophytes"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             
             #Add side by Side control
