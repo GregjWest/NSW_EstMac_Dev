@@ -75,8 +75,8 @@ dat_summary <- dat %>%
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
 # List the estuaries available
-list_region <- c(levels(presence_dat$Region))
-index_region <- 1
+list_region <- c("North Coast","Hunter", "Greater Sydney", "South East")
+index_region <- 3
 
 # Index/select the default estuary based on order in the above list i.e. 3 = Port Stephens (at the test state)
 # List the estuaries available
@@ -678,12 +678,12 @@ server <- function(input, output, session) {
     observe({
         #x2 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year) %>% dplyr::arrange(desc(Map_Year))
         x2 <- presence_dat$Map_Year[presence_dat$Estuary == input$estuary3 & presence_dat$Map_Year >= input$change_t1]
-        updateSelectInput(session, "change_t2", "Time 2: ", choices = sort(unique(x2),decreasing = TRUE))
+        updateSelectInput(session, "change_t2", "Mapped Time 2: (Right pane)", choices = sort(unique(x2),decreasing = TRUE))
     })
     observe({
         #x3 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year)%>% dplyr::arrange(Map_Year) %>% dplyr::filter(Map_Year <= input$change_t2)
         x3 <- presence_dat$Map_Year[presence_dat$Estuary == input$estuary3] 
-        updateSelectInput(session, "change_t1", "Time 1: ", choices = unique(x3))
+        updateSelectInput(session, "change_t1", "Mapped Time 1:  (Left pane)", choices = unique(x3))
     })
 
     # DATA PREPERATION
@@ -824,16 +824,16 @@ server <- function(input, output, session) {
             addMapPane("right", zIndex = 200) %>%
             
             
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Time 1 - (Left)", layerId = "Time1",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Macrophyte layers", layerId = "Time1",
                      options = pathOptions(pane = "left", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Time 2 - (Right)", layerId = "Time2",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Macrophyte layers", layerId = "Time2",
                      options = pathOptions(pane = "right", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
             addLayersControl(
                 baseGroups = c("OSM (default)", "Photo basemap"),
-                overlayGroups = c("Change grid", "Time 1 - (Left)", "Time 2 - (Right)"),
+                overlayGroups = c("Change grid", "Macrophyte layers"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             
             #Add side by Side control
@@ -851,8 +851,8 @@ server <- function(input, output, session) {
                        completedColor = "#7D4479") %>%
             
             #change map turned off by default
-            hideGroup("Time 1 - (Left)") %>%
-            hideGroup("Time 2 - (Right)")
+            #hideGroup("Time 1 - (Left)") %>%
+            hideGroup("Macrophyte layers")
 
 
     })
