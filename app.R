@@ -678,12 +678,12 @@ server <- function(input, output, session) {
     observe({
         #x2 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year) %>% dplyr::arrange(desc(Map_Year))
         x2 <- presence_dat$Map_Year[presence_dat$Estuary == input$estuary3 & presence_dat$Map_Year >= input$change_t1]
-        updateSelectInput(session, "change_t2", "Mapped Time 2: (Right pane)", choices = sort(unique(x2),decreasing = TRUE))
+        updateSelectInput(session, "change_t2", "Mapped habitat - Time 2 (Right)", choices = sort(unique(x2),decreasing = TRUE))
     })
     observe({
         #x3 <- presence_dat %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Map_Year)%>% dplyr::arrange(Map_Year) %>% dplyr::filter(Map_Year <= input$change_t2)
         x3 <- presence_dat$Map_Year[presence_dat$Estuary == input$estuary3] 
-        updateSelectInput(session, "change_t1", "Mapped Time 1:  (Left pane)", choices = unique(x3))
+        updateSelectInput(session, "change_t1", "Mapped habitat - Time 1 (Left)", choices = unique(x3))
     })
 
     # DATA PREPERATION
@@ -824,16 +824,16 @@ server <- function(input, output, session) {
             addMapPane("right", zIndex = 200) %>%
             
             
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped macrophytes", layerId = "Time1",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time1",
                      options = pathOptions(pane = "left", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Mapped macrophytes", layerId = "Time2",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time2",
                      options = pathOptions(pane = "right", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
             addLayersControl(
                 baseGroups = c("OSM (default)", "Photo basemap"),
-                overlayGroups = c("Change grid", "Mapped macrophytes"),
+                overlayGroups = c("Change grid", "Mapped habitat"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             
             #Add side by Side control
@@ -852,7 +852,7 @@ server <- function(input, output, session) {
             
             #change map turned off by default
             #hideGroup("Time 1 - (Left)") %>%
-            hideGroup("Macrophyte layers")
+            hideGroup("Mapped habitat")
 
 
     })
