@@ -462,7 +462,7 @@ tabPanel(
         tags$p("West, G., Glasby, T.M., (in press). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuarine Coastal and Shelf Science."),
         tags$a(href="West (1985).pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
         tags$br(),
-        tags$br("The Shiny App is produced using R v4.0.3, RStudio version 1.4.1103 and Leaflet v2.0.4.1,"),
+        tags$br("The Shiny App is produced using R v4.0.3, RStudio v1.4.1103 and Leaflet v2.0.4.1,"),
         tags$br(),
 
     )
