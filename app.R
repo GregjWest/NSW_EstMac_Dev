@@ -455,18 +455,15 @@ tabPanel(
         tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
         tags$p(strong("Data compilation:"), "Greg West"),
         tags$p(strong("Last mapping update:"), "2020"),
-        tags$p(strong("Last Shiny App update:"), "Dec 2020"),
-        tags$br(),
-        tags$br(),
+        tags$p(strong("Last Shiny App update:"), "Jan 2021"),
         tags$br(),
         tags$h3("References"),
         tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
         tags$p("West, G., Glasby, T.M., (in press). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuarine Coastal and Shelf Science."),
         tags$a(href="West (1985).pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
         tags$br(),
-        tags$br("The Shiny App is produced using R v4.0.0, RStudio v1.3.959 and Leaflet v2.0.3,"),
-        tags$br("v0.01")
-        
+        tags$br("The Shiny App is produced using R v4.0.3, RStudio version 1.4.1103 and Leaflet v2.0.4.1,"),
+        tags$br(),
 
     )
 )
