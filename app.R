@@ -445,9 +445,9 @@ tabPanel(
                "-dominated).   Areas where mixed genus occur are mapped and classified as such, e.g. the class", 
                tags$span(tags$em("'Posidonia/Zostera /Halophila'", .noWS = "outside"),.noWS = "outside"),
                " contains all three genera.  For mixed habitats with two genera, the area per genus has been calculated as 50% of the total mapped area. For habitats with three genera, areas per genus represent one third of the total mixed habitat area."),
-        tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. The foreshore was classified in mapped in 7
+        tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
                estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
-        tags$p("Artificial Structures (Pontoons and Jetties) and habitat disturbances are currenlty mapped for Pittwater and will be mapped for all future estuaries."),
+        tags$p("Artificial Structures (Pontoons and Jetties) and habitat disturbances are currently mapped for Pittwater and will be mapped for all future estuaries."),
         tags$a(href="NSW_Estuaries.html", tags$p("A summary of the mapped estuaries and the species present can be found here."), target="_blank"),
         tags$h3("Acknowledgements"),
         tags$p("The data used here is derived from many decades of work by DPI Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood (see West et al. 1985)."),
