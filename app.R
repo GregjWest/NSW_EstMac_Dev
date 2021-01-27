@@ -915,18 +915,18 @@ server <- function(input, output, session) {
     
     
     output$habitat_plot <- renderPlot({
-        ggplot(data=plot_dat(), aes(x=Map_Year, y=Area/10000)) + # change x=Map_Year to x=factor(Map_Year) for bar chart
-            geom_area( fill="#989898", alpha=0.15) +
-            geom_line(colour="#989898", size=1) +
-            geom_point(shape = 23, fill="lightgray", color = "black", size=3) +
-            #geom_bar(stat="identity", color="steelblue", fill="#989898", width = 0.8)+ # settings for bar chart
-
+        ggplot(data=plot_dat(), aes(x=factor(Map_Year), y=Area/10000)) + # change x=Map_Year to x=factor(Map_Year) for bar chart
+            #geom_area( fill="#989898", alpha=0.15) +
+            #geom_line(colour="#989898", size=1) +
+            #geom_point(shape = 23, fill="lightgray", color = "black", size=3) +
+            geom_bar(stat="identity", color="black", fill="#eeeeee", width = 0.8)+ # settings for bar chart
+            geom_hline(yintercept = 0, color = "#888888", size = 0.8)+
             
             #geom_col(fill="#053f5c") + # change the x = fMap_Year
             #ylim(0,NA) +
             ylab("Hectares") +
             xlab("Years Mapped") +
-            scale_x_continuous(breaks=seq(1985, 2020, 3)) +
+            #scale_x_continuous(breaks=seq(1985, 2020, 3)) +
             scale_y_continuous(limits = c(0, NA)) +
             facet_wrap(~Habitat, scales = "free_y") +
             theme_bw() +
