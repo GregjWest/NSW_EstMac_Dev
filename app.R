@@ -1,7 +1,7 @@
 ### West, Williams, Glasby  Dec 2020
 ## A Shiny map to display and explore the estuarine macorphyte mapping data
 
-# Last update 8 Dec 2020 1312
+# Last update Jan 2021
 
 # v0.6
 
@@ -444,8 +444,11 @@ tabPanel(
                tags$span(tags$em("Zostera", .noWS = "outside"),.noWS = "outside"),
                "-dominated).   Areas where mixed genus occur are mapped and classified as such, e.g. the class", 
                tags$span(tags$em("'Posidonia/Zostera /Halophila'", .noWS = "outside"),.noWS = "outside"),
-               " contains all three genera.  For mixed habitats with two genera, the area per genus has been calculated as 50% of the total mapped area. For habitats with three genera, areas per genus one third of the total mixed habitat area."),
-        
+               " contains all three genera.  For mixed habitats with two genera, the area per genus has been calculated as 50% of the total mapped area. For habitats with three genera, areas per genus represent one third of the total mixed habitat area."),
+        tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
+               estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
+        tags$p("Artificial Structures (Pontoons and Jetties) and habitat disturbances are currently mapped for Pittwater and will be mapped for all future estuaries."),
+        tags$a(href="NSW_Estuaries.html", tags$p("A summary of the mapped estuaries and the species present can be found here."), target="_blank"),
         tags$h3("Acknowledgements"),
         tags$p("The data used here is derived from many decades of work by DPI Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood (see West et al. 1985)."),
         tags$p("Subsequent mapping projects were led by Rob Williams, Bob Creese, Greg West and Tim Glasby.  We thank the many staff involved in producing these maps, including, but not limited to: Peter Gibson, Roger Laird, Isabelle Thiebaud, Brooke McCartin, Chris Gallen, Danielle Morrison, Joe Neilson and Trudy Walford."),
@@ -640,12 +643,13 @@ server <- function(input, output, session) {
         
         
     })
+    
+    
     # watch the year selector and load macrophytes for the selected year without resetting the map
     observe({
         input$date_t1
         input$estuary1
         leafletProxy("map") %>%
-            
             removeTiles("macmap") %>%
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat", layerId = "macmap",
                      options = pathOptions(pane="macromap", maxZoom=17),
