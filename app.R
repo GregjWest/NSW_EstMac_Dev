@@ -57,9 +57,9 @@ dat$fMap_Year <- factor(dat$Map_Year)
 
 # Transpose data to long format to enable filtering by species.
 dat1 <- dat %>%
-    gather("Habitat", "Area", 7:13) %>%
-    dplyr::filter(Habitat != "Mangrove_Saltmarsh")
-dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia"))
+    gather("Habitat", "Area", 7:13)
+    #dplyr::filter(Habitat != "Mangrove_Saltmarsh")
+dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia"))
 
 
 # Create a data frame of the total area of each species by estuary and year. To be graphed and tabled in the data summary tab.
@@ -90,7 +90,9 @@ cell_size <- 250
 
 myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84 + towgs8"
 
-### Theme for mangrove v slatmarsh plot layout ----
+mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Mangrove_Saltmarsh"="Mixed Mangrove and Saltmarsh", "Saltmarsh"="Saltmarsh"))
+
+# Theme for mangrove v slatmarsh plot layout ----
 theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0, 
                            color = "grey", size = 0.5, 
                            xlab = "Saltmarsh", 
@@ -238,7 +240,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        selectInput("estuary1", 
                                                    label = "Estuary:", 
                                                    choices = NULL, 
-                                                   selected = "Port Stephens"),
+                                                   selected = "Pittwater"),
                                        selectInput("date_t1", 
                                                    label = "Year Mapped:", 
                                                    choices = NULL, 
@@ -362,34 +364,47 @@ tabPanel(
                    ),
                    tags$p(htmlOutput("ave_depth")
                    ),
-                   tags$b("Years mapped: "), textOutput("years_mapped")
-                   ,
+                   tags$b("Years mapped: "), textOutput("years_mapped"),
                    
                    tags$br(),
                    
-                   tags$p("Macrophyte maps for the latest time of sampling can be donwloaded from the", 
+                   tags$p("Macrophyte maps for the latest time of sampling can be downloaded from the", 
                           tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.") ) 
                    
                    
             )),
         
         fluidRow(
-            tags$br(),tags$br(),tags$br(),tags$br(),
+            tags$br(),tags$br(),
             
-            h4("Change in area over time for each species"),
+            h4("Change in area over time for each seagrass species"),
             
-            tags$p("Change in area (hectares) of mapped habitat for the selected estuary. Points represent the years that the selected estuary has been mapped."),
+            tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary."),
             
             column(6, offset = 0,
                    style = "height:600px; ", 
                    plotOutput("habitat_plot", width = "100%"))
         ),
+        
         fluidRow(
             tags$br(),tags$br(),
+            
             h4(" Relative change in Mangrove and Saltmarsh"),
+            tags$p("Change in area (hectares) of mapped Mangrove and Saltmarsh for the selected estuary."),
+            
+            column(6, offset = 0,
+                   style = "height:350px; ", 
+                   plotOutput("mansm_plot", width = "100%"))
+                 ),
+        
+        
+        fluidRow(
+            tags$br(),
+            
             tags$p("Relative changes in the area of mangrove to saltmarsh over time are presented below. 
                    This analysis represents the changes in area between these two habitats within the 250m x 250m grids for the selected times. Each point represents 
                    the change in ratio of mangrove area to saltmarsh area in a 250m x 250m map grid. "),
+            
             
         ),
         fluidRow(column(4,
@@ -434,7 +449,9 @@ tabPanel(
     tags$div(
         tags$h3("Overview"),
         tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
+        tags$a(href="NSW_Estuaries.html", tags$p("A detailed list of all mapped estuaries can be viewed here."), target="_blank"),
         tags$h3("Mapping Details"),
+        
         tags$p("Methods used for mapping are described in Creese et al. (2009) and West & Glasby (2020).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
                tags$span(tags$em("Phragmites australis")),
                "and ", 
@@ -448,7 +465,7 @@ tabPanel(
         tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
                estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
         tags$p("Artificial Structures (Pontoons and Jetties) and habitat disturbances are currently mapped for Pittwater and will be mapped for all future estuaries."),
-        tags$a(href="NSW_Estuaries.html", tags$p("A summary of the mapped estuaries and the species present can be found here."), target="_blank"),
+        
         tags$h3("Acknowledgements"),
         tags$p("The data used here is derived from many decades of work by DPI Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood (see West et al. 1985)."),
         tags$p("Subsequent mapping projects were led by Rob Williams, Bob Creese, Greg West and Tim Glasby.  We thank the many staff involved in producing these maps, including, but not limited to: Peter Gibson, Roger Laird, Isabelle Thiebaud, Brooke McCartin, Chris Gallen, Danielle Morrison, Joe Neilson and Trudy Walford."),
@@ -909,6 +926,7 @@ server <- function(input, output, session) {
             dplyr::filter(Estuary == input$estuary2) %>%
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
+            dplyr::filter(!Habitat %in% c("Mangrove", "Saltmarsh", "Mangrove_Saltmarsh")) %>%
             dplyr::filter(Area >= 0)
         
     })
@@ -985,7 +1003,32 @@ server <- function(input, output, session) {
             filter(delta_mangrove != 0)
     })
     
+    # Plot estuary by habitat over time    
+    mansm_dat <- reactive({
+        dat1 %>%
+            dplyr::filter(Estuary == input$estuary2) %>%
+            dplyr::group_by(Habitat,Map_Year) %>%
+            dplyr::summarise(Area = sum(Area)) %>%
+            dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Mangrove_Saltmarsh")) %>%
+            dplyr::filter(Area >= 0)
+        
+    })
     
+    
+    output$mansm_plot <- renderPlot({
+        ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
+            geom_bar(stat="identity", color="black", size = 0.2, fill="#EEEEEE", width = 0.7)+ 
+            ylab("Hectares") +
+            xlab("Years Mapped") +
+            scale_y_continuous(expand = expansion(mult = c(0, .1)))+
+            facet_wrap(~Habitat, scales = "free_y", labeller = mansm.names) +
+            theme_bw() +
+            theme(axis.title.x = element_text(face="bold", size=14), 
+                  axis.text.x  = element_text(vjust=0.5, size=12),
+                  axis.title.y = element_text(face="bold", size=14),
+                  axis.text.y  = element_text(size=14),
+                  strip.text.x = element_text(size = 14))
+    },height = 350, width = 1000 )
     
     output$MVS <- renderPlot({
         ggplot(mvs_diff_dat()) +
