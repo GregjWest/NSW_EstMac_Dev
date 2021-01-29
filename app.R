@@ -430,7 +430,7 @@ tabPanel(
                    style = "height:50px; "
             
             ),
-            column(6, offset = 2,
+            column(12, align="center",
                    style = "height:700px; ",
                    plotOutput("MVS", width = "100%"))
 
@@ -935,8 +935,7 @@ server <- function(input, output, session) {
     output$habitat_plot <- renderPlot({
         ggplot(data=plot_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
             geom_bar(stat="identity", color="black", size = 0.2, fill="#EEEEEE", width = 0.7)+ 
-            ylab("Hectares") +
-            xlab("Years Mapped") +
+            labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
             facet_wrap(~Habitat, scales = "free_y") +
             theme_bw() +
@@ -944,6 +943,7 @@ server <- function(input, output, session) {
                   axis.text.x  = element_text(vjust=0.5, size=12),
                   axis.title.y = element_text(face="bold", size=14),
                   axis.text.y  = element_text(size=14),
+                  #panel.spacing.x = unit(6, "lines"),
                   strip.text.x = element_text(size = 14, face = "italic"))
     },height = 550, width = 1000 )
     
@@ -1012,8 +1012,7 @@ server <- function(input, output, session) {
     output$mansm_plot <- renderPlot({
         ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
             geom_bar(stat="identity", color="black", size = 0.2, fill="#EEEEEE", width = 0.7)+ 
-            ylab("Hectares") +
-            xlab("Years Mapped") +
+            labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
             facet_wrap(~Habitat, scales = "free_y", labeller = mansm.names) +
             theme_bw() +
