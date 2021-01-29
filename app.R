@@ -944,7 +944,7 @@ server <- function(input, output, session) {
                   axis.text.x  = element_text(vjust=0.5, size=12),
                   axis.title.y = element_text(face="bold", size=14),
                   axis.text.y  = element_text(size=14),
-                  strip.text.x = element_text(size = 14))
+                  strip.text.x = element_text(size = 14, face = "italic"))
     },height = 550, width = 1000 )
     
     
@@ -1021,7 +1021,7 @@ server <- function(input, output, session) {
                   axis.text.x  = element_text(vjust=0.5, size=12),
                   axis.title.y = element_text(face="bold", size=14),
                   axis.text.y  = element_text(size=14),
-                  strip.text.x = element_text(size = 14))
+                  strip.text.x = element_text(size = 14, face = "italic"))
     },height = 350, width = 1000 )
     
     output$MVS <- renderPlot({
