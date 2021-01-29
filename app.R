@@ -933,24 +933,18 @@ server <- function(input, output, session) {
     
     
     output$habitat_plot <- renderPlot({
-        ggplot(data=plot_dat(), aes(x=Map_Year, y=Area/10000)) + 
-            geom_area( fill="#989898", alpha=0.15) +
-            geom_line(colour="#989898", size=1) +
-            geom_point(shape = 23, fill="lightgray", color = "black", size=3) +
-
-            
-            #geom_col(fill="#053f5c") + # change the x = fMap_Year
-            #ylim(0,NA) +
+        ggplot(data=plot_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
+            geom_bar(stat="identity", color="black", size = 0.2, fill="#EEEEEE", width = 0.7)+ 
             ylab("Hectares") +
             xlab("Years Mapped") +
-            scale_x_continuous(breaks=seq(1985, 2020, 3)) +
-            scale_y_continuous(limits = c(0, NA)) +
+            scale_y_continuous(expand = expansion(mult = c(0, .1)))+
             facet_wrap(~Habitat, scales = "free_y") +
             theme_bw() +
-            theme(axis.title.x = element_text(face="bold", size=14), axis.text.x  = element_text(angle=90, vjust=0.5, size=12),
-                    axis.title.y = element_text(face="bold", size=14),
-                    axis.text.y  = element_text(size=14),
-                    strip.text.x = element_text(size = 14, face = "italic"))
+            theme(axis.title.x = element_text(face="bold", size=14), 
+                  axis.text.x  = element_text(vjust=0.5, size=12),
+                  axis.title.y = element_text(face="bold", size=14),
+                  axis.text.y  = element_text(size=14),
+                  strip.text.x = element_text(size = 14))
     },height = 550, width = 1000 )
     
     
