@@ -450,6 +450,7 @@ tabPanel(
         tags$h3("Overview"),
         tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
         tags$a(href="NSW_Estuaries.html", tags$p("A detailed list of all mapped estuaries can be viewed here."), target="_blank"),
+        tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", tags$p("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal."), target="_blank"),
         tags$h3("Mapping Details"),
         
         tags$p("Methods used for mapping are described in Creese et al. (2009) and West & Glasby (2020).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
@@ -501,17 +502,17 @@ tabPanel(
 server <- function(input, output, session) {
 
     showModal(modalDialog(
-        title = "NSW DPI Estuarine Macrophyte Dashboard",
-        HTML('<center><img src="nsw dpi.png" width="120"></center>'),
-        tags$p("Random text......Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7"),
-        tags$p("Estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay.Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7"),
-        tags$p("Including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay.Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
-               estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
-        tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", tags$p("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal."), target="_blank"),
-        #HTML('<center><img src="nsw dpi.png" width="120"></center>'),
+        #title = "NSW DPI Estuarine Macrophyte Dashboard",
+        HTML('<center><img src="splashscreen.svg" width="860"></center>'),
+        #tags$p("Random text....But this can have any text and image as an intro to the site...."),
+        #tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7"),
+        #tags$p("Estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay.Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7"),
+        #tags$p("Including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay.Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
+        #       estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
+        #tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", tags$p("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal."), target="_blank"),
         #tags$img(src = "DPI_LOGO_left.png", width = "100px", height = "30px"),
-        footer = modalButton("OK")
-        #size = c("l")
+        footer = modalButton("OK"),
+        size = c("l")
     ))
     
 ## User selections carry through to each tab forwards and backwards
