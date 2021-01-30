@@ -500,6 +500,19 @@ tabPanel(
 
 server <- function(input, output, session) {
 
+    showModal(modalDialog(
+        title = "NSW DPI Estuarine Macrophyte Dashboard",
+        HTML('<center><img src="nsw dpi.png" width="120"></center>'),
+        tags$p("Random text......Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7"),
+        tags$p("Estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay.Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7"),
+        tags$p("Including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay.Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
+               estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
+        tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", tags$p("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal."), target="_blank"),
+        #HTML('<center><img src="nsw dpi.png" width="120"></center>'),
+        #tags$img(src = "DPI_LOGO_left.png", width = "100px", height = "30px"),
+        footer = modalButton("OK")
+        #size = c("l")
+    ))
     
 ## User selections carry through to each tab forwards and backwards
     observeEvent(
