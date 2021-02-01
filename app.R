@@ -57,9 +57,9 @@ dat$fMap_Year <- factor(dat$Map_Year)
 
 # Transpose data to long format to enable filtering by species.
 dat1 <- dat %>%
-    gather("Habitat", "Area", 7:13)
+    gather("Habitat", "Area", 7:15)
     #dplyr::filter(Habitat != "Mangrove_Saltmarsh")
-dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia"))
+dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
 
 
 # Create a data frame of the total area of each species by estuary and year. To be graphed and tabled in the data summary tab.
@@ -449,8 +449,10 @@ tabPanel(
     tags$div(
         tags$h3("Overview"),
         tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
-        tags$a(href="NSW_Estuaries.html", tags$p("A detailed list of all mapped estuaries can be viewed here."), target="_blank"),
-        tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", tags$p("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal."), target="_blank"),
+        tags$p("A detailed list of all mapped estuaries can be viewed, ",
+                tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
+        tags$p("Macrophyte maps for the latest time of sampling can be downloaded from the", 
+               tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
         tags$h3("Mapping Details"),
         
         tags$p("Methods used for mapping are described in Creese et al. (2009) and West & Glasby (2020).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
@@ -940,7 +942,7 @@ server <- function(input, output, session) {
             dplyr::filter(Estuary == input$estuary2) %>%
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(!Habitat %in% c("Mangrove", "Saltmarsh", "Mangrove_Saltmarsh")) %>%
+            dplyr::filter(!Habitat %in% c("Mangrove", "Saltmarsh", "Mangrove_Saltmarsh", "Man_Biplot", "SM_Biplot")) %>%
             dplyr::filter(Area >= 0)
         
     })
@@ -985,7 +987,7 @@ server <- function(input, output, session) {
         dat %>%
             dplyr::filter(Estuary == input$estuary2) %>%
             dplyr::filter(Map_Year == input$mvs_t2) %>%
-            dplyr::select(GRID_ID, Mangrove, Saltmarsh)
+            dplyr::select(GRID_ID, Man_Biplot, SM_Biplot)
         
     })
     
@@ -995,7 +997,7 @@ server <- function(input, output, session) {
         dat %>%
             dplyr::filter(Estuary == input$estuary2) %>%
             dplyr::filter(Map_Year == input$mvs_t1) %>%
-            dplyr::select(GRID_ID, Mangrove, Saltmarsh)
+            dplyr::select(GRID_ID, Man_Biplot, SM_Biplot)
     })
     
     
@@ -1034,7 +1036,7 @@ server <- function(input, output, session) {
                   axis.text.x  = element_text(vjust=0.5, size=12),
                   axis.title.y = element_text(face="bold", size=14),
                   axis.text.y  = element_text(size=14),
-                  strip.text.x = element_text(size = 14, face = "italic"))
+                  strip.text.x = element_text(size = 14))
     },height = 350, width = 1000 )
     
     output$MVS <- renderPlot({
