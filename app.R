@@ -63,14 +63,14 @@ dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Mangrove_Saltmarsh"
 
 
 # Create a data frame of the total area of each species by estuary and year. To be graphed and tabled in the data summary tab.
-dat_summary <- dat %>%
-    group_by(Estuary,Map_Year) %>%
-    summarise(Mangrove = sum(Mangrove/10000),
-              Saltmarsh = sum(Saltmarsh/10000)) %>%
-    #mutate(Seagrass = round(Seagrass, 0)) %>%
-    mutate(Mangrove = round(Mangrove, 0)) %>%
-    mutate(Saltmarsh = round(Saltmarsh, 0)) %>%
-    ungroup()
+# dat_summary <- dat %>%
+#     group_by(Estuary,Map_Year) %>%
+#     summarise(Mangrove = sum(Mangrove/10000),
+#               Saltmarsh = sum(Saltmarsh/10000)) %>%
+#     #mutate(Seagrass = round(Seagrass, 0)) %>%
+#     mutate(Mangrove = round(Mangrove, 0)) %>%
+#     mutate(Saltmarsh = round(Saltmarsh, 0)) %>%
+#     ungroup()
 
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
