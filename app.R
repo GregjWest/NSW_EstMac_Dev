@@ -639,9 +639,9 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial Structures",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
-                     options = pathOptions(pane="macromap", maxZoom=17, opacity=.6),
-                     attribution = "&copy; Transport for NSW 2020") %>% 
+            #addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
+            #         options = pathOptions(pane="macromap", maxZoom=17, opacity=.6),
+            #         attribution = "&copy; Transport for NSW 2020") %>% 
             # addTiles(urlTemplate = "Pittwater/Slip/{z}/{x}/{y}.png", group = "Slipways",
             #          options = tileOptions(maxZoom=18, zIndex = 1000),
             #          attribution = "&copy; Department of Primary Industries 2020") %>% 
@@ -659,7 +659,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Mapped Habitat", "Foreshore", "Artificial Structures", "Mooring Areas", "Moorings"),
+                overlayGroups = c("Mapped Habitat", "Foreshore", "Artificial Structures", "Moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -671,7 +671,7 @@ server <- function(input, output, session) {
             hideGroup("Foreshore") %>%
             hideGroup("Artificial Structures") %>%
             #hideGroup("Slipways") %>%
-            hideGroup("Mooring Areas") %>%
+            #hideGroup("Mooring Areas") %>%
             hideGroup("Moorings")
         
         
