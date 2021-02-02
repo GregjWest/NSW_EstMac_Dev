@@ -219,8 +219,9 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                                    choices = NULL, 
                                                    selected = "2017"),
                                                 tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal.", 
-                                                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
-                                                tags$img(src='Spatial Data Portal small.svg')) 
+                                                        tags$br(),tags$br(),
+                                                        tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
+                                                tags$img(src='Fisheries_Portal.svg')) 
                                                )
                                        
                                        
@@ -286,8 +287,9 @@ tabPanel(
             
         
             tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal.", 
+                    tags$br(),tags$br(),
                     tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
-                           tags$img(src='Spatial Data Portal small.svg')), 
+                           tags$img(src='Fisheries_Portal.svg')), 
             
                     absolutePanel(id = "legend1", class = "card", bottom = 300, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
                                   tags$img(src='Macrophyte_Legend.svg',height='300',width='200'))
