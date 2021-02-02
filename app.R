@@ -1026,9 +1026,12 @@ server <- function(input, output, session) {
     })
     
     
+    
+    # Mangrove, Mixed and Saltmarsh plots
     output$mansm_plot <- renderPlot({
         ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
             geom_bar(stat="identity", color="black", size = 0.2, fill="#EEEEEE", width = 0.7)+ 
+            #geom_text(aes(label=round(Area/10000, digits = 2)), position=position_dodge(width=0.9), vjust=-0.25)+
             labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
             facet_wrap(~Habitat, labeller = mansm.names) +
@@ -1040,6 +1043,10 @@ server <- function(input, output, session) {
                   strip.text.x = element_text(size = 14))
     },height = 350, width = 1000 )
     
+    
+    
+    
+    #Mangrove vs Saltmarsh Biplot
     output$MVS <- renderPlot({
         ggplot(mvs_diff_dat()) +
             theme_geometry(mvs_diff_dat()$delta_mangrove, mvs_diff_dat()$delta_saltmarsh) +
