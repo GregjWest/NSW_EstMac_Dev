@@ -377,7 +377,7 @@ tabPanel(
         fluidRow(
             tags$br(),tags$br(),
             
-            h4("Change in area over time for each seagrass species"),
+            h4("Change in mapped area of seagrass"),
             
             tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary."),
             
@@ -389,7 +389,7 @@ tabPanel(
         fluidRow(
             tags$br(),tags$br(),
             
-            h4(" Relative change in Mangrove and Saltmarsh"),
+            h4("Change in mapped area of Mangrove and Saltmarsh"),
             tags$p("Change in area (hectares) of mapped Mangrove and Saltmarsh for the selected estuary."),
             
             column(6, offset = 0,
@@ -401,6 +401,7 @@ tabPanel(
         fluidRow(
             tags$br(),
             
+            h4("Relative change of Mangrove and Saltmarsh"),
             tags$p("Relative changes in the area of mangrove to saltmarsh over time are presented below. 
                    This analysis represents the changes in area between these two habitats within the 250m x 250m grids for the selected times. Each point represents 
                    the change in mapped area of mangrove and saltmarsh between Time 1 and Time 2 for each 250m x 250m grid. "),
