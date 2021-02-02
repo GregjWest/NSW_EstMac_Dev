@@ -42,7 +42,7 @@ if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-proj
 
 
 # Read in master data .csv
-# THe data is supplied by Greg West and should be in the exact same layout (column names, species names and all are case sensitive. Ensure there are no spaces in headers)
+# THe data should be in the exact same layout (column names, species names and all are case sensitive. Ensure there are no spaces in headers) as the csv below
 dat <-  read.csv("Multi_Estuary_All_Years_Grid.csv", stringsAsFactors = T)
 
 report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
@@ -62,7 +62,7 @@ dat1 <- dat %>%
 dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
-# List the estuaries available
+# List the regions available
 list_region <- c("North Coast","Hunter", "Greater Sydney", "South East")
 index_region <- 3
 
