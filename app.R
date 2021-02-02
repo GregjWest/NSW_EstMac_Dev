@@ -61,16 +61,16 @@ dat1 <- dat %>%
     #dplyr::filter(Habitat != "Mangrove_Saltmarsh")
 dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
 
-
-# Create a data frame of the total area of each species by estuary and year. To be graphed and tabled in the data summary tab.
-dat_summary <- dat %>%
-    group_by(Estuary,Map_Year) %>%
-    summarise(Mangrove = sum(Mangrove/10000),
-              Saltmarsh = sum(Saltmarsh/10000)) %>%
-    #mutate(Seagrass = round(Seagrass, 0)) %>%
-    mutate(Mangrove = round(Mangrove, 0)) %>%
-    mutate(Saltmarsh = round(Saltmarsh, 0)) %>%
-    ungroup()
+# 
+# # Create a data frame of the total area of each species by estuary and year. To be graphed and tabled in the data summary tab.
+# dat_summary <- dat %>%
+#     group_by(Estuary,Map_Year) %>%
+#     summarise(Mangrove = sum(Mangrove/10000),
+#               Saltmarsh = sum(Saltmarsh/10000)) %>%
+#     #mutate(Seagrass = round(Seagrass, 0)) %>%
+#     mutate(Mangrove = round(Mangrove, 0)) %>%
+#     mutate(Saltmarsh = round(Saltmarsh, 0)) %>%
+#     ungroup()
 
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
@@ -99,10 +99,10 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
                            ylab = "Mangrove",
                            ticks = 10,
                            textsize = 3,
-                           xlimit = max(62500,62500),
-                           ylimit = max(62500,62500),
-                           #xlimit = max(abs(xvals),abs(yvals)),
-                           #ylimit = max(abs(yvals),abs(xvals)),
+                           #xlimit = max(62500,62500),
+                           #ylimit = max(62500,62500),
+                           xlimit = max(abs(xvals),abs(yvals)),
+                           ylimit = max(abs(yvals),abs(xvals)),
                            epsilon = max(xlimit,ylimit)/50){
     
     #INPUT:
@@ -403,7 +403,7 @@ tabPanel(
             
             tags$p("Relative changes in the area of mangrove to saltmarsh over time are presented below. 
                    This analysis represents the changes in area between these two habitats within the 250m x 250m grids for the selected times. Each point represents 
-                   the change in ratio of mangrove area to saltmarsh area in a 250m x 250m map grid. "),
+                   the change in mapped area of mangrove and saltmarsh between Time 1 and Time 2 for each 250m x 250m grid. "),
             
             
         ),
@@ -1008,9 +1008,9 @@ server <- function(input, output, session) {
                    mvs_t1_dat(),
                    by = c("GRID_ID")) %>%
             mutate(delta_mangrove = .[[2]] - .[[4]]) %>%
-            mutate(delta_saltmarsh = .[[3]] - .[[5]]) %>%
-            filter(delta_saltmarsh != 0) %>%
-            filter(delta_mangrove != 0)
+            mutate(delta_saltmarsh = .[[3]] - .[[5]])
+            #filter(delta_saltmarsh != 0) %>%
+            #filter(delta_mangrove != 0)
     })
     
     # Plot estuary by habitat over time    
@@ -1030,7 +1030,7 @@ server <- function(input, output, session) {
             geom_bar(stat="identity", color="black", size = 0.2, fill="#EEEEEE", width = 0.7)+ 
             labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
-            facet_wrap(~Habitat, scales = "free_y", labeller = mansm.names) +
+            facet_wrap(~Habitat, labeller = mansm.names) +
             theme_bw() +
             theme(axis.title.x = element_text(face="bold", size=14), 
                   axis.text.x  = element_text(vjust=0.5, size=12),
@@ -1053,7 +1053,7 @@ server <- function(input, output, session) {
             annotation_custom(mvsbgimg, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf) #+
 
         
-    },height = 500, width = 800 )
+    },height = 600, width = 600 )
     
     
  
