@@ -42,7 +42,7 @@ if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-proj
 
 
 # Read in master data .csv
-# THe data is supplied by Greg West and should be in the exact same layout (column names, species names and all are case sensitive. Ensure there are no spaces in headers)
+# THe data should be in the exact same layout (column names, species names and all are case sensitive. Ensure there are no spaces in headers) as the csv below
 dat <-  read.csv("Multi_Estuary_All_Years_Grid.csv", stringsAsFactors = T)
 
 report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
@@ -61,20 +61,8 @@ dat1 <- dat %>%
     #dplyr::filter(Habitat != "Mangrove_Saltmarsh")
 dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
 
-# 
-# # Create a data frame of the total area of each species by estuary and year. To be graphed and tabled in the data summary tab.
-# dat_summary <- dat %>%
-#     group_by(Estuary,Map_Year) %>%
-#     summarise(Mangrove = sum(Mangrove/10000),
-#               Saltmarsh = sum(Saltmarsh/10000)) %>%
-#     #mutate(Seagrass = round(Seagrass, 0)) %>%
-#     mutate(Mangrove = round(Mangrove, 0)) %>%
-#     mutate(Saltmarsh = round(Saltmarsh, 0)) %>%
-#     ungroup()
-
-
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
-# List the estuaries available
+# List the regions available
 list_region <- c("North Coast","Hunter", "Greater Sydney", "South East")
 index_region <- 3
 
@@ -92,7 +80,7 @@ myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84
 
 mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Mangrove_Saltmarsh"="Mixed Mangrove and Saltmarsh", "Saltmarsh"="Saltmarsh"))
 
-# Theme for mangrove v slatmarsh plot layout ----
+# Plot theme for mangrove v saltmarsh plot layout ---- derived from function by Rodrigo Zepeda https://stackoverflow.com/questions/17753101/center-x-and-y-axis-with-ggplot2
 theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0, 
                            color = "grey", size = 0.5, 
                            xlab = "Saltmarsh", 
@@ -183,23 +171,8 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
     #theme.list[[3]] <- 
     return(theme.list)
 }
-#####
 
 
-
-
-
-
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
 # User Interface ----
 # The User Interface code controls how the App is displayed (colours, layout, menus etc)
 # The code is broken down tab by tab
@@ -507,13 +480,6 @@ server <- function(input, output, session) {
     showModal(modalDialog(
         #title = "NSW DPI Estuarine Macrophyte Dashboard",
         HTML('<center><img src="splashscreen.svg" width="860"></center>'),
-        #tags$p("Random text....But this can have any text and image as an intro to the site...."),
-        #tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7"),
-        #tags$p("Estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay.Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7"),
-        #tags$p("Including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay.Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
-        #       estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
-        #tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", tags$p("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal."), target="_blank"),
-        #tags$img(src = "DPI_LOGO_left.png", width = "100px", height = "30px"),
         footer = modalButton("OK"),
         size = c("l")
     ))
@@ -618,12 +584,7 @@ server <- function(input, output, session) {
 
    
     # OUTPUTS  
-    
-    # Summary table
-    # output$sum_stats <- renderPrint({
-    #     summary(raster_values())
-    # })  
-    
+
     
     output$map <- renderLeaflet({
         
@@ -643,9 +604,6 @@ server <- function(input, output, session) {
             #addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
             #         options = pathOptions(pane="macromap", maxZoom=17, opacity=.6),
             #         attribution = "&copy; Transport for NSW 2020") %>% 
-            # addTiles(urlTemplate = "Pittwater/Slip/{z}/{x}/{y}.png", group = "Slipways",
-            #          options = tileOptions(maxZoom=18, zIndex = 1000),
-            #          attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Moorings",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Transport for NSW 2020") %>% 
@@ -671,7 +629,6 @@ server <- function(input, output, session) {
                        completedColor = "#7D4479") %>%
             hideGroup("Foreshore") %>%
             hideGroup("Artificial Structures") %>%
-            #hideGroup("Slipways") %>%
             #hideGroup("Mooring Areas") %>%
             hideGroup("Moorings")
         
@@ -828,17 +785,6 @@ server <- function(input, output, session) {
     
     ### Create an asymmetric color range
     # scale_range <- c(-62500, 62500)
-    ## Make vector of colors for values smaller than 0 (20 colors)
-    # rc1 <- colorRampPalette(colors = c("dark red", "red", "white"), space = "Lab")(10)
-    
-    ## Make vector of colors for values larger than 0 (180 colors)
-    #rc2 <- colorRampPalette(colors = c("white","green", "dark green"), space = "Lab")(10)
-    
-    ## Combine the two color palettes
-    #rampcols <- c(rc1, rc2)
-    
-    # mypal <- colorNumeric(palette = rampcols, domain = scale_range,  na.color = "transparent")
-    
     bins <- c(62500, 32000, 3200, 320, 32, .1, -.1, -32, -320, -3200, -32000, -65000)
     grdpal <- colorBin ("RdYlBu", bins = bins, na.color = "transparent") 
     
@@ -885,8 +831,7 @@ server <- function(input, output, session) {
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
             
-            #change map turned off by default
-            #hideGroup("Time 1 - (Left)") %>%
+            #change map turned on by default
             hideGroup("Mapped habitat")
 
 
@@ -1003,7 +948,7 @@ server <- function(input, output, session) {
     
     
     
-    
+    #calculate mangrove and saltmarsh values from grid IDs
     mvs_diff_dat <- reactive({
         inner_join(mvs_t2_dat(),
                    mvs_t1_dat(),
@@ -1014,7 +959,7 @@ server <- function(input, output, session) {
             #filter(delta_mangrove != 0)
     })
     
-    # Plot estuary by habitat over time    
+    #Filter out mangroves, mangrove_saltmarsh and saltmarsh
     mansm_dat <- reactive({
         dat1 %>%
             dplyr::filter(Estuary == input$estuary2) %>%
@@ -1030,7 +975,7 @@ server <- function(input, output, session) {
     # Mangrove, Mixed and Saltmarsh plots
     output$mansm_plot <- renderPlot({
         ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
-            geom_bar(stat="identity", color="black", size = 0.2, fill="#EEEEEE", width = 0.7)+ 
+            geom_bar(stat="identity", color="black", size = 0.4, fill="#EEEEEE", width = 0.7)+ 
             #geom_text(aes(label=round(Area/10000, digits = 2)), position=position_dodge(width=0.9), vjust=-0.25)+
             labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
@@ -1058,7 +1003,7 @@ server <- function(input, output, session) {
                   axis.text.y=element_blank(),
                   axis.ticks.y=element_blank()) +
             geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = 3, shape = 21, fill="lightgray", color = "black", alpha = .5) +
-            annotation_custom(mvsbgimg, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf) #+
+            annotation_custom(mvsbgimg, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
 
         
     },height = 600, width = 600 )
