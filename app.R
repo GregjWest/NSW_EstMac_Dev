@@ -80,7 +80,7 @@ myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84
 
 mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Mangrove_Saltmarsh"="Mixed Mangrove and Saltmarsh", "Saltmarsh"="Saltmarsh"))
 
-# Plot theme for mangrove v saltmarsh plot layout ---- derived from function by Rodrigo Zepeda https://stackoverflow.com/questions/17753101/center-x-and-y-axis-with-ggplot2
+# Theme for mangrove v saltmarsh plot layout ---- based on the function by Rodrigo Zepeda https://stackoverflow.com/questions/17753101/center-x-and-y-axis-with-ggplot2
 theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0, 
                            color = "grey", size = 0.5, 
                            xlab = "Saltmarsh", 
@@ -220,7 +220,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                                    selected = "2017"),
                                                 tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
                                                         tags$br(),tags$br(),
-                                                        tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
+                                                        tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
                                                 tags$img(src='Fisheries_Portal.svg')) 
                                                )
                                        
@@ -288,7 +288,7 @@ tabPanel(
         
             tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
                     tags$br(),tags$br(),
-                    tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
+                    tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
                            tags$img(src='Fisheries_Portal.svg')), 
             
                     absolutePanel(id = "legend1", class = "card", bottom = 300, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
