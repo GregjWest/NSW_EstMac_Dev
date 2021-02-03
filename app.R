@@ -425,6 +425,9 @@ tabPanel(
     tags$div(
         tags$h3("Overview"),
         tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
+        tags$p("More details on the estuarine habitats of NSW can be found on the, ",
+                tags$a(href="https://www.dpi.nsw.gov.au/fishing/habitat/aquatic-habitats/estuarine", target="_blank", " NSW DPI Website")),
+        
         tags$p("A detailed list of all mapped estuaries can be viewed, ",
                 tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
         tags$p("Macrophyte maps for the latest time of sampling can be downloaded from the", 
