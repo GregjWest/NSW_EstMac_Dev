@@ -80,7 +80,7 @@ myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84
 
 mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Mangrove_Saltmarsh"="Mixed Mangrove and Saltmarsh", "Saltmarsh"="Saltmarsh"))
 
-# Plot theme for mangrove v saltmarsh plot layout ---- derived from function by Rodrigo Zepeda https://stackoverflow.com/questions/17753101/center-x-and-y-axis-with-ggplot2
+# Theme for mangrove v saltmarsh plot layout ---- based on the function by Rodrigo Zepeda https://stackoverflow.com/questions/17753101/center-x-and-y-axis-with-ggplot2
 theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0, 
                            color = "grey", size = 0.5, 
                            xlab = "Saltmarsh", 
@@ -179,7 +179,7 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
 
 # Overall layout of App.
 ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
-                 title = div(img(src= "DPI_LOGO_left.png","Estuarine Habitat Mapping",
+                 title = div(img(src= "DPI_LOGO_left.svg","Estuarine Habitat Mapping",
                                  style="margin-top: -15px;margin-left: -30;padding-right:10px", 
                                  height = 50)),
                  windowTitle = "NSW Estuarine Mapping",
@@ -218,9 +218,10 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                                    label = "Year Mapped:", 
                                                    choices = NULL, 
                                                    selected = "2017"),
-                                                tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal.", 
-                                                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
-                                                tags$img(src='DPI_LOGO_left.svg')) 
+                                                tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
+                                                        tags$br(),tags$br(),
+                                                        tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
+                                                tags$img(src='Fisheries_Portal.svg')) 
                                                )
                                        
                                        
@@ -285,9 +286,10 @@ tabPanel(
             ),
             
         
-            tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Data Portal.", 
-                    tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", 
-                           tags$img(src='DPI_LOGO_left.svg')), 
+            tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
+                    tags$br(),tags$br(),
+                    tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
+                           tags$img(src='Fisheries_Portal.svg')), 
             
                     absolutePanel(id = "legend1", class = "card", bottom = 300, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
                                   tags$img(src='Macrophyte_Legend.svg',height='300',width='200'))
@@ -423,6 +425,9 @@ tabPanel(
     tags$div(
         tags$h3("Overview"),
         tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
+        tags$p("More details on the estuarine habitats of NSW can be found on the, ",
+                tags$a(href="https://www.dpi.nsw.gov.au/fishing/habitat/aquatic-habitats/estuarine", target="_blank", " NSW DPI Website")),
+        
         tags$p("A detailed list of all mapped estuaries can be viewed, ",
                 tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
         tags$p("Macrophyte maps for the latest time of sampling can be downloaded from the", 
