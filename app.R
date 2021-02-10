@@ -343,8 +343,8 @@ tabPanel(
                    
                    tags$br(),
                    
-                   tags$p("Macrophyte maps for the latest time of sampling can be downloaded from the", 
-                          tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.") ) 
+                    #tags$p("Macrophyte maps for the latest time of sampling can be downloaded from the", 
+                    #          tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.") ) 
                    
                    
             )),
