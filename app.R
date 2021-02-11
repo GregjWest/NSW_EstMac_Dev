@@ -678,7 +678,7 @@ server <- function(input, output, session) {
         #x3_2 <- presence_dat %>% dplyr::filter(Map_Year == input$change_t1 | Map_Year== input$change_t2) %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Macrophyte)
         x3_2 <- presence_dat %>% dplyr::filter(Map_Year == input$change_t1 | Map_Year== input$change_t2)
         x3_3 <- x3_2$Macrophyte[x3_2$Estuary == input$estuary3]
-        updateSelectInput(session, "habitat3", label = "Habitat for change map:", choices = unique(x3_3))
+        updateSelectInput(session, "habitat3", label = "Habitat for change grid:", choices = unique(x3_3))
     })
     
     observe({
