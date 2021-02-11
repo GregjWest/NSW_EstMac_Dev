@@ -341,6 +341,8 @@ tabPanel(
                    ),
                    tags$b("Years mapped: "), textOutput("years_mapped"),
                    
+                   
+                   
                    tags$br(),
                    
                     #tags$p("Macrophyte maps for the latest time of sampling can be downloaded from the", 
@@ -354,7 +356,7 @@ tabPanel(
             
             h4("Change in mapped area of seagrass"),
             
-            tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary."),
+            tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary. The areas presented below represent 100% of the mapped area for each genus. This includes areas of overlap where multiple genus occur. As such, totalling the values from these figures may over estimate the total amount of seagrass present in the selected estuary."),
             
             column(6, offset = 0,
                    style = "height:600px; ", 
@@ -365,7 +367,7 @@ tabPanel(
             tags$br(),tags$br(),
             
             h4("Change in mapped area of Mangrove and Saltmarsh"),
-            tags$p("Change in area (hectares) of mapped Mangrove and Saltmarsh for the selected estuary."),
+            tags$p("Change in area (hectares) of mapped Mangrove and Saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each habitat for each time."),
             
             column(6, offset = 0,
                    style = "height:350px; ", 
@@ -379,7 +381,7 @@ tabPanel(
             h4("Relative change of Mangrove and Saltmarsh"),
             tags$p("Relative changes in the area of mangrove to saltmarsh over time are presented below. 
                    This analysis represents the changes in area between these two habitats within the 250m x 250m grids for the selected times. Each point represents 
-                   the change in mapped area of mangrove and saltmarsh between Time 1 and Time 2 for each 250m x 250m grid. "),
+                   the change in mapped area of mangrove and saltmarsh between Time 1 and Time 2 for each 250m x 250m grid. Data on mixed habitats (mixed mangrove and saltmarsh as displayed above) has been included as 100% of the area of the mapped polygon for each of mangrove and saltmarsh. Data are measures of relative change and as such no scale has been included on the axes."),
             
             
         ),
@@ -461,7 +463,7 @@ tabPanel(
         tags$br(),
         tags$h3("References"),
         tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
-        tags$p("West, G., Glasby, T.M., (in press). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuarine Coastal and Shelf Science."),
+        tags$p("West, G., Glasby, T.M., (in press). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."),
         tags$a(href="West (1985).pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
         tags$br(),
         tags$br("The Shiny App is produced using R v4.0.3, RStudio v1.4.1103 and Leaflet v2.0.4.1,"),
