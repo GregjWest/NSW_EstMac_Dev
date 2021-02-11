@@ -616,6 +616,13 @@ server <- function(input, output, session) {
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             
+            # set boundaries for map
+            # fitBounds(lng1 = min(raster_points()$Lon), 
+            #           lat1 = min(raster_points()$Lat), 
+            #           lng2 = max(raster_points()$Lon), 
+            #           lat2 = max(raster_points()$Lat)) %>%
+            # 
+            
             addRasterImage(empty_raster()) %>% #add empty file for map extent
             
             
