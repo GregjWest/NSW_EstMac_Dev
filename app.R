@@ -188,7 +188,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                  
 
                  
-#### Interactive Explorer Tab UI                                  -----
+#### Habitat Explorer Tab UI                                  -----
                  tabPanel(
                      "Interactive Explorer",
                      div(class="outer",
@@ -228,8 +228,8 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        )
                                        
                          ),
-                         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                                                                tags$img(src='Explore_legend.svg',height='360',width='190'))
+                         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                                                                                tags$img(src='Explore_legend.svg',width='170'))
                      )
                  ),
 
