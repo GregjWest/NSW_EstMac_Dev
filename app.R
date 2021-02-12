@@ -228,8 +228,8 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        )
                                        
                          ),
-                         absolutePanel(id = "legend1", class = "card", bottom = 190, right = 5,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                                                                tags$img(src='Explore_legend.svg',height='330',width='160'))
+                         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                                                                                tags$img(src='Explore_legend.svg',height='360',width='190'))
                      )
                  ),
 
@@ -634,7 +634,7 @@ server <- function(input, output, session) {
             addRasterImage(empty_raster()) %>% #add empty file for map extent
             
             
-            addMiniMap() %>%
+            #addMiniMap() %>%
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
