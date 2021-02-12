@@ -445,7 +445,7 @@ tabPanel(
                tags$span(tags$em("Zostera", .noWS = "outside"),.noWS = "outside"),
                "-dominated).   Areas where mixed genus occur are mapped and classified as such, e.g. the class", 
                tags$span(tags$em("'Posidonia/Zostera /Halophila'", .noWS = "outside"),.noWS = "outside"),
-               " contains all three genera.  For mixed seagrass habitats with two or more genera, the area per genus has been calculated as 100% of the total mapped area for each genus.Mangrove, Mixed mandrove/Saltmarsh and Saltmarsh habitats as reported as 100% of the mapped extent."),
+               " contains all three genera.  For mixed seagrass habitats with two or more genera, the area per genus has been calculated as 100% of the total mapped area for each genus. Mangrove, Mixed mandrove/Saltmarsh and Saltmarsh habitats as reported as 100% of the mapped extent."),
         tags$p("The 2019 - 2020 Fire Damage layer represents an estimate of areas of mangrove and saltmarsh damaged in affected estuaries due to the 2020 NSW bushfires. Imagery was sourced from Nearmap and fire damage was mapped using eCognition. The layer may contain omissions or additional damage not present. More details can be found", tags$a(href="NSW_Fire_Impacted_Estmac_metadata.html", target="_blank", "here.")),
         tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
                estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
@@ -455,6 +455,8 @@ tabPanel(
         tags$p("The data used here is derived from many decades of work by DPI Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood (see West et al. 1985)."),
         tags$p("Subsequent mapping projects were led by Rob Williams, Bob Creese, Greg West and Tim Glasby.  We thank the many staff involved in producing these maps, including, but not limited to: Peter Gibson, Roger Laird, Isabelle Thiebaud, Brooke McCartin, Chris Gallen, Danielle Morrison, Joe Neilson and Trudy Walford."),
         tags$p("Funding for the various mapping projects has come from numerous sources, primarily via the NSW State government through a variety of funding programs and from short-term contracts funded by organisations including: Lake Macquarie City Council, Eurobodalla Shire Council, North Rivers Catchment Management Authority, Sydney Metro Catchment Management Authority and NSW Roads and Maritime"),
+        tags$br(),
+        tags$p("Mooring data provided by Transport for NSW, Roads and Maritime, 2020"),
         tags$br(),
         tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
         tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
@@ -613,7 +615,7 @@ server <- function(input, output, session) {
             #         options = pathOptions(pane="macromap", maxZoom=17, opacity=.6),
             #         attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/fire_damage/{z}/{x}/{y}.png", group = "2019 - 2020 Fire damage",
-                     options = pathOptions(pane="macromap", maxZoom=17),
+                     options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Moorings",
                      options = pathOptions(pane="macromap", maxZoom=17),
