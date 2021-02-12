@@ -57,9 +57,9 @@ dat$fMap_Year <- factor(dat$Map_Year)
 
 # Transpose data to long format to enable filtering by species.
 dat1 <- dat %>%
-    gather("Habitat", "Area", 7:15)
+    gather("Habitat", "Area", 7:16)
     #dplyr::filter(Habitat != "Mangrove_Saltmarsh")
-dat1$Habitat <- factor(dat1$Habitat, levels = c("Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
+dat1$Habitat <- factor(dat1$Habitat, levels = c("Seagrass", "Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
 # List the regions available
@@ -445,7 +445,8 @@ tabPanel(
                tags$span(tags$em("Zostera", .noWS = "outside"),.noWS = "outside"),
                "-dominated).   Areas where mixed genus occur are mapped and classified as such, e.g. the class", 
                tags$span(tags$em("'Posidonia/Zostera /Halophila'", .noWS = "outside"),.noWS = "outside"),
-               " contains all three genera.  For mixed habitats with two genera, the area per genus has been calculated as 50% of the total mapped area. For habitats with three genera, areas per genus represent one third of the total mixed habitat area."),
+               " contains all three genera.  For mixed seagrass habitats with two or more genera, the area per genus has been calculated as 100% of the total mapped area for each genus.Mangrove, Mixed mandrove/Saltmarsh and Saltmarsh habitats as reported as 100% of the mapped extent."),
+        tags$p("The 2019 - 2020 Fire Damage layer represents an estimate of areas of mangrove and saltmarsh damaged in affected estuaries due to the 2020 NSW bushfires. Imagery was sourced from Nearmap and fire damage was mapped using eCognition. The layer may contain omissions or additional damage not present. More details can be found", tags$a(href="NSW_Fire_Impacted_Estmac_metadata.html", target="_blank", "here.")),
         tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
                estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
         tags$p("Artificial Structures (Pontoons and Jetties) and habitat disturbances are currently mapped for Pittwater and will be mapped for all future estuaries."),
@@ -611,6 +612,9 @@ server <- function(input, output, session) {
             #addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
             #         options = pathOptions(pane="macromap", maxZoom=17, opacity=.6),
             #         attribution = "&copy; Transport for NSW 2020") %>% 
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/fire_damage/{z}/{x}/{y}.png", group = "2019 - 2020 Fire damage",
+                     options = pathOptions(pane="macromap", maxZoom=17),
+                     attribution = "&copy; Department of Primary Industries 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Moorings",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Transport for NSW 2020") %>% 
@@ -632,7 +636,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Mapped Habitat", "Foreshore", "Artificial Structures", "Moorings"),
+                overlayGroups = c("Mapped Habitat", "2019 - 2020 Fire damage", "Foreshore", "Artificial Structures", "Moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -642,6 +646,7 @@ server <- function(input, output, session) {
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
             hideGroup("Foreshore") %>%
+            hideGroup("2019 - 2020 Fire damage") %>%
             hideGroup("Artificial Structures") %>%
             #hideGroup("Mooring Areas") %>%
             hideGroup("Moorings")
@@ -902,7 +907,7 @@ server <- function(input, output, session) {
             dplyr::filter(Estuary == input$estuary2) %>%
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(!Habitat %in% c("Mangrove", "Saltmarsh", "Mangrove_Saltmarsh", "Man_Biplot", "SM_Biplot")) %>%
+            dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Mangrove_Saltmarsh", "Man_Biplot", "SM_Biplot")) %>%
             dplyr::filter(Area >= 0)
         
     })
