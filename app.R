@@ -78,7 +78,7 @@ cell_size <- 250
 
 myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84 + towgs8"
 
-mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Mangrove_Saltmarsh"="Mixed Mangrove and Saltmarsh", "Saltmarsh"="Saltmarsh"))
+mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Mangrove_Saltmarsh"="Mixed mangrove and saltmarsh", "Saltmarsh"="Saltmarsh"))
 
 # Theme for mangrove v saltmarsh plot layout ---- based on the function by Rodrigo Zepeda https://stackoverflow.com/questions/17753101/center-x-and-y-axis-with-ggplot2
 theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0, 
@@ -202,9 +202,6 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        tags$div(id = 'demo',  class="collapse in",
                                        h3("Map Explorer", style="text-align:center"),
                                     
-                                       h6("This interactive map presents the results of 35 years of mapping seagrass, mangrove and saltmarsh in NSW. These habitats have been mapped by DPI Fisheries since the 1980s 
-                                          and various estuaries have been mapped different numbers of times and often in different years."),
-                                       tags$br(),
                                        h6("Select a region, estuary and the desired year to view the mapped data"),
                                        selectInput("region1", 
                                                    label = "Region:", 
@@ -356,7 +353,7 @@ tabPanel(
             
             h4("Change in mapped area of seagrass"),
             
-            tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary. The areas presented below represent 100% of the mapped area for each genus. This includes areas of overlap where multiple genus occur. As such, totalling the values from these figures may over estimate the total amount of seagrass present in the selected estuary."),
+            tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary. The areas presented below represent 100% of the mapped area for each genus. This includes areas of overlap where multiple genera occur. As such, totalling the values from these figures may over estimate the total amount of seagrass present in the selected estuary."),
             
             column(6, offset = 0,
                    style = "height:600px; ", 
@@ -366,8 +363,8 @@ tabPanel(
         fluidRow(
             tags$br(),tags$br(),
             
-            h4("Change in mapped area of Mangrove and Saltmarsh"),
-            tags$p("Change in area (hectares) of mapped Mangrove and Saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each habitat for each time."),
+            h4("Change in mapped area of mangrove and saltmarsh"),
+            tags$p("Change in area (hectares) of mapped mangrove and saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each habitat for each time."),
             
             column(6, offset = 0,
                    style = "height:350px; ", 
@@ -378,10 +375,10 @@ tabPanel(
         fluidRow(
             tags$br(),
             
-            h4("Relative change of Mangrove and Saltmarsh"),
+            h4("Relative change of mangrove and saltmarsh"),
             tags$p("Relative changes in the area of mangrove to saltmarsh over time are presented below. 
-                   This analysis represents the changes in area between these two habitats within the 250m x 250m grids for the selected times. Each point represents 
-                   the change in mapped area of mangrove and saltmarsh between Time 1 and Time 2 for each 250m x 250m grid. Data on mixed habitats (mixed mangrove and saltmarsh as displayed above) has been included as 100% of the area of the mapped polygon for each of mangrove and saltmarsh. Data are measures of relative change and as such no scale has been included on the axes."),
+                   This analysis represents the changes in area between these two habitats within each 250m x 250m grid for the selected times. 
+                   Areas for mangrove and saltmarsh where classified as mixed polygons have been calculated as 100% of the area for each habitat. Data are measures of relative change and as such no scale has been included on the axes."),
             
             
         ),
@@ -427,34 +424,27 @@ tabPanel(
     tags$div(
         tags$h3("Overview"),
         tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
-        tags$p("More details on the estuarine habitats of NSW can be found on the, ",
+        tags$p("More details on the estuarine habitats of NSW can be found on the ",
                 tags$a(href="https://www.dpi.nsw.gov.au/fishing/habitat/aquatic-habitats/estuarine", target="_blank", " NSW DPI Website")),
         
-        tags$p("A detailed list of all mapped estuaries can be viewed, ",
+        tags$p("A detailed list of all mapped estuaries can be viewed ",
                 tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
-        tags$p("Macrophyte maps for the latest time of sampling can be downloaded from the", 
+        tags$p("Macrophyte maps for the latest time of mapping can be downloaded from the", 
                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
         tags$h3("Mapping Details"),
         
-        tags$p("Methods used for mapping are described in Creese et al. (2009) and West & Glasby (2020).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
+        tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (2020).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
                tags$span(tags$em("Phragmites australis")),
                "and ", 
-               tags$span(tags$em("Baumea juncea", .noWS = "outside"),.noWS = "outside"),
-               ". Seagrasses have been classified to the level of genus and meadows of seagrass have mapped according to the dominant genus in that meadow (e.g. ", 
-               tags$span(tags$em("Posidonia", .noWS = "outside"),.noWS = "outside"),"-dominated, ", 
-               tags$span(tags$em("Zostera", .noWS = "outside"),.noWS = "outside"),
-               "-dominated).   Areas where mixed genus occur are mapped and classified as such, e.g. the class", 
-               tags$span(tags$em("'Posidonia/Zostera /Halophila'", .noWS = "outside"),.noWS = "outside"),
-               " contains all three genera.  For mixed seagrass habitats with two or more genera, the area per genus has been calculated as 100% of the total mapped area for each genus. Mangrove, Mixed mandrove/Saltmarsh and Saltmarsh habitats as reported as 100% of the mapped extent."),
-        tags$p("The 2019 - 2020 Fire Damage layer represents an estimate of areas of mangrove and saltmarsh damaged in affected estuaries due to the 2020 NSW bushfires. Imagery was sourced from Nearmap and fire damage was mapped using eCognition. The layer may contain omissions or additional damage not present. Fire damage has been mapped in the following estuaries: Berrara Creek, Burrill Lake, Camden Haven River, Candlagan Creek, Clyde River, Durras Lake, Fisheries Creek, Kappinghat Creek, Lake Innes and Lake Cathie, Lake Tabourie, Manning River, Narrawallee Inlet, Nullica River, Tomaga River, Towamba River, Wallis Lake and Wonboyn Lake. More details can be found", tags$a(href="NSW_Fire_Impacted_Estmac_metadata.html", target="_blank", "here.")),
-        tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project referenced below. Foreshore was classified and mapped in 7
-               estuaries including: Port Stephens, Lake Macquarie, Hawkesbury River, Pittwater, Port Jackson, Port Hacking, Clyde River and Batemans Bay."),
-        tags$p("Artificial Structures (Pontoons and Jetties) and habitat disturbances are currently mapped for Pittwater and will be mapped for all future estuaries."),
+               tags$span(tags$em("Baumea juncea", .noWS = "outside"),.noWS = "outside")),
+        tags$p("The 2019 - 2020 Fire Damage layer represents an estimate of areas of mangrove and saltmarsh damaged in affected estuaries due to the 2020 NSW bushfires. Imagery was sourced from Nearmap and fire damage was mapped using eCognition. The layer may contain omissions or additional damage not present. More details can be found ", tags$a(href="NSW_Fire_Impacted_Estmac_metadata.html", target="_blank", "here.")),
+        tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project. Details on the estuaries mapped can be found in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)")),
+        tags$p("Artificial structures (pontoons and jetties) and habitat disturbances are currently being mapped and will be updated when available."),
         
         tags$h3("Acknowledgements"),
-        tags$p("The data used here is derived from many decades of work by DPI Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood (see West et al. 1985)."),
+        tags$p("The data used here is derived from many decades of work by DPI Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood. See ", tags$a(href="West_1985.pdf", target="_blank", "West et al. 1985")),
         tags$p("Subsequent mapping projects were led by Rob Williams, Bob Creese, Greg West and Tim Glasby.  We thank the many staff involved in producing these maps, including, but not limited to: Peter Gibson, Roger Laird, Isabelle Thiebaud, Brooke McCartin, Chris Gallen, Danielle Morrison, Joe Neilson and Trudy Walford."),
-        tags$p("Funding for the various mapping projects has come from numerous sources, primarily via the NSW State government through a variety of funding programs and from short-term contracts funded by organisations including: Lake Macquarie City Council, Eurobodalla Shire Council, North Rivers Catchment Management Authority, Sydney Metro Catchment Management Authority and NSW Roads and Maritime"),
+        tags$p("This website and the most recent maps were funded by the NSW State Government via the Marine Estate Management Strategy.  Funding for older mapping projects was from numerous NSW State Government sources and short-term contracts funded by organisations including: Lake Macquarie City Council, Eurobodalla Shire Council, North Rivers Catchment Management Authority, Sydney Metro Catchment Management Authority and NSW Roads and Maritime"),
         tags$br(),
         tags$p("Mooring data provided by Transport for NSW, Roads and Maritime, 2020"),
         tags$br(),
@@ -466,8 +456,9 @@ tabPanel(
         tags$br(),
         tags$h3("References"),
         tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
+        tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
         tags$p("West, G., Glasby, T.M., (in press). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."),
-        tags$a(href="West (1985).pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
+        tags$a(href="West_1985.pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
         tags$br(),
         tags$br("The Shiny App is produced using R v4.0.3, RStudio v1.4.1103 and Leaflet v2.0.4.1,"),
         tags$br(),
@@ -608,7 +599,7 @@ server <- function(input, output, session) {
                              options = pathOptions(pane="basemaps", maxZoom=17)) %>%
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
                                  layerId = "0", pathOptions(pane="basemaps", maxZoom=17)) %>%
-            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial Structures",
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial structures",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
             #addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
@@ -617,7 +608,7 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/fire_damage/{z}/{x}/{y}.png", group = "2019 - 2020 Fire damage",
                      options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Moorings",
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Boat moorings",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
@@ -638,7 +629,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Mapped Habitat", "2019 - 2020 Fire damage", "Foreshore", "Artificial Structures", "Moorings"),
+                overlayGroups = c("Mapped habitat", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Boat moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -649,9 +640,9 @@ server <- function(input, output, session) {
                        completedColor = "#7D4479") %>%
             hideGroup("Foreshore") %>%
             hideGroup("2019 - 2020 Fire damage") %>%
-            hideGroup("Artificial Structures") %>%
+            hideGroup("Artificial structures") %>%
             #hideGroup("Mooring Areas") %>%
-            hideGroup("Moorings")
+            hideGroup("Boat moorings")
         
         
     })
@@ -663,7 +654,7 @@ server <- function(input, output, session) {
         input$estuary1
         leafletProxy("map") %>%
             removeTiles("macmap") %>%
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped Habitat", layerId = "macmap",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "macmap",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020")    
         
@@ -834,7 +825,7 @@ server <- function(input, output, session) {
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
             addLayersControl(
-                baseGroups = c("OSM (default)", "Photo basemap"),
+                baseGroups = c("Open Street Map", "Photo basemap"),
                 overlayGroups = c("Change grid", "Mapped habitat"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             
