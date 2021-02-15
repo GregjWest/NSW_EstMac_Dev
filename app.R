@@ -746,10 +746,10 @@ server <- function(input, output, session) {
     }) 
     
     # Set raster max and min based on estuary selection
-    lon_min1 <- reactive({min(raster_points1()$Easting)-(cell_size/2)}) 
-    lon_max1 <- reactive({max(raster_points1()$Easting)+(cell_size/2)})
-    lat_min1 <- reactive({min(raster_points1()$Northing)-(cell_size/2)})
-    lat_max1 <- reactive({max(raster_points1()$Northing)+(cell_size/2)})    
+    lon_min1 <- reactive({min(raster_points1()$Easting)-375}) 
+    lon_max1 <- reactive({max(raster_points1()$Easting)+375})
+    lat_min1 <- reactive({min(raster_points1()$Northing)-375})
+    lat_max1 <- reactive({max(raster_points1()$Northing)+375})    
     ncols1 <- reactive({((lon_max1() - lon_min1())/cell_size)}) 
     nrows1 <- reactive({((lat_max1() - lat_min1())/cell_size)}) 
     
