@@ -47,6 +47,8 @@ dat <-  read.csv("Multi_Estuary_All_Years_Grid.csv", stringsAsFactors = T)
 
 report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
 
+
+
 presence_dat <- read.csv("NSW_Estuarine_Macrophytes_Presence.csv", stringsAsFactors = T)
 
 mvsimg <- readPNG("www/Man_SM_Background.png")
@@ -184,13 +186,19 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                  height = 50)),
                  windowTitle = "NSW Estuarine Mapping",
                  position = c("fixed-top"),
-
                  
 
                  
 #### Habitat Explorer Tab UI                                  -----
                  tabPanel(
                      "Interactive Explorer",
+                     
+                     #hide red error messages
+                     tags$style(type="text/css",
+                                ".shiny-output-error { visibility: hidden; }",
+                                ".shiny-output-error:before { visibility: hidden; }"
+                     ),
+                     
                      div(class="outer",
                          tags$head(includeCSS("styles.css")),
                          leafletOutput("map", width = "100%", height = "100%"),
