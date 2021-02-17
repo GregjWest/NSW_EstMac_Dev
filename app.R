@@ -41,31 +41,27 @@ if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-proj
 
 
 
-# Read in master data .csv
-# THe data should be in the exact same layout (column names, species names and all are case sensitive. Ensure there are no spaces in headers) as the csv below
-dat <-  read.csv("Multi_Estuary_All_Years_Grid.csv", stringsAsFactors = T)
+# Read in data .csv
+    dat <-  read.csv("Multi_Estuary_All_Years_Grid.csv", stringsAsFactors = T)
+    report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
+    presence_dat <- read.csv("NSW_Estuarine_Macrophytes_Presence.csv", stringsAsFactors = T)
 
-report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
-
-
-
-presence_dat <- read.csv("NSW_Estuarine_Macrophytes_Presence.csv", stringsAsFactors = T)
-
-mvsimg <- readPNG("www/Man_SM_Background.png")
-
-mvsbgimg <- rasterGrob(mvsimg, interpolate=TRUE)
+# mangrove and saltmarsh plot background image    
+    mvsimg <- readPNG("www/Man_SM_Background.png")
+    mvsbgimg <- rasterGrob(mvsimg, interpolate=TRUE)
 
 dat$fMap_Year <- factor(dat$Map_Year)
 
 # Transpose data to long format to enable filtering by species.
 dat1 <- dat %>%
     gather("Habitat", "Area", 7:16)
-    #dplyr::filter(Habitat != "Mangrove_Saltmarsh")
+    
 dat1$Habitat <- factor(dat1$Habitat, levels = c("Seagrass", "Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
-# List the regions available
+# List the regions available, there are only 4 so a list here is easy.
 list_region <- c("North Coast","Hunter", "Greater Sydney", "South East")
+#Start with Sydney
 index_region <- 3
 
 # Index/select the default estuary based on order in the above list i.e. 3 = Port Stephens (at the test state)
@@ -74,12 +70,13 @@ list_estuary <- c(levels(presence_dat$Estuary))
 index_estuary <- 1
 
 list_habs <- c(levels(presence_dat$Macrophyte))
-index_habs <- 0
+index_habs <- 1
 # Cell size for building rasters at 250x250m
 cell_size <- 250
 
 myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84 + towgs8"
 
+#Labels for mangrove, mixed and saltmarsh plots
 mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Mangrove_Saltmarsh"="Mixed mangrove and saltmarsh", "Saltmarsh"="Saltmarsh"))
 
 # Theme for mangrove v saltmarsh plot layout ---- based on the function by Rodrigo Zepeda https://stackoverflow.com/questions/17753101/center-x-and-y-axis-with-ggplot2
@@ -206,7 +203,6 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                          absolutePanel(id = "controls", class = "panel panel-default",
                                        top = 160, left = 11, width = 250, height = "auto",
                                        fixed = TRUE, draggable = FALSE,
-                                       #HTML('<button data-toggle="collapse" data-target="#demo">Show/Hide</button>'),
                                        tags$div(id = 'demo',  class="collapse in",
                                        h3("Map Explorer", style="text-align:center"),
                                     
@@ -259,10 +255,9 @@ tabPanel(
             height = "auto",
             fixed = TRUE,
             draggable = FALSE,
-            #HTML('<button data-toggle="collapse" data-target="#demo1">Show/Hide</button>'),
             tags$div(id = 'demo1',  class="collapse in",
             h3("Change Analysis", style="text-align:center"),
-            h6("The derived change map represents change in area as either increase or decrease of the selected habitat per 250x250m grid for the selected years."
+            h6("The change grid represents the change in area of mapped habitat per 250x250m between the selected times within the selected estuary."
             ),
             
             selectInput("region3", 
@@ -441,7 +436,7 @@ tabPanel(
                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
         tags$h3("Mapping Details"),
         
-        tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (2020).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
+        tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (in review).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
                tags$span(tags$em("Phragmites australis")),
                "and ", 
                tags$span(tags$em("Baumea juncea", .noWS = "outside"),.noWS = "outside")),
@@ -465,7 +460,7 @@ tabPanel(
         tags$h3("References"),
         tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
         tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
-        tags$p("West, G., Glasby, T.M., (in press). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."),
+        tags$p("West, G., Glasby, T.M., (in review). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."),
         tags$a(href="West_1985.pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
         tags$br(),
         tags$br("The Shiny App is produced using R v4.0.3, RStudio v1.4.1103 and Leaflet v2.0.4.1,"),
@@ -630,7 +625,9 @@ server <- function(input, output, session) {
             #           lat2 = max(raster_points()$Lat)) %>%
             # 
             
-            addRasterImage(empty_raster()) %>% #add empty file for map extent
+            
+            #add empty file for map extent
+            addRasterImage(empty_raster()) %>% 
             
             
             #addMiniMap() %>%

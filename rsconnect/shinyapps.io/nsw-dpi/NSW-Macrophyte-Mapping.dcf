@@ -5,8 +5,9 @@ account: nsw-dpi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2672519
-bundleId: 3529078
+bundleId: 4237779
 url: https://nsw-dpi.shinyapps.io/NSW-Macrophyte-Mapping/
-when: 1597744810.96592
+when: 1613601715.38849
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: shp/EstMac.sld|shp/macrophytes.qml|data|graphics
