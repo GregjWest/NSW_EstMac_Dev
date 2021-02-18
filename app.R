@@ -611,9 +611,9 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/fire_damage/{z}/{x}/{y}.png", group = "2019 - 2020 Fire damage",
                      options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Boat moorings",
-                     options = pathOptions(pane="macromap", maxZoom=17),
-                     attribution = "&copy; Transport for NSW 2020") %>% 
+            # addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Boat moorings",
+            #          options = pathOptions(pane="macromap", maxZoom=17),
+            #          attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
@@ -634,7 +634,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Mapped habitat", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Boat moorings"),
+                overlayGroups = c("Mapped habitat", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -645,9 +645,9 @@ server <- function(input, output, session) {
                        completedColor = "#7D4479") %>%
             hideGroup("Foreshore") %>%
             hideGroup("2019 - 2020 Fire damage") %>%
-            hideGroup("Artificial structures") %>%
+            hideGroup("Artificial structures")
             #hideGroup("Mooring Areas") %>%
-            hideGroup("Boat moorings")
+            #hideGroup("Boat moorings")
         
         
     })
