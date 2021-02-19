@@ -30,7 +30,7 @@
         <use xlink:href="#_Image2" x="0" y="0" width="419px" height="280px"/>
     </g>
     <g transform="matrix(1.49984,0,0,1.49984,-197.457,-4.3093)">
-        <text x="322.788px" y="19.426px" style="font-family:'ArialNarrow-Bold', 'Arial', sans-serif;font-weight:700;font-stretch:condensed;font-size:12.446px;fill:rgb(190,0,0);">This is a pre-release version of the dashboard for internal review purposes only<tspan x="708.308px " y="19.426px ">.</tspan></text>
+        <text x="422.056px" y="19.426px" style="font-family:'ArialNarrow-Bold', 'Arial', sans-serif;font-weight:700;font-stretch:condensed;font-size:12.446px;fill:rgb(190,0,0);">This dashboard is for internal use only<tspan x="609.04px " y="19.426px ">.</tspan></text>
         <text x="365.898px" y="34.539px" style="font-family:'ArialNarrow-Bold', 'Arial', sans-serif;font-weight:700;font-stretch:condensed;font-size:12.446px;fill:rgb(190,0,0);">It contains unreleased data and must not be shared externally<tspan x="665.198px " y="34.539px ">.</tspan></text>
     </g>
     <defs>
