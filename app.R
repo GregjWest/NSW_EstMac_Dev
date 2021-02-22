@@ -617,6 +617,9 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
+            addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat",
+                     options = pathOptions(pane="macromap", maxZoom=17),
+                     attribution = "&copy; Department of Primary Industries 2020") %>%
             
             # set boundaries for map
             # fitBounds(lng1 = min(raster_points()$Lon), 
@@ -634,7 +637,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Mapped habitat", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Boat moorings"),
+                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Boat moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -659,9 +662,10 @@ server <- function(input, output, session) {
         input$estuary1
         leafletProxy("map") %>%
             removeTiles("macmap") %>%
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "macmap",
+            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Historic mapping (selected estuary)", layerId = "macmap",
                      options = pathOptions(pane="macromap", maxZoom=17),
-                     attribution = "&copy; Department of Primary Industries 2020")    
+                     attribution = "&copy; Department of Primary Industries 2020") %>%
+            hideGroup("Latest mapped habitat")    
         
     })
     
