@@ -448,8 +448,7 @@ tabPanel(
         tags$p("The data used here is derived from many decades of work by DPI Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood. See ", tags$a(href="West_1985.pdf", target="_blank", "West et al. 1985")),
         tags$p("Subsequent mapping projects were led by Rob Williams, Bob Creese, Greg West and Tim Glasby.  We thank the many staff involved in producing these maps, including, but not limited to: Peter Gibson, Roger Laird, Isabelle Thiebaud, Brooke McCartin, Chris Gallen, Danielle Morrison, Joe Neilson and Trudy Walford."),
         tags$p("This website and the most recent maps were funded by the NSW State Government via the Marine Estate Management Strategy.  Funding for older mapping projects was from numerous NSW State Government sources and short-term contracts funded by organisations including: Lake Macquarie City Council, Eurobodalla Shire Council, North Rivers Catchment Management Authority, Sydney Metro Catchment Management Authority and NSW Roads and Maritime"),
-        tags$br(),
-        tags$p("Mooring data provided by Transport for NSW, Roads and Maritime, 2020"),
+
         tags$br(),
         tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
         tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
