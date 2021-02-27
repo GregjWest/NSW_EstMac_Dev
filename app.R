@@ -621,6 +621,9 @@ server <- function(input, output, session) {
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
+            #Add aquaculture leases from DPI
+            addEsriFeatureLayer("https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture/MapServer/0", 
+                                useServiceSymbology = FALSE, options = pathOptions(pane="macromap", maxZoom=17), color = "black",  weight = "1.5", group = "Aquaculture leases")%>%
             # set boundaries for map
             # fitBounds(lng1 = min(raster_points()$Lon), 
             #           lat1 = min(raster_points()$Lat), 
@@ -637,7 +640,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Boat moorings"),
+                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Boat moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -649,7 +652,7 @@ server <- function(input, output, session) {
             hideGroup("Foreshore") %>%
             hideGroup("2019 - 2020 Fire damage") %>%
             hideGroup("Artificial structures") %>%
-            #hideGroup("Mooring Areas") %>%
+            hideGroup("Aquaculture leases") %>%
             hideGroup("Boat moorings")
         
         
