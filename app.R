@@ -617,9 +617,14 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/reef/{z}/{x}/{y}.png", group = "Estuarine reef",
+                     options = pathOptions(pane="othermap", maxZoom=17),
+                     attribution = "&copy; Department of Primary Industries 2020") %>%
             addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
+            
+
             
             #Add aquaculture leases from DPI
             addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture/MapServer/0", 
@@ -640,7 +645,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Boat moorings"),
+                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef","Boat moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -653,6 +658,7 @@ server <- function(input, output, session) {
             hideGroup("2019 - 2020 Fire damage") %>%
             hideGroup("Artificial structures") %>%
             hideGroup("Aquaculture leases") %>%
+            hideGroup("Estuarine reef") %>%
             hideGroup("Boat moorings")
         
         
