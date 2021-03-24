@@ -5,9 +5,9 @@ account: nsw-dpi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3303162
-bundleId: 4387766
+bundleId: 4387780
 url: https://nsw-dpi.shinyapps.io/NSW_EstMac_Dev/
-when: 1616564288.49544
+when: 1616564486.07029
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: data|graphics
+ignoredFiles: json/aquaculture_leases.geojson|data|graphics
