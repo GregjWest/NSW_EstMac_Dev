@@ -605,9 +605,9 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial structures",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            #addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
-            #         options = pathOptions(pane="macromap", maxZoom=17, opacity=.6),
-            #         attribution = "&copy; Transport for NSW 2020") %>% 
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
+                     options = pathOptions(pane="macromap", maxZoom=17, opacity=.6),
+                     attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/fire_damage/{z}/{x}/{y}.png", group = "2019 - 2020 Fire damage",
                      options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
@@ -645,7 +645,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef","Boat moorings"),
+                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Mooring Areas", "Boat moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -659,6 +659,7 @@ server <- function(input, output, session) {
             hideGroup("Artificial structures") %>%
             hideGroup("Aquaculture leases") %>%
             hideGroup("Estuarine reef") %>%
+            hideGroup("Mooring Areas") %>%
             hideGroup("Boat moorings")
         
         
