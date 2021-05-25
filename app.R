@@ -56,7 +56,7 @@ dat$fMap_Year <- factor(dat$Map_Year)
 dat1 <- dat %>%
     gather("Habitat", "Area", 7:16)
     
-dat1$Habitat <- factor(dat1$Habitat, levels = c("Seagrass", "Mangrove", "Mangrove_Saltmarsh", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
+dat1$Habitat <- factor(dat1$Habitat, levels = c("Seagrass", "Mangrove", "Man_Sm", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
 # List the regions available, there are only 4 so a list here is easy.
@@ -77,7 +77,7 @@ cell_size <- 250
 myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84 + towgs8"
 
 #Labels for mangrove, mixed and saltmarsh plots
-mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Mangrove_Saltmarsh"="Mixed mangrove and saltmarsh", "Saltmarsh"="Saltmarsh"))
+mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Man_Sm"="Mixed mangrove and saltmarsh", "Saltmarsh"="Saltmarsh"))
 
 # Theme for mangrove v saltmarsh plot layout ---- based on the function by Rodrigo Zepeda https://stackoverflow.com/questions/17753101/center-x-and-y-axis-with-ggplot2
 theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0, 
@@ -918,7 +918,7 @@ server <- function(input, output, session) {
             dplyr::filter(Estuary == input$estuary2) %>%
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Mangrove_Saltmarsh", "Man_Biplot", "SM_Biplot")) %>%
+            dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Man_Sm", "Man_Biplot", "SM_Biplot")) %>%
             dplyr::filter(Area >= 0)
         
     })
@@ -995,7 +995,7 @@ server <- function(input, output, session) {
             dplyr::filter(Estuary == input$estuary2) %>%
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Mangrove_Saltmarsh")) %>%
+            dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Man_Sm")) %>%
             dplyr::filter(Area >= 0)
         
     })
