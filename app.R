@@ -432,6 +432,8 @@ tabPanel(
         
         tags$p("A detailed list of all mapped estuaries can be viewed ",
                 tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
+        tags$p("A full listr of changes and updates can be viewed in the ",
+               tags$a(href="Changelog.html", target="_blank", "Changelog.")),       
         tags$p("Macrophyte maps for the latest time of mapping can be downloaded from the", 
                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
         tags$h3("Mapping Details"),

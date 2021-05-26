@@ -1,0 +1,138 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i);
+
+html,
+body {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 300;
+        font-family: 'Open Sans', sans-serif;
+        color: #1a1a1a;
+      }
+      .tm-logo,
+      .tm-block-footer,
+      .uk-button,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Montserrat', sans-serif;
+      }
+      .tm-logo {
+        font-weight: 700;
+      }
+      /*
+       * TIMELINE ITEM
+       */
+      .tm-timeline {
+        position: relative;
+      }
+      .tm-timeline-item {
+        border-left: 2px solid #131c43;
+        margin-top: -5px;
+        padding-left: 40px;
+        padding-bottom: 40px;
+        position: relative;
+      }
+      .tm-timeline-item h2 {
+        margin-top: 0;
+        line-height: .5;
+      }
+      .tm-timeline-item p {
+        margin-bottom: 0;
+      }
+      .tm-timeline-item:before {
+        content: ' ';
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        left: -8px;
+        background-color: #385dc1;
+        border-radius: 50%;
+      }
+      .tm-timeline-item:first-child:before {
+        left: -8px;
+      }
+      .tm-timeline-item:last-child:before {
+        left: -6px;
+      }
+      .tm-timeline-item:last-of-type {
+        padding-bottom: 0;
+        border: 0
+      }
+      /*
+       * TIMELINE ENTRY
+       */
+      .tm-timeline-entry {
+        padding-top: 15px;
+      }
+      .tm-timeline-entry + .tm-timeline-entry {
+        margin-top: 15px;
+      }
+      .tm-timeline-entry .tm-timeline-entry-label {
+        font-size: 16px;
+        color: #1a1a1a;
+      }
+      @media (min-width: 768px) {
+        .tm-timeline-entry .tm-timeline-entry-label {
+          width: 100px;
+          float: left;
+          clear: both;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .tm-timeline-entry .tm-timeline-entry-data {
+          margin-left: 100px;
+        }
+      }
+      /*
+       * BLOCK
+       */
+      @media (max-width: 767px) {
+        .uk-block {
+          padding-top: 40px;
+          padding-bottom: 40px;
+        }
+      }
+      .tm-block-content {
+        min-height: calc(100vh - 142px);
+      }
+      .uk-block-muted {
+        background: #f8f9fa;
+      }
+      .uk-block-primary {
+        background: #1b1d41;
+        
+      }
+      .uk-block-secondary {
+        background: #000000;
+      }
+      /*
+       * BADGE
+       */
+      /* NEW */
+      .uk-badge {
+        font-weight: 400;
+        padding: 5px 10px;
+        width: 48px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+      }
+      /* ADDED */
+      .uk-badge-success {
+        background-color: #3DC372;
+        color: #fff;
+      }
+      /* CHANGED */
+      .uk-badge-warning {
+        background-color: #FFB24E;
+        color: #fff;
+      }
+      /* FIXED or REMOVED */
+      .uk-badge-danger {
+        background-color: #e44e56;
+        color: #fff;
+      }
