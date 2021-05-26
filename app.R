@@ -432,7 +432,7 @@ tabPanel(
         
         tags$p("A detailed list of all mapped estuaries can be viewed ",
                 tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
-        tags$p("A full listr of changes and updates can be viewed in the ",
+        tags$p("A full list of changes and updates to the dashboard can be viewed in the ",
                tags$a(href="Changelog.html", target="_blank", "Changelog.")),       
         tags$p("Macrophyte maps for the latest time of mapping can be downloaded from the", 
                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
@@ -817,8 +817,8 @@ server <- function(input, output, session) {
     
     
     ### Create an asymmetric color range
-    # scale_range <- c(-62500, 62500)
-    bins <- c(62500, 32000, 3200, 320, 32, .1, -.1, -32, -320, -3200, -32000, -65000)
+    # scale_range <- c(-65000, 65000) Area greater than expected geometric grid area as GIS calculation varies based on location
+    bins <- c(65000, 32000, 3200, 320, 32, .1, -.1, -32, -320, -3200, -32000, -65000)
     grdpal <- colorBin ("RdYlBu", bins = bins, na.color = "transparent") 
     
     output$map_change <- renderLeaflet({
