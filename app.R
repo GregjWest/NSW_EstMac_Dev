@@ -922,14 +922,16 @@ server <- function(input, output, session) {
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
             dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Man_Sm", "Man_Biplot", "SM_Biplot")) %>%
-            dplyr::filter(Area >= 0)
+            dplyr::filter(Area >= 0)%>%
+            dplyr::mutate(ToHighlight = ifelse(Map_Year == 1980, "yes", "no"))
         
     })
     
     
     output$habitat_plot <- renderPlot({
-        ggplot(data=plot_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
-            geom_bar(stat="identity", color="black", size = 0.2, fill="#EEEEEE", width = 0.7)+ 
+        ggplot(data=plot_dat(), aes(x=factor(Map_Year), y=Area/10000, fill=ToHighlight)) + 
+            geom_bar(stat="identity", color="black", size = 0.2, width = 0.7)+ 
+            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = FALSE )+
             labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
             facet_wrap(~Habitat, scales = "free_y") +
@@ -999,7 +1001,8 @@ server <- function(input, output, session) {
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
             dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Man_Sm")) %>%
-            dplyr::filter(Area >= 0)
+            dplyr::filter(Area >= 0)%>%
+            dplyr::mutate(ToHighlight = ifelse(Map_Year == 1980, "yes", "no"))
         
     })
     
@@ -1007,8 +1010,9 @@ server <- function(input, output, session) {
     
     # Mangrove, Mixed and Saltmarsh plots
     output$mansm_plot <- renderPlot({
-        ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
-            geom_bar(stat="identity", color="black", size = 0.4, fill="#EEEEEE", width = 0.7)+ 
+        ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000, fill=ToHighlight)) + 
+            geom_bar(stat="identity", color="black", size = 0.2, width = 0.7)+ 
+            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = FALSE )+
             #geom_text(aes(label=round(Area/10000, digits = 2)), position=position_dodge(width=0.9), vjust=-0.25)+
             labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
