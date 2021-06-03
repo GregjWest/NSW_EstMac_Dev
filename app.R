@@ -257,7 +257,7 @@ tabPanel(
             draggable = FALSE,
             tags$div(id = 'demo1',  class="collapse in",
             h3("Change Analysis", style="text-align:center"),
-            h6("The change grid represents the change in area of mapped habitat per 250x250m between the selected times. Due to differences in mapping methods changes relative to 1980 should be considered as indicative only ."
+            h6("The change grid represents the change in area of mapped habitat per 250x250m between the selected times. Due to differences in mapping methods, changes relative to 1980 should be considered as indicative only ."
             ),
 
             selectInput("region3", 
@@ -356,7 +356,11 @@ tabPanel(
             
             h4("Change in mapped area of seagrass"),
             
-            tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary. The areas presented below represent 100% of the mapped area for each genus. This includes areas of overlap where multiple genera occur. As such, totalling the values from these figures may over estimate the total amount of seagrass present in the selected estuary. Due to differences in mapping techniques comparison of areas from 1980 (light grey columns) should be used as an indication of the direction of change (increase vs decrease) rather than the magnitude of change area change.  In general, maps from 1980 tended to overestimate areas of large habitat patches and may have missed small patches."),
+            tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary. The areas presented below represent 100% of the mapped area for each genus. 
+                   This includes areas of overlap where multiple genera occur. As such, totalling the values from these figures may over estimate the total amount of seagrass present 
+                   in the selected estuary. Due to differences in mapping techniques, comparison of areas from 1980 (light grey columns) should be used as an indication of the direction 
+                   of change (increase vs decrease) rather than the magnitude of area change.  In general, maps from 1980 tended to overestimate areas of 
+                   large habitat patches and may have missed small patches."),
             
             column(6, offset = 0,
                    style = "height:600px; ", 
@@ -367,7 +371,9 @@ tabPanel(
             tags$br(),tags$br(),
             
             h4("Change in mapped area of mangrove and saltmarsh"),
-            tags$p("Change in area (hectares) of mapped mangrove and saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each habitat for each time. Due to differences in mapping techniques comparison of areas from 1980 (light grey columns) should be used as an indication of the direction of change (increase vs decrease) rather than the magnitude of change area change.  In general, maps from 1980 tended to underestimate saltmarsh due to smaller or cryptic patches being missed."),
+            tags$p("Change in area (hectares) of mapped mangrove and saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each 
+                   habitat for each time. Due to differences in mapping techniques, comparison of areas from 1980 (light grey columns) should be used as an indication of the 
+                   direction of change (increase vs decrease) rather than the magnitude of change area change."),
             
             column(6, offset = 0,
                    style = "height:350px; ", 
