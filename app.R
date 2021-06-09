@@ -257,7 +257,7 @@ tabPanel(
             draggable = FALSE,
             tags$div(id = 'demo1',  class="collapse in",
             h3("Change Analysis", style="text-align:center"),
-            h6("The change grid represents the change in area of mapped habitat per 250x250m between the selected times within the selected estuary."
+            h6("The change grid represents the change in area of mapped habitat per 250x250m between the selected times. Due to differences in mapping methods, changes relative to 1980 should be considered as indicative only ."
             ),
             
             selectInput("region3", 
@@ -356,7 +356,11 @@ tabPanel(
             
             h4("Change in mapped area of seagrass"),
             
-            tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary. The areas presented below represent 100% of the mapped area for each genus. This includes areas of overlap where multiple genera occur. As such, totalling the values from these figures may over estimate the total amount of seagrass present in the selected estuary."),
+            tags$p("Change in area (hectares) of mapped seagrass extent for the selected estuary. The areas presented below represent 100% of the mapped area for each genus. 
+                   This includes areas of overlap where multiple genera occur. As such, totalling the values from these figures may over estimate the total amount of seagrass present 
+                   in the selected estuary. Due to differences in mapping techniques, comparison of areas from 1980 (light grey columns) should be used as an indication of the direction 
+                   of change (increase vs decrease) rather than the magnitude of area change.  In general, maps from 1980 tended to overestimate areas of 
+                   large habitat patches and may have missed small patches."),
             
             column(6, offset = 0,
                    style = "height:600px; ", 
@@ -367,7 +371,9 @@ tabPanel(
             tags$br(),tags$br(),
             
             h4("Change in mapped area of mangrove and saltmarsh"),
-            tags$p("Change in area (hectares) of mapped mangrove and saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each habitat for each time."),
+            tags$p("Change in area (hectares) of mapped mangrove and saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each 
+                   habitat for each time. Due to differences in mapping techniques, comparison of areas from 1980 (light grey columns) should be used as an indication of the 
+                   direction of change (increase vs decrease) rather than the magnitude of change area change."),
             
             column(6, offset = 0,
                    style = "height:350px; ", 
@@ -432,6 +438,8 @@ tabPanel(
         
         tags$p("A detailed list of all mapped estuaries can be viewed ",
                 tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
+        tags$p("A full list of changes and updates to the dashboard can be viewed in the ",
+               tags$a(href="Changelog.html", target="_blank", "Changelog.")),  
         tags$p("Macrophyte maps for the latest time of mapping can be downloaded from the", 
                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
         tags$h3("Mapping Details"),
@@ -815,7 +823,7 @@ server <- function(input, output, session) {
     
     ### Create an asymmetric color range
     # scale_range <- c(-62500, 62500)
-    bins <- c(62500, 32000, 3200, 320, 32, .1, -.1, -32, -320, -3200, -32000, -65000)
+    bins <- c(65000, 32000, 3200, 320, 32, .1, -.1, -32, -320, -3200, -32000, -65000)
     grdpal <- colorBin ("RdYlBu", bins = bins, na.color = "transparent") 
     
     output$map_change <- renderLeaflet({
@@ -919,14 +927,16 @@ server <- function(input, output, session) {
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
             dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Man_Sm", "Man_Biplot", "SM_Biplot")) %>%
-            dplyr::filter(Area >= 0)
+            dplyr::filter(Area >= 0)%>%
+            dplyr::mutate(ToHighlight = ifelse(Map_Year == 1980, "yes", "no"))
         
     })
     
     
     output$habitat_plot <- renderPlot({
-        ggplot(data=plot_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
-            geom_bar(stat="identity", color="black", size = 0.2, fill="#EEEEEE", width = 0.7)+ 
+        ggplot(data=plot_dat(), aes(x=factor(Map_Year), y=Area/10000, fill=ToHighlight)) + 
+            geom_bar(stat="identity", color="black", size = 0.2, width = 0.7)+ 
+            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = FALSE )+ 
             labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
             facet_wrap(~Habitat, scales = "free_y") +
@@ -996,7 +1006,8 @@ server <- function(input, output, session) {
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
             dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Man_Sm")) %>%
-            dplyr::filter(Area >= 0)
+            dplyr::filter(Area >= 0)%>%
+            dplyr::mutate(ToHighlight = ifelse(Map_Year == 1980, "yes", "no"))
         
     })
     
@@ -1004,8 +1015,9 @@ server <- function(input, output, session) {
     
     # Mangrove, Mixed and Saltmarsh plots
     output$mansm_plot <- renderPlot({
-        ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000)) + 
-            geom_bar(stat="identity", color="black", size = 0.4, fill="#EEEEEE", width = 0.7)+ 
+        ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000, fill=ToHighlight)) + 
+            geom_bar(stat="identity", color="black", size = 0.2, width = 0.7)+ 
+            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = FALSE )+
             #geom_text(aes(label=round(Area/10000, digits = 2)), position=position_dodge(width=0.9), vjust=-0.25)+
             labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
