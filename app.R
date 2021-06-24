@@ -994,9 +994,11 @@ server <- function(input, output, session) {
                    mvs_t1_dat(),
                    by = c("GRID_ID")) %>%
             mutate(delta_mangrove = .[[2]] - .[[4]]) %>%
-            mutate(delta_saltmarsh = .[[3]] - .[[5]])
-            #filter(delta_saltmarsh != 0) %>%
-            #filter(delta_mangrove != 0)
+            mutate(delta_saltmarsh = .[[3]] - .[[5]]) %>%
+            mutate(pres_mangrove = .[[2]] + .[[4]]) %>%
+            mutate(pres_saltmarsh = .[[3]] + .[[5]]) %>%
+            filter(pres_saltmarsh != 0) %>%
+            filter(pres_mangrove != 0)
     })
     
     #Filter out mangroves, mangrove_saltmarsh and saltmarsh
