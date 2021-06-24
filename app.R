@@ -386,7 +386,7 @@ tabPanel(
             
             h4("Relative change of mangrove and saltmarsh"),
             tags$p("Relative changes in the area of mangrove to saltmarsh over time are presented below. 
-                   This analysis represents the changes in area between these two habitats within each 250m x 250m grid for the selected times. 
+                   This analysis represents the changes in area between these two habitats within each 250m x 250m grid in which both mangrove and saltmarsh are present for the selected times. 
                    Areas for mangrove and saltmarsh where classified as mixed polygons have been calculated as 100% of the area for each habitat. Data are measures of relative change and as such no scale has been included on the axes."),
             
             
