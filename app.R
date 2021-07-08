@@ -619,6 +619,9 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/fire_damage/{z}/{x}/{y}.png", group = "2019 - 2020 Fire damage",
                      options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Disturbance/{z}/{x}/{y}.png", group = "Saltmarsh - Vehicle damage",
+                     options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
+                     attribution = "&copy; Department of Primary Industries 2021") %>%
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Boat moorings",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Transport for NSW 2020") %>% 
@@ -653,7 +656,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Mooring Areas", "Boat moorings"),
+                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Saltmarsh - Vehicle damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Mooring Areas", "Boat moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -664,6 +667,7 @@ server <- function(input, output, session) {
                        completedColor = "#7D4479") %>%
             hideGroup("Foreshore") %>%
             hideGroup("2019 - 2020 Fire damage") %>%
+            hideGroup("Saltmarsh - Vehicle damage") %>%
             hideGroup("Artificial structures") %>%
             hideGroup("Aquaculture leases") %>%
             hideGroup("Estuarine reef") %>%
