@@ -612,25 +612,28 @@ server <- function(input, output, session) {
 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial structures",
                      options = pathOptions(pane="macromap", maxZoom=17),
-                     attribution = "&copy; Department of Primary Industries 2020") %>% 
+                     attribution = "&copy; Department of Primary Industries 2021") %>% 
             #addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/mooringarea/{z}/{x}/{y}.png", group = "Mooring Areas",
             #         options = pathOptions(pane="macromap", maxZoom=17, opacity=.6),
             #         attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/fire_damage/{z}/{x}/{y}.png", group = "2019 - 2020 Fire damage",
                      options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
-                     attribution = "&copy; Department of Primary Industries 2020") %>% 
+                     attribution = "&copy; Department of Primary Industries 2021") %>% 
+            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Disturbance/{z}/{x}/{y}.png", group = "Saltmarsh - 4WD damage",
+                     options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
+                     attribution = "&copy; Department of Primary Industries 2021") %>%
             # addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Boat moorings",
             #          options = pathOptions(pane="macromap", maxZoom=17),
             #          attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/foreshore/{z}/{x}/{y}.png", group = "Foreshore",
                      options = pathOptions(pane="macromap", maxZoom=17),
-                     attribution = "&copy; Department of Primary Industries 2020") %>% 
+                     attribution = "&copy; Department of Primary Industries 2021") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/reef/{z}/{x}/{y}.png", group = "Estuarine reef",
                      options = pathOptions(pane="othermap", maxZoom=17),
-                     attribution = "&copy; Department of Primary Industries 2020") %>%
+                     attribution = "&copy; Department of Primary Industries 2021") %>%
             addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat",
                      options = pathOptions(pane="macromap", maxZoom=17),
-                     attribution = "&copy; Department of Primary Industries 2020") %>%
+                     attribution = "&copy; Department of Primary Industries 2021") %>%
             
             #Add aquaculture leases from DPI
             addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture/MapServer/0", 
@@ -652,7 +655,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef"),
+                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Saltmarsh - 4WD damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -664,6 +667,7 @@ server <- function(input, output, session) {
             hideGroup("Foreshore") %>%
             hideGroup("2019 - 2020 Fire damage") %>%
             hideGroup("Artificial structures") %>%
+            hideGroup("Saltmarsh - 4WD damage") %>%
             hideGroup("Aquaculture leases") %>%
             hideGroup("Estuarine reef")
             #hideGroup("Mooring Areas") %>%
@@ -845,10 +849,10 @@ server <- function(input, output, session) {
             
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time1",
                      options = pathOptions(pane = "left", maxZoom=17),
-                     attribution = "&copy; Department of Primary Industries 2020") %>%
+                     attribution = "&copy; Department of Primary Industries 2021") %>%
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time2",
                      options = pathOptions(pane = "right", maxZoom=17),
-                     attribution = "&copy; Department of Primary Industries 2020") %>%
+                     attribution = "&copy; Department of Primary Industries 2021") %>%
             
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
