@@ -238,7 +238,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                  
      
 
-##### Change over time tab UI ----
+#### Change over time tab UI ----
 tabPanel(
     "Change over Time",
     div(
@@ -306,7 +306,7 @@ tabPanel(
 
         
                                 
-##### Data Summary Tab UI                  ----
+#### Data Summary Tab UI                  ----
 tabPanel(
     "Data Summary",
     fluidPage(
@@ -427,7 +427,7 @@ tabPanel(
 
 
 
-##### About Tab ----
+#### About Tab ----
 tabPanel(
     "About",
     tags$div(
