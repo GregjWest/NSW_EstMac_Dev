@@ -307,23 +307,20 @@ tabPanel(
             left = 280,
             width = 450,
             #height = "auto",
-            fixed = FALSE,
-            draggable = TRUE,
+
             tags$div(id = 'discDiv',  class="collapse in",
                      h3("Disclaimer", style="text-align:center"),
                      h6("Mapping methods were far less sophisticated (and at a coarser scale) for the earliest maps, hence changes in the extent of all habitats relative to 1980 are indicative only.  Comparisons of time periods after 2000 are considered the most reliable.",
                         tags$br(),tags$br(),
-                        "Although small patches of habitat (< 20 m2) have been identified in some recent maps, these cannot be consistently identified.",
+                        "Although small patches of habitat (< 20 m",tags$sup(2), ") have been identified in some recent maps, these cannot be consistently identified.",
                         tags$br(),tags$br(),
 
-                        actionButton('plotBtn', 'Agree', "data-toggle"='collapse', "data-target"='#disclaimer'),
+                        actionButton('agreeBtn', 'Agree', "data-toggle"='collapse', "data-target"='#disclaimer'),
                         ),
                      
 
             )
         )
-        
-        
         
         
     )
