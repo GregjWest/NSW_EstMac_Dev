@@ -290,18 +290,42 @@ tabPanel(
                     tags$br(),tags$br(),
                     tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
                            tags$img(src='Fisheries_Portal.svg')), 
-            
+                    
                     absolutePanel(id = "legend1", class = "card", bottom = 300, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
                                   tags$img(src='Macrophyte_Legend.svg',height='300',width='200'))
             ),
-                    absolutePanel(id = "legend1", class = "card", bottom = 20, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                tags$img(src='Grid_Legend_Curved.svg',height='275',width='170'))
-          
+            absolutePanel(id = "legend1", class = "card", bottom = 20, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                          tags$img(src='Grid_Legend_Curved.svg',height='275',width='170'))
+            
+            )
+        ),
+        
+        absolutePanel(
+            id = "disclaimer",
+            #class = "panel panel-default",
+            top = 92,
+            left = 280,
+            width = 450,
+            #height = "auto",
+            
+            tags$div(id = 'discDiv',  class="collapse in",
+                     h3("Disclaimer", style="text-align:center"),
+                     h6("Mapping methods were far less sophisticated (and at a coarser scale) for the earliest maps, hence changes in the extent of all habitats relative to 1980 are indicative only.  Comparisons of time periods after 2000 are considered the most reliable.",
+                        tags$br(),tags$br(),
+                        "Although small patches of habitat (< 20 m",tags$sup(2), ") have been identified in some recent maps, these cannot be consistently identified.",
+                        tags$br(),tags$br(),
+                        
+                        actionButton('agreeBtn', 'OK', "data-toggle"='collapse', "data-target"='#disclaimer'),
+                     ),
+                     
+                     
             )
         )
-    )
         
-    ),
+        
+    )
+    
+),
 
 
         
@@ -422,15 +446,15 @@ tabPanel(
     )
     ),
     
-        
-
-
 
 
 ##### About Tab ----
 tabPanel(
     "About",
     tags$div(
+        tags$h3("Disclaimer"),
+        
+        tags$p("The information contained in this website is based on knowledge and understanding at the time of publication (July 2021) and may not be accurate, current or complete. The State of New South Wales (including the Department of Regional NSW), the authors and the publisher take no responsibility, and will accept no liability, for the accuracy, currency, reliability or correctness of any information included in the document (including material provided by third parties). Readers should make their own inquiries and rely on their own advice when making decisions related to material contained in this publication."),
         tags$h3("Overview"),
         tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
         tags$p("More details on the estuarine habitats of NSW can be found on the ",
