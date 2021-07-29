@@ -485,8 +485,13 @@ tabPanel(
         tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
         tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
         tags$p(strong("Data compilation:"), "Greg West"),
-        tags$p(strong("Last mapping update:"), "2020"),
-        tags$p(strong("Last Shiny App update:"), "Jan 2021"),
+        tags$p(strong("Last mapping update:"), "2021"),
+        tags$p(strong("Last Shiny App update:"), "July 2021"),
+        
+        tags$br(),
+        tags$h3("Contact Us"),
+        tags$p("Please send any feedback, suggestions or queries to", tags$a(href="mailto:fisheries.data@dpi.nsw.gov.au?subject=Dashboard", "fisheries.data@dpi.nsw.gov.au"), "with the subject heading", (strong("Dashboard"))),
+        
         tags$br(),
         tags$h3("References"),
         tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
