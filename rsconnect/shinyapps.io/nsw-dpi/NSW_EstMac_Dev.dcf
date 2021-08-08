@@ -5,9 +5,10 @@ account: nsw-dpi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3303162
-bundleId: 4813646
+bundleId: 4901849
 url: https://nsw-dpi.shinyapps.io/NSW_EstMac_Dev/
-when: 1626151926.1664
+when: 1628461515.43211
+lastSyncTime: 1628461515.43211
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: data|graphics
