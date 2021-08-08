@@ -472,7 +472,7 @@ tabPanel(
                                tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
                                        tags$br(),tags$br(),
                                        
-                                       tags$p("A detailed list ther accuracy assessment results for S0 can be found ",
+                                       tags$p("A detailed list of the accuracy assessment results for S0 can be found ",
                                               tags$a(href="Accuracy_Assessment.html", target="_blank", "here.")),        
                                        
                                        tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
