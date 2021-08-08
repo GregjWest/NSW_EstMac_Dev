@@ -479,8 +479,8 @@ tabPanel(
                       )
                       
         ),
-       # absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-        #              tags$img(src='Explore_legend.svg',width='170'))
+        absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                     tags$img(src='Landuse2017_legend.svg',width='210'))
     )
 ),
 
@@ -1181,12 +1181,22 @@ server <- function(input, output, session) {
                                  layerId = "0", pathOptions(pane="basemaps4", maxZoom=15)) %>%
             
           
-            addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat",
+            #addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat",
+            #         options = pathOptions(pane="macromap4", maxZoom=15),
+            #         attribution = "&copy; Department of Primary Industries 2020") %>%
+            
+            addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S0/{z}/{x}/{y}.png", group = "Sea Level Modelling S0",
                      options = pathOptions(pane="macromap4", maxZoom=15),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
            
-            addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Landuse2017", options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5), layers = "0") %>%
-            addWMSLegend("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WmsServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=0") %>%
+            addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S1/{z}/{x}/{y}.png", group = "Sea Level Modelling S1",
+                     options = pathOptions(pane="macromap4", maxZoom=15),
+                     attribution = "&copy; Department of Primary Industries 2020") %>%
+            
+            addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Landuse2017", 
+                        options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5), 
+                        attribution = "&copy; State Government of NSW and Department of Planning, Industry and Environment 2020", layers = "0") %>%
+            #addWMSLegend("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WmsServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=0") %>%
             # set boundaries for map
             # fitBounds(lng1 = min(raster_points()$Lon), 
             #           lat1 = min(raster_points()$Lat), 
@@ -1203,7 +1213,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap", "Landuse2017"),
-                overlayGroups = c("Latest mapped habitat"),
+                overlayGroups = c("Sea Level Modelling S0", "Sea Level Modelling S1"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -1212,8 +1222,9 @@ server <- function(input, output, session) {
                        secondaryAreaUnit = "hectares",
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
-            hideGroup("Latest mapped habitat") %>%
-            hideGroup("Landuse2017")
+            #hideGroup("Latest mapped habitat") %>%
+            hideGroup("Sea Level Modelling S0")%>%
+            hideGroup("Sea Level Modelling S1")
         
         #hideGroup("Mooring Areas") %>%
         #hideGroup("Boat moorings")
