@@ -446,7 +446,47 @@ tabPanel(
     )
     ),
     
+#### SLR Modelling Tab UI                                  -----
+tabPanel(
+    "SLR Modelling",
+
+        div(class="outer",
+        tags$head(includeCSS("styles.css")),
+        leafletOutput("slrmap", width = "100%", height = "100%"),
         
+        absolutePanel(id = "controls", class = "panel panel-default",
+                      top = 160, left = 11, width = 250, height = "auto",
+                      fixed = TRUE, draggable = FALSE,
+                      tags$div(id = 'demo',  class="collapse in",
+                               h3("Sea Level Modelling", style="text-align:center"),
+                               
+                               h6("Select a region, estuary and the desired year to view the mapped data"),
+                               selectInput("region4", 
+                                           label = "Region:", 
+                                           choices = list_region, 
+                                           selected = list_region[index_region]),
+                               selectInput("estuary4", 
+                                           label = "Estuary:", 
+                                           choices = NULL, 
+                                           selected = "Pittwater"),
+                               tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
+                                       tags$br(),tags$br(),
+                                       tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
+                                              tags$img(src='Fisheries_Portal.svg')) 
+                               )
+                               
+                               
+                      )
+                      
+        ),
+       # absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+        #              tags$img(src='Explore_legend.svg',width='170'))
+    )
+),
+
+
+
+
 
 
 
@@ -679,7 +719,7 @@ server <- function(input, output, session) {
             
             
             #addMiniMap() %>%
-            addScaleBar(position = "bottomleft") %>%
+            addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
                 overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Saltmarsh - Vehicle damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef"),
@@ -891,7 +931,7 @@ server <- function(input, output, session) {
                           rightId = "Time2",
                           leftId = "Time1") %>%
             
-            addScaleBar(position = "bottomleft") %>%
+            addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
                        secondaryLengthUnit = "kilometers",
@@ -1090,8 +1130,98 @@ server <- function(input, output, session) {
     },height = 600, width = 600 )
     
     
+    ######## SLR Modelling TAB ########
+    # DATA PREPERATION
  
+    observe({
+        x4_1 <- dat %>% dplyr::filter(Region == input$region4) %>% dplyr::select(Estuary)
+        updateSelectInput(session, 
+                          "estuary4", 
+                          label = "Estuary:",
+                          choices = unique(x4_1))
+    })
     
+
+    raster_slr <- reactive({
+        dat %>%
+            dplyr::filter(Estuary == input$estuary4) %>%
+            dplyr::select(Easting, Northing)
+    })    
+    
+    # Set raster max and min based on estuary selection
+    lon_min3 <- reactive({min(raster_slr()$Easting)-10}) 
+    lon_max3 <- reactive({max(raster_slr()$Easting)+10})
+    lat_min3 <- reactive({min(raster_slr()$Northing)-10})
+    lat_max3 <- reactive({max(raster_slr()$Northing)+10})    
+    ncols <- reactive({((lon_max3() - lon_min3())/cell_size)}) 
+    nrows <- reactive({((lat_max3() - lat_min3())/cell_size)})  
+    
+    # Create and empty raster that covers the estuary selected
+    empty_slr <- reactive({
+        raster(nrows=nrows(), ncols=ncols(), 
+               xmn=lon_min3(), xmx=lon_max3(), 
+               ymn=lat_min3(), ymx=lat_max3(), 
+               res=c(cell_size,cell_size), crs=myproj)
+    })
+    
+    
+    # OUTPUTS  
+    
+    
+    output$slrmap <- renderLeaflet({
+        
+        
+        leaflet(options = leafletOptions(maxZoom = 15)) %>% 
+            addMapPane("basemaps4", zIndex=200) %>% #add map pane for baselayers
+            addMapPane("macromap4", zIndex=400) %>% #add map pane for macrophyte map
+            
+            addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
+                             options = pathOptions(pane="basemaps4", maxZoom=15)) %>%
+            addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
+                                 layerId = "0", pathOptions(pane="basemaps4", maxZoom=15)) %>%
+            
+          
+            addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat",
+                     options = pathOptions(pane="macromap4", maxZoom=15),
+                     attribution = "&copy; Department of Primary Industries 2020") %>%
+           
+            addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Landuse2017", options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5), layers = "0") %>%
+            addWMSLegend("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WmsServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=0") %>%
+            # set boundaries for map
+            # fitBounds(lng1 = min(raster_points()$Lon), 
+            #           lat1 = min(raster_points()$Lat), 
+            #           lng2 = max(raster_points()$Lon), 
+            #           lat2 = max(raster_points()$Lat)) %>%
+            # 
+            
+            
+            #add empty file for map extent
+        addRasterImage(empty_slr()) %>% 
+            
+            
+            #addMiniMap() %>%
+            addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
+            addLayersControl(
+                baseGroups = c("Open Street Map", "Photo basemap", "Landuse2017"),
+                overlayGroups = c("Latest mapped habitat"),
+                options = layersControlOptions(collapsed = FALSE)) %>%
+            addMeasure(position = "bottomleft",
+                       primaryLengthUnit = "meters",
+                       secondaryLengthUnit = "kilometers",
+                       primaryAreaUnit = "sqmeters",
+                       secondaryAreaUnit = "hectares",
+                       activeColor = "#3D535D",
+                       completedColor = "#7D4479") %>%
+            hideGroup("Latest mapped habitat") %>%
+            hideGroup("Landuse2017")
+        
+        #hideGroup("Mooring Areas") %>%
+        #hideGroup("Boat moorings")
+        
+        
+    })
+    
+
 }
 
 
