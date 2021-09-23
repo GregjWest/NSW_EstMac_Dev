@@ -627,7 +627,7 @@ server <- function(input, output, session) {
     output$map <- renderLeaflet({
         
         
-        leaflet() %>% 
+        leaflet(options = leafletOptions(maxZoom = 16)) %>% 
             addMapPane("basemaps", zIndex=200) %>% #add map pane for baselayers
             addMapPane("macromap", zIndex=400) %>% #add map pane for macrophyte map
             addMapPane("othermap", zIndex=450) %>% #add map pane for all other layers
@@ -648,6 +648,9 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Disturbance/{z}/{x}/{y}.png", group = "Saltmarsh - Vehicle damage",
                      options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
                      attribution = "&copy; Department of Primary Industries 2021") %>%
+            addTiles(urlTemplate = "https://gregjwest.github.io/CumulativeSG/{z}/{x}/{y}.png", group = "Cumulative Seagrass",
+                     options = pathOptions(pane="macromap", maxZoom=17),
+                     attribution = "&copy; Transport for NSW 2020") %>% 
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/moorings/{z}/{x}/{y}.png", group = "Boat moorings",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Transport for NSW 2020") %>% 
@@ -682,7 +685,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft") %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Saltmarsh - Vehicle damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Mooring Areas", "Boat moorings"),
+                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Saltmarsh - Vehicle damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Cumulative Seagrass", "Mooring Areas", "Boat moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -697,6 +700,7 @@ server <- function(input, output, session) {
             hideGroup("Artificial structures") %>%
             hideGroup("Aquaculture leases") %>%
             hideGroup("Estuarine reef") %>%
+            hideGroup("Cumulative Seagrass") %>%
             hideGroup("Mooring Areas") %>%
             hideGroup("Boat moorings")
         
