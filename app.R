@@ -229,8 +229,9 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        )
                                        
                          ),
-                         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                                                                tags$img(src='Explore_legend.svg',width='170'))
+                         absolutePanel(id = "legend1", class = "card", bottom = 25, left = 100, dropdownButton(icon = icon('info'), circle = FALSE, size = 'sm', up = TRUE, right = FALSE,
+                                                                                tags$img(src='Explore_legend.svg',width='375'))
+                     )
                      )
                  ),
 

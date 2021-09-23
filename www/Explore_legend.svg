@@ -1,278 +1,373 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 185 419" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:bevel;">
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,35.3608)">
+<svg width="100%" height="100%" viewBox="0 0 373 356" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:bevel;">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,35.678)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Posidonia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,43.0798)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,43.397)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(200,106,106);stroke:rgb(200,106,106);stroke-width:0.24px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,52.3754)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,52.6926)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Posidonia - Sparse</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,60.0943)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,60.4115)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(232,190,255);stroke:rgb(232,190,255);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,69.39)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,69.7072)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Posidonia/Zostera</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,77.1085)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,77.4257)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(223,115,255);stroke:rgb(223,115,255);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,86.4046)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,86.7218)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Posidonia/Zostera/Halophila</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,94.1226)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,94.4398)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(255,190,190);stroke:rgb(255,190,190);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,103.419)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,103.736)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Posidonia/Halophila</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,111.139)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,111.456)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(168,0,132);stroke:rgb(168,0,132);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,120.434)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,120.751)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Posidonia/Halophila/Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,128.153)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,128.47)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(112,68,137);stroke:rgb(112,68,137);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,137.448)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,137.765)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Posidonia/Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,145.167)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,145.484)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(115,178,255);stroke:rgb(115,178,255);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,154.463)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,154.78)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Zostera</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,162.181)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,162.498)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(193,210,229);stroke:rgb(193,210,229);stroke-width:0.24px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,171.477)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,171.794)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Zostera Sparse</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,179.197)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,179.514)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(0,59,163);stroke:rgb(0,59,163);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,188.492)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,188.809)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Zostera/Halophila</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,196.211)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,196.528)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(0,230,169);stroke:rgb(0,230,169);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,205.507)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,205.824)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Zostera/Halophila/Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,213.225)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,213.542)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(0,132,168);stroke:rgb(0,132,168);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,222.521)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,222.838)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Zostera/Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,230.239)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,230.556)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(255,170,74);stroke:rgb(255,170,0);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,239.536)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,239.853)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Halophila</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,247.255)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,247.572)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(255,234,190);stroke:rgb(255,234,190);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,256.55)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,256.867)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Halophila/Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,264.269)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,264.586)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(171,205,102);stroke:rgb(171,205,102);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,273.565)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,273.882)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,281.284)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,281.601)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(38,115,0);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,290.58)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,290.897)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Mangrove</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,298.298)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,298.615)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(140,168,61);stroke:rgb(140,168,61);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,307.594)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,307.911)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Mangrove/Saltmarsh</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,315.313)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,315.63)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(171,166,0);stroke:rgb(171,166,0);stroke-width:0.74px;"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,324.609)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,324.926)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Saltmarsh</text>
     </g>
-    <g transform="matrix(0.997756,0,0,1.30584,0.514815,-0.135644)">
-        <path d="M183.507,4.491C183.507,2.403 181.804,0.709 179.707,0.709L4.076,0.709C1.978,0.709 0.276,2.403 0.276,4.491L0.276,315.899C0.276,317.986 1.978,319.681 4.076,319.681L179.707,319.681C181.804,319.681 183.507,317.986 183.507,315.899L183.507,4.491Z" style="fill:white;stroke:rgb(204,204,204);stroke-width:1.36px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+    <g transform="matrix(2.01895,0,0,1.10814,0.550163,0.321721)">
+        <path d="M183.507,4.491C183.507,4.491 183.507,4.491 183.507,4.491C183.507,2.403 181.804,0.709 179.707,0.709L4.076,0.709C1.978,0.709 0.276,2.403 0.276,4.491L0.276,315.899C0.276,317.986 1.978,319.681 4.076,319.681L179.707,319.681C181.804,319.681 183.507,317.986 183.507,315.899L183.507,4.491Z" style="fill:white;stroke:rgb(204,204,204);stroke-width:1.36px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,26.0652)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,26.3824)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(168,0,0);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,35.3608)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,35.678)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Posidonia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,43.0798)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,43.397)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(200,106,106);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,52.3754)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,52.6926)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Posidonia</text>
         <text x="47.073px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">- Sparse</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,60.0943)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,60.4115)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(232,190,255);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,69.39)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,69.7072)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Posidonia</text>
         <text x="44.272px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/Zostera</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,77.1085)">
+    <g transform="matrix(0.923441,0,0,0.923441,197.043,26.3824)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(200,115,82);"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,35.678)">
+        <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Soft coral</text>
+        <text x="45.38px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:7.335px;">(Dendronephthya australis)</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,197.043,43.397)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(90,148,180);"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.902,52.4756)">
+        <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Posidonia</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,197.043,60.4115)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(147,223,215);"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,69.7072)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">All other seagrass</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,197.043,111.382)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:white;stroke:black;stroke-width:1.08px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:2;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,16)">
+        <path d="M207.816,95.382L197.044,105.799" style="fill:none;stroke:black;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5.38625,16)">
+        <path d="M207.816,95.382L197.044,105.799" style="fill:none;stroke:black;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,10.7725,16)">
+        <path d="M204.666,97.986L197.044,105.799" style="fill:none;stroke:black;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,15.9393,16)">
+        <path d="M199.5,103.297L197.044,105.799" style="fill:none;stroke:black;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,10.7918)">
+        <path d="M202.43,100.591L197.044,105.799" style="fill:none;stroke:black;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,120.678)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Fire damage</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,197.043,128.397)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(90,148,180);"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.902,137.476)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Saltmarsh - vehicle damage</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,197.043,145.411)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(204,204,204);stroke:rgb(107,107,107);stroke-width:1.08px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:2;"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,154.707)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Jetties/Pontoons</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,197.043,163.411)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(203,159,98);stroke:rgb(136,98,45);stroke-width:1.08px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:2;"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,172.707)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Rock walls/Groynes</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,197.043,180.411)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(184,202,221);stroke:rgb(142,171,201);stroke-width:1.08px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:2;"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,189.707)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Mooring areas</text>
+    </g>
+    <g transform="matrix(1,0,0,1,1,13)">
+        <circle cx="205.235" cy="190.594" r="3.801" style="fill:rgb(255,135,29);stroke:rgb(179,92,21);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,207.707)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Moorings</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,77.4257)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(223,115,255);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,86.4046)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,86.7218)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Posidonia</text>
         <text x="44.272px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="47.073px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Zostera</text>
         <text x="81.245px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="84.046px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Halophila</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,94.1226)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,94.4398)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(255,190,190);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,103.419)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,103.736)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Posidonia</text>
         <text x="44.272px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="47.073px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Halophila</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,111.139)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,111.456)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(168,0,132);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,120.434)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,120.751)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Posidonia</text>
         <text x="44.272px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="47.073px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Halophila</text>
         <text x="89.101px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="91.901px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,128.153)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,128.47)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(112,68,137);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,137.448)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,137.765)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Posidonia</text>
         <text x="44.272px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="47.073px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,145.167)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,145.484)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(115,178,255);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,154.463)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,154.78)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Zostera</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,162.181)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,162.498)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(193,210,229);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,171.477)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,171.794)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Zostera</text>
         <text x="36.973px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">- Sparse</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,179.197)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,179.514)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(0,59,163);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,188.492)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,188.809)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Zostera</text>
         <text x="34.173px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="36.973px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Halophila</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,196.211)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,196.528)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(0,230,169);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,205.507)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,205.824)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Zostera</text>
         <text x="34.173px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="36.973px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Halophila</text>
         <text x="79.001px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="81.802px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,213.225)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,213.542)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(0,132,168);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,222.521)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,222.838)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Zostera</text>
         <text x="34.173px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="36.973px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,230.239)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,230.556)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(255,170,74);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,239.536)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,239.853)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Halophila</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,247.255)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,247.572)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(255,234,190);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,256.55)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,256.867)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Halophila</text>
         <text x="42.028px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">/</text>
         <text x="44.828px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,264.269)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,264.586)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(171,205,102);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,273.565)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,273.882)">
         <text x="0px" y="0px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:10.08px;">Ruppia</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,281.284)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,281.601)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(38,115,0);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,290.58)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,290.897)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Mangrove</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,298.298)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,298.615)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(140,168,61);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,307.594)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,307.911)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Mangrove/Saltmarsh</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,315.313)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,315.63)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(171,166,0);"/>
     </g>
-    <g transform="matrix(0.923441,0,0,0.368356,11.8633,369.308)">
+    <g transform="matrix(0.923441,0,0,0.368356,197.043,252.986)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(109,168,0);"/>
     </g>
-    <g transform="matrix(0.923441,0,0,0.368356,11.8633,386.042)">
+    <g transform="matrix(0.923441,0,0,0.368356,197.043,269.72)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(254,201,129);"/>
     </g>
-    <g transform="matrix(0.923441,0,0,0.368356,11.8633,403.042)">
+    <g transform="matrix(0.923441,0,0,0.368356,197.043,286.72)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(222,87,89);"/>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,315.313)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,315.63)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(171,166,0);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,324.609)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,324.926)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Saltmarsh</text>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,341.609)">
+    <g transform="matrix(1.09068,0,0,1.09068,35.739,341.926)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Estuarine reef</text>
     </g>
-    <g transform="matrix(0.923441,0,0,0.923441,11.8633,332.313)">
+    <g transform="matrix(0.923441,0,0,0.923441,12.1805,332.63)">
         <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(129,102,89);"/>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,375.609)">
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,259.287)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Natural</text>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,392.609)">
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,276.287)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Mixed Natural/Artiﬁcial</text>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,10.8799,360.692)">
+    <g transform="matrix(1.09068,0,0,1.09068,196.06,244.371)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11.002px;">Foreshore classiﬁcation</text>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,10.8799,18.6921)">
+    <g transform="matrix(1.09068,0,0,1.09068,11.1971,19.0093)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11.002px;">Estuarine Habitats</text>
     </g>
-    <g transform="matrix(1.09068,0,0,1.09068,35.4218,408.609)">
+    <g transform="matrix(1.09068,0,0,1.09068,196.095,19.954)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11.002px;">Cumulative Seagrass</text>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,196.095,105.954)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11.002px;">Disturbance</text>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,220.602,292.287)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Artiﬁcial</text>
     </g>
+    <g transform="matrix(0.555842,0,0,0.555842,196.601,128.146)">
+        <clipPath id="_clip1">
+            <rect x="0" y="0" width="34.559" height="19.57"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <clipPath id="_clip2">
+                <rect x="0" y="0" width="34.559" height="19.57"/>
+            </clipPath>
+            <g clip-path="url(#_clip2)">
+                <g transform="matrix(1.79907,-0,-0,1.79907,-353.7,-230.544)">
+                    <use xlink:href="#_Image3" x="204.691" y="129.587" width="19.21px" height="10.878px" transform="matrix(0.960476,0,0,0.98888,0,0)"/>
+                </g>
+            </g>
+            <rect x="0" y="0" width="34.559" height="19.57" style="fill:none;stroke:black;stroke-width:1.8px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:2;"/>
+        </g>
+    </g>
+    <defs>
+        <image id="_Image3" width="20px" height="11px" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAALABQDAREAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAABAADCP/EACkQAAIBAwQAAwkAAAAAAAAAAAECAwQFEQAhMUESI2EGFBUiJCVCscH/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBv/EACQRAAEDAwMEAwAAAAAAAAAAAAEAAgMRIUExYXESQlHwBSOB/9oADAMBAAIRAxEAPwDRsjQGloZZrbIsav8Abrao3Y74dwNgMb7/AL55s3oXC3a3zufb8LZXpn4vOIsS3Ixj3qqJ8ukTpAej6D+jLpJ1Ghq/Jw0be8ZRb8Usr/R4strWejDkLUTjLTnuTJOSCezzz3ptMlPojDh5OpKLZKJSVlS3s9ebq0pNbFLJGkuBlVEjKAOhsANQxx6JZu6wryg4CXVeXHZ6VPlhqiWnUfmcjk896h7QIoWDR2u+iMkot2q6lbvWQJM6RQSCONEPhCr4FONvUnWHyEr2TlrTQDSipgBC/9k="/>
+    </defs>
 </svg>
