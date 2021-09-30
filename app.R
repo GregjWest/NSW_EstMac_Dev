@@ -401,48 +401,49 @@ tabPanel(
             
             column(6, offset = 0,
                    style = "height:350px; ", 
-                   plotOutput("mansm_plot", width = "100%"))
-                 ),
+                   plotOutput("mansm_plot", width = "100%")),
+            tags$br(),tags$br(),     
+            ),
         
-        
-        fluidRow(
-            tags$br(),
-            
-            h4("Relative change of mangrove and saltmarsh"),
-            tags$p("Relative changes in the area of mangrove to saltmarsh over time are presented below. 
-                   This analysis represents the changes in area between these two habitats within each 250m x 250m grid in which both mangrove and saltmarsh are present for the selected times. 
-                   Areas for mangrove and saltmarsh where classified as mixed polygons have been calculated as 100% of the area for each habitat. Data are measures of relative change and as such no scale has been included on the axes."),
-            
-            
-        ),
-        fluidRow(column(4,
-                        selectInput("mvs_t1",
-                        label = "Year (Time 1): ",
-                        choices = NULL,
-                        selected = "1985"
-            
-                        )
-            ),
-            column(4,
-                    selectInput("mvs_t2", 
-                    label = "Latest Year (Time 2): ", 
-                    choices = NULL, 
-                    selected = "2017"
-            )
-            ),
-
-            tags$br(),
-            tags$br(),
-            
-            column(6, offset = 2,
-                   style = "height:50px; "
-            
-            ),
-            column(12, align="center",
-                   style = "height:700px; ",
-                   plotOutput("MVS", width = "100%"))
-
-    )
+        # commented out for biplot to be added later.
+        # fluidRow(
+        #     tags$br(),
+        #     
+        #     h4("Relative change of mangrove and saltmarsh"),
+        #     tags$p("Relative changes in the area of mangrove to saltmarsh over time are presented below. 
+        #            This analysis represents the changes in area between these two habitats within each 250m x 250m grid in which both mangrove and saltmarsh are present for the selected times. 
+        #            Areas for mangrove and saltmarsh where classified as mixed polygons have been calculated as 100% of the area for each habitat. Data are measures of relative change and as such no scale has been included on the axes."),
+        #     
+        #     
+        # ),
+    #     fluidRow(column(4,
+    #                     selectInput("mvs_t1",
+    #                     label = "Year (Time 1): ",
+    #                     choices = NULL,
+    #                     selected = "1985"
+    #         
+    #                     )
+    #         ),
+    #         column(4,
+    #                 selectInput("mvs_t2", 
+    #                 label = "Latest Year (Time 2): ", 
+    #                 choices = NULL, 
+    #                 selected = "2017"
+    #         )
+    #         ),
+    # 
+    #         tags$br(),
+    #         tags$br(),
+    #         
+    #         column(6, offset = 2,
+    #                style = "height:50px; "
+    #         
+    #         ),
+    #         column(12, align="center",
+    #                style = "height:700px; ",
+    #                plotOutput("MVS", width = "100%"))
+    # 
+    # )
     )
     ),
     
@@ -1076,23 +1077,23 @@ server <- function(input, output, session) {
     
     
     
-    
-    #Mangrove vs Saltmarsh Biplot
-    output$MVS <- renderPlot({
-        ggplot(mvs_diff_dat()) +
-            theme_geometry(mvs_diff_dat()$delta_mangrove, mvs_diff_dat()$delta_saltmarsh) +
-            theme_light() +
-            theme(axis.title.x=element_blank(),
-                  axis.text.x=element_blank(),
-                  axis.ticks.x=element_blank(),
-                  axis.title.y=element_blank(),
-                  axis.text.y=element_blank(),
-                  axis.ticks.y=element_blank()) +
-            geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = 3, shape = 21, fill="lightgray", color = "black", alpha = .5) +
-            annotation_custom(mvsbgimg, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
-
-        
-    },height = 600, width = 600 )
+    #   below Biplot commented out for later release 
+    # #Mangrove vs Saltmarsh Biplot
+    # output$MVS <- renderPlot({
+    #     ggplot(mvs_diff_dat()) +
+    #         theme_geometry(mvs_diff_dat()$delta_mangrove, mvs_diff_dat()$delta_saltmarsh) +
+    #         theme_light() +
+    #         theme(axis.title.x=element_blank(),
+    #               axis.text.x=element_blank(),
+    #               axis.ticks.x=element_blank(),
+    #               axis.title.y=element_blank(),
+    #               axis.text.y=element_blank(),
+    #               axis.ticks.y=element_blank()) +
+    #         geom_point(aes(x = delta_mangrove, y = delta_saltmarsh), size = 3, shape = 21, fill="lightgray", color = "black", alpha = .5) +
+    #         annotation_custom(mvsbgimg, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
+    # 
+    #     
+    # },height = 600, width = 600 )
     
     
  
