@@ -449,7 +449,7 @@ tabPanel(
     
 #### SLR Modelling Tab UI                                  -----
 tabPanel(
-    "SLR Modelling",
+    "Predictive Modelling",
 
         div(class="outer",
         tags$head(includeCSS("styles.css")),
@@ -1139,7 +1139,7 @@ server <- function(input, output, session) {
     },height = 600, width = 600 )
     
     
-    ######## SLR Modelling TAB ########
+    ######## Predictive Modelling TAB ########
     # DATA PREPERATION
  
     observe({
