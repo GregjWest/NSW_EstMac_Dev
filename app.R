@@ -178,7 +178,7 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
 
 # Overall layout of App.
 ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
-                 title = div(img(src= "DPI_LOGO_left.svg","Estuarine Habitat Mapping",
+                 title = div(img(src= "DPI_LOGO_left.svg","Estuarine Habitat Dashboard",
                                  style="margin-top: -15px;margin-left: -30;padding-right:10px", 
                                  height = 50)),
                  windowTitle = "NSW Estuarine Mapping",
