@@ -1180,26 +1180,26 @@ server <- function(input, output, session) {
     output$slrmap <- renderLeaflet({
         
         
-        leaflet(options = leafletOptions(maxZoom = 15)) %>% 
+        leaflet(options = leafletOptions(maxZoom = 16)) %>% 
             addMapPane("basemaps4", zIndex=200) %>% #add map pane for baselayers
             addMapPane("macromap4", zIndex=400) %>% #add map pane for macrophyte map
             
             addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                             options = pathOptions(pane="basemaps4", maxZoom=15)) %>%
+                             options = pathOptions(pane="basemaps4", maxZoom=16)) %>%
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
-                                 layerId = "0", pathOptions(pane="basemaps4", maxZoom=15)) %>%
+                                 layerId = "0", pathOptions(pane="basemaps4", maxZoom=16)) %>%
             
           
             #addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat",
             #         options = pathOptions(pane="macromap4", maxZoom=15),
             #         attribution = "&copy; Department of Primary Industries 2020") %>%
             
-            addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S0/{z}/{x}/{y}.png", group = "Sea Level Modelling S0",
-                     options = pathOptions(pane="macromap4", maxZoom=15),
+            addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S0/{z}/{x}/{y}.png", group = "Sea level - Present day",
+                     options = pathOptions(pane="macromap4", maxZoom=16),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
            
-            addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S1/{z}/{x}/{y}.png", group = "Sea Level Modelling S1",
-                     options = pathOptions(pane="macromap4", maxZoom=15),
+            addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S1/{z}/{x}/{y}.png", group = "Sea level - 0.5m increase",
+                     options = pathOptions(pane="macromap4", maxZoom=16),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
             addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Landuse2017", 
@@ -1222,7 +1222,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap", "Landuse2017"),
-                overlayGroups = c("Sea Level Modelling S0", "Sea Level Modelling S1"),
+                overlayGroups = c("Sea level - Present day", "Sea level - 0.5m increase"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -1232,8 +1232,8 @@ server <- function(input, output, session) {
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
             #hideGroup("Latest mapped habitat") %>%
-            hideGroup("Sea Level Modelling S0")%>%
-            hideGroup("Sea Level Modelling S1")
+            hideGroup("Sea level - Present day")%>%
+            hideGroup("Sea level - 0.5m increase")
         
         #hideGroup("Mooring Areas") %>%
         #hideGroup("Boat moorings")
