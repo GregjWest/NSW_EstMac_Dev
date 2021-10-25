@@ -183,6 +183,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                  height = 50)),
                  windowTitle = "NSW Estuarine Mapping",
                  position = c("fixed-top"),
+                 header=singleton(tags$head(includeHTML(("google-analytics.html")))),
                  
 
                  
