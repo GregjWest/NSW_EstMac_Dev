@@ -1194,6 +1194,12 @@ server <- function(input, output, session) {
             #         options = pathOptions(pane="macromap4", maxZoom=15),
             #         attribution = "&copy; Department of Primary Industries 2020") %>%
             
+
+            
+            addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Landuse2017", 
+                        options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5, pane="macromap4"), 
+                        attribution = "&copy; State Government of NSW and Department of Planning, Industry and Environment 2020", layers = "0") %>%
+            
             addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S0/{z}/{x}/{y}.png", group = "Sea level - Present day",
                      options = pathOptions(pane="macromap4", maxZoom=16),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
@@ -1201,10 +1207,6 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S1/{z}/{x}/{y}.png", group = "Sea level - 0.5m increase",
                      options = pathOptions(pane="macromap4", maxZoom=16),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            
-            addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Landuse2017", 
-                        options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5), 
-                        attribution = "&copy; State Government of NSW and Department of Planning, Industry and Environment 2020", layers = "0") %>%
             #addWMSLegend("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WmsServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=0") %>%
             # set boundaries for map
             # fitBounds(lng1 = min(raster_points()$Lon), 
@@ -1221,8 +1223,8 @@ server <- function(input, output, session) {
             #addMiniMap() %>%
             addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
             addLayersControl(
-                baseGroups = c("Open Street Map", "Photo basemap", "Landuse2017"),
-                overlayGroups = c("Sea level - Present day", "Sea level - 0.5m increase"),
+                baseGroups = c("Open Street Map", "Photo basemap"),
+                overlayGroups = c("Landuse2017", "Sea level - Present day", "Sea level - 0.5m increase"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
