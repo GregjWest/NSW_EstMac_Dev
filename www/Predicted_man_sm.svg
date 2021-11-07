@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 137 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(0.976624,0,0,0.702977,3.46336,2.7598)">
+        <path d="M135.735,-0.021C135.735,-1.971 134.595,-3.554 133.192,-3.554L-0.736,-3.554C-2.139,-3.554 -3.279,-1.971 -3.279,-0.021L-3.279,51.797C-3.279,53.747 -2.139,55.33 -0.736,55.33L133.192,55.33C134.595,55.33 135.735,53.747 135.735,51.797L135.735,-0.021Z" style="fill:white;stroke:rgb(172,172,172);stroke-width:0.61px;"/>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,6.89064,6.47612)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(1,133,113);"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,30.4491,15.7717)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Predicted</text>
+        <text x="45.385px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Mangrove</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,6.89064,25.4907)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(216,179,101);"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,30.7498,34.5694)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Predicted Saltmarsh</text>
+    </g>
+</svg>

@@ -484,8 +484,8 @@ tabPanel(
                       )
                       
         ),
-        absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                     tags$img(src='Landuse2017_legend.svg',width='210'))
+        absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "175", height = "auto",
+                     tags$img(src='Predicted_man_sm.svg'))
     )
 ),
 
@@ -1207,7 +1207,7 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S1/{z}/{x}/{y}.png", group = "Sea level - 0.5m increase",
                      options = pathOptions(pane="macromap4", maxZoom=16),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            #addWMSLegend("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WmsServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=0") %>%
+            addWMSLegend("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WmsServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=0") %>%
             # set boundaries for map
             # fitBounds(lng1 = min(raster_points()$Lon), 
             #           lat1 = min(raster_points()$Lat), 
@@ -1234,7 +1234,8 @@ server <- function(input, output, session) {
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
             #hideGroup("Latest mapped habitat") %>%
-            hideGroup("Sea level - Present day")%>%
+            hideGroup("Landuse2017")%>%
+            #hideGroup("Sea level - Present day")%>%
             hideGroup("Sea level - 0.5m increase")
         
         #hideGroup("Mooring Areas") %>%
