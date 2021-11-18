@@ -1,9 +1,11 @@
-### West, Williams, Glasby  Dec 2020
+### West, Williams, Glasby  Dec 2021
 ## A Shiny map to display and explore the estuarine macorphyte mapping data
 
-# Last update Jan 2021
+# Last update Nov 2021
 
-# v0.6
+# v1
+
+# credit needs to be given to NSW Department of Primary Industries - Fisheries
 
 #
 # This is a Shiny web application. You can run the application by clicking
