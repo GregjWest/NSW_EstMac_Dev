@@ -500,7 +500,7 @@ tabPanel(
         tags$h3("References"),
         tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
         tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
-        tags$p("West, G., Glasby, T.M., (in review). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."),
+        tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", tags$p("West, G., Glasby, T.M., (2021). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."), target="_blank"),
         tags$a(href="West_1985.pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
         tags$br(),
         tags$br("The Shiny App is produced using R v4.0.3, RStudio v1.4.1103 and Leaflet v2.0.4.1,"),
