@@ -204,28 +204,30 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        top = 160, left = 11, width = 250, height = "auto",
                                        fixed = TRUE, draggable = FALSE,
                                        tags$div(id = 'demo',  class="collapse in",
-                                       h3("Map Explorer", style="text-align:center"),
-                                    
-                                       h6("Select a region, estuary and the desired year to view the mapped data"),
-                                       selectInput("region1", 
-                                                   label = "Region:", 
-                                                   choices = list_region, 
-                                                   selected = list_region[index_region]),
-                                       selectInput("estuary1", 
-                                                   label = "Estuary:", 
-                                                   choices = NULL, 
-                                                   selected = "Pittwater"),
-                                       selectInput("date_t1", 
-                                                   label = "Year Mapped:", 
-                                                   choices = NULL, 
-                                                   selected = "2017"),
+                                                h3("Map Explorer", style="text-align:center"),
+                                                
+                                                h6("Select a region, estuary and the desired year to view the mapped data"),
+                                                selectInput("region1", 
+                                                            label = "Region:", 
+                                                            choices = list_region, 
+                                                            selected = list_region[index_region]),
+                                                selectInput("estuary1", 
+                                                            label = "Estuary:", 
+                                                            choices = NULL, 
+                                                            selected = "Pittwater"),
+                                                selectInput("date_t1", 
+                                                            label = "Year Mapped:", 
+                                                            choices = NULL, 
+                                                            selected = "2017"),
+                                                tags$h6("A detailed list of all mapped estuaries and the features present can be viewed ",
+                                                        tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),         
                                                 tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
                                                         tags$br(),tags$br(),
                                                         tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
-                                                tags$img(src='Fisheries_Portal.svg')) 
-                                               )
-                                       
-                                       
+                                                               tags$img(src='Fisheries_Portal.svg')) 
+                                                )
+                                                
+                                                
                                        )
                                        
                          ),
