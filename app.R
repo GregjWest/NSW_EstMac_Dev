@@ -474,7 +474,7 @@ tabPanel(
                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
         tags$h3("Mapping Details"),
         
-        tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (in review).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
+        tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (2021).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
                tags$span(tags$em("Phragmites australis")),
                "and ", 
                tags$span(tags$em("Baumea juncea", .noWS = "outside"),.noWS = "outside")),
