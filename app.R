@@ -686,12 +686,12 @@ server <- function(input, output, session) {
             
             
             #addMiniMap() %>%
-            addScaleBar(position = "bottomleft") %>%
+            addScaleBar(position = "bottomleft", options = scaleBarOptions(maxWidth = 100, imperial = FALSE, updateWhenIdle = TRUE)) %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
                 overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Saltmarsh - Vehicle damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Cumulative Seagrass", "Mooring Areas", "Boat moorings"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
-            addMeasure(position = "bottomleft",
+            addMeasure(position = "topleft",
                        primaryLengthUnit = "meters",
                        secondaryLengthUnit = "kilometers",
                        primaryAreaUnit = "sqmeters",
@@ -899,8 +899,9 @@ server <- function(input, output, session) {
                           rightId = "Time2",
                           leftId = "Time1") %>%
             
-            addScaleBar(position = "bottomleft") %>%
-            addMeasure(position = "bottomleft",
+            addScaleBar(position = "bottomleft", options = scaleBarOptions(maxWidth = 100, imperial = FALSE, updateWhenIdle = TRUE)) %>%
+            
+            addMeasure(position = "topleft",
                        primaryLengthUnit = "meters",
                        secondaryLengthUnit = "kilometers",
                        primaryAreaUnit = "sqmeters",
