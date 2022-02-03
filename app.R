@@ -671,7 +671,7 @@ server <- function(input, output, session) {
                      attribution = "&copy; Department of Primary Industries 2021") %>%
             
             #Add aquaculture leases from DPI
-            addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture/MapServer/0", 
+            addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture1/MapServer/1", 
                                 useServiceSymbology = FALSE, options = pathOptions(pane="othermap", maxZoom=17), color = "black",  weight = "1.5", group = "Aquaculture leases")%>%
             
             # set boundaries for map
