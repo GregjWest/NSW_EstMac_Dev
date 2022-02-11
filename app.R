@@ -235,7 +235,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        
                          ),
                          absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                                                                tags$img(src='Explore_legend.svg',width='170'))
+                                                                                tags$img(src='Explore_legend.svg',width='290'))
                      )
                  ),
 
@@ -474,7 +474,7 @@ tabPanel(
                tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
         tags$h3("Mapping Details"),
         
-        tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (in review).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
+        tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (2021).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
                tags$span(tags$em("Phragmites australis")),
                "and ", 
                tags$span(tags$em("Baumea juncea", .noWS = "outside"),.noWS = "outside")),
@@ -671,7 +671,7 @@ server <- function(input, output, session) {
                      attribution = "&copy; Department of Primary Industries 2021") %>%
             
             #Add aquaculture leases from DPI
-            addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture/MapServer/0", 
+            addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture1/MapServer/1", 
                                 useServiceSymbology = FALSE, options = pathOptions(pane="othermap", maxZoom=17), color = "black",  weight = "1.5", group = "Aquaculture leases")%>%
             
             # set boundaries for map
@@ -687,12 +687,18 @@ server <- function(input, output, session) {
             
             
             #addMiniMap() %>%
-            addScaleBar(position = "bottomleft") %>%
+            addScaleBar(position = "bottomleft", scaleBarOptions(
+                maxWidth = 100,
+                metric = TRUE,
+                imperial = FALSE,
+                updateWhenIdle = TRUE)) %>%
+            
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
                 overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Saltmarsh - Vehicle damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
-            addMeasure(position = "bottomleft",
+            
+            addMeasure(position = "topleft",
                        primaryLengthUnit = "meters",
                        secondaryLengthUnit = "kilometers",
                        primaryAreaUnit = "sqmeters",
@@ -899,8 +905,13 @@ server <- function(input, output, session) {
                           rightId = "Time2",
                           leftId = "Time1") %>%
             
-            addScaleBar(position = "bottomleft") %>%
-            addMeasure(position = "bottomleft",
+            addScaleBar(position = "bottomleft", scaleBarOptions(
+                maxWidth = 100,
+                metric = TRUE,
+                imperial = FALSE,
+                updateWhenIdle = TRUE)) %>%
+            
+            addMeasure(position = "topleft",
                        primaryLengthUnit = "meters",
                        secondaryLengthUnit = "kilometers",
                        primaryAreaUnit = "sqmeters",
