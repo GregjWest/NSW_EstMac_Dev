@@ -304,28 +304,29 @@ tabPanel(
             
             )
         ),
+        # Below is the code for the small disclaimer panel the displays on the Change over time tab, the commented section below can be un-commented to re-enable it
         
-        absolutePanel(
-            id = "disclaimer",
-            #class = "panel panel-default",
-            top = 92,
-            left = 280,
-            width = 450,
-            #height = "auto",
-            
-            tags$div(id = 'discDiv',  class="collapse in",
-                     h3("Disclaimer", style="text-align:center"),
-                     h6("Mapping methods were far less sophisticated (and at a coarser scale) for the earliest maps, hence changes in the extent of all habitats relative to 1980s data are indicative only.  Comparisons of time periods after 2000 are considered the most reliable.",
-                        tags$br(),tags$br(),
-                        "Although small patches of habitat (< 20 m",tags$sup(2), ") have been identified in some recent maps, these cannot be consistently identified.",
-                        tags$br(),tags$br(),
-                        
-                        actionButton('agreeBtn', 'OK', "data-toggle"='collapse', "data-target"='#disclaimer'),
-                     ),
-                     
-                     
-            )
-        )
+        # absolutePanel(
+        #     id = "disclaimer",
+        #     #class = "panel panel-default",
+        #     top = 92,
+        #     left = 280,
+        #     width = 450,
+        #     #height = "auto",
+        # 
+        #     tags$div(id = 'discDiv',  class="collapse in",
+        #              h3("Disclaimer", style="text-align:center"),
+        #              h6("Mapping methods were far less sophisticated (and at a coarser scale) for the earliest maps, hence changes in the extent of all habitats relative to 1980s data are indicative only.  Comparisons of time periods after 2000 are considered the most reliable.",
+        #                 tags$br(),tags$br(),
+        #                 "Although small patches of habitat (< 20 m",tags$sup(2), ") have been identified in some recent maps, these cannot be consistently identified.",
+        #                 tags$br(),tags$br(),
+        # 
+        #                 actionButton('agreeBtn', 'OK', "data-toggle"='collapse', "data-target"='#disclaimer'),
+        #              ),
+        # 
+        # 
+        #     )
+        # )
         
         
     )
@@ -491,7 +492,7 @@ tabPanel(
         tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
         tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
         tags$p(strong("Data compilation:"), "Greg West"),
-        tags$p(strong("Last mapping update:"), "2021"),
+        tags$p(strong("Last mapping update:"), "2022"),
         tags$p(strong("Last Shiny App update:"), "July 2021"),
         
         tags$br(),
