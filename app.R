@@ -262,7 +262,7 @@ tabPanel(
             draggable = FALSE,
             tags$div(id = 'demo1',  class="collapse in",
             h3("Change Analysis", style="text-align:center"),
-            h6("The change grid represents the change in area of mapped habitat per 250x250m between the selected times. Due to differences in mapping methods, changes relative to data mapped during the 1980s should be considered as indicative only ."
+            h6("The change grid represents the change in area of mapped habitat per 250x250m between the selected times. Due to differences in mapping methods, changes relative to data mapped during the 1980s should be considered as indicative only. Comparisons of time periods after 2000 are considered the most reliable."
             ),
             
             selectInput("region3", 
