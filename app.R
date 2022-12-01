@@ -259,7 +259,7 @@ tabPanel(
             draggable = FALSE,
             tags$div(id = 'demo1',  class="collapse in",
             h3("Change Analysis", style="text-align:center"),
-            h6("The change grid represents the change in area of mapped habitat per 250x250m between the selected times. Due to differences in mapping methods, changes relative to data from the 1980s should be considered as indicative only ."
+            h6("The change grid represents the change in area of mapped habitat per 250x250m between the selected times. Due to differences in mapping methods, changes relative to data from the 1980s should be considered as indicative only. Comparisons of time periods after 2000 are considered the most reliable."
             ),
 
             selectInput("region3", 
@@ -302,27 +302,27 @@ tabPanel(
             )
         ),
         
-        absolutePanel(
-            id = "disclaimer",
-            #class = "panel panel-default",
-            top = 92,
-            left = 280,
-            width = 450,
-            #height = "auto",
-            
-            tags$div(id = 'discDiv',  class="collapse in",
-                     h3("Disclaimer", style="text-align:center"),
-                     h6("Mapping methods were far less sophisticated (and at a coarser scale) for the earliest maps, hence changes in the extent of all habitats relative to the data from the 1980s are indicative only.  Comparisons of time periods after 2000 are considered the most reliable.",
-                        tags$br(),tags$br(),
-                        "Although small patches of habitat (< 20 m",tags$sup(2), ") have been identified in some recent maps, these cannot be consistently identified.",
-                        tags$br(),tags$br(),
-                        
-                        actionButton('agreeBtn', 'OK', "data-toggle"='collapse', "data-target"='#disclaimer'),
-                     ),
-                     
-                     
-            )
-        )
+        # absolutePanel(
+        #     id = "disclaimer",
+        #     #class = "panel panel-default",
+        #     top = 92,
+        #     left = 280,
+        #     width = 450,
+        #     #height = "auto",
+        #     
+        #     tags$div(id = 'discDiv',  class="collapse in",
+        #              h3("Disclaimer", style="text-align:center"),
+        #              h6("Mapping methods were far less sophisticated (and at a coarser scale) for the earliest maps, hence changes in the extent of all habitats relative to the data from the 1980s are indicative only.  Comparisons of time periods after 2000 are considered the most reliable.",
+        #                 tags$br(),tags$br(),
+        #                 "Although small patches of habitat (< 20 m",tags$sup(2), ") have been identified in some recent maps, these cannot be consistently identified.",
+        #                 tags$br(),tags$br(),
+        #                 
+        #                 actionButton('agreeBtn', 'OK', "data-toggle"='collapse', "data-target"='#disclaimer'),
+        #              ),
+        #              
+        #              
+        #     )
+        # )
         
     )
         
