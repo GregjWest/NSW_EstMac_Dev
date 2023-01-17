@@ -362,7 +362,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 33086,Lake Macquarie,Hunter,2022,Halophila,Lake_Macquarie
 33086,Lake Macquarie,Hunter,2022,Mangrove,Lake_Macquarie
 33086,Lake Macquarie,Hunter,2022,Posidonia,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2022,Ruppia,Lake_Macquarie
 33086,Lake Macquarie,Hunter,2022,Saltmarsh,Lake_Macquarie
 33086,Lake Macquarie,Hunter,2022,Zostera,Lake_Macquarie
 33345,Tuggerah Lake,Greater Sydney,1983,Halophila,Tuggerah_Lake
@@ -439,7 +438,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 33704,Narrabeen Lagoon,Greater Sydney,2008,Mangrove,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2008,Saltmarsh,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2008,Zostera,Narrabeen_Lagoon
-33704,Narrabeen Lagoon,Greater Sydney,2010,Halophila,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2010,Mangrove,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2010,Saltmarsh,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2010,Zostera,Narrabeen_Lagoon
@@ -891,6 +889,7 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36882,Back Lagoon,South East,1982,Zostera,Back_Lagoon
 36882,Back Lagoon,South East,2004,Halophila,Back_Lagoon
 36882,Back Lagoon,South East,2004,Saltmarsh,Back_Lagoon
+36882,Back Lagoon,South East,2022,Saltmarsh,Back_Lagoon
 36895,Merimbula Lake,South East,1982,Halophila,Merimbula_Lake
 36895,Merimbula Lake,South East,1982,Mangrove,Merimbula_Lake
 36895,Merimbula Lake,South East,1982,Posidonia,Merimbula_Lake
@@ -901,6 +900,10 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36895,Merimbula Lake,South East,2004,Posidonia,Merimbula_Lake
 36895,Merimbula Lake,South East,2004,Saltmarsh,Merimbula_Lake
 36895,Merimbula Lake,South East,2004,Zostera,Merimbula_Lake
+36895,Merimbula Lake,South East,2022,Mangrove,Merimbula_Lake
+36895,Merimbula Lake,South East,2022,Posidonia,Merimbula_Lake
+36895,Merimbula Lake,South East,2022,Saltmarsh,Merimbula_Lake
+36895,Merimbula Lake,South East,2022,Zostera,Merimbula_Lake
 36948,Pambula Lake,South East,1982,Halophila,Pambula_Lake
 36948,Pambula Lake,South East,1982,Mangrove,Pambula_Lake
 36948,Pambula Lake,South East,1982,Posidonia,Pambula_Lake
@@ -911,37 +914,56 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36948,Pambula Lake,South East,2004,Posidonia,Pambula_Lake
 36948,Pambula Lake,South East,2004,Saltmarsh,Pambula_Lake
 36948,Pambula Lake,South East,2004,Zostera,Pambula_Lake
+36948,Pambula Lake,South East,2022,Mangrove,Pambula_Lake
+36948,Pambula Lake,South East,2022,Posidonia,Pambula_Lake
+36948,Pambula Lake,South East,2022,Saltmarsh,Pambula_Lake
+36948,Pambula Lake,South East,2022,Zostera,Pambula_Lake
 37047,Curalo Lagoon,South East,1982,Ruppia,Curalo_Lagoon
 37047,Curalo Lagoon,South East,1982,Saltmarsh,Curalo_Lagoon
 37047,Curalo Lagoon,South East,1982,Zostera,Curalo_Lagoon
 37047,Curalo Lagoon,South East,2004,Halophila,Curalo_Lagoon
 37047,Curalo Lagoon,South East,2004,Saltmarsh,Curalo_Lagoon
 37047,Curalo Lagoon,South East,2004,Zostera,Curalo_Lagoon
+37047,Curalo Lagoon,South East,2022,Ruppia,Curalo_Lagoon
+37047,Curalo Lagoon,South East,2022,Saltmarsh,Curalo_Lagoon
+37047,Curalo Lagoon,South East,2022,Zostera,Curalo_Lagoon
 37077,Shadrachs Creek,South East,1982,Saltmarsh,Shadrachs_Creek
 37077,Shadrachs Creek,South East,1982,Zostera,Shadrachs_Creek
 37077,Shadrachs Creek,South East,2004,Zostera,Shadrachs_Creek
+37077,Shadrachs Creek,South East,2022,Zostera,Shadrachs_Creek
 37087,Twofold Bay,South East,1982,Posidonia,Twofold_Bay
 37087,Twofold Bay,South East,2004,Posidonia,Twofold_Bay
 37087,Twofold Bay,South East,2004,Zostera,Twofold_Bay
+37087,Twofold Bay,South East,2022,Halophila,Twofold_Bay
+37087,Twofold Bay,South East,2022,Posidonia,Twofold_Bay
+37087,Twofold Bay,South East,2022,Zostera,Twofold_Bay
 37091,Nullica River,South East,1982,Zostera,Nullica_River
 37091,Nullica River,South East,2004,Halophila,Nullica_River
 37091,Nullica River,South East,2004,Mangrove,Nullica_River
 37091,Nullica River,South East,2004,Saltmarsh,Nullica_River
 37091,Nullica River,South East,2004,Zostera,Nullica_River
+37091,Nullica River,South East,2022,Mangrove,Nullica_River
+37091,Nullica River,South East,2022,Saltmarsh,Nullica_River
 37103,Boydtown Creek,South East,1982,Saltmarsh,Boydtown_Creek
 37103,Boydtown Creek,South East,2004,Saltmarsh,Boydtown_Creek
+37103,Boydtown Creek,South East,2022,Saltmarsh,Boydtown_Creek
 37111,Fisheries Creek,South East,1982,Ruppia,Fisheries_Creek
 37111,Fisheries Creek,South East,1982,Saltmarsh,Fisheries_Creek
 37111,Fisheries Creek,South East,1982,Zostera,Fisheries_Creek
 37111,Fisheries Creek,South East,2004,Ruppia,Fisheries_Creek
 37111,Fisheries Creek,South East,2004,Saltmarsh,Fisheries_Creek
 37111,Fisheries Creek,South East,2004,Zostera,Fisheries_Creek
+37111,Fisheries Creek,South East,2022,Saltmarsh,Fisheries_Creek
+37111,Fisheries Creek,South East,2022,Zostera,Fisheries_Creek
 37112,Towamba River,South East,1982,Mangrove,Towamba_River
 37112,Towamba River,South East,1982,Saltmarsh,Towamba_River
 37112,Towamba River,South East,1982,Zostera,Towamba_River
 37112,Towamba River,South East,2004,Mangrove,Towamba_River
 37112,Towamba River,South East,2004,Saltmarsh,Towamba_River
 37112,Towamba River,South East,2004,Zostera,Towamba_River
+37112,Towamba River,South East,2022,Mangrove,Towamba_River
+37112,Towamba River,South East,2022,Saltmarsh,Towamba_River
+37112,Towamba River,South East,2022,Zostera,Towamba_River
 37250,Wonboyn River,South East,1982,Halophila,Wonboyn_River
 37250,Wonboyn River,South East,1982,Mangrove,Wonboyn_River
 37250,Wonboyn River,South East,1982,Saltmarsh,Wonboyn_River

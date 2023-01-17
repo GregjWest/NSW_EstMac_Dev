@@ -492,8 +492,8 @@ tabPanel(
         tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
         tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
         tags$p(strong("Data compilation:"), "Greg West"),
-        tags$p(strong("Last mapping update:"), "2022"),
-        tags$p(strong("Last Shiny App update:"), "July 2021"),
+        tags$p(strong("Last mapping update:"), "Jan 2023"),
+        tags$p(strong("Last Shiny App update:"), "Jan 2023"),
         
         tags$br(),
         tags$h3("Contact Us"),
@@ -501,6 +501,7 @@ tabPanel(
         
         tags$br(),
         tags$h3("References"),
+        tags$a(href="https://doi.org/10.1002/aqc.3905", tags$p("Swadling DS, West GJ, Gibson PT, Laird RJ, Glasby TM. (2022). Don't go breaking apart: Anthropogenic disturbances predict meadow fragmentation of an endangered seagrass. Aquatic Conservation: Marine and Freshwater Ecosystems"), target="_blank"),
         tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
         tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
         tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", tags$p("West, G., Glasby, T.M., (2021). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."), target="_blank"),
