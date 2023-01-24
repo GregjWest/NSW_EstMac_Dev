@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1772 539" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(0.984069,0,0,0.973323,-110.601,-22.8238)">
+        <rect x="112.392" y="23.449" width="1800.18" height="552.982" style="fill:white;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-327.287,-446.717)">
+        <g transform="matrix(3.04878,0,0,3.04878,339.94,458.447)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(150,102,206);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,340.281,505.253)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(231,188,245);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,340.329,552.134)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(224,135,223);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,340.281,598.975)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,255,229);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,340.184,645.916)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(55,168,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,340.281,692.795)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(172,255,181);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,339.989,739.604)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,211,127);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,340.135,786.509)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,255,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,340.086,833.406)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(171,135,122);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,340.038,880.287)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(171,135,160);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,339.989,927.113)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(48,48,48);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,-225.237,-540.251)">
+        <g transform="matrix(3.04878,0,0,3.04878,1774.23,1020.7)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(215,215,160);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,287.926,-116.055)">
+            <g transform="matrix(29.0301,0,0,29.0301,1697.11,1174.01)">
+            </g>
+            <text x="1542.19px" y="1174.01px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">Not Entered</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,69.4626,27.628)">
+        <text x="0px" y="20.795px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">1.1.0 Nature conservation</text>
+        <text x="0px" y="67.657px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">1.2.0 Managed resource protection</text>
+        <text x="0px" y="114.52px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">1.3.0 Other minimal use</text>
+        <text x="0px" y="161.383px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">2.1.0 Grazing native vegetation</text>
+        <text x="0px" y="208.246px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">2.2.0 Production native forestry</text>
+        <text x="0px" y="255.109px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">3.1.0 Plantation forests</text>
+        <g transform="matrix(29.0301,0,0,29.0301,245.268,301.972)">
+        </g>
+        <g transform="matrix(29.0301,0,0,29.0301,253.333,301.972)">
+        </g>
+        <text x="0px" y="301.972px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">3.2.0 Grazing modiﬁed pastures</text>
+        <text x="0px" y="348.835px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">3.3.0 Cropping</text>
+        <text x="0px" y="395.698px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">3.4.0 Perennial horticulture</text>
+        <text x="0px" y="442.561px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">3.5.0 Seasonal horticulture</text>
+        <text x="0px" y="489.424px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">3.6.0 Land in transition</text>
+    </g>
+    <g transform="matrix(1,0,0,1,622.579,27.628)">
+        <text x="0px" y="20.795px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">4.1.0 Irrigated plantation forests</text>
+        <g transform="matrix(29.0301,0,0,29.0301,358.213,67.6575)">
+        </g>
+        <g transform="matrix(29.0301,0,0,29.0301,366.279,67.6575)">
+        </g>
+        <text x="0px" y="67.657px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">4.2.0 Grazing irrigated modiﬁed pastures</text>
+        <text x="0px" y="114.52px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">4.3.0 Irrigated cropping</text>
+        <text x="0px" y="161.383px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">4.4.0 Irrigated perennial horticulture</text>
+        <text x="0px" y="208.246px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">4.5.0 Irrigated seasonal horticulture</text>
+        <text x="0px" y="255.109px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">4.6.0 Irrigated land in transition</text>
+        <text x="0px" y="301.972px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">5.1.0 Intensive horticulture</text>
+        <text x="0px" y="348.835px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">5.2.0 Intensive animal production</text>
+        <text x="0px" y="395.698px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">5.3.0 Manufacturing and industrial</text>
+        <text x="0px" y="442.561px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">5.4.0 Residential and farm infrastructure</text>
+        <g transform="matrix(29.0301,0,0,29.0301,183.947,489.424)">
+        </g>
+        <text x="0px" y="489.424px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">5.5.0 Services</text>
+    </g>
+    <g transform="matrix(1,0,0,1,1230.72,27.628)">
+        <text x="0px" y="20.795px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">5.6.0 Utilities</text>
+        <text x="0px" y="67.657px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">5.7.0 <tspan x="72.108px 88.763px 98.43px " y="67.657px 67.657px 67.657px ">Tra</tspan>nsport and communication</text>
+        <text x="0px" y="114.52px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">5.8.0 Mining</text>
+        <text x="0px" y="161.383px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">5.9.0 W<tspan x="98.955px 115.1px " y="161.383px 161.383px ">as</tspan>te treatment and disposal</text>
+        <text x="0px" y="208.246px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">6.1.0 Lake</text>
+        <text x="0px" y="255.109px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">6.2.0 Reservoir/dam</text>
+        <text x="0px" y="301.972px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">6.3.0 River</text>
+        <text x="0px" y="348.835px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">6.4.0 Channel/aqueduct</text>
+        <text x="0px" y="395.698px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">6.5.0 Marsh/wetland</text>
+        <text x="0px" y="442.561px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">6.6.0 Estuary/coastal waters</text>
+        <g transform="matrix(29.0301,0,0,29.0301,272.739,489.424)">
+        </g>
+        <text x="0px" y="489.424px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.03px;">9.9.9 Excluded areas</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-323.892,-427.233)">
+        <g transform="matrix(3.04878,0,0,3.04878,889.885,438.963)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(0,255,197);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.545,485.837)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,169,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.788,532.614)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(202,184,85);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.545,579.659)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(168,110,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.496,626.509)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(168,55,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.739,673.286)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(79,79,79);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.69,720.306)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(245,124,124);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.654,767.059)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,190,190);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.897,814.03)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(230,77,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.654,860.89)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(206,206,206);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,889.776,907.706)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(230,0,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,-916.371,-459.233)">
+        <g transform="matrix(3.04878,0,0,3.04878,2090.9,470.963)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(197,0,255);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2090.6,517.852)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(180,180,180);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2091,564.749)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(36,116,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2090.71,611.678)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(71,130,141);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2090.62,658.531)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(151,221,242);stroke:rgb(64,99,237);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2090.43,705.441)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(190,232,250);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2090.71,752.321)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(0,110,255);stroke:black;stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2090.52,799.203)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,0,197);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2090.52,846.06)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(85,255,0);stroke:black;stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2090.24,892.965)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(151,221,242);stroke:rgb(64,99,237);stroke-width:1.02px;"/>
+        </g>
+        <g transform="matrix(3.04878,0,0,3.04878,2090.33,939.681)">
+            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(135,71,99);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        </g>
+    </g>
+</svg>

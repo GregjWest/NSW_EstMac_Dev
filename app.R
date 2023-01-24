@@ -301,27 +301,27 @@ tabPanel(
             )
         ),
         
-        absolutePanel(
-            id = "disclaimer",
-            #class = "panel panel-default",
-            top = 92,
-            left = 280,
-            width = 450,
-            #height = "auto",
-
-            tags$div(id = 'discDiv',  class="collapse in",
-                     h3("Disclaimer", style="text-align:center"),
-                     h6("Mapping methods were far less sophisticated (and at a coarser scale) for the earliest maps, hence changes in the extent of all habitats relative to 1980 are indicative only.  Comparisons of time periods after 2000 are considered the most reliable.",
-                        tags$br(),tags$br(),
-                        "Although small patches of habitat (< 20 m",tags$sup(2), ") have been identified in some recent maps, these cannot be consistently identified.",
-                        tags$br(),tags$br(),
-
-                        actionButton('agreeBtn', 'Agree', "data-toggle"='collapse', "data-target"='#disclaimer'),
-                        ),
-                     
-
-            )
-        )
+        # absolutePanel(
+        #     id = "disclaimer",
+        #     #class = "panel panel-default",
+        #     top = 92,
+        #     left = 280,
+        #     width = 450,
+        #     #height = "auto",
+        # 
+        #     tags$div(id = 'discDiv',  class="collapse in",
+        #              h3("Disclaimer", style="text-align:center"),
+        #              h6("Mapping methods were far less sophisticated (and at a coarser scale) for the earliest maps, hence changes in the extent of all habitats relative to 1980 are indicative only.  Comparisons of time periods after 2000 are considered the most reliable.",
+        #                 tags$br(),tags$br(),
+        #                 "Although small patches of habitat (< 20 m",tags$sup(2), ") have been identified in some recent maps, these cannot be consistently identified.",
+        #                 tags$br(),tags$br(),
+        # 
+        #                 actionButton('agreeBtn', 'Agree', "data-toggle"='collapse', "data-target"='#disclaimer'),
+        #                 ),
+        #              
+        # 
+        #     )
+        # )
         
         
     )
@@ -461,7 +461,7 @@ tabPanel(
                       tags$div(id = 'demo',  class="collapse in",
                                h3("Sea Level Modelling", style="text-align:center"),
                                
-                               h6("Select a region, estuary and the desired year to view the mapped data"),
+                               h6("Select a region and estuary to zoom to the desired area"),
                                selectInput("region4", 
                                            label = "Region:", 
                                            choices = list_region, 
@@ -485,7 +485,10 @@ tabPanel(
                       
         ),
         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "175", height = "auto",
-                     tags$img(src='Predicted_man_sm.svg'))
+                     tags$img(src='Predicted_man_sm.svg')),
+        absolutePanel(id = "legend1", class = "card", bottom = 90, right = 10, dropdownButton(icon = icon(''), label = "Landuse legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
+                                                                                              tags$img(src='Landuse2017_Horizontal_legend.svg',width='750')), style = "z-index: 1000;"
+        )
     )
 ),
 
@@ -1206,7 +1209,7 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S1/{z}/{x}/{y}.png", group = "Sea level - 0.5m increase",
                      options = pathOptions(pane="macromap4", maxZoom=16),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            addWMSLegend("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WmsServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=0") %>%
+            #addWMSLegend("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WmsServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=0") %>%
             # set boundaries for map
             # fitBounds(lng1 = min(raster_points()$Lon), 
             #           lat1 = min(raster_points()$Lat), 
