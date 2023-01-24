@@ -484,9 +484,9 @@ tabPanel(
                       )
                       
         ),
-        absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "175", height = "auto",
+        absolutePanel(id = "legend1", class = "card", top = 230, right = 10,  fixed=TRUE, draggable = FALSE, width= "170", height = "auto",
                      tags$img(src='Predicted_man_sm.svg')),
-        absolutePanel(id = "legend1", class = "card", bottom = 90, right = 10, dropdownButton(icon = icon(''), label = "Landuse legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
+        absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(icon = icon(''), label = "Landuse legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
                                                                                               tags$img(src='Landuse2017_Horizontal_legend.svg',width='750')), style = "z-index: 1000;"
         )
     )
