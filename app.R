@@ -229,8 +229,8 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        )
                                        
                          ),
-                         absolutePanel(id = "legend1", class = "card", bottom = 25, left = 100, dropdownButton(icon = icon('info'), circle = FALSE, size = 'sm', up = TRUE, right = FALSE,
-                                                                                tags$img(src='Explore_legend.svg',width='375'))
+                         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(icon = icon(''), label = "Map Legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
+                                                                                tags$img(src='Explore_legend.svg',width='375')), style = "z-index: 1000;"
                      )
                      )
                  ),
