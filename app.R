@@ -470,14 +470,14 @@ tabPanel(
                                            label = "Estuary:", 
                                            choices = NULL, 
                                            selected = "Pittwater"),
-                               tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
+                               tags$h6("The predicted mangrove and saltmarsh data can be downloaded from NSW SEED.", 
                                        tags$br(),tags$br(),
                                        
                                        tags$p("A detailed list of the accuracy assessment results for S0 can be found ",
                                               tags$a(href="Accuracy_Assessment.html", target="_blank", "here.")),        
                                        
-                                       tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
-                                              tags$img(src='Fisheries_Portal.svg')) 
+                                       tags$a(href="https://www.seed.nsw.gov.au/", target="_blank", 
+                                              tags$img(src='SEED_Portal.svg')) 
                                )
                                
                                
@@ -517,7 +517,7 @@ tabPanel(
         tags$p("A full list of changes and updates to the dashboard can be viewed in the ",
                tags$a(href="Changelog.html", target="_blank", "Changelog.")),  
         tags$p("Macrophyte maps for the latest time of mapping can be downloaded from the", 
-               tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
+               tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
         tags$h3("Mapping Details"),
         
         tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (in review).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
