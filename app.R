@@ -1013,7 +1013,7 @@ server <- function(input, output, session) {
             dplyr::summarise(Area = sum(Area)) %>%
             dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Man_Sm", "Man_Biplot", "SM_Biplot")) %>%
             dplyr::filter(Area >= 0)%>%
-            dplyr::mutate(ToHighlight = ifelse(Map_Year == 1980, "yes", "no"))
+            dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
         
     })
     
@@ -1100,7 +1100,7 @@ server <- function(input, output, session) {
             dplyr::summarise(Area = sum(Area)) %>%
             dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Man_Sm")) %>%
             dplyr::filter(Area >= 0)%>%
-            dplyr::mutate(ToHighlight = ifelse(Map_Year == 1980, "yes", "no"))
+            dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
         
     })
     
