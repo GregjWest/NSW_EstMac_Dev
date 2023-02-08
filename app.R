@@ -229,7 +229,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        )
                                        
                          ),
-                         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(icon = icon(''), label = "Map Legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
+                         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(label = "Map Legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
                                                                                 tags$img(src='Explore_legend.svg',width='375')), style = "z-index: 1000;"
                      )
                      )
@@ -470,11 +470,13 @@ tabPanel(
                                            label = "Estuary:", 
                                            choices = NULL, 
                                            selected = "Pittwater"),
-                               tags$h6("The predicted mangrove and saltmarsh data can be downloaded from NSW SEED.", 
+                               tags$h6("BELOW IS PLACE HOLDER TEXT to be expanded with overview of the data and add link to reference", 
                                        tags$br(),tags$br(),
                                        
                                        tags$p("A detailed list of the accuracy assessment results for S0 can be found ",
                                               tags$a(href="Accuracy_Assessment.html", target="_blank", "here.")),        
+
+                                       tags$p("The complete data set can be downloaded from the SEED Data Portal"),
                                        
                                        tags$a(href="https://www.seed.nsw.gov.au/", target="_blank", 
                                               tags$img(src='SEED_Portal.svg')) 
@@ -487,7 +489,7 @@ tabPanel(
         absolutePanel(id = "legend1", class = "card", top = 230, right = 10,  fixed=TRUE, draggable = FALSE, width= "170", height = "auto",
                      tags$img(src='Predicted_man_sm.svg')
                      ),
-        absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(icon = icon(''), label = "Landuse legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
+        absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(label = "Landuse legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
                                                                                               tags$img(src='Landuse2017_Horizontal_legend.svg',width='750')), style = "z-index: 1000;"
         )
     )
@@ -541,6 +543,7 @@ tabPanel(
         tags$p(strong("Last Shiny App update:"), "Jan 2023"),
         tags$br(),
         tags$h3("References"),
+        tags$a(href="https://doi.org/10.1111/emr.12572", tags$p("Glasby, T.M., Gibson, P.T., Laird, R., Swadling, D.S. and West, G. (2023), Black summer bushfires caused extensive damage to estuarine wetlands in New South Wales, Australia. Ecol Manag Restor."), target="_blank"),
         tags$a(href="https://doi.org/10.1002/aqc.3905", tags$p("Swadling DS, West GJ, Gibson PT, Laird RJ, Glasby TM. (2022). Don't go breaking apart: Anthropogenic disturbances predict meadow fragmentation of an endangered seagrass. Aquatic Conservation: Marine and Freshwater Ecosystems"), target="_blank"),
         tags$a(href="https://doi.org/10.3389/fenvs.2022.749950", tags$p("Hughes MG, Glasby TM, Hanslow DJ, West GJ, Wen L. 2022. Random Forest Classification Method for Predicting Intertidal Wetland Migration Under Sea Level Rise. Frontiers in Environmental Science 10."), target="_blank"),
         tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
@@ -1013,7 +1016,7 @@ server <- function(input, output, session) {
             dplyr::summarise(Area = sum(Area)) %>%
             dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Man_Sm", "Man_Biplot", "SM_Biplot")) %>%
             dplyr::filter(Area >= 0)%>%
-            dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
+            dplyr::mutate(ToHighlight = ifelse(Map_Year < 1990, "yes", "no"))
         
     })
     
@@ -1100,7 +1103,7 @@ server <- function(input, output, session) {
             dplyr::summarise(Area = sum(Area)) %>%
             dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Man_Sm")) %>%
             dplyr::filter(Area >= 0)%>%
-            dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
+            dplyr::mutate(ToHighlight = ifelse(Map_Year < 1990, "yes", "no"))
         
     })
     
