@@ -449,7 +449,7 @@ tabPanel(
     
 #### SLR Modelling Tab UI                                  -----
 tabPanel(
-    "Predictive Modelling",
+    "Projected Distributions",
 
         div(class="outer",
         tags$head(includeCSS("styles.css")),
@@ -459,7 +459,14 @@ tabPanel(
                       top = 160, left = 11, width = 250, height = "auto",
                       fixed = TRUE, draggable = FALSE,
                       tags$div(id = 'demo',  class="collapse in",
-                               h3("Sea Level Modelling", style="text-align:center"),
+                               h4("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:full"),
+                               
+                               h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in Hughes et al (2022) which can be downloaded from",
+                               tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022)")),
+                               
+                               tags$h6("Two scenarious are presented here; Present day and +0.5m SLR, with no restriction on future wetland locations. The complete data set with all projected scenarios is avaliable for download via the SEED portal.", 
+                               
+                                  tags$br(),
                                
                                h6("Select a region and estuary to zoom to the desired area"),
                                selectInput("region4", 
@@ -470,15 +477,12 @@ tabPanel(
                                            label = "Estuary:", 
                                            choices = NULL, 
                                            selected = "Pittwater"),
-                               tags$h6("BELOW IS PLACE HOLDER TEXT to be expanded with overview of the data and add link to reference", 
-                                       tags$br(),tags$br(),
-                                       
-                                       tags$p("A detailed list of the accuracy assessment results for S0 can be found ",
-                                              tags$a(href="Accuracy_Assessment.html", target="_blank", "here.")),        
 
-                                       tags$p("The complete data set can be downloaded from the SEED Data Portal"),
                                        
-                                       tags$a(href="https://www.seed.nsw.gov.au/", target="_blank", 
+                                       tags$h6("A detailed list of the accuracy assessment results for the present day modelling can be found ",
+                                              tags$a(href=" https://datasets.seed.nsw.gov.au/dataset/266cdf74-2da9-48cb-8ba1-acdce66928b7/resource/1d05f43d-095f-492b-9110-28a0a4b42923/download/table_1.pdf", target="_blank", "here.")),        
+
+                                       tags$a(href="https://datasets.seed.nsw.gov.au/dataset/projected-distribution-of-mangrove-and-saltmarsh-in-nsw-estuaries-under-sea-level-rise", target="_blank", 
                                               tags$img(src='SEED_Portal.svg')) 
                                )
                                
