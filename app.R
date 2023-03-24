@@ -300,32 +300,7 @@ tabPanel(
           
             )
         ),
-        
-        # absolutePanel(
-        #     id = "disclaimer",
-        #     #class = "panel panel-default",
-        #     top = 92,
-        #     left = 280,
-        #     width = 450,
-        #     #height = "auto",
-        # 
-        #     tags$div(id = 'discDiv',  class="collapse in",
-        #              h3("Disclaimer", style="text-align:center"),
-        #              h6("Mapping methods were far less sophisticated (and at a coarser scale) for the earliest maps, hence changes in the extent of all habitats relative to 1980 are indicative only.  Comparisons of time periods after 2000 are considered the most reliable.",
-        #                 tags$br(),tags$br(),
-        #                 "Although small patches of habitat (< 20 m",tags$sup(2), ") have been identified in some recent maps, these cannot be consistently identified.",
-        #                 tags$br(),tags$br(),
-        # 
-        #                 actionButton('agreeBtn', 'Agree', "data-toggle"='collapse', "data-target"='#disclaimer'),
-        #                 ),
-        #              
-        # 
-        #     )
-        # )
-        
-        
-    )
-        
+      )
     ),
 
 
@@ -447,7 +422,7 @@ tabPanel(
     )
     ),
     
-#### SLR Modelling Tab UI                                  -----
+#### Predictive Modelling Tab UI                                  -----
 tabPanel(
     "Projected Distributions",
 
@@ -490,7 +465,7 @@ tabPanel(
                       )
                       
         ),
-        absolutePanel(id = "legend1", class = "card", top = 230, right = 10,  fixed=TRUE, draggable = FALSE, width= "170", height = "auto",
+        absolutePanel(id = "legend1", class = "card", top = 205, right = 10,  fixed=TRUE, draggable = FALSE, width= "170", height = "auto",
                      tags$img(src='Predicted_man_sm.svg')
                      ),
         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(label = "Landuse legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
@@ -559,7 +534,7 @@ tabPanel(
         tags$br(),
 
     )
-)
+  )
 
 )
                              
@@ -624,13 +599,14 @@ server <- function(input, output, session) {
         input$estuary3,
         updateSelectizeInput(session, "estuary1", selected = input$estuary3)
     )
+   
     observeEvent(
         input$estuary3,
         updateSelectizeInput(session, "estuary2", selected = input$estuary3)
     )
 
 
-######## HABITAT EXPLORER TAB ########
+#### HABITAT EXPLORER TAB ####
     # DATA PREPERATION
     # Update Year selector to only provide the estuaries per region
     observe({
@@ -778,7 +754,7 @@ server <- function(input, output, session) {
         
     })
     
-##### CHANGE OVER TIME TAB #####
+#### CHANGE OVER TIME TAB ####
     
     # UI preparation
     
@@ -969,7 +945,7 @@ server <- function(input, output, session) {
     
    
     
-    ###### DATA SUMMARY TAB #####
+    #### DATA SUMMARY TAB ####
     # Update Year selector to only provide the estuaries per region
     observe({
         x2_1 <- dat %>% dplyr::filter(Region == input$region2) %>% dplyr::select(Estuary)
@@ -1148,10 +1124,11 @@ server <- function(input, output, session) {
             annotation_custom(mvsbgimg, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)
 
         
-    },height = 600, width = 600 )
+    }, height = 600, width = 600 )
     
     
-    ######## Predictive Modelling TAB ########
+    
+   #### PREDICTIVE MODELLING TAB ####
     # DATA PREPERATION
  
     observe({
@@ -1198,6 +1175,12 @@ server <- function(input, output, session) {
             
             addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
                              options = pathOptions(pane="basemaps4", maxZoom=16)) %>%
+                       
+            addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Landuse2017", 
+                        options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5, pane="basemaps4"),
+                        attribution = "&copy; State Government of NSW and Department of Planning, Industry and Environment 2020", layers = "0") %>%
+            
+        
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
                                  layerId = "0", pathOptions(pane="basemaps4", maxZoom=16)) %>%
             
@@ -1208,9 +1191,8 @@ server <- function(input, output, session) {
             
 
             
-            addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Landuse2017", 
-                        options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5, pane="macromap4"), 
-                        attribution = "&copy; State Government of NSW and Department of Planning, Industry and Environment 2020", layers = "0") %>%
+ 
+                        
             
             addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S0/{z}/{x}/{y}.png", group = "Sea level - Present day",
                      options = pathOptions(pane="macromap4", maxZoom=16),
@@ -1234,10 +1216,11 @@ server <- function(input, output, session) {
             
             #addMiniMap() %>%
             addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
+
             addLayersControl(
-                baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Landuse2017", "Sea level - Present day", "Sea level - 0.5m increase"),
-                options = layersControlOptions(collapsed = FALSE)) %>%
+              baseGroups = c("Sea level - Present day", "Sea level - 0.5m increase"),
+              overlayGroups = c("Photo basemap", "Landuse2017"),
+              options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
                        secondaryLengthUnit = "kilometers",
@@ -1245,17 +1228,12 @@ server <- function(input, output, session) {
                        secondaryAreaUnit = "hectares",
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
-            #hideGroup("Latest mapped habitat") %>%
             hideGroup("Landuse2017")%>%
-            #hideGroup("Sea level - Present day")%>%
-            hideGroup("Sea level - 0.5m increase")
-        
-        #hideGroup("Mooring Areas") %>%
-        #hideGroup("Boat moorings")
-        
-        
+            hideGroup("Photo basemap")
+      
     })
-    
+
+
 
 }
 
