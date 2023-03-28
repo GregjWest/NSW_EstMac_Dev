@@ -1,9 +1,9 @@
 ### West, Williams, Glasby  Dec 2020
 ## A Shiny map to display and explore the estuarine macorphyte mapping data
 
-# Last update Jan 2021
+# Last update Mar 2023
 
-# v0.6
+# v1.2
 
 #
 # This is a Shiny web application. You can run the application by clicking
@@ -436,8 +436,8 @@ tabPanel(
                       tags$div(id = 'demo',  class="collapse in",
                                h4("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:full"),
                                
-                               h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in Hughes et al (2022) which can be downloaded from",
-                               tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022)")),
+                               h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
+                                  tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022).")),
                                
                                tags$h6("Two scenarious are presented here; Present day and +0.5m SLR, with no restriction on future wetland locations. The complete data set with all projected scenarios is avaliable for download via the SEED portal.", 
                                
@@ -476,32 +476,26 @@ tabPanel(
 
 
 
-
-
-
-
-
 #### About Tab ----
 tabPanel(
     "About",
     tags$div(
         tags$h3("Disclaimer"),
-        
         tags$p("The information contained in this website is based on knowledge and understanding at the time of publication (July 2021) and may not be accurate, current or complete. The State of New South Wales (including the Department of Regional NSW), the authors and the publisher take no responsibility, and will accept no liability, for the accuracy, currency, reliability or correctness of any information included in the document (including material provided by third parties). Readers should make their own inquiries and rely on their own advice when making decisions related to material contained in this publication."),
+        
         tags$h3("Overview"),
         tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
         tags$p("More details on the estuarine habitats of NSW can be found on the ",
                 tags$a(href="https://www.dpi.nsw.gov.au/fishing/habitat/aquatic-habitats/estuarine", target="_blank", " NSW DPI Website")),
-        
         tags$p("A detailed list of all mapped estuaries can be viewed ",
                 tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
         tags$p("A full list of changes and updates to the dashboard can be viewed in the ",
                tags$a(href="Changelog.html", target="_blank", "Changelog.")),  
         tags$p("Macrophyte maps for the latest time of mapping can be downloaded from the", 
                tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
-        tags$h3("Mapping Details"),
         
-        tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (in review).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
+        tags$h3("Mapping Details"),
+                tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (in review).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
                tags$span(tags$em("Phragmites australis")),
                "and ", 
                tags$span(tags$em("Baumea juncea", .noWS = "outside"),.noWS = "outside")),
@@ -521,16 +515,18 @@ tabPanel(
         tags$p(strong("Last mapping update:"), "Jan 2023"),
         tags$p(strong("Last Shiny App update:"), "Jan 2023"),
         tags$br(),
+        
         tags$h3("References"),
         tags$a(href="https://doi.org/10.1111/emr.12572", tags$p("Glasby, T.M., Gibson, P.T., Laird, R., Swadling, D.S. and West, G. (2023), Black summer bushfires caused extensive damage to estuarine wetlands in New South Wales, Australia. Ecol Manag Restor."), target="_blank"),
+        tags$a(href="https://doi.org/10.3389/fenvs.2022.749950", tags$p("Hughes MG, Glasby TM, Hanslow DJ, West GJ, Wen L. (2022). Random Forest Classification Method for Predicting Intertidal Wetland Migration Under Sea Level Rise. Frontiers in Environmental Science 10."), target="_blank"),
         tags$a(href="https://doi.org/10.1002/aqc.3905", tags$p("Swadling DS, West GJ, Gibson PT, Laird RJ, Glasby TM. (2022). Don't go breaking apart: Anthropogenic disturbances predict meadow fragmentation of an endangered seagrass. Aquatic Conservation: Marine and Freshwater Ecosystems"), target="_blank"),
-        tags$a(href="https://doi.org/10.3389/fenvs.2022.749950", tags$p("Hughes MG, Glasby TM, Hanslow DJ, West GJ, Wen L. 2022. Random Forest Classification Method for Predicting Intertidal Wetland Migration Under Sea Level Rise. Frontiers in Environmental Science 10."), target="_blank"),
-        tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
-        tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
         tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", tags$p("West, G., Glasby, T.M., (2021). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."), target="_blank"),
+        tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
+        tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
         tags$a(href="West_1985.pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
+        
         tags$br(),
-        tags$br("The Shiny App is produced using R v4.0.3, RStudio v1.4.1103 and Leaflet v2.0.4.1,"),
+        tags$br("The Shiny App is created using R v4.2.1, RStudio 2023.03.0 Build 386, and Leaflet v2.1.2"),
         tags$br(),
 
     )
@@ -547,7 +543,8 @@ tabPanel(
 # THe Server codes runs in the background making all the calculation from user choice etc.
 
 server <- function(input, output, session) {
-
+    
+    #Show modal splash screen when opening map
     showModal(modalDialog(
         #title = "NSW DPI Estuarine Macrophyte Dashboard",
         HTML('<center><img src="splashscreen.svg" width="860"></center>'),
@@ -670,7 +667,6 @@ server <- function(input, output, session) {
                              options = pathOptions(pane="basemaps", maxZoom=17)) %>%
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
                                  layerId = "0", pathOptions(pane="basemaps", maxZoom=17)) %>%
-
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/jetties_pontoons/{z}/{x}/{y}.png", group = "Artificial structures",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
