@@ -735,6 +735,7 @@ server <- function(input, output, session) {
             hideGroup("Cumulative Seagrass") %>%
             hideGroup("Mooring Areas") %>%
             hideGroup("Boat moorings")
+      
         
         
     })
