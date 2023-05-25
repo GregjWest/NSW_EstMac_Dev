@@ -235,7 +235,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                        
                          ),
                          absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                                                                tags$img(src='Explore_legend.svg',width='300'))
+                                                                                tags$img(src='Explore_legend.svg',width='375'))
                      )
                  ),
 
@@ -296,8 +296,8 @@ tabPanel(
                     tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
                            tags$img(src='Fisheries_Portal.svg')), 
                     
-                    absolutePanel(id = "legend1", class = "card", bottom = 300, right = 0,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                  tags$img(src='Macrophyte_Legend.svg',height='300',width='200'))
+                    absolutePanel(id = "legend1", class = "card", bottom = 300, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
+                                  tags$img(src='Macrophyte_Legend.svg',width='170'))
             ),
             absolutePanel(id = "legend1", class = "card", bottom = 20, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
                           tags$img(src='Grid_Legend_Curved.svg',height='275',width='170'))
