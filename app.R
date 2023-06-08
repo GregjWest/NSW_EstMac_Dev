@@ -691,7 +691,7 @@ server <- function(input, output, session) {
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
                 overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Saltmarsh - Vehicle damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Cumulative Seagrass", "Mooring Areas", "Boat moorings"),
-                options = layersControlOptions(collapsed = FALSE)) %>%
+                options = layersControlOptions(collapsed = FALSE, opacity = 0.7)) %>%
             addMeasure(position = "topleft",
                        primaryLengthUnit = "meters",
                        secondaryLengthUnit = "kilometers",
