@@ -446,7 +446,7 @@ tabPanel(
                                
                                   tags$br(),
 
-                                  tags$h6("For SE Australia, +0.5m sea level rise (SLR) is estimated by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
+                                  tags$h6("For SE Australia, +0.5m sea level rise (SLR) is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
                                           
                                           tags$br(),
                                   
