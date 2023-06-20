@@ -442,10 +442,14 @@ tabPanel(
                                h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
                                   tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022).")),
                                
-                               tags$h6("Two scenarious are presented here; Present day and +0.5m SLR, with no restriction on future wetland locations. The complete data set with all projected scenarios is avaliable for download via the SEED portal.", 
+                               tags$h6("Two scenarios are presented: Present day and +0.5m SLR. Both assume all land types, except urban settlements, can be colonized as wetlands (details in map legend). This allows for future changes in land use, but means the present-day model overestimates the current distribution. The latest land use data can be toggled to identify distribution discrepancies.", 
                                
                                   tags$br(),
-                               
+
+                                  tags$h6("For SE Australia, +0.5m sea level rise (SLR) is estimated by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
+                                          
+                                          tags$br(),
+                                  
                                h6("Select a region and estuary to zoom to the desired area"),
                                selectInput("region4", 
                                            label = "Region:", 
@@ -464,15 +468,15 @@ tabPanel(
                                               tags$img(src='SEED_Portal.svg')) 
                                )
                                
-                               
+                               )    
                       )
                       
         ),
         absolutePanel(id = "legend1", class = "card", top = 205, right = 10,  fixed=TRUE, draggable = FALSE, width= "170", height = "auto",
                      tags$img(src='Predicted_man_sm.svg')
                      ),
-        absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(label = "Landuse legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
-                                                                                              tags$img(src='Landuse2017_Horizontal_legend.svg',width='750')), style = "z-index: 1000;"
+        absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(label = "Land use legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
+                                                                                              tags$img(src='Landuse2017_Horizontal_legend.svg',width='650')), style = "z-index: 1000;"
         )
     )
 ),
@@ -1176,7 +1180,7 @@ server <- function(input, output, session) {
             addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
                              options = pathOptions(pane="basemaps4", maxZoom=16)) %>%
                        
-            addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Landuse2017", 
+            addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Land use 2017", 
                         options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5, pane="basemaps4"),
                         attribution = "&copy; State Government of NSW and Department of Planning, Industry and Environment 2020", layers = "0") %>%
             
@@ -1219,7 +1223,7 @@ server <- function(input, output, session) {
 
             addLayersControl(
               baseGroups = c("Sea level - Present day", "Sea level - 0.5m increase"),
-              overlayGroups = c("Photo basemap", "Landuse2017"),
+              overlayGroups = c("Photo basemap", "Land use 2017"),
               options = layersControlOptions(collapsed = FALSE)) %>%
             addMeasure(position = "bottomleft",
                        primaryLengthUnit = "meters",
@@ -1228,7 +1232,7 @@ server <- function(input, output, session) {
                        secondaryAreaUnit = "hectares",
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
-            hideGroup("Landuse2017")%>%
+            hideGroup("Land use 2017")%>%
             hideGroup("Photo basemap")
       
     })
