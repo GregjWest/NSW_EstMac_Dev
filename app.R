@@ -27,7 +27,6 @@ if(!require(shinyWidgets)) install.packages("shinyWidgets", repos = "http://cran
 if(!require(leaflet)) install.packages("leaflet", repos = "http://cran.us.r-project.org")
 if(!require(RColorBrewer)) install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
 if(!require(raster)) install.packages("raster", repos = "http://cran.us.r-project.org")
-if(!require(rgdal)) install.packages("rgdal", repos = "http://cran.us.r-project.org")
 if(!require(lazyeval)) install.packages("lazyeval", repos = "http://cran.us.r-project.org")
 if(!require(htmltools)) install.packages("htmltools", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.esri)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
@@ -442,11 +441,11 @@ tabPanel(
                                h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
                                   tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022).")),
                                
-                               tags$h6("Two scenarios are presented: Present day and +0.5m SLR. Both assume all land types, except urban settlements, can be colonized as wetlands (details in map legend). This allows for future changes in land use, but means the present-day model overestimates the current distribution. The latest land use data can be toggled to identify distribution discrepancies.", 
+                               tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land types, except urban settlements, can be colonized as wetlands (details in map legend). This allows for future changes in land use, but means the present-day model overestimates the current distribution. The latest land use data can be toggled to identify distribution discrepancies.", 
                                
                                   tags$br(),
 
-                                  tags$h6("For SE Australia, +0.5m sea level rise (SLR) is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
+                                  tags$h6("For SE Australia, +0.5m (SLR) is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
                                           
                                           tags$br(),
                                   
