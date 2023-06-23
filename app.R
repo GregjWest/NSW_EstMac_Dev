@@ -433,15 +433,15 @@ tabPanel(
         leafletOutput("slrmap", width = "100%", height = "100%"),
         
         absolutePanel(id = "controls", class = "panel panel-default",
-                      top = 160, left = 11, width = 250, height = "auto",
+                      top = 160, left = 11, width = 300, height = "auto",
                       fixed = TRUE, draggable = FALSE,
                       tags$div(id = 'demo',  class="collapse in",
-                               h4("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:full"),
+                               h4("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:center"),
                                
                                h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
                                   tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022).")),
                                
-                               tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land types, except urban settlements, can be colonized as wetlands (details in map legend). This allows for future changes in land use, but means the present-day model overestimates the current distribution. The latest land use data can be toggled to identify distribution discrepancies.", 
+                               tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land types, except urban settlements, can be colonized as wetlands (details in map legend). This allows for future changes in land use, but means the present-day model overestimates the current distribution and predicts these habitats to occur in areas that are currently unsuitable. Some of these discrepanices and overestimates can be identified by toggling the 2017 land use layer.", 
                                
                                   tags$br(),
 
