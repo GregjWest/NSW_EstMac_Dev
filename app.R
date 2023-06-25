@@ -29,7 +29,7 @@ if(!require(shinyWidgets)) install.packages("shinyWidgets", repos = "http://cran
 if(!require(leaflet)) install.packages("leaflet", repos = "http://cran.us.r-project.org")
 if(!require(RColorBrewer)) install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
 if(!require(raster)) install.packages("raster", repos = "http://cran.us.r-project.org")
-if(!require(rgdal)) install.packages("rgdal", repos = "http://cran.us.r-project.org")
+#if(!require(rgdal)) install.packages("rgdal", repos = "http://cran.us.r-project.org")
 if(!require(lazyeval)) install.packages("lazyeval", repos = "http://cran.us.r-project.org")
 if(!require(htmltools)) install.packages("htmltools", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.esri)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
@@ -453,29 +453,82 @@ tabPanel(
     )
     ),
     
-
+#### Predictive Modelling Tab UI                                  -----
+tabPanel(
+  "Projected Distributions",
+  
+  div(class="outer",
+      tags$head(includeCSS("styles.css")),
+      leafletOutput("slrmap", width = "100%", height = "100%"),
+      
+      absolutePanel(id = "controls", class = "panel panel-default",
+                    top = 160, left = 11, width = 250, height = "auto",
+                    fixed = TRUE, draggable = FALSE,
+                    tags$div(id = 'demo',  class="collapse in",
+                             h4("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:center"),
+                             
+                             h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
+                                tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022).")),
+                             
+                             tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land types, except urban settlements, can be colonized as wetlands. This allows for future changes in land use, but means the present-day model overestimates the current distribution.", 
+                                     
+                                     tags$br(),
+                                     
+                                     tags$h6("For SE Australia, +0.5m (SLR) is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
+                                             
+                                             tags$br(),
+                                             
+                                             h6("Select a region and estuary to zoom to the desired area"),
+                                             selectInput("region4", 
+                                                         label = "Region:", 
+                                                         choices = list_region, 
+                                                         selected = list_region[index_region]),
+                                             selectInput("estuary4", 
+                                                         label = "Estuary:", 
+                                                         choices = NULL, 
+                                                         selected = "Pittwater"),
+                                             
+                                             
+                                             tags$h6("A detailed list of the accuracy assessment results for the present day modelling can be found ",
+                                                     tags$a(href=" https://datasets.seed.nsw.gov.au/dataset/266cdf74-2da9-48cb-8ba1-acdce66928b7/resource/1d05f43d-095f-492b-9110-28a0a4b42923/download/table_1.pdf", target="_blank", "here.")),        
+                                             
+                                             tags$a(href="https://datasets.seed.nsw.gov.au/dataset/projected-distribution-of-mangrove-and-saltmarsh-in-nsw-estuaries-under-sea-level-rise", target="_blank", 
+                                                    tags$img(src='SEED_Portal.svg')) 
+                                     )
+                                     
+                             )    
+                    )
+                    
+      ),
+      absolutePanel(id = "legend1", class = "card", top = 205, right = 10,  fixed=TRUE, draggable = FALSE, width= "170", height = "auto",
+                    tags$img(src='Predicted_man_sm.svg')
+      ),
+      absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(label = "Land use legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
+                                                                                            tags$img(src='Landuse2017_Horizontal_legend.svg',width='650')), style = "z-index: 1000;"
+      )
+  )
+),
 
 ##### About Tab ----
 tabPanel(
     "About",
     tags$div(
         tags$h3("Disclaimer"),
-        
         tags$p("The information contained in this website is based on knowledge and understanding at the time of publication (July 2021) and may not be accurate, current or complete. The State of New South Wales (including the Department of Regional NSW), the authors and the publisher take no responsibility, and will accept no liability, for the accuracy, currency, reliability or correctness of any information included in the document (including material provided by third parties). Readers should make their own inquiries and rely on their own advice when making decisions related to material contained in this publication."),
+        
         tags$h3("Overview"),
         tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
         tags$p("More details on the estuarine habitats of NSW can be found on the ",
                 tags$a(href="https://www.dpi.nsw.gov.au/fishing/habitat/aquatic-habitats/estuarine", target="_blank", " NSW DPI Website")),
-        
         tags$p("A detailed list of all mapped estuaries can be viewed ",
                 tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
         tags$p("A full list of changes and updates to the dashboard can be viewed in the ",
                tags$a(href="Changelog.html", target="_blank", "Changelog.")),  
         tags$p("Macrophyte maps for the latest time of mapping can be downloaded from the", 
-               tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
-        tags$h3("Mapping Details"),
+               tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
         
-        tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (2021).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
+        tags$h3("Mapping Details"),
+                tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and West & Glasby (in review).  Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
                tags$span(tags$em("Phragmites australis")),
                "and ", 
                tags$span(tags$em("Baumea juncea", .noWS = "outside"),.noWS = "outside")),
@@ -494,20 +547,19 @@ tabPanel(
         tags$p(strong("Data compilation:"), "Greg West"),
         tags$p(strong("Last mapping update:"), "Jan 2023"),
         tags$p(strong("Last Shiny App update:"), "Jan 2023"),
-        
         tags$br(),
-        tags$h3("Contact Us"),
-        tags$p("Please send any feedback, suggestions or queries to", tags$a(href="mailto:fisheries.data@dpi.nsw.gov.au?subject=Dashboard", "fisheries.data@dpi.nsw.gov.au"), "with the subject heading", (strong("Dashboard"))),
         
-        tags$br(),
         tags$h3("References"),
+        tags$a(href="https://doi.org/10.1111/emr.12572", tags$p("Glasby, T.M., Gibson, P.T., Laird, R., Swadling, D.S. and West, G. (2023), Black summer bushfires caused extensive damage to estuarine wetlands in New South Wales, Australia. Ecol Manag Restor."), target="_blank"),
+        tags$a(href="https://doi.org/10.3389/fenvs.2022.749950", tags$p("Hughes MG, Glasby TM, Hanslow DJ, West GJ, Wen L. (2022). Random Forest Classification Method for Predicting Intertidal Wetland Migration Under Sea Level Rise. Frontiers in Environmental Science 10."), target="_blank"),
         tags$a(href="https://doi.org/10.1002/aqc.3905", tags$p("Swadling DS, West GJ, Gibson PT, Laird RJ, Glasby TM. (2022). Don't go breaking apart: Anthropogenic disturbances predict meadow fragmentation of an endangered seagrass. Aquatic Conservation: Marine and Freshwater Ecosystems"), target="_blank"),
-        tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
-        tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
         tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", tags$p("West, G., Glasby, T.M., (2021). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."), target="_blank"),
+        tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
+        tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
         tags$a(href="West_1985.pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
+        
         tags$br(),
-        tags$br("The Shiny App is produced using R v4.1.2, RStudio v1.4.1103 and Leaflet v2.0.4.1,"),
+        tags$br("The Shiny App is created using R v4.2.1, RStudio 2023.03.0 Build 386, and Leaflet v2.1.2"),
         tags$br(),
 
     )
@@ -1115,6 +1167,112 @@ server <- function(input, output, session) {
     
     
  
+    #### PREDICTIVE MODELLING TAB ####
+    # DATA PREPERATION
+    
+    observe({
+      x4_1 <- dat %>% dplyr::filter(Region == input$region4) %>% dplyr::select(Estuary)
+      updateSelectInput(session, 
+                        "estuary4", 
+                        label = "Estuary:",
+                        choices = unique(x4_1))
+    })
+    
+    
+    raster_slr <- reactive({
+      dat %>%
+        dplyr::filter(Estuary == input$estuary4) %>%
+        dplyr::select(Easting, Northing)
+    })    
+    
+    # Set raster max and min based on estuary selection
+    lon_min3 <- reactive({min(raster_slr()$Easting)-10}) 
+    lon_max3 <- reactive({max(raster_slr()$Easting)+10})
+    lat_min3 <- reactive({min(raster_slr()$Northing)-10})
+    lat_max3 <- reactive({max(raster_slr()$Northing)+10})    
+    ncols <- reactive({((lon_max3() - lon_min3())/cell_size)}) 
+    nrows <- reactive({((lat_max3() - lat_min3())/cell_size)})  
+    
+    # Create and empty raster that covers the estuary selected
+    empty_slr <- reactive({
+      raster(nrows=nrows(), ncols=ncols(), 
+             xmn=lon_min3(), xmx=lon_max3(), 
+             ymn=lat_min3(), ymx=lat_max3(), 
+             res=c(cell_size,cell_size), crs=myproj)
+    })
+    
+    
+    # OUTPUTS  
+    
+    
+    output$slrmap <- renderLeaflet({
+      
+      
+      leaflet(options = leafletOptions(maxZoom = 16)) %>% 
+        addMapPane("basemaps4", zIndex=200) %>% #add map pane for baselayers
+        addMapPane("macromap4", zIndex=400) %>% #add map pane for macrophyte map
+        
+        addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
+                         options = pathOptions(pane="basemaps4", maxZoom=16)) %>%
+        
+        addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Land use 2017", 
+                    options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5, pane="basemaps4"),
+                    attribution = "&copy; State Government of NSW and Department of Planning, Industry and Environment 2020", layers = "0") %>%
+        
+        
+        addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
+                             layerId = "0", pathOptions(pane="basemaps4", maxZoom=16)) %>%
+        
+        
+        #addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat",
+        #         options = pathOptions(pane="macromap4", maxZoom=15),
+        #         attribution = "&copy; Department of Primary Industries 2020") %>%
+        
+        
+        
+        
+        
+        
+      addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S0/{z}/{x}/{y}.png", group = "Sea level - Present day",
+               options = pathOptions(pane="macromap4", maxZoom=16),
+               attribution = "&copy; Department of Primary Industries 2020") %>%
+        
+        addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S1/{z}/{x}/{y}.png", group = "Sea level - 0.5m increase",
+                 options = pathOptions(pane="macromap4", maxZoom=16),
+                 attribution = "&copy; Department of Primary Industries 2020") %>%
+        #addWMSLegend("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WmsServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=0") %>%
+        # set boundaries for map
+        # fitBounds(lng1 = min(raster_points()$Lon), 
+        #           lat1 = min(raster_points()$Lat), 
+        #           lng2 = max(raster_points()$Lon), 
+        #           lat2 = max(raster_points()$Lat)) %>%
+        # 
+        
+        
+        #add empty file for map extent
+        addRasterImage(empty_slr()) %>% 
+        
+        
+        #addMiniMap() %>%
+        addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
+        
+        addLayersControl(
+          baseGroups = c("Sea level - Present day", "Sea level - 0.5m increase"),
+          overlayGroups = c("Photo basemap", "Land use 2017"),
+          options = layersControlOptions(collapsed = FALSE)) %>%
+        addMeasure(position = "bottomleft",
+                   primaryLengthUnit = "meters",
+                   secondaryLengthUnit = "kilometers",
+                   primaryAreaUnit = "sqmeters",
+                   secondaryAreaUnit = "hectares",
+                   activeColor = "#3D535D",
+                   completedColor = "#7D4479") %>%
+        hideGroup("Land use 2017")%>%
+        hideGroup("Photo basemap")
+      
+    })
+    
+    
     
 }
 
