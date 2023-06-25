@@ -1,351 +1,344 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 1518 660" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5;">
-    <g transform="matrix(0.980053,0,0,0.971033,-151.798,-12.9859)">
-        <rect x="154.887" y="13.373" width="1548.08" height="679.041" style="fill:white;"/>
+<svg width="100%" height="100%" viewBox="0 0 1496 545" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1.00596,0,0,0.90151,-11.9022,-10.4121)">
+        <rect x="11.832" y="11.55" width="1486.24" height="603.733" style="fill:white;"/>
     </g>
-    <g transform="matrix(1,0,0,1,-1842.88,-214.903)">
-        <g transform="matrix(29.3333,0,0,29.3333,2409.53,246.178)">
-        </g>
-        <text x="1856.95px" y="246.178px" style="font-family:'Arial-BoldItalicMT', 'Arial', sans-serif;font-weight:700;font-style:italic;font-size:29.333px;">Land use classes included in modelling</text>
-    </g>
-    <g transform="matrix(1,0,0,1,-1842.88,170.584)">
-        <g transform="matrix(29.3333,0,0,29.3333,2455.2,246.178)">
-        </g>
-        <text x="1856.95px" y="246.178px" style="font-family:'Arial-BoldItalicMT', 'Arial', sans-serif;font-weight:700;font-style:italic;font-size:29.333px;">Land use classes excluded from modelling</text>
-    </g>
-    <g transform="matrix(1,0,0,1,428.276,-384.185)">
-        <g transform="matrix(3.04878,0,0,3.04878,108.792,525.977)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(171,135,160);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-        <g transform="matrix(1,0,0,1,163.133,540.772)">
-            <g transform="matrix(29.0667,0,0,29.0667,273.068,20.8207)">
+    <g transform="matrix(1,0,0,1,10.1684,-25.5496)">
+        <g transform="matrix(1,0,0,1,-97.5705,-70.2828)">
+            <g transform="matrix(3.04878,0,0,3.04878,108.792,525.977)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(171,135,160);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Seasonal horticulture</text>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,434.28,-335.086)">
-        <g transform="matrix(3.04878,0,0,3.04878,102.788,385.555)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,255,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-        <g transform="matrix(1,0,0,1,157.129,400.35)">
-            <g transform="matrix(29.0667,0,0,29.0667,117.956,20.8207)">
+            <g transform="matrix(1,0,0,1,163.133,540.772)">
+                <g transform="matrix(29.0667,0,0,29.0667,273.068,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Seasonal horticulture</text>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Cropping</text>
         </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-32.9278,35.9058)">
-        <g transform="matrix(0.185606,0,0,0.185606,122.386,28.9102)">
-            <g transform="matrix(156.604,0,0,156.604,1401.49,112.177)">
+        <g transform="matrix(1,0,0,1,-91.5666,-21.1842)">
+            <g transform="matrix(3.04878,0,0,3.04878,102.788,385.555)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,255,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
             </g>
-            <text x="0px" y="112.177px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:156.604px;">Nature conservation</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,68.0594,14.5626)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(150,102,206);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-32.9278,32.7177)">
-        <g transform="matrix(1,0,0,1,122.386,77.7327)">
-            <g transform="matrix(29.0667,0,0,29.0667,378.094,20.8207)">
+            <g transform="matrix(1,0,0,1,157.129,400.35)">
+                <g transform="matrix(29.0667,0,0,29.0667,117.956,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Cropping</text>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Managed resource protection</text>
         </g>
-        <g transform="matrix(3.04878,0,0,3.04878,68.0594,63.4126)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(231,188,245);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-32.9278,29.7558)">
-        <g transform="matrix(1,0,0,1,122.386,126.96)">
-            <g transform="matrix(29.0667,0,0,29.0667,235.84,20.8207)">
+        <g transform="matrix(1,0,0,1,-56.8376,30.046)">
+            <g transform="matrix(0.185606,0,0,0.185606,122.386,28.9102)">
+                <g transform="matrix(156.604,0,0,156.604,1401.49,112.177)">
+                </g>
+                <text x="0px" y="112.177px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:156.604px;">Nature conservation</text>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Other minimal use</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,68.0594,112.036)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(224,135,223);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-32.9278,27.1977)">
-        <g transform="matrix(1,0,0,1,122.4,173.945)">
-            <g transform="matrix(29.0667,0,0,29.0667,329.626,20.8207)">
+            <g transform="matrix(3.04878,0,0,3.04878,68.0594,14.5626)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(150,102,206);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Grazing native vegetation</text>
         </g>
-        <g transform="matrix(3.04878,0,0,3.04878,68.0594,160.257)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,255,229);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-90.6424,-3.47851)">
-        <g transform="matrix(1,0,0,1,180.115,251.39)">
-            <g transform="matrix(29.0667,0,0,29.0667,329.583,20.8207)">
+        <g transform="matrix(1,0,0,1,-56.8376,26.8579)">
+            <g transform="matrix(1,0,0,1,122.386,77.7327)">
+                <g transform="matrix(29.0667,0,0,29.0667,378.094,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Managed resource protection</text>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Production native forestry</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,125.774,236.595)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(55,168,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-39.0644,5.71239)">
-        <g transform="matrix(1,0,0,1,128.537,287.861)">
-            <g transform="matrix(29.0667,0,0,29.0667,224.585,20.8207)">
+            <g transform="matrix(3.04878,0,0,3.04878,68.0594,63.4126)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(231,188,245);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Plantation forests</text>
         </g>
-        <g transform="matrix(3.04878,0,0,3.04878,74.196,273.066)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(172,255,181);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-82.3742,-20.1918)">
-        <g transform="matrix(1,0,0,1,171.847,359.427)">
-            <g transform="matrix(29.0667,0,0,29.0667,172.853,20.8207)">
+        <g transform="matrix(1,0,0,1,-56.8376,23.896)">
+            <g transform="matrix(1,0,0,1,122.386,126.96)">
+                <g transform="matrix(29.0667,0,0,29.0667,235.84,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Other minimal use</text>
             </g>
-            <g transform="matrix(29.0667,0,0,29.0667,180.929,20.8207)">
+            <g transform="matrix(3.04878,0,0,3.04878,68.0594,112.036)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(224,135,223);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
             </g>
-            <g transform="matrix(29.0667,0,0,29.0667,339.277,20.8207)">
+        </g>
+        <g transform="matrix(1,0,0,1,-56.8376,21.4664)">
+            <g transform="matrix(1,0,0,1,122.4,173.945)">
+                <g transform="matrix(29.0667,0,0,29.0667,329.626,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Grazing native vegetation</text>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Grazing modiﬁed pastures</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,117.506,344.632)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,211,127);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,461.702,-342.416)">
-        <g transform="matrix(1,0,0,1,129.707,453.341)">
-            <g transform="matrix(29.0667,0,0,29.0667,274.671,20.8207)">
+            <g transform="matrix(3.04878,0,0,3.04878,68.0594,160.257)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,255,229);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Perennial horticulture</text>
         </g>
-        <g transform="matrix(3.04878,0,0,3.04878,75.3664,438.546)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(171,135,122);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-75.1626,140.285)">
-        <g transform="matrix(1,0,0,1,666.572,61.9642)">
-            <g transform="matrix(29.0667,0,0,29.0667,221.378,20.8207)">
+        <g transform="matrix(1,0,0,1,-114.552,-9.20977)">
+            <g transform="matrix(1,0,0,1,180.115,251.39)">
+                <g transform="matrix(29.0667,0,0,29.0667,329.583,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Production native forestry</text>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Land in transition</text>
+            <g transform="matrix(3.04878,0,0,3.04878,125.774,236.595)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(55,168,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
         </g>
-        <g transform="matrix(3.04878,0,0,3.04878,612.231,47.1691)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(48,48,48);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        <g transform="matrix(1,0,0,1,-62.9742,-0.0188689)">
+            <g transform="matrix(1,0,0,1,128.537,287.861)">
+                <g transform="matrix(29.0667,0,0,29.0667,224.585,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Plantation forests</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,74.196,273.066)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(172,255,181);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-106.284,-25.923)">
+            <g transform="matrix(1,0,0,1,171.847,359.427)">
+                <g transform="matrix(29.0667,0,0,29.0667,172.853,20.8207)">
+                </g>
+                <g transform="matrix(29.0667,0,0,29.0667,180.929,20.8207)">
+                </g>
+                <g transform="matrix(29.0667,0,0,29.0667,339.277,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Grazing modiﬁed pastures</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,117.506,344.632)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,211,127);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-64.1447,-28.5137)">
+            <g transform="matrix(1,0,0,1,129.707,453.341)">
+                <g transform="matrix(29.0667,0,0,29.0667,274.671,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Perennial horticulture</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,75.3664,438.546)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(171,135,122);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-601.01,454.187)">
+            <g transform="matrix(1,0,0,1,666.572,61.9642)">
+                <g transform="matrix(29.0667,0,0,29.0667,221.378,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Land in transition</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,612.231,47.1691)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(48,48,48);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
         </g>
     </g>
-    <g transform="matrix(1,0,0,1,-72.8764,127.241)">
-        <g transform="matrix(1,0,0,1,664.286,120.67)">
-            <g transform="matrix(29.0667,0,0,29.0667,336.069,20.8207)">
+    <g transform="matrix(1,0,0,1,10.1684,-25.5496)">
+        <g transform="matrix(1,0,0,1,-130.945,-61.2666)">
+            <g transform="matrix(1,0,0,1,664.286,120.67)">
+                <g transform="matrix(29.0667,0,0,29.0667,336.069,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated plantation forests</text>
             </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated plantation forests</text>
+            <g transform="matrix(3.04878,0,0,3.04878,609.945,105.875)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(0,255,197);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
         </g>
-        <g transform="matrix(3.04878,0,0,3.04878,609.945,105.875)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(0,255,197);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        <g transform="matrix(1,0,0,1,-130.945,-63.3588)">
+            <g transform="matrix(1,0,0,1,664.286,168.424)">
+                <g transform="matrix(29.0667,0,0,29.0667,285.94,20.8207)">
+                </g>
+                <g transform="matrix(29.0667,0,0,29.0667,294.016,20.8207)">
+                </g>
+                <g transform="matrix(29.0667,0,0,29.0667,452.364,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Grazing irrigated modiﬁed pastures</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,609.945,153.629)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,169,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-126.339,-64.7417)">
+            <g transform="matrix(1,0,0,1,659.68,215.469)">
+                <g transform="matrix(29.0667,0,0,29.0667,226.203,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated cropping</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,605.339,200.674)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(202,184,85);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-121.545,-65.0726)">
+            <g transform="matrix(1,0,0,1,654.886,261.462)">
+                <g transform="matrix(29.0667,0,0,29.0667,386.155,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated perennial horticulture</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,600.545,246.667)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(168,110,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-121.545,-67.0444)">
+            <g transform="matrix(1,0,0,1,654.886,308.797)">
+                <g transform="matrix(29.0667,0,0,29.0667,382.919,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated seasonal horticulture</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,600.545,294.301)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(168,55,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-121.545,-68.3012)">
+            <g transform="matrix(1,0,0,1,654.886,356.015)">
+                <g transform="matrix(29.0667,0,0,29.0667,326.376,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated land in transition</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,600.545,341.219)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(79,79,79);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-112.678,-88.653)">
+            <g transform="matrix(1,0,0,1,646.019,422.028)">
+                <g transform="matrix(29.0667,0,0,29.0667,268.2,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Intensive horticulture</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,591.678,407.233)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(245,124,124);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-112.678,-106.487)">
+            <g transform="matrix(1,0,0,1,646.019,485.524)">
+                <g transform="matrix(29.0667,0,0,29.0667,353.853,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Intensive animal production</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,591.678,470.729)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,190,190);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-678.057,439.799)">
+            <g transform="matrix(1,0,0,1,1211.4,30.5621)">
+                <g transform="matrix(29.0667,0,0,29.0667,444.274,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Residential and farm infrastructure</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1157.06,15.767)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(206,206,206);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-678.057,377.902)">
+            <g transform="matrix(1,0,0,1,1211.4,138.121)">
+                <g transform="matrix(29.0667,0,0,29.0667,111.455,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Services</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1157.06,123.326)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(230,0,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-677.911,187.089)">
+            <g transform="matrix(1,0,0,1,1211.25,237.61)">
+                <g transform="matrix(29.0667,0,0,29.0667,365.164,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Manufacturing and industrial</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1156.91,222.815)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(230,77,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
         </g>
     </g>
-    <g transform="matrix(1,0,0,1,-72.8764,125.149)">
-        <g transform="matrix(1,0,0,1,664.286,168.424)">
-            <g transform="matrix(29.0667,0,0,29.0667,285.94,20.8207)">
+    <g transform="matrix(1,0,0,1,-12.8316,-25.5496)">
+        <g transform="matrix(1,0,0,1,447.823,-145.476)">
+            <g transform="matrix(1,0,0,1,646.019,570.176)">
+                <g transform="matrix(29.0667,0,0,29.0667,189.018,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Marsh/wetland</text>
             </g>
-            <g transform="matrix(29.0667,0,0,29.0667,294.016,20.8207)">
+            <g transform="matrix(3.04878,0,0,3.04878,591.678,555.38)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(85,255,0);stroke:black;stroke-width:1.02px;"/>
             </g>
-            <g transform="matrix(29.0667,0,0,29.0667,452.364,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Grazing irrigated modiﬁed pastures</text>
         </g>
-        <g transform="matrix(3.04878,0,0,3.04878,609.945,153.629)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,169,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+        <g transform="matrix(1,0,0,1,-117.556,18.4999)">
+            <g transform="matrix(1,0,0,1,1211.4,86.5658)">
+                <g transform="matrix(29.0667,0,0,29.0667,383.43,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">T<tspan x="16.676px 26.356px " y="20.821px 20.821px ">ra</tspan>nsport and communication</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1157.06,71.7707)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(180,180,180);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-115.41,-131.068)">
+            <g transform="matrix(1,0,0,1,1209.25,190.472)">
+                <g transform="matrix(29.0667,0,0,29.0667,93.6719,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Utilities</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1154.91,175.677)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(197,0,255);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-117.41,-133.747)">
+            <g transform="matrix(1,0,0,1,1211.25,284.474)">
+                <g transform="matrix(29.0667,0,0,29.0667,85.6246,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Mining</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1156.91,269.679)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(36,116,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-116.41,-165.311)">
+            <g transform="matrix(1,0,0,1,1210.25,361.701)">
+                <g transform="matrix(29.0667,0,0,29.0667,383.444,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">W<tspan x="26.356px 42.521px " y="20.821px 20.821px ">as</tspan>te treatment and disposal</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1155.91,346.906)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(71,130,141);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-117.556,-171.662)">
+            <g transform="matrix(1,0,0,1,1211.4,413.713)">
+                <g transform="matrix(29.0667,0,0,29.0667,63.0298,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Lake</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1157.06,398.918)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(151,221,242);stroke:rgb(64,99,237);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-117.556,-173.383)">
+            <g transform="matrix(1,0,0,1,1211.4,461.096)">
+                <g transform="matrix(29.0667,0,0,29.0667,188.99,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Reservoir/dam</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1157.06,446.301)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(190,232,250);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-109.084,-179.423)">
+            <g transform="matrix(1,0,0,1,1202.93,512.798)">
+                <g transform="matrix(29.0667,0,0,29.0667,67.827,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">River</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1148.58,498.003)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(0,110,255);stroke:black;stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-110.894,-180.642)">
+            <g transform="matrix(1,0,0,1,1204.74,559.68)">
+                <g transform="matrix(29.0667,0,0,29.0667,235.954,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Channel/aqueduct</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1150.39,544.884)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,0,197);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-107.556,-142.329)">
+            <g transform="matrix(1,0,0,1,1201.4,612.69)">
+                <g transform="matrix(29.0667,0,0,29.0667,292.398,20.8207)">
+                </g>
+                <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Estuary/coastal waters</text>
+            </g>
+            <g transform="matrix(3.04878,0,0,3.04878,1147.06,597.895)">
+                <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(151,221,242);stroke:rgb(64,99,237);stroke-width:1.02px;"/>
+            </g>
         </g>
     </g>
-    <g transform="matrix(1,0,0,1,-68.2707,123.766)">
-        <g transform="matrix(1,0,0,1,659.68,215.469)">
-            <g transform="matrix(29.0667,0,0,29.0667,226.203,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated cropping</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,605.339,200.674)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(202,184,85);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,455.361,-196.199)">
-        <g transform="matrix(1,0,0,1,654.886,261.462)">
-            <g transform="matrix(29.0667,0,0,29.0667,386.155,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated perennial horticulture</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,600.545,246.667)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(168,110,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,455.361,-198.17)">
-        <g transform="matrix(1,0,0,1,654.886,308.797)">
-            <g transform="matrix(29.0667,0,0,29.0667,382.919,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated seasonal horticulture</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,600.545,294.301)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(168,55,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,455.361,-199.427)">
-        <g transform="matrix(1,0,0,1,654.886,356.015)">
-            <g transform="matrix(29.0667,0,0,29.0667,326.376,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Irrigated land in transition</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,600.545,341.219)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(79,79,79);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,464.228,-219.779)">
-        <g transform="matrix(1,0,0,1,646.019,422.028)">
-            <g transform="matrix(29.0667,0,0,29.0667,268.2,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Intensive horticulture</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,591.678,407.233)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(245,124,124);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,464.228,-237.613)">
-        <g transform="matrix(1,0,0,1,646.019,485.524)">
-            <g transform="matrix(29.0667,0,0,29.0667,353.853,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Intensive animal production</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,591.678,470.729)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,190,190);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,464.228,-276.602)">
-        <g transform="matrix(1,0,0,1,646.019,570.176)">
-            <g transform="matrix(29.0667,0,0,29.0667,189.018,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Marsh/wetland</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,591.678,555.38)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(85,255,0);stroke:black;stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-1121.93,411.335)">
-        <g transform="matrix(1,0,0,1,1211.4,30.5621)">
-            <g transform="matrix(29.0667,0,0,29.0667,444.274,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Residential and farm infrastructure</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1157.06,15.767)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(206,206,206);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-1121.93,400.993)">
-        <g transform="matrix(1,0,0,1,1211.4,86.5658)">
-            <g transform="matrix(29.0667,0,0,29.0667,383.43,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">T<tspan x="16.676px 26.356px " y="20.821px 20.821px ">ra</tspan>nsport and communication</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1157.06,71.7707)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(180,180,180);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-100.926,202.226)">
-        <g transform="matrix(1,0,0,1,1211.4,138.121)">
-            <g transform="matrix(29.0667,0,0,29.0667,111.455,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Services</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1157.06,123.326)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(230,0,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-1119.89,342.862)">
-        <g transform="matrix(1,0,0,1,1209.25,190.472)">
-            <g transform="matrix(29.0667,0,0,29.0667,93.6719,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Utilities</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1154.91,175.677)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(197,0,255);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-1121.89,341.065)">
-        <g transform="matrix(1,0,0,1,1211.25,237.61)">
-            <g transform="matrix(29.0667,0,0,29.0667,365.164,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Manufacturing and industrial</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1156.91,222.815)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(230,77,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-619.827,158.088)">
-        <g transform="matrix(1,0,0,1,1211.25,284.474)">
-            <g transform="matrix(29.0667,0,0,29.0667,85.6246,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Mining</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1156.91,269.679)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(36,116,0);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-618.827,126.524)">
-        <g transform="matrix(1,0,0,1,1210.25,361.701)">
-            <g transform="matrix(29.0667,0,0,29.0667,383.444,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">W<tspan x="26.356px 42.521px " y="20.821px 20.821px ">as</tspan>te treatment and disposal</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1155.91,346.906)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(71,130,141);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-100.878,28.853)">
-        <g transform="matrix(1,0,0,1,1211.4,413.713)">
-            <g transform="matrix(29.0667,0,0,29.0667,63.0298,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Lake</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1157.06,398.918)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(151,221,242);stroke:rgb(64,99,237);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-619.973,118.332)">
-        <g transform="matrix(1,0,0,1,1211.4,461.096)">
-            <g transform="matrix(29.0667,0,0,29.0667,188.99,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Reservoir/dam</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1157.06,446.301)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(190,232,250);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-92.4057,-24.6042)">
-        <g transform="matrix(1,0,0,1,1202.93,512.798)">
-            <g transform="matrix(29.0667,0,0,29.0667,67.827,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">River</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1148.58,498.003)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(0,110,255);stroke:black;stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-613.311,-25.793)">
-        <g transform="matrix(1,0,0,1,1204.74,559.68)">
-            <g transform="matrix(29.0667,0,0,29.0667,235.954,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Channel/aqueduct</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1150.39,544.884)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(255,0,197);stroke:rgb(107,107,107);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(1,0,0,1,-90.8783,-78.8033)">
-        <g transform="matrix(1,0,0,1,1201.4,612.69)">
-            <g transform="matrix(29.0667,0,0,29.0667,292.398,20.8207)">
-            </g>
-            <text x="0px" y="20.821px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:29.067px;">Estuary/coastal waters</text>
-        </g>
-        <g transform="matrix(3.04878,0,0,3.04878,1147.06,597.895)">
-            <rect x="1.207" y="1.356" width="13.337" height="13.337" style="fill:rgb(151,221,242);stroke:rgb(64,99,237);stroke-width:1.02px;"/>
-        </g>
-    </g>
-    <g transform="matrix(0.986755,-6.89531e-05,-6.89531e-05,1,0.0269977,-6.00246)">
-        <path d="M0,391.537L1537.57,399.542" style="fill:none;stroke:rgb(189,189,189);stroke-width:1.01px;stroke-linejoin:round;"/>
-    </g>
-    <g transform="matrix(1,0,0,1,-83.5661,620.093)">
+    <g transform="matrix(1,0,0,1,-107.398,500.543)">
         <g transform="matrix(26.6667,0,0,26.6667,1592.13,32.9652)">
         </g>
         <text x="793.16px" y="32.965px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:26.667px;fill:rgb(154,154,154);">Land use classes sourced from Land use 2017 data on NSW SEED</text>
