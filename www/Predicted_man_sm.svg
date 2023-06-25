@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 140 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,3.27862,3.55405)">
+        <path d="M135.735,-0.021C135.735,-1.971 134.152,-3.554 132.202,-3.554L0.254,-3.554C-1.696,-3.554 -3.279,-1.971 -3.279,-0.021L-3.279,51.797C-3.279,53.747 -1.696,55.33 0.254,55.33L132.202,55.33C134.152,55.33 135.735,53.747 135.735,51.797L135.735,-0.021Z" style="fill:white;stroke:rgb(172,172,172);stroke-width:0.52px;"/>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,6.62926,21.7188)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(0,123,88);"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,30.1878,31.0144)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Predicted</text>
+        <g transform="matrix(10.08,0,0,10.08,90.2081,0)">
+        </g>
+        <text x="45.385px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Mangrove</text>
+    </g>
+    <g transform="matrix(0.923441,0,0,0.923441,6.62926,38.7334)">
+        <path d="M0.001,0L19.921,0L19.921,11.28L0.001,11.28L0.001,0" style="fill:rgb(167,170,0);"/>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,30.4884,47.8121)">
+        <g transform="matrix(10.08,0,0,10.08,90.7594,0)">
+        </g>
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.08px;">Predicted Saltmarsh</text>
+    </g>
+    <g transform="matrix(1.09068,0,0,1.09068,50.0594,12.2904)">
+        <g transform="matrix(11.0023,0,0,11.0023,34.8603,0)">
+        </g>
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11.002px;">Habitat</text>
+    </g>
+</svg>
