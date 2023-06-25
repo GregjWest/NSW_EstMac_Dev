@@ -81,7 +81,7 @@ mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Man_Sm"="Mixed mangrove and
 
 # Theme for mangrove v saltmarsh plot layout ---- based on the function by Rodrigo Zepeda https://stackoverflow.com/questions/17753101/center-x-and-y-axis-with-ggplot2
 theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0, 
-                           color = "grey", size = 0.5, 
+                           color = "grey", linewidth = 0.5, 
                            xlab = "Saltmarsh", 
                            ylab = "Mangrove",
                            ticks = 10,
@@ -116,8 +116,8 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
     theme.list <- 
         list(
             theme_void(), #Empty the current theme
-            geom_line(aes(x = x_ax, y = y_ax), color = color, size = size, data = xaxis),
-            geom_line(aes(x = x_ax, y = y_ax), color = color, size = size, data = yaxis),
+            geom_line(aes(x = x_ax, y = y_ax), color = color, linewidth = linewidth, data = xaxis),
+            geom_line(aes(x = x_ax, y = y_ax), color = color, linewidth = linewidth, data = yaxis),
             #annotate("text", x = xlimit + 2*epsilon, y = ygeo, label = xlab, size = 2*textsize, angle = 270),
             #annotate("text", x = xgeo, y = ylimit + 4*epsilon, label = ylab, size = 2*textsize),
             xlim(-xlimit - 7*epsilon, xlimit + 7*epsilon), #Add limits to make it square
@@ -142,7 +142,7 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
         
         #Add ticks to geom line for x axis
         theme.list[[nlist + 4*k-3]] <- geom_line(aes(x = xt, y = yt), 
-                                                 data = xtick, size = size, 
+                                                 data = xtick, linewidth = linewidth, 
                                                  color = color)
         
         #Add labels to the x-ticks
@@ -155,7 +155,7 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
         
         #Add ticks to geom line for y axis
         theme.list[[nlist + 4*k-1]] <- geom_line(aes(x = xt, y = yt), 
-                                                 data = ytick, size = size, 
+                                                 data = ytick, linewidth = linewidth, 
                                                  color = color)
         
         #Add labels to the y-ticks
