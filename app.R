@@ -1034,8 +1034,8 @@ server <- function(input, output, session) {
     
     output$habitat_plot <- renderPlot({
         ggplot(data=plot_dat(), aes(x=factor(Map_Year), y=Area/10000, fill=ToHighlight)) + 
-            geom_bar(stat="identity", color="black", size = 0.2, width = 0.7)+ 
-            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = FALSE )+
+            geom_bar(stat="identity", color="black", linewidth = 0.2, width = 0.7)+ 
+            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = "none" )+
             labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
             facet_wrap(~Habitat, scales = "free_y") +
@@ -1125,8 +1125,8 @@ server <- function(input, output, session) {
     # Mangrove, Mixed and Saltmarsh plots
     output$mansm_plot <- renderPlot({
         ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000, fill=ToHighlight)) + 
-            geom_bar(stat="identity", color="black", size = 0.2, width = 0.7)+ 
-            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = FALSE )+
+            geom_bar(stat="identity", color="black", linewidth = 0.2, width = 0.7)+ 
+            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = "none" )+
             #geom_text(aes(label=round(Area/10000, digits = 2)), position=position_dodge(width=0.9), vjust=-0.25)+
             labs(y="Hectares", x="Years Mapped") +
             scale_y_continuous(expand = expansion(mult = c(0, .1)))+
