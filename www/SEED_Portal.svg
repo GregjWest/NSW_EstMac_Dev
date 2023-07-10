@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 234 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(0.797557,0,0,1,-23.2108,-6.67832)">
+        <path d="M322.478,10.302C322.478,8.302 320.443,6.678 317.935,6.678L33.645,6.678C31.138,6.678 29.102,8.302 29.102,10.302L29.102,39.287C29.102,41.287 31.138,42.91 33.645,42.91L317.935,42.91C320.443,42.91 322.478,41.287 322.478,39.287L322.478,10.302Z" style="fill:rgb(6,63,92);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,51.1519,23.8422)">
+        <g transform="matrix(16,0,0,16,131.586,0)">
+        </g>
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:white;">NSW SEED Portal</text>
+    </g>
+</svg>
