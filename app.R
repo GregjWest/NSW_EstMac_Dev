@@ -426,7 +426,7 @@ tabPanel(
     
 #### Predictive Modelling Tab UI                                  -----
 tabPanel(
-    "Projected Distributions",
+    "Predicted Wetlands",
 
         div(class="outer",
         tags$head(includeCSS("styles.css")),
@@ -436,13 +436,13 @@ tabPanel(
                       top = 160, left = 11, width = 250, height = "auto",
                       fixed = TRUE, draggable = FALSE,
                       tags$div(id = 'demo',  class="collapse in",
-                               h4("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:center"),
+                               h4("Predicted distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:center"),
                                
-                               h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
+                               h6("The predicted distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
                                   tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022).")),
                                
-                               tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land types, except urban settlements, can be colonized as wetlands. This allows for future changes in land use, but means the present-day model overestimates the current distribution.", 
-                               
+                               tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land types, except urban/developed, can be colonized as wetlands. This allows for future changes in land use, but means the present-day model overestimates the current distribution. Details of the landuse categories used can be found ", 
+                                       tags$a(href="Landuse.html", target="_blank", "here"),
                                   tags$br(),
 
                                   tags$h6("For SE Australia, +0.5m (SLR) is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
