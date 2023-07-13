@@ -441,11 +441,11 @@ tabPanel(
                                h6("The predicted distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
                                   tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022).")),
                                
-                               tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land types, except urban/developed, can be colonized as wetlands. This allows for future changes in land use, but means the present-day model overestimates the current distribution. Details of the landuse categories used can be found ", 
+                               tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land use classes, except urban/developed, can be colonized by wetlands. This allows for future changes in land use, but means the present-day model overestimates the current distribution. Details of the landuse categories used can be found ", 
                                        tags$a(href="Landuse.html", target="_blank", "here"),
                                   tags$br(),
 
-                                  tags$h6("For SE Australia, +0.5m (SLR) is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
+                                  tags$h6("For SE Australia, +0.5m SLR is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
                                           
                                           tags$br(),
                                   

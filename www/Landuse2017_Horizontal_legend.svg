@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 1496 545" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5;">
-    <g transform="matrix(1.00596,0,0,0.90151,-11.9022,-10.4121)">
+<svg width="100%" height="100%" viewBox="0 0 1496 557" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1.00596,0,0,0.922537,-11.9022,-10.6549)">
         <rect x="11.832" y="11.55" width="1486.24" height="603.733" style="fill:white;"/>
     </g>
     <g transform="matrix(1,0,0,1,10.1684,-25.5496)">
@@ -338,9 +338,9 @@
             </g>
         </g>
     </g>
-    <g transform="matrix(1,0,0,1,-107.398,500.543)">
-        <g transform="matrix(26.6667,0,0,26.6667,1592.13,32.9652)">
+    <g transform="matrix(1,0,0,1,-165.933,514.969)">
+        <g transform="matrix(26.6667,0,0,26.6667,1649.94,32.9652)">
         </g>
-        <text x="793.16px" y="32.965px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:26.667px;fill:rgb(154,154,154);">Land use classes sourced from Land use 2017 data on NSW SEED</text>
+        <text x="793.16px" y="32.965px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:26.667px;fill:rgb(154,154,154);">Land use classes sourced from Land use 2017 v1.2 data on NSW SEED</text>
     </g>
 </svg>
