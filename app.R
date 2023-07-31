@@ -460,7 +460,7 @@ tabPanel(
                                            selected = "Pittwater"),
 
                                        
-                                       tags$h6("A detailed list of the accuracy assessment results for the present day modelling can be found ",
+                                       tags$h6("A detailed list of the modelled estuaries and accuracy assessment results for the present day modelling can be found ",
                                               tags$a(href=" https://datasets.seed.nsw.gov.au/dataset/266cdf74-2da9-48cb-8ba1-acdce66928b7/resource/1d05f43d-095f-492b-9110-28a0a4b42923/download/table_1.pdf", target="_blank", "here.")),        
 
                                        tags$a(href="https://datasets.seed.nsw.gov.au/dataset/projected-distribution-of-mangrove-and-saltmarsh-in-nsw-estuaries-under-sea-level-rise", target="_blank", 
