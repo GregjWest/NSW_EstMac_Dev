@@ -455,7 +455,7 @@ tabPanel(
     
 #### Predictive Modelling Tab UI                                  -----
 tabPanel(
-  "Projected Distributions",
+  "Predicted Wetlands",
   
   div(class="outer",
       tags$head(includeCSS("styles.css")),
@@ -465,16 +465,16 @@ tabPanel(
                     top = 160, left = 11, width = 250, height = "auto",
                     fixed = TRUE, draggable = FALSE,
                     tags$div(id = 'demo',  class="collapse in",
-                             h4("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:center"),
+                             h4("Predicted distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:center"),
                              
-                             h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
+                             h6("The predicted distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
                                 tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022).")),
                              
-                             tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land types, except urban settlements, can be colonized as wetlands. This allows for future changes in land use, but means the present-day model overestimates the current distribution.", 
-                                     
+                             tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land use classes, except urban/developed, can be colonized by wetlands. This allows for future changes in land use, but means the present-day model overestimates the current distribution. Details of the landuse categories used can be found ", 
+                                     tags$a(href="Landuse.html", target="_blank", "here"),
                                      tags$br(),
                                      
-                                     tags$h6("For SE Australia, +0.5m (SLR) is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
+                                     tags$h6("For SE Australia, +0.5m SLR is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
                                              
                                              tags$br(),
                                              
@@ -489,7 +489,7 @@ tabPanel(
                                                          selected = "Pittwater"),
                                              
                                              
-                                             tags$h6("A detailed list of the estuaries modelled and accuracy assessment results for the present day modelling can be found ",
+                                             tags$h6("A detailed list of the modelled estuaries and accuracy assessment results for the present day modelling can be found ",
                                                      tags$a(href=" https://datasets.seed.nsw.gov.au/dataset/266cdf74-2da9-48cb-8ba1-acdce66928b7/resource/1d05f43d-095f-492b-9110-28a0a4b42923/download/table_1.pdf", target="_blank", "here.")),        
                                              
                                              tags$a(href="https://datasets.seed.nsw.gov.au/dataset/projected-distribution-of-mangrove-and-saltmarsh-in-nsw-estuaries-under-sea-level-rise", target="_blank", 
