@@ -147,7 +147,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 30355,Boambee Creek,North Coast,1983,Zostera,Boambee_Creek
 30355,Boambee Creek,North Coast,2004,Zostera,Boambee_Creek
 30355,Boambee Creek,North Coast,2011,Zostera,Boambee_Creek
-30355,Boambee Creek,North Coast,2004,Halophila,Boambee_Creek
 30355,Boambee Creek,North Coast,1983,Mangrove,Boambee_Creek
 30355,Boambee Creek,North Coast,2004,Mangrove,Boambee_Creek
 30355,Boambee Creek,North Coast,2011,Mangrove,Boambee_Creek
@@ -205,7 +204,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 30874,Macleay River,North Coast,2005,Zostera,Macleay_River
 30874,Macleay River,North Coast,2010,Zostera,Macleay_River
 30874,Macleay River,North Coast,2021,Zostera,Macleay_River
-30874,Macleay River,North Coast,2005,Halophila,Macleay_River
 30874,Macleay River,North Coast,1981,Mangrove,Macleay_River
 30874,Macleay River,North Coast,2005,Mangrove,Macleay_River
 30874,Macleay River,North Coast,2010,Mangrove,Macleay_River
@@ -333,7 +331,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 32706,Port Stephens,Hunter,1981,Zostera,Port_Stephens
 32706,Port Stephens,Hunter,2004,Zostera,Port_Stephens
 32706,Port Stephens,Hunter,2017,Zostera,Port_Stephens
-32706,Port Stephens,Hunter,1981,Halophila,Port_Stephens
 32706,Port Stephens,Hunter,2004,Halophila,Port_Stephens
 32706,Port Stephens,Hunter,1981,Mangrove,Port_Stephens
 32706,Port Stephens,Hunter,2004,Mangrove,Port_Stephens
@@ -379,7 +376,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 33345,Tuggerah Lake,Greater Sydney,1983,Zostera,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,2005,Zostera,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,1983,Halophila,Tuggerah_Lake
-33345,Tuggerah Lake,Greater Sydney,2005,Halophila,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,1983,Ruppia,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,2005,Ruppia,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,2005,Mangrove,Tuggerah_Lake
@@ -415,7 +411,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 33563,Hawkesbury River,Greater Sydney,1982,Zostera,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,2000,Zostera,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,2005,Zostera,Hawkesbury_River
-33563,Hawkesbury River,Greater Sydney,2005,Halophila,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,1982,Mangrove,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,2000,Mangrove,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,2005,Mangrove,Hawkesbury_River
@@ -431,7 +426,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 33587,Pittwater,Greater Sydney,2005,Zostera,Pittwater
 33587,Pittwater,Greater Sydney,2019,Zostera,Pittwater
 33587,Pittwater,Greater Sydney,1981,Halophila,Pittwater
-33587,Pittwater,Greater Sydney,2000,Halophila,Pittwater
 33587,Pittwater,Greater Sydney,2005,Halophila,Pittwater
 33587,Pittwater,Greater Sydney,1981,Mangrove,Pittwater
 33587,Pittwater,Greater Sydney,2000,Mangrove,Pittwater
@@ -512,7 +506,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 33995,Georges River,Greater Sydney,2002,Zostera,Georges_River
 33995,Georges River,Greater Sydney,2008,Zostera,Georges_River
 33995,Georges River,Greater Sydney,2019,Zostera,Georges_River
-33995,Georges River,Greater Sydney,2008,Halophila,Georges_River
 33995,Georges River,Greater Sydney,2019,Halophila,Georges_River
 33995,Georges River,Greater Sydney,1981,Mangrove,Georges_River
 33995,Georges River,Greater Sydney,2002,Mangrove,Georges_River
@@ -530,7 +523,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 34076,Port Hacking,Greater Sydney,2002,Zostera,Port_Hacking
 34076,Port Hacking,Greater Sydney,2008,Zostera,Port_Hacking
 34076,Port Hacking,Greater Sydney,2021,Zostera,Port_Hacking
-34076,Port Hacking,Greater Sydney,2002,Halophila,Port_Hacking
 34076,Port Hacking,Greater Sydney,2008,Halophila,Port_Hacking
 34076,Port Hacking,Greater Sydney,2021,Halophila,Port_Hacking
 34076,Port Hacking,Greater Sydney,1981,Mangrove,Port_Hacking
@@ -548,7 +540,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 34544,Lake Illawarra,South East,1982,Zostera,Lake_Illawarra
 34544,Lake Illawarra,South East,2005,Zostera,Lake_Illawarra
 34544,Lake Illawarra,South East,2019,Zostera,Lake_Illawarra
-34544,Lake Illawarra,South East,1982,Halophila,Lake_Illawarra
 34544,Lake Illawarra,South East,2005,Halophila,Lake_Illawarra
 34544,Lake Illawarra,South East,2019,Halophila,Lake_Illawarra
 34544,Lake Illawarra,South East,1982,Ruppia,Lake_Illawarra
@@ -647,7 +638,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 35269,Lake Conjola,South East,2019,Saltmarsh,Lake_Conjola
 35303,Narrawallee Inlet,South East,1982,Zostera,Narrawallee_Inlet
 35303,Narrawallee Inlet,South East,2004,Zostera,Narrawallee_Inlet
-35303,Narrawallee Inlet,South East,2004,Halophila,Narrawallee_Inlet
 35303,Narrawallee Inlet,South East,1982,Mangrove,Narrawallee_Inlet
 35303,Narrawallee Inlet,South East,2004,Mangrove,Narrawallee_Inlet
 35303,Narrawallee Inlet,South East,1982,Saltmarsh,Narrawallee_Inlet
@@ -671,7 +661,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 35443,Toubouree Lake,South East,1982,Zostera,Toubouree_Lake
 35443,Toubouree Lake,South East,2002,Zostera,Toubouree_Lake
 35443,Toubouree Lake,South East,1982,Halophila,Toubouree_Lake
-35443,Toubouree Lake,South East,2002,Halophila,Toubouree_Lake
 35443,Toubouree Lake,South East,1982,Ruppia,Toubouree_Lake
 35443,Toubouree Lake,South East,2002,Ruppia,Toubouree_Lake
 35443,Toubouree Lake,South East,1982,Saltmarsh,Toubouree_Lake
@@ -694,36 +683,43 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 35700,Cullendulla Creek,South East,1982,Zostera,Cullendulla_Creek
 35700,Cullendulla Creek,South East,2005,Zostera,Cullendulla_Creek
 35700,Cullendulla Creek,South East,2012,Zostera,Cullendulla_Creek
+35700,Cullendulla Creek,South East,2023,Zostera,Cullendulla_Creek
 35700,Cullendulla Creek,South East,1982,Mangrove,Cullendulla_Creek
 35700,Cullendulla Creek,South East,2005,Mangrove,Cullendulla_Creek
 35700,Cullendulla Creek,South East,2012,Mangrove,Cullendulla_Creek
+35700,Cullendulla Creek,South East,2023,Mangrove,Cullendulla_Creek
 35700,Cullendulla Creek,South East,1982,Saltmarsh,Cullendulla_Creek
 35700,Cullendulla Creek,South East,2005,Saltmarsh,Cullendulla_Creek
 35700,Cullendulla Creek,South East,2012,Saltmarsh,Cullendulla_Creek
+35700,Cullendulla Creek,South East,2023,Saltmarsh,Cullendulla_Creek
 35705,Clyde River,South East,1982,Zostera,Clyde_River
 35705,Clyde River,South East,2005,Zostera,Clyde_River
 35705,Clyde River,South East,2012,Zostera,Clyde_River
+35705,Clyde River,South East,2023,Zostera,Clyde_River
 35705,Clyde River,South East,2005,Ruppia,Clyde_River
 35705,Clyde River,South East,1982,Mangrove,Clyde_River
 35705,Clyde River,South East,2005,Mangrove,Clyde_River
 35705,Clyde River,South East,2012,Mangrove,Clyde_River
+35705,Clyde River,South East,2023,Mangrove,Clyde_River
 35705,Clyde River,South East,1982,Saltmarsh,Clyde_River
 35705,Clyde River,South East,2005,Saltmarsh,Clyde_River
 35705,Clyde River,South East,2012,Saltmarsh,Clyde_River
+35705,Clyde River,South East,2023,Saltmarsh,Clyde_River
 35732,Batemans Bay,South East,1982,Posidonia,Batemans_Bay
 35732,Batemans Bay,South East,2005,Posidonia,Batemans_Bay
 35732,Batemans Bay,South East,2012,Posidonia,Batemans_Bay
+35732,Batemans Bay,South East,2023,Posidonia,Batemans_Bay
 35732,Batemans Bay,South East,1982,Zostera,Batemans_Bay
 35732,Batemans Bay,South East,2005,Zostera,Batemans_Bay
 35732,Batemans Bay,South East,2012,Zostera,Batemans_Bay
-35732,Batemans Bay,South East,2005,Halophila,Batemans_Bay
+35732,Batemans Bay,South East,2023,Zostera,Batemans_Bay
 35732,Batemans Bay,South East,2012,Halophila,Batemans_Bay
 35732,Batemans Bay,South East,2005,Mangrove,Batemans_Bay
 35732,Batemans Bay,South East,2012,Mangrove,Batemans_Bay
+35732,Batemans Bay,South East,2023,Mangrove,Batemans_Bay
 35837,Tomaga River,South East,1982,Zostera,Tomaga_River
 35837,Tomaga River,South East,2005,Zostera,Tomaga_River
 35837,Tomaga River,South East,2012,Zostera,Tomaga_River
-35837,Tomaga River,South East,2005,Halophila,Tomaga_River
 35837,Tomaga River,South East,1982,Mangrove,Tomaga_River
 35837,Tomaga River,South East,2005,Mangrove,Tomaga_River
 35837,Tomaga River,South East,2012,Mangrove,Tomaga_River
@@ -742,8 +738,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 35906,Moruya River,South East,1982,Zostera,Moruya_River
 35906,Moruya River,South East,2005,Zostera,Moruya_River
 35906,Moruya River,South East,2012,Zostera,Moruya_River
-35906,Moruya River,South East,1982,Halophila,Moruya_River
-35906,Moruya River,South East,2005,Halophila,Moruya_River
 35906,Moruya River,South East,2005,Ruppia,Moruya_River
 35906,Moruya River,South East,1982,Mangrove,Moruya_River
 35906,Moruya River,South East,2005,Mangrove,Moruya_River
@@ -752,19 +746,16 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 35906,Moruya River,South East,2005,Saltmarsh,Moruya_River
 35906,Moruya River,South East,2012,Saltmarsh,Moruya_River
 35954,Congo Creek,South East,2005,Zostera,Congo_Creek
-35954,Congo Creek,South East,2005,Halophila,Congo_Creek
 35954,Congo Creek,South East,2005,Saltmarsh,Congo_Creek
 35978,Meringo Creek,South East,2005,Saltmarsh,Meringo_Creek
 36048,Coila Lake,South East,1982,Zostera,Coila_Lake
 36048,Coila Lake,South East,2004,Zostera,Coila_Lake
-36048,Coila Lake,South East,1982,Halophila,Coila_Lake
 36048,Coila Lake,South East,2004,Ruppia,Coila_Lake
 36048,Coila Lake,South East,1982,Saltmarsh,Coila_Lake
 36048,Coila Lake,South East,2004,Saltmarsh,Coila_Lake
 36067,Tuross Lake,South East,1982,Zostera,Tuross_Lake
 36067,Tuross Lake,South East,2004,Zostera,Tuross_Lake
 36067,Tuross Lake,South East,2012,Zostera,Tuross_Lake
-36067,Tuross Lake,South East,1982,Halophila,Tuross_Lake
 36067,Tuross Lake,South East,2004,Halophila,Tuross_Lake
 36067,Tuross Lake,South East,1982,Mangrove,Tuross_Lake
 36067,Tuross Lake,South East,2004,Mangrove,Tuross_Lake
@@ -782,7 +773,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36128,Lake Brou,South East,2005,Saltmarsh,Lake_Brou
 36162,Lake Dalmeny,South East,1982,Zostera,Lake_Dalmeny
 36162,Lake Dalmeny,South East,2002,Zostera,Lake_Dalmeny
-36162,Lake Dalmeny,South East,1982,Halophila,Lake_Dalmeny
 36162,Lake Dalmeny,South East,2002,Ruppia,Lake_Dalmeny
 36162,Lake Dalmeny,South East,1982,Saltmarsh,Lake_Dalmeny
 36162,Lake Dalmeny,South East,2002,Saltmarsh,Lake_Dalmeny
@@ -795,7 +785,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36210,Wagonga Inlet,South East,1982,Zostera,Wagonga_Inlet
 36210,Wagonga Inlet,South East,2002,Zostera,Wagonga_Inlet
 36210,Wagonga Inlet,South East,2019,Zostera,Wagonga_Inlet
-36210,Wagonga Inlet,South East,2002,Halophila,Wagonga_Inlet
 36210,Wagonga Inlet,South East,1982,Mangrove,Wagonga_Inlet
 36210,Wagonga Inlet,South East,2002,Mangrove,Wagonga_Inlet
 36210,Wagonga Inlet,South East,2019,Mangrove,Wagonga_Inlet
@@ -875,7 +864,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36647,Middle Lake,South East,2003,Saltmarsh,Middle_Lake
 36685,Nelson Lake,South East,1981,Zostera,Nelson_Lake
 36685,Nelson Lake,South East,2003,Zostera,Nelson_Lake
-36685,Nelson Lake,South East,1981,Halophila,Nelson_Lake
 36685,Nelson Lake,South East,2003,Halophila,Nelson_Lake
 36685,Nelson Lake,South East,1981,Mangrove,Nelson_Lake
 36685,Nelson Lake,South East,2003,Mangrove,Nelson_Lake
@@ -887,8 +875,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36701,Bega River,South East,2003,Saltmarsh,Bega_River
 36790,Wallagoot Lake,South East,1982,Zostera,Wallagoot_Lake
 36790,Wallagoot Lake,South East,2003,Zostera,Wallagoot_Lake
-36790,Wallagoot Lake,South East,1982,Halophila,Wallagoot_Lake
-36790,Wallagoot Lake,South East,2003,Halophila,Wallagoot_Lake
 36790,Wallagoot Lake,South East,1982,Ruppia,Wallagoot_Lake
 36790,Wallagoot Lake,South East,2003,Ruppia,Wallagoot_Lake
 36790,Wallagoot Lake,South East,1982,Saltmarsh,Wallagoot_Lake
@@ -909,7 +895,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36895,Merimbula Lake,South East,2004,Zostera,Merimbula_Lake
 36895,Merimbula Lake,South East,2022,Zostera,Merimbula_Lake
 36895,Merimbula Lake,South East,1982,Halophila,Merimbula_Lake
-36895,Merimbula Lake,South East,2004,Halophila,Merimbula_Lake
 36895,Merimbula Lake,South East,1982,Mangrove,Merimbula_Lake
 36895,Merimbula Lake,South East,2004,Mangrove,Merimbula_Lake
 36895,Merimbula Lake,South East,2022,Mangrove,Merimbula_Lake
@@ -922,8 +907,6 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36948,Pambula Lake,South East,1982,Zostera,Pambula_Lake
 36948,Pambula Lake,South East,2004,Zostera,Pambula_Lake
 36948,Pambula Lake,South East,2022,Zostera,Pambula_Lake
-36948,Pambula Lake,South East,1982,Halophila,Pambula_Lake
-36948,Pambula Lake,South East,2004,Halophila,Pambula_Lake
 36948,Pambula Lake,South East,1982,Mangrove,Pambula_Lake
 36948,Pambula Lake,South East,2004,Mangrove,Pambula_Lake
 36948,Pambula Lake,South East,2022,Mangrove,Pambula_Lake
