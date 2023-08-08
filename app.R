@@ -426,7 +426,7 @@ tabPanel(
     
 #### Predictive Modelling Tab UI                                  -----
 tabPanel(
-    "Predicted Wetlands",
+    "Projected Wetlands",
 
         div(class="outer",
         tags$head(includeCSS("styles.css")),
@@ -436,20 +436,21 @@ tabPanel(
                       top = 160, left = 11, width = 250, height = "auto",
                       fixed = TRUE, draggable = FALSE,
                       tags$div(id = 'demo',  class="collapse in",
-                               h4("Predicted distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:center"),
+                               h4("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise", style="text-align:center"),
                                
-                               h6("The predicted distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
+                               h6("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
                                   tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022).")),
                                
-                               tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land use classes, except urban/developed, can be colonized by wetlands. This allows for future changes in land use, but means the present-day model overestimates the current distribution. Details of the landuse categories used can be found ", 
+                               tags$h6("Two scenarios are presented: Present day and +0.5m sea level rise (SLR). Both assume all land use classes, except urban/developed, can be colonized by wetlands. Details of the landuse categories used can be found ", 
                                        tags$a(href="Landuse.html", target="_blank", "here"),
-                                  tags$br(),
 
-                                  tags$h6("For SE Australia, +0.5m SLR is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)"), 
                                           
                                           tags$br(),
-                                  
-                               h6("Select a region and estuary to zoom to the desired area"),
+                                       
+                               h6("More information can be found on the About tab."),                               
+
+                              h6("Select a region and estuary to zoom to the desired area"),  
+                            
                                selectInput("region4", 
                                            label = "Region:", 
                                            choices = list_region, 
@@ -458,10 +459,7 @@ tabPanel(
                                            label = "Estuary:", 
                                            choices = NULL, 
                                            selected = "Pittwater"),
-
-                                       
-                                       tags$h6("A detailed list of the modelled estuaries and accuracy assessment results for the present day modelling can be found ",
-                                              tags$a(href=" https://datasets.seed.nsw.gov.au/dataset/266cdf74-2da9-48cb-8ba1-acdce66928b7/resource/1d05f43d-095f-492b-9110-28a0a4b42923/download/table_1.pdf", target="_blank", "here.")),        
+       
 
                                        tags$a(href="https://datasets.seed.nsw.gov.au/dataset/projected-distribution-of-mangrove-and-saltmarsh-in-nsw-estuaries-under-sea-level-rise", target="_blank", 
                                               tags$img(src='SEED_Portal.svg')) 
@@ -477,8 +475,8 @@ tabPanel(
         absolutePanel(id = "legend1", class = "card", bottom = 25, right = 10, dropdownButton(label = "Land use legend", circle = FALSE, size = 'sm', up = TRUE, right = TRUE,
                                                                                               tags$img(src='Landuse2017_Horizontal_legend.svg',width='650')), style = "z-index: 1000;"
         )
-    )
-),
+    ),
+
 
 
 
@@ -509,6 +507,14 @@ tabPanel(
         tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project. Details on the estuaries mapped can be found in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)")),
         tags$p("Artificial structures (pontoons and jetties) and habitat disturbances are currently being mapped and will be updated when available."),
         
+        tags$h3("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise"),
+        tags$p("The projected distributions of mangrove and saltmarsh in this dataset were developed using the method described in", 
+               tags$a(href="https://www.frontiersin.org/articles/10.3389/fenvs.2022.749950/full", target="_blank", "Hughes et al (2022)."), "It’s important to note that impacts of sea level rise (SLR) on wetland distribution will depend on their ability to migrate upslope and/or grow vertically due to the gradual accumulation of new layers of sediment (accretion).  Sediment accretion was not considered in these models as data are unavailable at a regional scale. "),
+        
+        tags$p("Two projected scenarios are presented: Present day and +0.5m SLR. Both assume all land use classes, except urban/developed, can be colonized by wetlands. For SE Australia, +0.5m SLR is estimated to occur by 2100 under emissions scenarios RCP 2.6 to RCP 8.5", tags$a(href="https://www.nature.com/articles/s41598-018-25410-y", target="_blank", "(Hanslow et al., 2018.)")),
+        
+        tags$p("Details of the land use categories used to delineate urban/developed can be found ", tags$a(href="Landuse.html", target="_blank", "here."), "Due to data constraints projected distributions were only able to be created for 110 estuaries and a list of these estuaries and accuracy assessment results for the present day modelling can be found" , tags$a(href=" https://datasets.seed.nsw.gov.au/dataset/266cdf74-2da9-48cb-8ba1-acdce66928b7/resource/1d05f43d-095f-492b-9110-28a0a4b42923/download/table_1.pdf", target="_blank", "here.")),
+
         tags$h3("Acknowledgements"),
         tags$p("The data used here is derived from many decades of work by DPI Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood. See ", tags$a(href="West_1985.pdf", target="_blank", "West et al. 1985")),
         tags$p("Subsequent mapping projects were led by Rob Williams, Bob Creese, Greg West and Tim Glasby.  We thank the many staff involved in producing these maps, including, but not limited to: Peter Gibson, Roger Laird, Isabelle Thiebaud, Brooke McCartin, Chris Gallen, Danielle Morrison, Joe Neilson and Trudy Walford."),
