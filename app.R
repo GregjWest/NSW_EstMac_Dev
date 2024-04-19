@@ -904,22 +904,25 @@ server <- function(input, output, session) {
     grdpal <- colorBin ("RdYlBu", bins = bins, na.color = "transparent") 
     
     output$map_change <- renderLeaflet({
-        leaflet() %>% 
+      leaflet(options = leafletOptions(maxZoom = 16)) %>% 
+        addMapPane("basemaps", zIndex=100) %>% #add map pane for baselayers
+        addMapPane("Grid", zIndex=400) %>% #add map pane for macrophyte grid
+        #Add side by side comparison slider   
+        addMapPane("left", zIndex = 600) %>%
+        addMapPane("right", zIndex = 600) %>%        
+        
         #leaflet::addTiles() %>%
             #Open Street Map base layer
-            addProviderTiles(providers$CartoDB.Positron,
-                    options = tileOptions(maxZoom=17)) %>%
+            addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
+                         options = pathOptions(pane="basemaps", maxZoom=17)) %>%
             #Spatial Sevices Photo base layer
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
-                                 layerId = "0", options = tileOptions(maxZoom=17)) %>%
+                             layerId = "0", pathOptions(pane="basemaps", maxZoom=17)) %>%
             #Add change raster layer
-            addStarsImage(diff_raster(), colors = grdpal, opacity = 0.5, group = "Change grid", project = FALSE) %>%
+            addStarsImage(diff_raster(), colors = grdpal, opacity = 0.5, group = "Change Grid", project = FALSE, options = pathOptions(pane="Grid", maxZoom=17)) %>%
             
-            #Add side by side comparison slider   
-            addMapPane("left", zIndex = 200) %>%
-            addMapPane("right", zIndex = 200) %>%
-            
-            
+
+        #add maps to side by side comparison  
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time1",
                      options = pathOptions(pane = "left", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
@@ -929,7 +932,7 @@ server <- function(input, output, session) {
             
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Change grid", "Mapped habitat"),
+                overlayGroups = c("Change Grid", "Mapped habitat"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             
             #Add side by Side control
@@ -948,6 +951,7 @@ server <- function(input, output, session) {
             
             #change map turned on by default
             hideGroup("Mapped habitat")
+            #hideGroup("Change grid")
 
 
     })
