@@ -30,7 +30,7 @@ if(!require(raster)) install.packages("raster", repos = "http://cran.us.r-projec
 if(!require(lazyeval)) install.packages("lazyeval", repos = "http://cran.us.r-project.org")
 if(!require(htmltools)) install.packages("htmltools", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.esri)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
-if(!require(stars)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
+#if(!require(stars)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leafem)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.extras2)) install.packages("leaflet.extras2", repos = "http://cran.us.r-project.org")
 if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.org")
@@ -48,6 +48,8 @@ options(dplyr.summarise.inform = FALSE)
     dat <-  read.csv("Multi_Estuary_All_Years_Grid.csv", stringsAsFactors = T)
     report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
     presence_dat <- read.csv("NSW_Estuarine_Macrophytes_Presence.csv", stringsAsFactors = T)
+    
+# readin spatial grid data
     geojson <- sf::st_read("estuary_grids.geojson")
 
 # mangrove and saltmarsh plot background image    
@@ -842,7 +844,7 @@ server <- function(input, output, session) {
             dplyr::filter(Chnge > 0)
     })
 
-    
+    #merge estuary change data with spatial data
     merged_data <- reactive({
       merged <- merge(filtered_geojson(), diff_dat1(), by.x = "GRID_ID", by.y = "GRID_ID")
       return(merged)
@@ -871,8 +873,7 @@ server <- function(input, output, session) {
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
                              layerId = "0", pathOptions(pane="basemaps", maxZoom=17)) %>%
 
-           addPolygons(data = merged_data(), fillColor = ~grdpal(Diff),  fillOpacity = 0.5, weight = 0, options = pathOptions(Pane ="Grid", group = "Change Grid")) %>%
-
+            addPolygons(data = merged_data(), fillColor = ~grdpal(Diff),  fillOpacity = 0.5, weight = .1, color = "black", options = pathOptions(Pane ="Grid", group = "Change Grid")) %>%
 
         #add maps to side by side comparison  
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time1",
@@ -881,7 +882,9 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time2",
                      options = pathOptions(pane = "right", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            
+        
+        
+        
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
                 overlayGroups = c("Change Grid", "Mapped habitat"),
@@ -904,10 +907,11 @@ server <- function(input, output, session) {
             #change map turned on by default
             hideGroup("Mapped habitat")
             #hideGroup("Change grid")
+            
+            
    
 
     })
-    
 
 
     #### DATA SUMMARY TAB ####
