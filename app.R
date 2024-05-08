@@ -29,11 +29,10 @@ if(!require(shinyWidgets)) install.packages("shinyWidgets", repos = "http://cran
 if(!require(leaflet)) install.packages("leaflet", repos = "http://cran.us.r-project.org")
 if(!require(RColorBrewer)) install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
 if(!require(raster)) install.packages("raster", repos = "http://cran.us.r-project.org")
-#if(!require(rgdal)) install.packages("rgdal", repos = "http://cran.us.r-project.org")
 if(!require(lazyeval)) install.packages("lazyeval", repos = "http://cran.us.r-project.org")
 if(!require(htmltools)) install.packages("htmltools", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.esri)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
-if(!require(stars)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
+#if(!require(stars)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leafem)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.extras2)) install.packages("leaflet.extras2", repos = "http://cran.us.r-project.org")
 if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.org")
@@ -48,6 +47,9 @@ if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-proj
     report_dat <-  read.csv("Estuary_Overview.csv", stringsAsFactors = T)
     presence_dat <- read.csv("NSW_Estuarine_Macrophytes_Presence.csv", stringsAsFactors = T)
 
+# read in spatial grid data
+    geojson <- sf::st_read("estuary_grids.geojson")
+    
 # mangrove and saltmarsh plot background image    
     mvsimg <- readPNG("www/Man_SM_Background.png")
     mvsbgimg <- rasterGrob(mvsimg, interpolate=TRUE)
@@ -826,35 +828,37 @@ server <- function(input, output, session) {
             dplyr::filter(Estuary == input$estuary3) 
     })
     
+    filtered_geojson <- reactive({ geojson %>%
+        dplyr::filter(Estuary == input$estuary3) 
+    })
+    
     t2_dat <- reactive({
         dat %>%
             dplyr::filter(Estuary == input$estuary3) %>%
             dplyr::filter(Map_Year == input$change_t2) %>%
-            dplyr::select(GRID_ID, Easting, Northing, input$habitat3)
+            dplyr::select(GRID_ID, input$habitat3)
      
     })
-    
-    
     
     t1_dat <- reactive({
         dat %>%
             dplyr::filter(Estuary == input$estuary3) %>%
             dplyr::filter(Map_Year == input$change_t1) %>%
-            dplyr::select(GRID_ID, Easting, Northing, input$habitat3)
+            dplyr::select(GRID_ID, input$habitat3)
     })
     
 
     diff_dat <- reactive({
         inner_join(t2_dat(),
                    t1_dat(),
-                   by = c("GRID_ID", "Easting", "Northing")) %>%
-            mutate(Diff = .[[4]] - .[[5]])
+                   by = c("GRID_ID")) %>%
+            mutate(Diff = .[[2]] - .[[3]])
     })
     
     #Find true zeros, time one plus time 2 will equal zero when both are zero
     Chnge_dat <- reactive({
         diff_dat() %>%
-            dplyr::mutate(Chnge = .[[4]] + .[[5]])
+            dplyr::mutate(Chnge = .[[2]] + .[[3]])
     })    
 
     #Filter out the true zeros, select only the values greater than 0
@@ -863,66 +867,11 @@ server <- function(input, output, session) {
             dplyr::filter(Chnge > 0)
     })
 
-    #select coordinates
-    raster_points1 <- reactive({
-        diff_dat1() %>%
-            dplyr::select(Easting, Northing)
+    #merge estuary change data with spatial data
+    merged_data <- reactive({
+      merged <- merge(filtered_geojson(), diff_dat1(), by.x = "GRID_ID", by.y = "GRID_ID")
+      return(merged)
     })
-
-    #Filter and select values
-    raster_values1 <- reactive({
-        diff_dat1() %>%
-            dplyr::select(Diff)
-    }) 
-    
-    # Set raster max and min based on estuary selection
-    lon_min1 <- reactive({min(raster_points1()$Easting)-375}) 
-    lon_max1 <- reactive({max(raster_points1()$Easting)+375})
-    lat_min1 <- reactive({min(raster_points1()$Northing)-375})
-    lat_max1 <- reactive({max(raster_points1()$Northing)+375})    
-    ncols1 <- reactive({((lon_max1() - lon_min1())/cell_size)}) 
-    nrows1 <- reactive({((lat_max1() - lat_min1())/cell_size)}) 
-    
-    # Create and empty raster that covers the estuary selected
-    empty_raster1 <- reactive({
-        raster(nrows=nrows1(), ncols=ncols1(), 
-               xmn=lon_min1(), xmx=lon_max1(), 
-               ymn=lat_min1(), ymx=lat_max1(), 
-               res=c(cell_size,cell_size), crs= myproj)
-    })
-    
-    # Convert dataframe to a spatial data frame
-    raster_pts1 <- reactive({
-        SpatialPointsDataFrame(coords=raster_points1(), data=data.frame(raster_values1()), proj4string = CRS(myproj))
-
-        
-    }) 
-    
-
-    # Rasterize spatial data frame
-    diff_raster_utm <- reactive({
-        rasterize(raster_pts1(), empty_raster1(), raster_values1(), fun= mean) 
-    }) 
-    
-    
-    # diff_raster <- reactive({ 
-    #     projectRaster(diff_raster_utm(), crs = crs("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"), method = "ngb")
-    # })
-    
-
-    #Edzar's suggestion using stars package
-    raster_utm <- reactive({ 
-        st_as_stars(diff_raster_utm())
-    })
-    
-    new <- st_crs(3857)
-    
-    diff_raster <- reactive({ 
-        st_transform(raster_utm(), new)
-    })
-    
-    
-    
     
     
     ### Create an asymmetric color range
@@ -931,57 +880,57 @@ server <- function(input, output, session) {
     grdpal <- colorBin ("RdYlBu", bins = bins, na.color = "transparent") 
     
     output$map_change <- renderLeaflet({
-        leaflet() %>% 
+      leaflet(options = leafletOptions(maxZoom = 17)) %>% 
+        addMapPane("basemaps", zIndex=100) %>% #add map pane for baselayers
+        addMapPane("Grid", zIndex=400) %>% #add map pane for macrophyte grid
+        #Add side by side comparison slider   
+        addMapPane("left", zIndex = 600) %>%
+        addMapPane("right", zIndex = 600) %>%        
+        
         #leaflet::addTiles() %>%
-            #Open Street Map base layer
-            addProviderTiles(providers$CartoDB.Positron,
-                    options = tileOptions(maxZoom=17)) %>%
-            #Spatial Sevices Photo base layer
-            addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
-                                 layerId = "0", options = tileOptions(maxZoom=17)) %>%
-            #Add change raster layer
-            addStarsImage(diff_raster(), colors = grdpal, opacity = 0.5, group = "Change grid", project = FALSE) %>%
-            
-            #Add side by side comparison slider   
-            addMapPane("left", zIndex = 200) %>%
-            addMapPane("right", zIndex = 200) %>%
-            
-            
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time1",
-                     options = pathOptions(pane = "left", maxZoom=17),
-                     attribution = "&copy; Department of Primary Industries 2021") %>%
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time2",
-                     options = pathOptions(pane = "right", maxZoom=17),
-                     attribution = "&copy; Department of Primary Industries 2021") %>%
-            
-            addLayersControl(
-                baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Change grid", "Mapped habitat"),
-                options = layersControlOptions(collapsed = FALSE)) %>%
-            
-            #Add side by Side control
-            addSidebyside(layerId = "sidecontrols",
-                          rightId = "Time2",
-                          leftId = "Time1") %>%
-            
-            addScaleBar(position = "bottomleft", scaleBarOptions(
-                maxWidth = 100,
-                metric = TRUE,
-                imperial = FALSE,
-                updateWhenIdle = TRUE)) %>%
-            
-            addMeasure(position = "topleft",
-                       primaryLengthUnit = "meters",
-                       secondaryLengthUnit = "kilometers",
-                       primaryAreaUnit = "sqmeters",
-                       secondaryAreaUnit = "hectares",
-                       activeColor = "#3D535D",
-                       completedColor = "#7D4479") %>%
-            
-            #change map turned on by default
-            hideGroup("Mapped habitat")
-
-
+        #Open Street Map base layer
+        addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
+                         options = pathOptions(pane="basemaps", maxZoom=17)) %>%
+        #Spatial Sevices Photo base layer
+        addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
+                             layerId = "0", pathOptions(pane="basemaps", maxZoom=17)) %>%
+        
+        #add change grid polygons, and colour them based on Diff and colour palette
+        addPolygons(data = merged_data(), fillColor = ~grdpal(Diff),  fillOpacity = 0.5, weight = .1, color = "black", options = pathOptions(Pane ="Grid", group = "Change Grid")) %>%
+        
+        #add maps to side by side comparison  
+        addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time1",
+                 options = pathOptions(pane = "left", maxZoom=17),
+                 attribution = "&copy; Department of Primary Industries 2020") %>%
+        addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time2",
+                 options = pathOptions(pane = "right", maxZoom=17),
+                 attribution = "&copy; Department of Primary Industries 2020") %>%
+        
+        addLayersControl(
+          baseGroups = c("Open Street Map", "Photo basemap"),
+          overlayGroups = c("Change Grid", "Mapped habitat"),
+          options = layersControlOptions(collapsed = FALSE)) %>%
+        
+        #Add side by Side control
+        addSidebyside(layerId = "sidecontrols",
+                      rightId = "Time2",
+                      leftId = "Time1") %>%
+        
+        addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
+        addMeasure(position = "bottomleft",
+                   primaryLengthUnit = "meters",
+                   secondaryLengthUnit = "kilometers",
+                   primaryAreaUnit = "sqmeters",
+                   secondaryAreaUnit = "hectares",
+                   activeColor = "#3D535D",
+                   completedColor = "#7D4479") %>%
+        
+        #change map turned on by default
+        hideGroup("Mapped habitat")
+      #hideGroup("Change grid")
+      
+      
+      
     })
     
    
@@ -1213,7 +1162,7 @@ server <- function(input, output, session) {
     output$slrmap <- renderLeaflet({
       
       
-      leaflet(options = leafletOptions(maxZoom = 16)) %>% 
+      leaflet(options = leafletOptions(maxZoom = 17)) %>% 
         addMapPane("basemaps4", zIndex=200) %>% #add map pane for baselayers
         addMapPane("macromap4", zIndex=400) %>% #add map pane for macrophyte map
         
