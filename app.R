@@ -39,7 +39,7 @@ if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.
 if(!require(png)) install.packages("png", repos = "http://cran.us.r-project.org")
 if(!require(grid)) install.packages("grid", repos = "http://cran.us.r-project.org")
 if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-project.org")
-
+if(!require(sf)) install.packages("sf", repos = "http://cran.us.r-project.org")
 
 
 # Read in data .csv
