@@ -34,7 +34,7 @@ if(!require(leaflet.esri)) install.packages("leaflet.esri", repos = "http://cran
 #if(!require(stars)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leafem)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.extras2)) install.packages("leaflet.extras2", repos = "http://cran.us.r-project.org")
-if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.org")
+#if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.org")
 if(!require(png)) install.packages("png", repos = "http://cran.us.r-project.org")
 if(!require(grid)) install.packages("grid", repos = "http://cran.us.r-project.org")
 if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-project.org")
@@ -899,7 +899,7 @@ server <- function(input, output, session) {
     })
     
     
-    ### Create an asymmetric color range
+    ### Create an asymmetric color range.
     # scale_range <- c(-62500, 62500)
     bins <- c(65000, 32000, 3200, 320, 32, .1, -.1, -32, -320, -3200, -32000, -65000)
     grdpal <- colorBin ("RdYlBu", bins = bins, na.color = "transparent") 
