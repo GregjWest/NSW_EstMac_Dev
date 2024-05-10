@@ -850,6 +850,27 @@ server <- function(input, output, session) {
       return(merged)
     })
     
+    raster_grd <- reactive({
+      dat %>%
+        dplyr::filter(Estuary == input$estuary3) %>%
+        dplyr::select(Easting, Northing)
+    })    
+    
+    # Set raster max and min based on estuary selection
+    lon_min <- reactive({min(raster_grd()$Easting)}) 
+    lon_max <- reactive({max(raster_grd()$Easting)})
+    lat_min <- reactive({min(raster_grd()$Northing)})
+    lat_max <- reactive({max(raster_grd()$Northing)})    
+    ncols <- reactive({((lon_max() - lon_min())/cell_size)}) 
+    nrows <- reactive({((lat_max() - lat_min())/cell_size)})  
+    
+    # Create and empty raster that covers the estuary selected
+    empty_grd <- reactive({
+      raster(nrows=nrows(), ncols=ncols(), 
+             xmn=lon_min(), xmx=lon_max(), 
+             ymn=lat_min(), ymx=lat_max(), 
+             res=c(cell_size,cell_size), crs=myproj)
+    })
 
 
      ### Create an asymmetric color range
@@ -873,7 +894,13 @@ server <- function(input, output, session) {
             addEsriTiledMapLayer("http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer", group = "Photo basemap",
                              layerId = "0", pathOptions(pane="basemaps", maxZoom=17)) %>%
 
-            addPolygons(data = merged_data(), fillColor = ~grdpal(Diff),  fillOpacity = 0.5, weight = .1, color = "black", options = pathOptions(Pane ="Grid", group = "Change Grid")) %>%
+            #add blank raster to set map bounds to estuary extent
+            addRasterImage(empty_grd()) %>% 
+        
+            #add vector change grid
+            addPolygons(data = merged_data(), fillColor = ~grdpal(Diff),  fillOpacity = 0.5, weight = .1, color = "black", 
+                        highlightOptions = highlightOptions(color = "white", weight = 2, bringToFront = TRUE), label = ~paste("Change in area of", input$habitat3, ":", round(Diff,2), "m²"), 
+                        labelOptions = labelOptions(style = list("font-size" = "14px")), options = pathOptions(Pane ="Grid", group = "Change Grid")) %>%
 
         #add maps to side by side comparison  
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time1",
@@ -883,12 +910,16 @@ server <- function(input, output, session) {
                      options = pathOptions(pane = "right", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
         
-        
-        
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
                 overlayGroups = c("Change Grid", "Mapped habitat"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
+        
+        # set boundaries for map
+        # fitBounds(lng1 = min(raster_grd()$Lon), 
+        #         lat1 = min(raster_grd()$Lat), 
+        #         lng2 = max(raster_grd()$Lon), 
+        #         lat2 = max(raster_grd()$Lat)) %>%
             
             #Add side by Side control
             addSidebyside(layerId = "sidecontrols",

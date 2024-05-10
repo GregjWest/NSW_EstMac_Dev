@@ -5,7 +5,7 @@ account: nsw-dpi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3303162
-bundleId: 8590831
+bundleId: 8598851
 url: https://nsw-dpi.shinyapps.io/NSW_EstMac_Dev/
 asMultiple: FALSE
 asStatic: FALSE
