@@ -1,385 +1,386 @@
 ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 28170,Tweed River,North Coast,1983,Zostera,Tweed_River
-28170,Tweed River,North Coast,2003,Zostera,Tweed_River
-28170,Tweed River,North Coast,2022,Zostera,Tweed_River
 28170,Tweed River,North Coast,1983,Mangrove,Tweed_River
-28170,Tweed River,North Coast,2003,Mangrove,Tweed_River
-28170,Tweed River,North Coast,2022,Mangrove,Tweed_River
 28170,Tweed River,North Coast,1983,Saltmarsh,Tweed_River
+28170,Tweed River,North Coast,2003,Zostera,Tweed_River
+28170,Tweed River,North Coast,2003,Mangrove,Tweed_River
 28170,Tweed River,North Coast,2003,Saltmarsh,Tweed_River
+28170,Tweed River,North Coast,2022,Zostera,Tweed_River
+28170,Tweed River,North Coast,2022,Mangrove,Tweed_River
 28170,Tweed River,North Coast,2022,Saltmarsh,Tweed_River
-28257,Cudgen Creek,North Coast,2003,Zostera,Cudgen_Creek
-28257,Cudgen Creek,North Coast,2022,Zostera,Cudgen_Creek
 28257,Cudgen Creek,North Coast,1983,Mangrove,Cudgen_Creek
-28257,Cudgen Creek,North Coast,2003,Mangrove,Cudgen_Creek
-28257,Cudgen Creek,North Coast,2022,Mangrove,Cudgen_Creek
 28257,Cudgen Creek,North Coast,1983,Saltmarsh,Cudgen_Creek
+28257,Cudgen Creek,North Coast,2003,Zostera,Cudgen_Creek
+28257,Cudgen Creek,North Coast,2003,Mangrove,Cudgen_Creek
 28257,Cudgen Creek,North Coast,2003,Saltmarsh,Cudgen_Creek
+28257,Cudgen Creek,North Coast,2022,Zostera,Cudgen_Creek
+28257,Cudgen Creek,North Coast,2022,Mangrove,Cudgen_Creek
 28257,Cudgen Creek,North Coast,2022,Saltmarsh,Cudgen_Creek
 28360,Cudgera Creek,North Coast,1983,Zostera,Cudgera_Creek
-28360,Cudgera Creek,North Coast,2003,Zostera,Cudgera_Creek
-28360,Cudgera Creek,North Coast,2022,Zostera,Cudgera_Creek
 28360,Cudgera Creek,North Coast,1983,Mangrove,Cudgera_Creek
-28360,Cudgera Creek,North Coast,2003,Mangrove,Cudgera_Creek
-28360,Cudgera Creek,North Coast,2022,Mangrove,Cudgera_Creek
 28360,Cudgera Creek,North Coast,1983,Saltmarsh,Cudgera_Creek
+28360,Cudgera Creek,North Coast,2003,Zostera,Cudgera_Creek
+28360,Cudgera Creek,North Coast,2003,Mangrove,Cudgera_Creek
 28360,Cudgera Creek,North Coast,2003,Saltmarsh,Cudgera_Creek
+28360,Cudgera Creek,North Coast,2022,Zostera,Cudgera_Creek
+28360,Cudgera Creek,North Coast,2022,Mangrove,Cudgera_Creek
 28360,Cudgera Creek,North Coast,2022,Saltmarsh,Cudgera_Creek
 28388,Mooball Creek,North Coast,1983,Zostera,Mooball_Creek
-28388,Mooball Creek,North Coast,2003,Zostera,Mooball_Creek
-28388,Mooball Creek,North Coast,2022,Zostera,Mooball_Creek
 28388,Mooball Creek,North Coast,1983,Mangrove,Mooball_Creek
+28388,Mooball Creek,North Coast,2003,Zostera,Mooball_Creek
 28388,Mooball Creek,North Coast,2003,Mangrove,Mooball_Creek
-28388,Mooball Creek,North Coast,2022,Mangrove,Mooball_Creek
 28388,Mooball Creek,North Coast,2003,Saltmarsh,Mooball_Creek
+28388,Mooball Creek,North Coast,2022,Zostera,Mooball_Creek
+28388,Mooball Creek,North Coast,2022,Mangrove,Mooball_Creek
 28388,Mooball Creek,North Coast,2022,Saltmarsh,Mooball_Creek
 28538,Brunswick River,North Coast,1983,Zostera,Brunswick_River
-28538,Brunswick River,North Coast,2004,Zostera,Brunswick_River
-28538,Brunswick River,North Coast,2010,Zostera,Brunswick_River
 28538,Brunswick River,North Coast,1983,Mangrove,Brunswick_River
-28538,Brunswick River,North Coast,2004,Mangrove,Brunswick_River
-28538,Brunswick River,North Coast,2010,Mangrove,Brunswick_River
 28538,Brunswick River,North Coast,1983,Saltmarsh,Brunswick_River
+28538,Brunswick River,North Coast,2004,Zostera,Brunswick_River
+28538,Brunswick River,North Coast,2004,Mangrove,Brunswick_River
 28538,Brunswick River,North Coast,2004,Saltmarsh,Brunswick_River
+28538,Brunswick River,North Coast,2010,Zostera,Brunswick_River
+28538,Brunswick River,North Coast,2010,Mangrove,Brunswick_River
 28538,Brunswick River,North Coast,2010,Saltmarsh,Brunswick_River
 28628,Belongil Creek,North Coast,1983,Mangrove,Belongil_Creek
-28628,Belongil Creek,North Coast,2004,Mangrove,Belongil_Creek
 28628,Belongil Creek,North Coast,1983,Saltmarsh,Belongil_Creek
+28628,Belongil Creek,North Coast,2004,Mangrove,Belongil_Creek
 28628,Belongil Creek,North Coast,2004,Saltmarsh,Belongil_Creek
 28667,Tallow Creek,North Coast,1983,Saltmarsh,Tallow_Creek
 28697,Broken Head Creek,North Coast,1983,Saltmarsh,Broken_Head_Creek
 28876,Richmond River,North Coast,1983,Zostera,Richmond_River
-28876,Richmond River,North Coast,2004,Zostera,Richmond_River
-28876,Richmond River,North Coast,2020,Zostera,Richmond_River
 28876,Richmond River,North Coast,1983,Mangrove,Richmond_River
-28876,Richmond River,North Coast,2004,Mangrove,Richmond_River
-28876,Richmond River,North Coast,2020,Mangrove,Richmond_River
 28876,Richmond River,North Coast,1983,Saltmarsh,Richmond_River
+28876,Richmond River,North Coast,2004,Zostera,Richmond_River
+28876,Richmond River,North Coast,2004,Mangrove,Richmond_River
 28876,Richmond River,North Coast,2004,Saltmarsh,Richmond_River
+28876,Richmond River,North Coast,2020,Zostera,Richmond_River
+28876,Richmond River,North Coast,2020,Mangrove,Richmond_River
 28876,Richmond River,North Coast,2020,Saltmarsh,Richmond_River
-29113,Evans River,North Coast,2004,Zostera,Evans_River
 29113,Evans River,North Coast,1983,Mangrove,Evans_River
-29113,Evans River,North Coast,2004,Mangrove,Evans_River
 29113,Evans River,North Coast,1983,Saltmarsh,Evans_River
+29113,Evans River,North Coast,2004,Zostera,Evans_River
+29113,Evans River,North Coast,2004,Mangrove,Evans_River
 29113,Evans River,North Coast,2004,Saltmarsh,Evans_River
 29215,Jerusalem Creek,North Coast,1983,Saltmarsh,Jerusalem_Creek
 29427,Clarence River,North Coast,1983,Zostera,Clarence_River
-29427,Clarence River,North Coast,2004,Zostera,Clarence_River
-29427,Clarence River,North Coast,2010,Zostera,Clarence_River
-29427,Clarence River,North Coast,2004,Halophila,Clarence_River
-29427,Clarence River,North Coast,2010,Halophila,Clarence_River
 29427,Clarence River,North Coast,1983,Ruppia,Clarence_River
 29427,Clarence River,North Coast,1983,Mangrove,Clarence_River
-29427,Clarence River,North Coast,2004,Mangrove,Clarence_River
-29427,Clarence River,North Coast,2010,Mangrove,Clarence_River
 29427,Clarence River,North Coast,1983,Saltmarsh,Clarence_River
+29427,Clarence River,North Coast,2004,Zostera,Clarence_River
+29427,Clarence River,North Coast,2004,Halophila,Clarence_River
+29427,Clarence River,North Coast,2004,Mangrove,Clarence_River
 29427,Clarence River,North Coast,2004,Saltmarsh,Clarence_River
+29427,Clarence River,North Coast,2010,Zostera,Clarence_River
+29427,Clarence River,North Coast,2010,Halophila,Clarence_River
+29427,Clarence River,North Coast,2010,Mangrove,Clarence_River
 29427,Clarence River,North Coast,2010,Saltmarsh,Clarence_River
 29602,Cakora Lagoon,North Coast,2005,Zostera,Cakora_Lagoon
 29602,Cakora Lagoon,North Coast,2005,Mangrove,Cakora_Lagoon
 29602,Cakora Lagoon,North Coast,2005,Saltmarsh,Cakora_Lagoon
 29673,Sandon River,North Coast,1983,Zostera,Sandon_River
-29673,Sandon River,North Coast,2005,Zostera,Sandon_River
 29673,Sandon River,North Coast,1983,Mangrove,Sandon_River
-29673,Sandon River,North Coast,2005,Mangrove,Sandon_River
 29673,Sandon River,North Coast,1983,Saltmarsh,Sandon_River
+29673,Sandon River,North Coast,2005,Zostera,Sandon_River
+29673,Sandon River,North Coast,2005,Mangrove,Sandon_River
 29673,Sandon River,North Coast,2005,Saltmarsh,Sandon_River
 29888,Wooli Wooli River,North Coast,1983,Zostera,Wooli_Wooli_River
-29888,Wooli Wooli River,North Coast,2005,Zostera,Wooli_Wooli_River
 29888,Wooli Wooli River,North Coast,1983,Mangrove,Wooli_Wooli_River
-29888,Wooli Wooli River,North Coast,2005,Mangrove,Wooli_Wooli_River
 29888,Wooli Wooli River,North Coast,1983,Saltmarsh,Wooli_Wooli_River
+29888,Wooli Wooli River,North Coast,2005,Zostera,Wooli_Wooli_River
+29888,Wooli Wooli River,North Coast,2005,Mangrove,Wooli_Wooli_River
 29888,Wooli Wooli River,North Coast,2005,Saltmarsh,Wooli_Wooli_River
 29949,Station Creek,North Coast,2005,Mangrove,Station_Creek
 29949,Station Creek,North Coast,2005,Saltmarsh,Station_Creek
 29980,Corindi River,North Coast,1983,Zostera,Corindi_River
-29980,Corindi River,North Coast,2005,Zostera,Corindi_River
-29980,Corindi River,North Coast,2011,Zostera,Corindi_River
 29980,Corindi River,North Coast,1983,Mangrove,Corindi_River
-29980,Corindi River,North Coast,2005,Mangrove,Corindi_River
-29980,Corindi River,North Coast,2011,Mangrove,Corindi_River
 29980,Corindi River,North Coast,1983,Saltmarsh,Corindi_River
+29980,Corindi River,North Coast,2005,Zostera,Corindi_River
+29980,Corindi River,North Coast,2005,Mangrove,Corindi_River
 29980,Corindi River,North Coast,2005,Saltmarsh,Corindi_River
+29980,Corindi River,North Coast,2011,Zostera,Corindi_River
+29980,Corindi River,North Coast,2011,Mangrove,Corindi_River
 29980,Corindi River,North Coast,2011,Saltmarsh,Corindi_River
 30059,Arrawarra Creek,North Coast,1983,Zostera,Arrawarra_Creek
+30059,Arrawarra Creek,North Coast,1983,Saltmarsh,Arrawarra_Creek
 30059,Arrawarra Creek,North Coast,2005,Zostera,Arrawarra_Creek
 30059,Arrawarra Creek,North Coast,2005,Halophila,Arrawarra_Creek
 30059,Arrawarra Creek,North Coast,2005,Mangrove,Arrawarra_Creek
-30059,Arrawarra Creek,North Coast,2011,Mangrove,Arrawarra_Creek
-30059,Arrawarra Creek,North Coast,1983,Saltmarsh,Arrawarra_Creek
 30059,Arrawarra Creek,North Coast,2005,Saltmarsh,Arrawarra_Creek
+30059,Arrawarra Creek,North Coast,2011,Mangrove,Arrawarra_Creek
 30059,Arrawarra Creek,North Coast,2011,Saltmarsh,Arrawarra_Creek
-30094,Darkum Creek,North Coast,2005,Halophila,Darkum_Creek
 30094,Darkum Creek,North Coast,1983,Mangrove,Darkum_Creek
+30094,Darkum Creek,North Coast,2005,Halophila,Darkum_Creek
 30094,Darkum Creek,North Coast,2005,Mangrove,Darkum_Creek
-30094,Darkum Creek,North Coast,2011,Mangrove,Darkum_Creek
 30094,Darkum Creek,North Coast,2005,Saltmarsh,Darkum_Creek
+30094,Darkum Creek,North Coast,2011,Mangrove,Darkum_Creek
 30094,Darkum Creek,North Coast,2011,Saltmarsh,Darkum_Creek
 30101,Woolgoolga Lake,North Coast,1983,Mangrove,Woolgoolga_Lake
 30101,Woolgoolga Lake,North Coast,2005,Mangrove,Woolgoolga_Lake
-30101,Woolgoolga Lake,North Coast,2011,Mangrove,Woolgoolga_Lake
 30101,Woolgoolga Lake,North Coast,2005,Saltmarsh,Woolgoolga_Lake
+30101,Woolgoolga Lake,North Coast,2011,Mangrove,Woolgoolga_Lake
 30101,Woolgoolga Lake,North Coast,2011,Saltmarsh,Woolgoolga_Lake
 30133,Hearns Lake,North Coast,1983,Mangrove,Hearns_Lake
-30133,Hearns Lake,North Coast,2004,Mangrove,Hearns_Lake
-30133,Hearns Lake,North Coast,2011,Mangrove,Hearns_Lake
 30133,Hearns Lake,North Coast,1983,Saltmarsh,Hearns_Lake
+30133,Hearns Lake,North Coast,2004,Mangrove,Hearns_Lake
 30133,Hearns Lake,North Coast,2004,Saltmarsh,Hearns_Lake
+30133,Hearns Lake,North Coast,2011,Mangrove,Hearns_Lake
 30133,Hearns Lake,North Coast,2011,Saltmarsh,Hearns_Lake
 30212,Moonee Creek,North Coast,1983,Zostera,Moonee_Creek
-30212,Moonee Creek,North Coast,2004,Zostera,Moonee_Creek
-30212,Moonee Creek,North Coast,2011,Zostera,Moonee_Creek
-30212,Moonee Creek,North Coast,2004,Halophila,Moonee_Creek
 30212,Moonee Creek,North Coast,1983,Mangrove,Moonee_Creek
-30212,Moonee Creek,North Coast,2004,Mangrove,Moonee_Creek
-30212,Moonee Creek,North Coast,2011,Mangrove,Moonee_Creek
 30212,Moonee Creek,North Coast,1983,Saltmarsh,Moonee_Creek
+30212,Moonee Creek,North Coast,2004,Zostera,Moonee_Creek
+30212,Moonee Creek,North Coast,2004,Halophila,Moonee_Creek
+30212,Moonee Creek,North Coast,2004,Mangrove,Moonee_Creek
 30212,Moonee Creek,North Coast,2004,Saltmarsh,Moonee_Creek
+30212,Moonee Creek,North Coast,2011,Zostera,Moonee_Creek
+30212,Moonee Creek,North Coast,2011,Mangrove,Moonee_Creek
 30212,Moonee Creek,North Coast,2011,Saltmarsh,Moonee_Creek
 30296,Coffs Harbour Creek,North Coast,1983,Zostera,Coffs_Harbour_Creek
-30296,Coffs Harbour Creek,North Coast,2004,Zostera,Coffs_Harbour_Creek
-30296,Coffs Harbour Creek,North Coast,2011,Zostera,Coffs_Harbour_Creek
 30296,Coffs Harbour Creek,North Coast,1983,Mangrove,Coffs_Harbour_Creek
+30296,Coffs Harbour Creek,North Coast,2004,Zostera,Coffs_Harbour_Creek
 30296,Coffs Harbour Creek,North Coast,2004,Mangrove,Coffs_Harbour_Creek
-30296,Coffs Harbour Creek,North Coast,2011,Mangrove,Coffs_Harbour_Creek
 30296,Coffs Harbour Creek,North Coast,2004,Saltmarsh,Coffs_Harbour_Creek
+30296,Coffs Harbour Creek,North Coast,2011,Zostera,Coffs_Harbour_Creek
+30296,Coffs Harbour Creek,North Coast,2011,Mangrove,Coffs_Harbour_Creek
 30296,Coffs Harbour Creek,North Coast,2011,Saltmarsh,Coffs_Harbour_Creek
 30355,Boambee Creek,North Coast,1983,Zostera,Boambee_Creek
-30355,Boambee Creek,North Coast,2004,Zostera,Boambee_Creek
-30355,Boambee Creek,North Coast,2011,Zostera,Boambee_Creek
 30355,Boambee Creek,North Coast,1983,Mangrove,Boambee_Creek
-30355,Boambee Creek,North Coast,2004,Mangrove,Boambee_Creek
-30355,Boambee Creek,North Coast,2011,Mangrove,Boambee_Creek
 30355,Boambee Creek,North Coast,1983,Saltmarsh,Boambee_Creek
+30355,Boambee Creek,North Coast,2004,Zostera,Boambee_Creek
+30355,Boambee Creek,North Coast,2004,Mangrove,Boambee_Creek
 30355,Boambee Creek,North Coast,2004,Saltmarsh,Boambee_Creek
+30355,Boambee Creek,North Coast,2011,Zostera,Boambee_Creek
+30355,Boambee Creek,North Coast,2011,Mangrove,Boambee_Creek
 30355,Boambee Creek,North Coast,2011,Saltmarsh,Boambee_Creek
 30376,Bonville Creek,North Coast,1983,Zostera,Bonville_Creek
-30376,Bonville Creek,North Coast,2004,Zostera,Bonville_Creek
-30376,Bonville Creek,North Coast,2011,Zostera,Bonville_Creek
 30376,Bonville Creek,North Coast,1983,Mangrove,Bonville_Creek
-30376,Bonville Creek,North Coast,2004,Mangrove,Bonville_Creek
-30376,Bonville Creek,North Coast,2011,Mangrove,Bonville_Creek
 30376,Bonville Creek,North Coast,1983,Saltmarsh,Bonville_Creek
+30376,Bonville Creek,North Coast,2004,Zostera,Bonville_Creek
+30376,Bonville Creek,North Coast,2004,Mangrove,Bonville_Creek
 30376,Bonville Creek,North Coast,2004,Saltmarsh,Bonville_Creek
+30376,Bonville Creek,North Coast,2011,Zostera,Bonville_Creek
+30376,Bonville Creek,North Coast,2011,Mangrove,Bonville_Creek
 30376,Bonville Creek,North Coast,2011,Saltmarsh,Bonville_Creek
 30501,Bellinger River,North Coast,1983,Zostera,Bellinger_River
-30501,Bellinger River,North Coast,2004,Zostera,Bellinger_River
-30501,Bellinger River,North Coast,2011,Zostera,Bellinger_River
-30501,Bellinger River,North Coast,2004,Halophila,Bellinger_River
 30501,Bellinger River,North Coast,1983,Mangrove,Bellinger_River
-30501,Bellinger River,North Coast,2004,Mangrove,Bellinger_River
-30501,Bellinger River,North Coast,2011,Mangrove,Bellinger_River
 30501,Bellinger River,North Coast,1983,Saltmarsh,Bellinger_River
+30501,Bellinger River,North Coast,2004,Zostera,Bellinger_River
+30501,Bellinger River,North Coast,2004,Halophila,Bellinger_River
+30501,Bellinger River,North Coast,2004,Mangrove,Bellinger_River
 30501,Bellinger River,North Coast,2004,Saltmarsh,Bellinger_River
+30501,Bellinger River,North Coast,2011,Zostera,Bellinger_River
+30501,Bellinger River,North Coast,2011,Mangrove,Bellinger_River
 30501,Bellinger River,North Coast,2011,Saltmarsh,Bellinger_River
 30524,Dalhousie Creek,North Coast,1983,Zostera,Dalhousie_Creek
-30524,Dalhousie Creek,North Coast,2004,Zostera,Dalhousie_Creek
-30524,Dalhousie Creek,North Coast,2010,Zostera,Dalhousie_Creek
-30524,Dalhousie Creek,North Coast,2004,Halophila,Dalhousie_Creek
 30524,Dalhousie Creek,North Coast,1983,Mangrove,Dalhousie_Creek
-30524,Dalhousie Creek,North Coast,2004,Mangrove,Dalhousie_Creek
-30524,Dalhousie Creek,North Coast,2010,Mangrove,Dalhousie_Creek
 30524,Dalhousie Creek,North Coast,1983,Saltmarsh,Dalhousie_Creek
+30524,Dalhousie Creek,North Coast,2004,Zostera,Dalhousie_Creek
+30524,Dalhousie Creek,North Coast,2004,Halophila,Dalhousie_Creek
+30524,Dalhousie Creek,North Coast,2004,Mangrove,Dalhousie_Creek
 30524,Dalhousie Creek,North Coast,2004,Saltmarsh,Dalhousie_Creek
+30524,Dalhousie Creek,North Coast,2010,Zostera,Dalhousie_Creek
+30524,Dalhousie Creek,North Coast,2010,Mangrove,Dalhousie_Creek
 30524,Dalhousie Creek,North Coast,2010,Saltmarsh,Dalhousie_Creek
 30562,Oyster Creek,North Coast,2004,Mangrove,Oyster_Creek
 30562,Oyster Creek,North Coast,2004,Saltmarsh,Oyster_Creek
 30601,Deep Creek,North Coast,1983,Zostera,Deep_Creek
-30601,Deep Creek,North Coast,2004,Zostera,Deep_Creek
 30601,Deep Creek,North Coast,1983,Mangrove,Deep_Creek
-30601,Deep Creek,North Coast,2004,Mangrove,Deep_Creek
 30601,Deep Creek,North Coast,1983,Saltmarsh,Deep_Creek
+30601,Deep Creek,North Coast,2004,Zostera,Deep_Creek
+30601,Deep Creek,North Coast,2004,Mangrove,Deep_Creek
 30601,Deep Creek,North Coast,2004,Saltmarsh,Deep_Creek
 30649,Nambucca River,North Coast,1983,Zostera,Nambucca_River
-30649,Nambucca River,North Coast,2004,Zostera,Nambucca_River
-30649,Nambucca River,North Coast,2021,Zostera,Nambucca_River
-30649,Nambucca River,North Coast,2004,Halophila,Nambucca_River
 30649,Nambucca River,North Coast,1983,Mangrove,Nambucca_River
-30649,Nambucca River,North Coast,2004,Mangrove,Nambucca_River
-30649,Nambucca River,North Coast,2021,Mangrove,Nambucca_River
 30649,Nambucca River,North Coast,1983,Saltmarsh,Nambucca_River
+30649,Nambucca River,North Coast,2004,Zostera,Nambucca_River
+30649,Nambucca River,North Coast,2004,Halophila,Nambucca_River
+30649,Nambucca River,North Coast,2004,Mangrove,Nambucca_River
 30649,Nambucca River,North Coast,2004,Saltmarsh,Nambucca_River
+30649,Nambucca River,North Coast,2021,Zostera,Nambucca_River
+30649,Nambucca River,North Coast,2021,Mangrove,Nambucca_River
 30649,Nambucca River,North Coast,2021,Saltmarsh,Nambucca_River
 30874,Macleay River,North Coast,1981,Zostera,Macleay_River
-30874,Macleay River,North Coast,2005,Zostera,Macleay_River
-30874,Macleay River,North Coast,2010,Zostera,Macleay_River
-30874,Macleay River,North Coast,2021,Zostera,Macleay_River
 30874,Macleay River,North Coast,1981,Mangrove,Macleay_River
-30874,Macleay River,North Coast,2005,Mangrove,Macleay_River
-30874,Macleay River,North Coast,2010,Mangrove,Macleay_River
-30874,Macleay River,North Coast,2021,Mangrove,Macleay_River
 30874,Macleay River,North Coast,1981,Saltmarsh,Macleay_River
+30874,Macleay River,North Coast,2005,Zostera,Macleay_River
+30874,Macleay River,North Coast,2005,Mangrove,Macleay_River
 30874,Macleay River,North Coast,2005,Saltmarsh,Macleay_River
+30874,Macleay River,North Coast,2010,Zostera,Macleay_River
+30874,Macleay River,North Coast,2010,Mangrove,Macleay_River
 30874,Macleay River,North Coast,2010,Saltmarsh,Macleay_River
+30874,Macleay River,North Coast,2021,Zostera,Macleay_River
+30874,Macleay River,North Coast,2021,Mangrove,Macleay_River
 30874,Macleay River,North Coast,2021,Saltmarsh,Macleay_River
 30883,South West Rocks Creek,North Coast,1981,Zostera,South_West_Rocks_Creek
-30883,South West Rocks Creek,North Coast,2005,Zostera,South_West_Rocks_Creek
-30883,South West Rocks Creek,North Coast,2010,Zostera,South_West_Rocks_Creek
-30883,South West Rocks Creek,North Coast,2021,Zostera,South_West_Rocks_Creek
 30883,South West Rocks Creek,North Coast,1981,Mangrove,South_West_Rocks_Creek
-30883,South West Rocks Creek,North Coast,2005,Mangrove,South_West_Rocks_Creek
-30883,South West Rocks Creek,North Coast,2010,Mangrove,South_West_Rocks_Creek
-30883,South West Rocks Creek,North Coast,2021,Mangrove,South_West_Rocks_Creek
 30883,South West Rocks Creek,North Coast,1981,Saltmarsh,South_West_Rocks_Creek
+30883,South West Rocks Creek,North Coast,2005,Zostera,South_West_Rocks_Creek
+30883,South West Rocks Creek,North Coast,2005,Mangrove,South_West_Rocks_Creek
 30883,South West Rocks Creek,North Coast,2005,Saltmarsh,South_West_Rocks_Creek
+30883,South West Rocks Creek,North Coast,2010,Zostera,South_West_Rocks_Creek
+30883,South West Rocks Creek,North Coast,2010,Mangrove,South_West_Rocks_Creek
 30883,South West Rocks Creek,North Coast,2010,Saltmarsh,South_West_Rocks_Creek
+30883,South West Rocks Creek,North Coast,2021,Zostera,South_West_Rocks_Creek
+30883,South West Rocks Creek,North Coast,2021,Mangrove,South_West_Rocks_Creek
 30883,South West Rocks Creek,North Coast,2021,Saltmarsh,South_West_Rocks_Creek
-31054,Korogoro Creek,North Coast,2005,Zostera,Korogoro_Creek
 31054,Korogoro Creek,North Coast,1981,Mangrove,Korogoro_Creek
-31054,Korogoro Creek,North Coast,2005,Mangrove,Korogoro_Creek
 31054,Korogoro Creek,North Coast,1981,Saltmarsh,Korogoro_Creek
+31054,Korogoro Creek,North Coast,2005,Zostera,Korogoro_Creek
+31054,Korogoro Creek,North Coast,2005,Mangrove,Korogoro_Creek
 31054,Korogoro Creek,North Coast,2005,Saltmarsh,Korogoro_Creek
 31188,Killick Creek,North Coast,1981,Zostera,Killick_Creek
+31188,Killick Creek,North Coast,1981,Saltmarsh,Killick_Creek
 31188,Killick Creek,North Coast,2005,Zostera,Killick_Creek
 31188,Killick Creek,North Coast,2005,Mangrove,Killick_Creek
-31188,Killick Creek,North Coast,1981,Saltmarsh,Killick_Creek
 31188,Killick Creek,North Coast,2005,Saltmarsh,Killick_Creek
 31425,Hastings River,North Coast,1983,Zostera,Hastings_River
-31425,Hastings River,North Coast,2005,Zostera,Hastings_River
-31425,Hastings River,North Coast,2011,Zostera,Hastings_River
-31425,Hastings River,North Coast,2021,Zostera,Hastings_River
 31425,Hastings River,North Coast,1983,Mangrove,Hastings_River
-31425,Hastings River,North Coast,2005,Mangrove,Hastings_River
-31425,Hastings River,North Coast,2011,Mangrove,Hastings_River
-31425,Hastings River,North Coast,2021,Mangrove,Hastings_River
 31425,Hastings River,North Coast,1983,Saltmarsh,Hastings_River
+31425,Hastings River,North Coast,2005,Zostera,Hastings_River
+31425,Hastings River,North Coast,2005,Mangrove,Hastings_River
 31425,Hastings River,North Coast,2005,Saltmarsh,Hastings_River
+31425,Hastings River,North Coast,2011,Zostera,Hastings_River
+31425,Hastings River,North Coast,2011,Mangrove,Hastings_River
 31425,Hastings River,North Coast,2011,Saltmarsh,Hastings_River
+31425,Hastings River,North Coast,2021,Zostera,Hastings_River
+31425,Hastings River,North Coast,2021,Mangrove,Hastings_River
 31425,Hastings River,North Coast,2021,Saltmarsh,Hastings_River
 31549,Lake Innes and Lake Cathie,North Coast,1983,Zostera,Lake_Innes_and_Lake_Cathie
 31549,Lake Innes and Lake Cathie,North Coast,1983,Halophila,Lake_Innes_and_Lake_Cathie
 31549,Lake Innes and Lake Cathie,North Coast,1983,Mangrove,Lake_Innes_and_Lake_Cathie
-31549,Lake Innes and Lake Cathie,North Coast,2005,Mangrove,Lake_Innes_and_Lake_Cathie
-31549,Lake Innes and Lake Cathie,North Coast,2011,Mangrove,Lake_Innes_and_Lake_Cathie
 31549,Lake Innes and Lake Cathie,North Coast,1983,Saltmarsh,Lake_Innes_and_Lake_Cathie
+31549,Lake Innes and Lake Cathie,North Coast,2005,Mangrove,Lake_Innes_and_Lake_Cathie
 31549,Lake Innes and Lake Cathie,North Coast,2005,Saltmarsh,Lake_Innes_and_Lake_Cathie
+31549,Lake Innes and Lake Cathie,North Coast,2011,Mangrove,Lake_Innes_and_Lake_Cathie
 31549,Lake Innes and Lake Cathie,North Coast,2011,Saltmarsh,Lake_Innes_and_Lake_Cathie
 31636,Camden Haven River,North Coast,1983,Zostera,Camden_Haven_River
-31636,Camden Haven River,North Coast,2005,Zostera,Camden_Haven_River
-31636,Camden Haven River,North Coast,2011,Zostera,Camden_Haven_River
 31636,Camden Haven River,North Coast,1983,Halophila,Camden_Haven_River
-31636,Camden Haven River,North Coast,2005,Halophila,Camden_Haven_River
-31636,Camden Haven River,North Coast,2011,Halophila,Camden_Haven_River
 31636,Camden Haven River,North Coast,1983,Ruppia,Camden_Haven_River
-31636,Camden Haven River,North Coast,2005,Ruppia,Camden_Haven_River
-31636,Camden Haven River,North Coast,2011,Ruppia,Camden_Haven_River
 31636,Camden Haven River,North Coast,1983,Mangrove,Camden_Haven_River
-31636,Camden Haven River,North Coast,2005,Mangrove,Camden_Haven_River
-31636,Camden Haven River,North Coast,2011,Mangrove,Camden_Haven_River
 31636,Camden Haven River,North Coast,1983,Saltmarsh,Camden_Haven_River
+31636,Camden Haven River,North Coast,2005,Zostera,Camden_Haven_River
+31636,Camden Haven River,North Coast,2005,Halophila,Camden_Haven_River
+31636,Camden Haven River,North Coast,2005,Ruppia,Camden_Haven_River
+31636,Camden Haven River,North Coast,2005,Mangrove,Camden_Haven_River
 31636,Camden Haven River,North Coast,2005,Saltmarsh,Camden_Haven_River
+31636,Camden Haven River,North Coast,2011,Zostera,Camden_Haven_River
+31636,Camden Haven River,North Coast,2011,Halophila,Camden_Haven_River
+31636,Camden Haven River,North Coast,2011,Ruppia,Camden_Haven_River
+31636,Camden Haven River,North Coast,2011,Mangrove,Camden_Haven_River
 31636,Camden Haven River,North Coast,2011,Saltmarsh,Camden_Haven_River
 31876,Manning River,Hunter,1983,Zostera,Manning_River
-31876,Manning River,Hunter,2005,Zostera,Manning_River
-31876,Manning River,Hunter,2020,Zostera,Manning_River
 31876,Manning River,Hunter,1983,Mangrove,Manning_River
-31876,Manning River,Hunter,2005,Mangrove,Manning_River
-31876,Manning River,Hunter,2020,Mangrove,Manning_River
 31876,Manning River,Hunter,1983,Saltmarsh,Manning_River
+31876,Manning River,Hunter,2005,Zostera,Manning_River
+31876,Manning River,Hunter,2005,Mangrove,Manning_River
 31876,Manning River,Hunter,2005,Saltmarsh,Manning_River
+31876,Manning River,Hunter,2020,Zostera,Manning_River
+31876,Manning River,Hunter,2020,Mangrove,Manning_River
 31876,Manning River,Hunter,2020,Saltmarsh,Manning_River
 32010,Khappinghat Creek,Hunter,1983,Zostera,Khappinghat_Creek
+32010,Khappinghat Creek,Hunter,1983,Saltmarsh,Khappinghat_Creek
 32010,Khappinghat Creek,Hunter,2005,Zostera,Khappinghat_Creek
 32010,Khappinghat Creek,Hunter,2005,Mangrove,Khappinghat_Creek
-32010,Khappinghat Creek,Hunter,1983,Saltmarsh,Khappinghat_Creek
 32010,Khappinghat Creek,Hunter,2005,Saltmarsh,Khappinghat_Creek
 32070,Black Head Lagoon,Hunter,2005,Mangrove,Black_Head_Lagoon
 32174,Wallis Lake,Hunter,1982,Posidonia,Wallis_Lake
-32174,Wallis Lake,Hunter,2002,Posidonia,Wallis_Lake
-32174,Wallis Lake,Hunter,2017,Posidonia,Wallis_Lake
 32174,Wallis Lake,Hunter,1982,Zostera,Wallis_Lake
-32174,Wallis Lake,Hunter,2002,Zostera,Wallis_Lake
-32174,Wallis Lake,Hunter,2017,Zostera,Wallis_Lake
-32174,Wallis Lake,Hunter,2002,Halophila,Wallis_Lake
-32174,Wallis Lake,Hunter,2017,Halophila,Wallis_Lake
 32174,Wallis Lake,Hunter,1982,Ruppia,Wallis_Lake
-32174,Wallis Lake,Hunter,2017,Ruppia,Wallis_Lake
 32174,Wallis Lake,Hunter,1982,Mangrove,Wallis_Lake
-32174,Wallis Lake,Hunter,2002,Mangrove,Wallis_Lake
-32174,Wallis Lake,Hunter,2017,Mangrove,Wallis_Lake
 32174,Wallis Lake,Hunter,1982,Saltmarsh,Wallis_Lake
+32174,Wallis Lake,Hunter,2002,Posidonia,Wallis_Lake
+32174,Wallis Lake,Hunter,2002,Zostera,Wallis_Lake
+32174,Wallis Lake,Hunter,2002,Halophila,Wallis_Lake
+32174,Wallis Lake,Hunter,2002,Mangrove,Wallis_Lake
 32174,Wallis Lake,Hunter,2002,Saltmarsh,Wallis_Lake
+32174,Wallis Lake,Hunter,2017,Posidonia,Wallis_Lake
+32174,Wallis Lake,Hunter,2017,Zostera,Wallis_Lake
+32174,Wallis Lake,Hunter,2017,Halophila,Wallis_Lake
+32174,Wallis Lake,Hunter,2017,Ruppia,Wallis_Lake
+32174,Wallis Lake,Hunter,2017,Mangrove,Wallis_Lake
 32174,Wallis Lake,Hunter,2017,Saltmarsh,Wallis_Lake
 32393,Smiths Lake,Hunter,1984,Zostera,Smiths_Lake
-32393,Smiths Lake,Hunter,2003,Zostera,Smiths_Lake
 32393,Smiths Lake,Hunter,1984,Halophila,Smiths_Lake
-32393,Smiths Lake,Hunter,2003,Halophila,Smiths_Lake
 32393,Smiths Lake,Hunter,1984,Ruppia,Smiths_Lake
-32393,Smiths Lake,Hunter,2003,Ruppia,Smiths_Lake
 32393,Smiths Lake,Hunter,1984,Saltmarsh,Smiths_Lake
+32393,Smiths Lake,Hunter,2003,Zostera,Smiths_Lake
+32393,Smiths Lake,Hunter,2003,Halophila,Smiths_Lake
+32393,Smiths Lake,Hunter,2003,Ruppia,Smiths_Lake
+32393,Smiths Lake,Hunter,2023,Ruppia,Smiths_Lake
 32579,Lower Myall River,Hunter,1984,Zostera,Lower_Myall_River
-32579,Lower Myall River,Hunter,2004,Zostera,Lower_Myall_River
-32579,Lower Myall River,Hunter,2017,Zostera,Lower_Myall_River
-32579,Lower Myall River,Hunter,2004,Ruppia,Lower_Myall_River
-32579,Lower Myall River,Hunter,2017,Ruppia,Lower_Myall_River
 32579,Lower Myall River,Hunter,1984,Mangrove,Lower_Myall_River
-32579,Lower Myall River,Hunter,2004,Mangrove,Lower_Myall_River
-32579,Lower Myall River,Hunter,2017,Mangrove,Lower_Myall_River
 32579,Lower Myall River,Hunter,1984,Saltmarsh,Lower_Myall_River
+32579,Lower Myall River,Hunter,2004,Zostera,Lower_Myall_River
+32579,Lower Myall River,Hunter,2004,Ruppia,Lower_Myall_River
+32579,Lower Myall River,Hunter,2004,Mangrove,Lower_Myall_River
 32579,Lower Myall River,Hunter,2004,Saltmarsh,Lower_Myall_River
+32579,Lower Myall River,Hunter,2017,Zostera,Lower_Myall_River
+32579,Lower Myall River,Hunter,2017,Ruppia,Lower_Myall_River
+32579,Lower Myall River,Hunter,2017,Mangrove,Lower_Myall_River
 32579,Lower Myall River,Hunter,2017,Saltmarsh,Lower_Myall_River
 32654,Karuah River,Hunter,1984,Zostera,Karuah_River
 32654,Karuah River,Hunter,1984,Mangrove,Karuah_River
-32654,Karuah River,Hunter,2004,Mangrove,Karuah_River
-32654,Karuah River,Hunter,2017,Mangrove,Karuah_River
 32654,Karuah River,Hunter,1984,Saltmarsh,Karuah_River
+32654,Karuah River,Hunter,2004,Mangrove,Karuah_River
 32654,Karuah River,Hunter,2004,Saltmarsh,Karuah_River
+32654,Karuah River,Hunter,2017,Mangrove,Karuah_River
 32654,Karuah River,Hunter,2017,Saltmarsh,Karuah_River
 32706,Port Stephens,Hunter,1981,Posidonia,Port_Stephens
-32706,Port Stephens,Hunter,2004,Posidonia,Port_Stephens
-32706,Port Stephens,Hunter,2017,Posidonia,Port_Stephens
 32706,Port Stephens,Hunter,1981,Zostera,Port_Stephens
-32706,Port Stephens,Hunter,2004,Zostera,Port_Stephens
-32706,Port Stephens,Hunter,2017,Zostera,Port_Stephens
-32706,Port Stephens,Hunter,2004,Halophila,Port_Stephens
 32706,Port Stephens,Hunter,1981,Mangrove,Port_Stephens
-32706,Port Stephens,Hunter,2004,Mangrove,Port_Stephens
-32706,Port Stephens,Hunter,2017,Mangrove,Port_Stephens
 32706,Port Stephens,Hunter,1981,Saltmarsh,Port_Stephens
+32706,Port Stephens,Hunter,2004,Posidonia,Port_Stephens
+32706,Port Stephens,Hunter,2004,Zostera,Port_Stephens
+32706,Port Stephens,Hunter,2004,Halophila,Port_Stephens
+32706,Port Stephens,Hunter,2004,Mangrove,Port_Stephens
 32706,Port Stephens,Hunter,2004,Saltmarsh,Port_Stephens
+32706,Port Stephens,Hunter,2017,Posidonia,Port_Stephens
+32706,Port Stephens,Hunter,2017,Zostera,Port_Stephens
+32706,Port Stephens,Hunter,2017,Mangrove,Port_Stephens
 32706,Port Stephens,Hunter,2017,Saltmarsh,Port_Stephens
 32914,Hunter River,Hunter,1984,Ruppia,Hunter_River
 32914,Hunter River,Hunter,1984,Mangrove,Hunter_River
-32914,Hunter River,Hunter,2006,Mangrove,Hunter_River
-32914,Hunter River,Hunter,2022,Mangrove,Hunter_River
 32914,Hunter River,Hunter,1984,Saltmarsh,Hunter_River
+32914,Hunter River,Hunter,2006,Mangrove,Hunter_River
 32914,Hunter River,Hunter,2006,Saltmarsh,Hunter_River
+32914,Hunter River,Hunter,2022,Mangrove,Hunter_River
 32914,Hunter River,Hunter,2022,Saltmarsh,Hunter_River
 33086,Lake Macquarie,Hunter,1983,Posidonia,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2001,Posidonia,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2009,Posidonia,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2012,Posidonia,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2022,Posidonia,Lake_Macquarie
 33086,Lake Macquarie,Hunter,1983,Zostera,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2001,Zostera,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2009,Zostera,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2012,Zostera,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2022,Zostera,Lake_Macquarie
 33086,Lake Macquarie,Hunter,1983,Halophila,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2001,Halophila,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2009,Halophila,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2012,Halophila,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2022,Halophila,Lake_Macquarie
 33086,Lake Macquarie,Hunter,1983,Ruppia,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2001,Ruppia,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2009,Ruppia,Lake_Macquarie
 33086,Lake Macquarie,Hunter,1983,Mangrove,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2001,Mangrove,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2009,Mangrove,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2012,Mangrove,Lake_Macquarie
-33086,Lake Macquarie,Hunter,2022,Mangrove,Lake_Macquarie
 33086,Lake Macquarie,Hunter,1983,Saltmarsh,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2001,Posidonia,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2001,Zostera,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2001,Halophila,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2001,Ruppia,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2001,Mangrove,Lake_Macquarie
 33086,Lake Macquarie,Hunter,2001,Saltmarsh,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2009,Posidonia,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2009,Zostera,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2009,Halophila,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2009,Ruppia,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2009,Mangrove,Lake_Macquarie
 33086,Lake Macquarie,Hunter,2009,Saltmarsh,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2012,Posidonia,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2012,Zostera,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2012,Halophila,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2012,Mangrove,Lake_Macquarie
 33086,Lake Macquarie,Hunter,2012,Saltmarsh,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2022,Posidonia,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2022,Zostera,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2022,Halophila,Lake_Macquarie
+33086,Lake Macquarie,Hunter,2022,Mangrove,Lake_Macquarie
 33086,Lake Macquarie,Hunter,2022,Saltmarsh,Lake_Macquarie
 33345,Tuggerah Lake,Greater Sydney,1983,Zostera,Tuggerah_Lake
-33345,Tuggerah Lake,Greater Sydney,2005,Zostera,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,1983,Halophila,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,1983,Ruppia,Tuggerah_Lake
+33345,Tuggerah Lake,Greater Sydney,1983,Saltmarsh,Tuggerah_Lake
+33345,Tuggerah Lake,Greater Sydney,2005,Zostera,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,2005,Ruppia,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,2005,Mangrove,Tuggerah_Lake
-33345,Tuggerah Lake,Greater Sydney,1983,Saltmarsh,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,2005,Saltmarsh,Tuggerah_Lake
 33430,Wamberal Lagoon,Greater Sydney,1984,Zostera,Wamberal_Lagoon
 33430,Wamberal Lagoon,Greater Sydney,1984,Ruppia,Wamberal_Lagoon
@@ -389,235 +390,239 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 33464,Avoca Lake,Greater Sydney,1984,Ruppia,Avoca_Lake
 33494,Cockrone Lake,Greater Sydney,2006,Ruppia,Cockrone_Lake
 33522,Brisbane Water,Greater Sydney,1981,Posidonia,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2000,Posidonia,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2005,Posidonia,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2020,Posidonia,Brisbane_Water
 33522,Brisbane Water,Greater Sydney,1981,Zostera,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2000,Zostera,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2005,Zostera,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2020,Zostera,Brisbane_Water
 33522,Brisbane Water,Greater Sydney,1981,Halophila,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2000,Halophila,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2005,Halophila,Brisbane_Water
 33522,Brisbane Water,Greater Sydney,1981,Mangrove,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2000,Mangrove,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2005,Mangrove,Brisbane_Water
-33522,Brisbane Water,Greater Sydney,2020,Mangrove,Brisbane_Water
 33522,Brisbane Water,Greater Sydney,1981,Saltmarsh,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2000,Posidonia,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2000,Zostera,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2000,Halophila,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2000,Mangrove,Brisbane_Water
 33522,Brisbane Water,Greater Sydney,2000,Saltmarsh,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2005,Posidonia,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2005,Zostera,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2005,Halophila,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2005,Mangrove,Brisbane_Water
 33522,Brisbane Water,Greater Sydney,2005,Saltmarsh,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2020,Posidonia,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2020,Zostera,Brisbane_Water
+33522,Brisbane Water,Greater Sydney,2020,Mangrove,Brisbane_Water
 33522,Brisbane Water,Greater Sydney,2020,Saltmarsh,Brisbane_Water
-33563,Hawkesbury River,Greater Sydney,2005,Posidonia,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,1982,Zostera,Hawkesbury_River
-33563,Hawkesbury River,Greater Sydney,2000,Zostera,Hawkesbury_River
-33563,Hawkesbury River,Greater Sydney,2005,Zostera,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,1982,Mangrove,Hawkesbury_River
-33563,Hawkesbury River,Greater Sydney,2000,Mangrove,Hawkesbury_River
-33563,Hawkesbury River,Greater Sydney,2005,Mangrove,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,1982,Saltmarsh,Hawkesbury_River
+33563,Hawkesbury River,Greater Sydney,2000,Zostera,Hawkesbury_River
+33563,Hawkesbury River,Greater Sydney,2000,Mangrove,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,2000,Saltmarsh,Hawkesbury_River
+33563,Hawkesbury River,Greater Sydney,2005,Posidonia,Hawkesbury_River
+33563,Hawkesbury River,Greater Sydney,2005,Zostera,Hawkesbury_River
+33563,Hawkesbury River,Greater Sydney,2005,Mangrove,Hawkesbury_River
 33563,Hawkesbury River,Greater Sydney,2005,Saltmarsh,Hawkesbury_River
+33563,Hawkesbury River,Greater Sydney,2023,Posidonia,Hawkesbury_River
+33563,Hawkesbury River,Greater Sydney,2023,Zostera,Hawkesbury_River
+33563,Hawkesbury River,Greater Sydney,2023,Mangrove,Hawkesbury_River
+33563,Hawkesbury River,Greater Sydney,2023,Saltmarsh,Hawkesbury_River
 33587,Pittwater,Greater Sydney,1981,Posidonia,Pittwater
-33587,Pittwater,Greater Sydney,2000,Posidonia,Pittwater
-33587,Pittwater,Greater Sydney,2005,Posidonia,Pittwater
-33587,Pittwater,Greater Sydney,2019,Posidonia,Pittwater
 33587,Pittwater,Greater Sydney,1981,Zostera,Pittwater
-33587,Pittwater,Greater Sydney,2000,Zostera,Pittwater
-33587,Pittwater,Greater Sydney,2005,Zostera,Pittwater
-33587,Pittwater,Greater Sydney,2019,Zostera,Pittwater
 33587,Pittwater,Greater Sydney,1981,Halophila,Pittwater
-33587,Pittwater,Greater Sydney,2005,Halophila,Pittwater
 33587,Pittwater,Greater Sydney,1981,Mangrove,Pittwater
-33587,Pittwater,Greater Sydney,2000,Mangrove,Pittwater
-33587,Pittwater,Greater Sydney,2005,Mangrove,Pittwater
-33587,Pittwater,Greater Sydney,2019,Mangrove,Pittwater
 33587,Pittwater,Greater Sydney,1981,Saltmarsh,Pittwater
+33587,Pittwater,Greater Sydney,2000,Posidonia,Pittwater
+33587,Pittwater,Greater Sydney,2000,Zostera,Pittwater
+33587,Pittwater,Greater Sydney,2000,Mangrove,Pittwater
 33587,Pittwater,Greater Sydney,2000,Saltmarsh,Pittwater
+33587,Pittwater,Greater Sydney,2005,Posidonia,Pittwater
+33587,Pittwater,Greater Sydney,2005,Zostera,Pittwater
+33587,Pittwater,Greater Sydney,2005,Halophila,Pittwater
+33587,Pittwater,Greater Sydney,2005,Mangrove,Pittwater
 33587,Pittwater,Greater Sydney,2005,Saltmarsh,Pittwater
+33587,Pittwater,Greater Sydney,2019,Posidonia,Pittwater
+33587,Pittwater,Greater Sydney,2019,Zostera,Pittwater
+33587,Pittwater,Greater Sydney,2019,Mangrove,Pittwater
 33587,Pittwater,Greater Sydney,2019,Saltmarsh,Pittwater
 33704,Narrabeen Lagoon,Greater Sydney,1983,Zostera,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2006,Zostera,Narrabeen_Lagoon
-33704,Narrabeen Lagoon,Greater Sydney,2008,Zostera,Narrabeen_Lagoon
-33704,Narrabeen Lagoon,Greater Sydney,2010,Zostera,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2006,Halophila,Narrabeen_Lagoon
-33704,Narrabeen Lagoon,Greater Sydney,2008,Halophila,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2006,Mangrove,Narrabeen_Lagoon
-33704,Narrabeen Lagoon,Greater Sydney,2008,Mangrove,Narrabeen_Lagoon
-33704,Narrabeen Lagoon,Greater Sydney,2010,Mangrove,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2006,Saltmarsh,Narrabeen_Lagoon
+33704,Narrabeen Lagoon,Greater Sydney,2008,Zostera,Narrabeen_Lagoon
+33704,Narrabeen Lagoon,Greater Sydney,2008,Halophila,Narrabeen_Lagoon
+33704,Narrabeen Lagoon,Greater Sydney,2008,Mangrove,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2008,Saltmarsh,Narrabeen_Lagoon
+33704,Narrabeen Lagoon,Greater Sydney,2010,Zostera,Narrabeen_Lagoon
+33704,Narrabeen Lagoon,Greater Sydney,2010,Mangrove,Narrabeen_Lagoon
 33704,Narrabeen Lagoon,Greater Sydney,2010,Saltmarsh,Narrabeen_Lagoon
 33747,Dee Why Lagoon,Greater Sydney,1983,Zostera,Dee_Why_Lagoon
-33747,Dee Why Lagoon,Greater Sydney,2006,Zostera,Dee_Why_Lagoon
 33747,Dee Why Lagoon,Greater Sydney,1983,Ruppia,Dee_Why_Lagoon
 33747,Dee Why Lagoon,Greater Sydney,1983,Saltmarsh,Dee_Why_Lagoon
+33747,Dee Why Lagoon,Greater Sydney,2006,Zostera,Dee_Why_Lagoon
 33747,Dee Why Lagoon,Greater Sydney,2006,Saltmarsh,Dee_Why_Lagoon
 33747,Dee Why Lagoon,Greater Sydney,2008,Saltmarsh,Dee_Why_Lagoon
 33747,Dee Why Lagoon,Greater Sydney,2010,Saltmarsh,Dee_Why_Lagoon
 33785,Manly Lagoon,Greater Sydney,1983,Zostera,Manly_Lagoon
 33785,Manly Lagoon,Greater Sydney,2006,Zostera,Manly_Lagoon
-33785,Manly Lagoon,Greater Sydney,2008,Zostera,Manly_Lagoon
-33785,Manly Lagoon,Greater Sydney,2010,Zostera,Manly_Lagoon
 33785,Manly Lagoon,Greater Sydney,2006,Mangrove,Manly_Lagoon
-33785,Manly Lagoon,Greater Sydney,2008,Mangrove,Manly_Lagoon
-33785,Manly Lagoon,Greater Sydney,2010,Mangrove,Manly_Lagoon
 33785,Manly Lagoon,Greater Sydney,2006,Saltmarsh,Manly_Lagoon
+33785,Manly Lagoon,Greater Sydney,2008,Zostera,Manly_Lagoon
+33785,Manly Lagoon,Greater Sydney,2008,Mangrove,Manly_Lagoon
+33785,Manly Lagoon,Greater Sydney,2010,Zostera,Manly_Lagoon
+33785,Manly Lagoon,Greater Sydney,2010,Mangrove,Manly_Lagoon
 33833,Port Jackson,Greater Sydney,1981,Posidonia,Port_Jackson
-33833,Port Jackson,Greater Sydney,2003,Posidonia,Port_Jackson
-33833,Port Jackson,Greater Sydney,2018,Posidonia,Port_Jackson
 33833,Port Jackson,Greater Sydney,1981,Zostera,Port_Jackson
-33833,Port Jackson,Greater Sydney,2003,Zostera,Port_Jackson
-33833,Port Jackson,Greater Sydney,2018,Zostera,Port_Jackson
 33833,Port Jackson,Greater Sydney,1981,Halophila,Port_Jackson
-33833,Port Jackson,Greater Sydney,2003,Halophila,Port_Jackson
-33833,Port Jackson,Greater Sydney,2018,Halophila,Port_Jackson
 33833,Port Jackson,Greater Sydney,1981,Mangrove,Port_Jackson
-33833,Port Jackson,Greater Sydney,2003,Mangrove,Port_Jackson
-33833,Port Jackson,Greater Sydney,2018,Mangrove,Port_Jackson
 33833,Port Jackson,Greater Sydney,1981,Saltmarsh,Port_Jackson
+33833,Port Jackson,Greater Sydney,2003,Posidonia,Port_Jackson
+33833,Port Jackson,Greater Sydney,2003,Zostera,Port_Jackson
+33833,Port Jackson,Greater Sydney,2003,Halophila,Port_Jackson
+33833,Port Jackson,Greater Sydney,2003,Mangrove,Port_Jackson
 33833,Port Jackson,Greater Sydney,2003,Saltmarsh,Port_Jackson
+33833,Port Jackson,Greater Sydney,2018,Posidonia,Port_Jackson
+33833,Port Jackson,Greater Sydney,2018,Zostera,Port_Jackson
+33833,Port Jackson,Greater Sydney,2018,Halophila,Port_Jackson
+33833,Port Jackson,Greater Sydney,2018,Mangrove,Port_Jackson
 33833,Port Jackson,Greater Sydney,2018,Saltmarsh,Port_Jackson
 33940,Cooks River,Greater Sydney,1998,Mangrove,Cooks_River
-33940,Cooks River,Greater Sydney,2008,Mangrove,Cooks_River
-33940,Cooks River,Greater Sydney,2019,Mangrove,Cooks_River
 33940,Cooks River,Greater Sydney,1998,Saltmarsh,Cooks_River
+33940,Cooks River,Greater Sydney,2008,Mangrove,Cooks_River
 33940,Cooks River,Greater Sydney,2008,Saltmarsh,Cooks_River
+33940,Cooks River,Greater Sydney,2019,Mangrove,Cooks_River
 33940,Cooks River,Greater Sydney,2019,Saltmarsh,Cooks_River
 33987,Botany Bay,Greater Sydney,1981,Posidonia,Botany_Bay
-33987,Botany Bay,Greater Sydney,1999,Posidonia,Botany_Bay
-33987,Botany Bay,Greater Sydney,2008,Posidonia,Botany_Bay
-33987,Botany Bay,Greater Sydney,2019,Posidonia,Botany_Bay
 33987,Botany Bay,Greater Sydney,1981,Zostera,Botany_Bay
-33987,Botany Bay,Greater Sydney,1999,Zostera,Botany_Bay
-33987,Botany Bay,Greater Sydney,2008,Zostera,Botany_Bay
-33987,Botany Bay,Greater Sydney,2019,Zostera,Botany_Bay
-33987,Botany Bay,Greater Sydney,1999,Halophila,Botany_Bay
-33987,Botany Bay,Greater Sydney,2008,Halophila,Botany_Bay
-33987,Botany Bay,Greater Sydney,2019,Halophila,Botany_Bay
 33987,Botany Bay,Greater Sydney,1981,Mangrove,Botany_Bay
-33987,Botany Bay,Greater Sydney,1999,Mangrove,Botany_Bay
-33987,Botany Bay,Greater Sydney,2008,Mangrove,Botany_Bay
-33987,Botany Bay,Greater Sydney,2019,Mangrove,Botany_Bay
 33987,Botany Bay,Greater Sydney,1981,Saltmarsh,Botany_Bay
+33987,Botany Bay,Greater Sydney,1999,Posidonia,Botany_Bay
+33987,Botany Bay,Greater Sydney,1999,Zostera,Botany_Bay
+33987,Botany Bay,Greater Sydney,1999,Halophila,Botany_Bay
+33987,Botany Bay,Greater Sydney,1999,Mangrove,Botany_Bay
 33987,Botany Bay,Greater Sydney,1999,Saltmarsh,Botany_Bay
+33987,Botany Bay,Greater Sydney,2008,Posidonia,Botany_Bay
+33987,Botany Bay,Greater Sydney,2008,Zostera,Botany_Bay
+33987,Botany Bay,Greater Sydney,2008,Halophila,Botany_Bay
+33987,Botany Bay,Greater Sydney,2008,Mangrove,Botany_Bay
 33987,Botany Bay,Greater Sydney,2008,Saltmarsh,Botany_Bay
+33987,Botany Bay,Greater Sydney,2019,Posidonia,Botany_Bay
+33987,Botany Bay,Greater Sydney,2019,Zostera,Botany_Bay
+33987,Botany Bay,Greater Sydney,2019,Halophila,Botany_Bay
+33987,Botany Bay,Greater Sydney,2019,Mangrove,Botany_Bay
 33987,Botany Bay,Greater Sydney,2019,Saltmarsh,Botany_Bay
 33995,Georges River,Greater Sydney,1981,Zostera,Georges_River
+33995,Georges River,Greater Sydney,1981,Mangrove,Georges_River
+33995,Georges River,Greater Sydney,1981,Saltmarsh,Georges_River
 33995,Georges River,Greater Sydney,2002,Zostera,Georges_River
+33995,Georges River,Greater Sydney,2002,Mangrove,Georges_River
+33995,Georges River,Greater Sydney,2002,Saltmarsh,Georges_River
 33995,Georges River,Greater Sydney,2008,Zostera,Georges_River
+33995,Georges River,Greater Sydney,2008,Mangrove,Georges_River
+33995,Georges River,Greater Sydney,2008,Saltmarsh,Georges_River
 33995,Georges River,Greater Sydney,2019,Zostera,Georges_River
 33995,Georges River,Greater Sydney,2019,Halophila,Georges_River
-33995,Georges River,Greater Sydney,1981,Mangrove,Georges_River
-33995,Georges River,Greater Sydney,2002,Mangrove,Georges_River
-33995,Georges River,Greater Sydney,2008,Mangrove,Georges_River
 33995,Georges River,Greater Sydney,2019,Mangrove,Georges_River
-33995,Georges River,Greater Sydney,1981,Saltmarsh,Georges_River
-33995,Georges River,Greater Sydney,2002,Saltmarsh,Georges_River
-33995,Georges River,Greater Sydney,2008,Saltmarsh,Georges_River
 33995,Georges River,Greater Sydney,2019,Saltmarsh,Georges_River
 34076,Port Hacking,Greater Sydney,1981,Posidonia,Port_Hacking
-34076,Port Hacking,Greater Sydney,2002,Posidonia,Port_Hacking
-34076,Port Hacking,Greater Sydney,2008,Posidonia,Port_Hacking
-34076,Port Hacking,Greater Sydney,2021,Posidonia,Port_Hacking
 34076,Port Hacking,Greater Sydney,1981,Zostera,Port_Hacking
-34076,Port Hacking,Greater Sydney,2002,Zostera,Port_Hacking
-34076,Port Hacking,Greater Sydney,2008,Zostera,Port_Hacking
-34076,Port Hacking,Greater Sydney,2021,Zostera,Port_Hacking
-34076,Port Hacking,Greater Sydney,2008,Halophila,Port_Hacking
-34076,Port Hacking,Greater Sydney,2021,Halophila,Port_Hacking
 34076,Port Hacking,Greater Sydney,1981,Mangrove,Port_Hacking
-34076,Port Hacking,Greater Sydney,2002,Mangrove,Port_Hacking
-34076,Port Hacking,Greater Sydney,2008,Mangrove,Port_Hacking
-34076,Port Hacking,Greater Sydney,2021,Mangrove,Port_Hacking
 34076,Port Hacking,Greater Sydney,1981,Saltmarsh,Port_Hacking
+34076,Port Hacking,Greater Sydney,2002,Posidonia,Port_Hacking
+34076,Port Hacking,Greater Sydney,2002,Zostera,Port_Hacking
+34076,Port Hacking,Greater Sydney,2002,Mangrove,Port_Hacking
 34076,Port Hacking,Greater Sydney,2002,Saltmarsh,Port_Hacking
+34076,Port Hacking,Greater Sydney,2008,Posidonia,Port_Hacking
+34076,Port Hacking,Greater Sydney,2008,Zostera,Port_Hacking
+34076,Port Hacking,Greater Sydney,2008,Halophila,Port_Hacking
+34076,Port Hacking,Greater Sydney,2008,Mangrove,Port_Hacking
 34076,Port Hacking,Greater Sydney,2008,Saltmarsh,Port_Hacking
+34076,Port Hacking,Greater Sydney,2021,Posidonia,Port_Hacking
+34076,Port Hacking,Greater Sydney,2021,Zostera,Port_Hacking
+34076,Port Hacking,Greater Sydney,2021,Halophila,Port_Hacking
+34076,Port Hacking,Greater Sydney,2021,Mangrove,Port_Hacking
 34076,Port Hacking,Greater Sydney,2021,Saltmarsh,Port_Hacking
 34383,Towradgi Creek,South East,1982,Zostera,Towradgi_Creek
 34383,Towradgi Creek,South East,2005,Mangrove,Towradgi_Creek
 34459,Allans Creek,South East,2005,Mangrove,Allans_Creek
 34459,Allans Creek,South East,2005,Saltmarsh,Allans_Creek
 34544,Lake Illawarra,South East,1982,Zostera,Lake_Illawarra
-34544,Lake Illawarra,South East,2005,Zostera,Lake_Illawarra
-34544,Lake Illawarra,South East,2019,Zostera,Lake_Illawarra
-34544,Lake Illawarra,South East,2005,Halophila,Lake_Illawarra
-34544,Lake Illawarra,South East,2019,Halophila,Lake_Illawarra
 34544,Lake Illawarra,South East,1982,Ruppia,Lake_Illawarra
-34544,Lake Illawarra,South East,2005,Ruppia,Lake_Illawarra
-34544,Lake Illawarra,South East,2019,Ruppia,Lake_Illawarra
-34544,Lake Illawarra,South East,2005,Mangrove,Lake_Illawarra
-34544,Lake Illawarra,South East,2019,Mangrove,Lake_Illawarra
 34544,Lake Illawarra,South East,1982,Saltmarsh,Lake_Illawarra
+34544,Lake Illawarra,South East,2005,Zostera,Lake_Illawarra
+34544,Lake Illawarra,South East,2005,Halophila,Lake_Illawarra
+34544,Lake Illawarra,South East,2005,Ruppia,Lake_Illawarra
+34544,Lake Illawarra,South East,2005,Mangrove,Lake_Illawarra
 34544,Lake Illawarra,South East,2005,Saltmarsh,Lake_Illawarra
+34544,Lake Illawarra,South East,2019,Zostera,Lake_Illawarra
+34544,Lake Illawarra,South East,2019,Halophila,Lake_Illawarra
+34544,Lake Illawarra,South East,2019,Ruppia,Lake_Illawarra
+34544,Lake Illawarra,South East,2019,Mangrove,Lake_Illawarra
 34544,Lake Illawarra,South East,2019,Saltmarsh,Lake_Illawarra
 34560,Elliott lake,South East,1982,Zostera,Elliott_lake
 34560,Elliott lake,South East,2006,Zostera,Elliott_lake
 34560,Elliott lake,South East,2006,Mangrove,Elliott_lake
 34560,Elliott lake,South East,2006,Saltmarsh,Elliott_lake
 34628,Minnamurra River,South East,1982,Zostera,Minnamurra_River
-34628,Minnamurra River,South East,2005,Zostera,Minnamurra_River
-34628,Minnamurra River,South East,2010,Zostera,Minnamurra_River
-34628,Minnamurra River,South East,2020,Zostera,Minnamurra_River
 34628,Minnamurra River,South East,1982,Mangrove,Minnamurra_River
-34628,Minnamurra River,South East,2005,Mangrove,Minnamurra_River
-34628,Minnamurra River,South East,2010,Mangrove,Minnamurra_River
-34628,Minnamurra River,South East,2020,Mangrove,Minnamurra_River
 34628,Minnamurra River,South East,1982,Saltmarsh,Minnamurra_River
+34628,Minnamurra River,South East,2005,Zostera,Minnamurra_River
+34628,Minnamurra River,South East,2005,Mangrove,Minnamurra_River
 34628,Minnamurra River,South East,2005,Saltmarsh,Minnamurra_River
+34628,Minnamurra River,South East,2010,Zostera,Minnamurra_River
+34628,Minnamurra River,South East,2010,Mangrove,Minnamurra_River
 34628,Minnamurra River,South East,2010,Saltmarsh,Minnamurra_River
+34628,Minnamurra River,South East,2020,Zostera,Minnamurra_River
+34628,Minnamurra River,South East,2020,Mangrove,Minnamurra_River
 34628,Minnamurra River,South East,2020,Saltmarsh,Minnamurra_River
 34662,Spring Creek,South East,1982,Ruppia,Spring_Creek
 34728,Werri Lagoon,South East,1983,Zostera,Werri_Lagoon
-34728,Werri Lagoon,South East,2005,Zostera,Werri_Lagoon
 34728,Werri Lagoon,South East,1983,Ruppia,Werri_Lagoon
+34728,Werri Lagoon,South East,2005,Zostera,Werri_Lagoon
 34728,Werri Lagoon,South East,2005,Mangrove,Werri_Lagoon
 34773,Crooked River,South East,1983,Zostera,Crooked_River
 34773,Crooked River,South East,2005,Zostera,Crooked_River
 34773,Crooked River,South East,2005,Mangrove,Crooked_River
 34773,Crooked River,South East,2005,Saltmarsh,Crooked_River
 34899,Shoalhaven River,South East,1982,Zostera,Shoalhaven_River
-34899,Shoalhaven River,South East,2003,Zostera,Shoalhaven_River
-34899,Shoalhaven River,South East,2010,Zostera,Shoalhaven_River
 34899,Shoalhaven River,South East,1982,Mangrove,Shoalhaven_River
-34899,Shoalhaven River,South East,2003,Mangrove,Shoalhaven_River
-34899,Shoalhaven River,South East,2010,Mangrove,Shoalhaven_River
 34899,Shoalhaven River,South East,1982,Saltmarsh,Shoalhaven_River
+34899,Shoalhaven River,South East,2003,Zostera,Shoalhaven_River
+34899,Shoalhaven River,South East,2003,Mangrove,Shoalhaven_River
 34899,Shoalhaven River,South East,2003,Saltmarsh,Shoalhaven_River
+34899,Shoalhaven River,South East,2010,Zostera,Shoalhaven_River
+34899,Shoalhaven River,South East,2010,Mangrove,Shoalhaven_River
 34899,Shoalhaven River,South East,2010,Saltmarsh,Shoalhaven_River
 34941,Lake Wollumboola,South East,1981,Ruppia,Lake_Wollumboola
 34941,Lake Wollumboola,South East,2004,Ruppia,Lake_Wollumboola
 35063,Jervis Bay,South East,1981,Posidonia,Jervis_Bay
-35063,Jervis Bay,South East,2004,Posidonia,Jervis_Bay
-35063,Jervis Bay,South East,2020,Posidonia,Jervis_Bay
 35063,Jervis Bay,South East,1981,Zostera,Jervis_Bay
-35063,Jervis Bay,South East,2004,Zostera,Jervis_Bay
-35063,Jervis Bay,South East,2020,Zostera,Jervis_Bay
 35063,Jervis Bay,South East,1981,Halophila,Jervis_Bay
-35063,Jervis Bay,South East,2004,Halophila,Jervis_Bay
-35063,Jervis Bay,South East,2020,Halophila,Jervis_Bay
 35063,Jervis Bay,South East,1981,Mangrove,Jervis_Bay
-35063,Jervis Bay,South East,2004,Mangrove,Jervis_Bay
-35063,Jervis Bay,South East,2020,Mangrove,Jervis_Bay
 35063,Jervis Bay,South East,1981,Saltmarsh,Jervis_Bay
+35063,Jervis Bay,South East,2004,Posidonia,Jervis_Bay
+35063,Jervis Bay,South East,2004,Zostera,Jervis_Bay
+35063,Jervis Bay,South East,2004,Halophila,Jervis_Bay
+35063,Jervis Bay,South East,2004,Mangrove,Jervis_Bay
 35063,Jervis Bay,South East,2004,Saltmarsh,Jervis_Bay
+35063,Jervis Bay,South East,2020,Posidonia,Jervis_Bay
+35063,Jervis Bay,South East,2020,Zostera,Jervis_Bay
+35063,Jervis Bay,South East,2020,Halophila,Jervis_Bay
+35063,Jervis Bay,South East,2020,Mangrove,Jervis_Bay
 35063,Jervis Bay,South East,2020,Saltmarsh,Jervis_Bay
 35184,St Georges Basin,South East,1982,Posidonia,St_Georges_Basin
-35184,St Georges Basin,South East,2004,Posidonia,St_Georges_Basin
-35184,St Georges Basin,South East,2020,Posidonia,St_Georges_Basin
 35184,St Georges Basin,South East,1982,Zostera,St_Georges_Basin
-35184,St Georges Basin,South East,2004,Zostera,St_Georges_Basin
-35184,St Georges Basin,South East,2020,Zostera,St_Georges_Basin
 35184,St Georges Basin,South East,1982,Halophila,St_Georges_Basin
-35184,St Georges Basin,South East,2004,Halophila,St_Georges_Basin
-35184,St Georges Basin,South East,2020,Halophila,St_Georges_Basin
 35184,St Georges Basin,South East,1982,Ruppia,St_Georges_Basin
-35184,St Georges Basin,South East,2004,Ruppia,St_Georges_Basin
-35184,St Georges Basin,South East,2020,Ruppia,St_Georges_Basin
 35184,St Georges Basin,South East,1982,Mangrove,St_Georges_Basin
-35184,St Georges Basin,South East,2004,Mangrove,St_Georges_Basin
-35184,St Georges Basin,South East,2020,Mangrove,St_Georges_Basin
 35184,St Georges Basin,South East,1982,Saltmarsh,St_Georges_Basin
+35184,St Georges Basin,South East,2004,Posidonia,St_Georges_Basin
+35184,St Georges Basin,South East,2004,Zostera,St_Georges_Basin
+35184,St Georges Basin,South East,2004,Halophila,St_Georges_Basin
+35184,St Georges Basin,South East,2004,Ruppia,St_Georges_Basin
+35184,St Georges Basin,South East,2004,Mangrove,St_Georges_Basin
 35184,St Georges Basin,South East,2004,Saltmarsh,St_Georges_Basin
+35184,St Georges Basin,South East,2020,Posidonia,St_Georges_Basin
+35184,St Georges Basin,South East,2020,Zostera,St_Georges_Basin
+35184,St Georges Basin,South East,2020,Halophila,St_Georges_Basin
+35184,St Georges Basin,South East,2020,Ruppia,St_Georges_Basin
+35184,St Georges Basin,South East,2020,Mangrove,St_Georges_Basin
 35184,St Georges Basin,South East,2020,Saltmarsh,St_Georges_Basin
 35201,Swan Lake,South East,1982,Ruppia,Swan_Lake
 35201,Swan Lake,South East,2004,Ruppia,Swan_Lake
@@ -628,19 +633,19 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 35228,Nerrindilah Creek,South East,1982,Zostera,Nerrindilah_Creek
 35228,Nerrindilah Creek,South East,2005,Zostera,Nerrindilah_Creek
 35269,Lake Conjola,South East,1982,Zostera,Lake_Conjola
-35269,Lake Conjola,South East,2019,Zostera,Lake_Conjola
 35269,Lake Conjola,South East,1982,Halophila,Lake_Conjola
-35269,Lake Conjola,South East,2002,Halophila,Lake_Conjola
-35269,Lake Conjola,South East,2019,Halophila,Lake_Conjola
-35269,Lake Conjola,South East,2002,Mangrove,Lake_Conjola
 35269,Lake Conjola,South East,1982,Saltmarsh,Lake_Conjola
+35269,Lake Conjola,South East,2002,Halophila,Lake_Conjola
+35269,Lake Conjola,South East,2002,Mangrove,Lake_Conjola
 35269,Lake Conjola,South East,2002,Saltmarsh,Lake_Conjola
+35269,Lake Conjola,South East,2019,Zostera,Lake_Conjola
+35269,Lake Conjola,South East,2019,Halophila,Lake_Conjola
 35269,Lake Conjola,South East,2019,Saltmarsh,Lake_Conjola
 35303,Narrawallee Inlet,South East,1982,Zostera,Narrawallee_Inlet
-35303,Narrawallee Inlet,South East,2004,Zostera,Narrawallee_Inlet
 35303,Narrawallee Inlet,South East,1982,Mangrove,Narrawallee_Inlet
-35303,Narrawallee Inlet,South East,2004,Mangrove,Narrawallee_Inlet
 35303,Narrawallee Inlet,South East,1982,Saltmarsh,Narrawallee_Inlet
+35303,Narrawallee Inlet,South East,2004,Zostera,Narrawallee_Inlet
+35303,Narrawallee Inlet,South East,2004,Mangrove,Narrawallee_Inlet
 35303,Narrawallee Inlet,South East,2004,Saltmarsh,Narrawallee_Inlet
 35336,Mollymook Creek,South East,1982,Zostera,Mollymook_Creek
 35336,Mollymook Creek,South East,2005,Ruppia,Mollymook_Creek
@@ -650,20 +655,20 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 35355,Ulladulla,South East,2005,Mangrove,Ulladulla
 35355,Ulladulla,South East,2005,Saltmarsh,Ulladulla
 35395,Burrill Lake,South East,1982,Zostera,Burrill_Lake
+35395,Burrill Lake,South East,1982,Saltmarsh,Burrill_Lake
 35395,Burrill Lake,South East,2002,Zostera,Burrill_Lake
+35395,Burrill Lake,South East,2002,Saltmarsh,Burrill_Lake
 35395,Burrill Lake,South East,2019,Zostera,Burrill_Lake
 35395,Burrill Lake,South East,2019,Halophila,Burrill_Lake
 35395,Burrill Lake,South East,2019,Ruppia,Burrill_Lake
 35395,Burrill Lake,South East,2019,Mangrove,Burrill_Lake
-35395,Burrill Lake,South East,1982,Saltmarsh,Burrill_Lake
-35395,Burrill Lake,South East,2002,Saltmarsh,Burrill_Lake
 35395,Burrill Lake,South East,2019,Saltmarsh,Burrill_Lake
 35443,Toubouree Lake,South East,1982,Zostera,Toubouree_Lake
-35443,Toubouree Lake,South East,2002,Zostera,Toubouree_Lake
 35443,Toubouree Lake,South East,1982,Halophila,Toubouree_Lake
 35443,Toubouree Lake,South East,1982,Ruppia,Toubouree_Lake
-35443,Toubouree Lake,South East,2002,Ruppia,Toubouree_Lake
 35443,Toubouree Lake,South East,1982,Saltmarsh,Toubouree_Lake
+35443,Toubouree Lake,South East,2002,Zostera,Toubouree_Lake
+35443,Toubouree Lake,South East,2002,Ruppia,Toubouree_Lake
 35443,Toubouree Lake,South East,2002,Saltmarsh,Toubouree_Lake
 35462,Termeil Lake,South East,1982,Ruppia,Termeil_Lake
 35462,Termeil Lake,South East,2005,Ruppia,Termeil_Lake
@@ -671,134 +676,134 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 35483,Meroo Lake,South East,2005,Ruppia,Meroo_Lake
 35502,Willinga Lake,South East,1982,Ruppia,Willinga_Lake
 35502,Willinga Lake,South East,2005,Ruppia,Willinga_Lake
-35552,Kioloa Lagoon,South East,2005,Zostera,Kioloa_Lagoon
 35552,Kioloa Lagoon,South East,1982,Ruppia,Kioloa_Lagoon
 35552,Kioloa Lagoon,South East,1982,Saltmarsh,Kioloa_Lagoon
+35552,Kioloa Lagoon,South East,2005,Zostera,Kioloa_Lagoon
 35552,Kioloa Lagoon,South East,2005,Saltmarsh,Kioloa_Lagoon
 35641,Durras Lake,South East,1982,Zostera,Durras_Lake
-35641,Durras Lake,South East,2002,Zostera,Durras_Lake
 35641,Durras Lake,South East,1982,Halophila,Durras_Lake
 35641,Durras Lake,South East,1982,Saltmarsh,Durras_Lake
+35641,Durras Lake,South East,2002,Zostera,Durras_Lake
 35641,Durras Lake,South East,2002,Saltmarsh,Durras_Lake
 35700,Cullendulla Creek,South East,1982,Zostera,Cullendulla_Creek
-35700,Cullendulla Creek,South East,2005,Zostera,Cullendulla_Creek
-35700,Cullendulla Creek,South East,2012,Zostera,Cullendulla_Creek
-35700,Cullendulla Creek,South East,2023,Zostera,Cullendulla_Creek
 35700,Cullendulla Creek,South East,1982,Mangrove,Cullendulla_Creek
-35700,Cullendulla Creek,South East,2005,Mangrove,Cullendulla_Creek
-35700,Cullendulla Creek,South East,2012,Mangrove,Cullendulla_Creek
-35700,Cullendulla Creek,South East,2023,Mangrove,Cullendulla_Creek
 35700,Cullendulla Creek,South East,1982,Saltmarsh,Cullendulla_Creek
+35700,Cullendulla Creek,South East,2005,Zostera,Cullendulla_Creek
+35700,Cullendulla Creek,South East,2005,Mangrove,Cullendulla_Creek
 35700,Cullendulla Creek,South East,2005,Saltmarsh,Cullendulla_Creek
+35700,Cullendulla Creek,South East,2012,Zostera,Cullendulla_Creek
+35700,Cullendulla Creek,South East,2012,Mangrove,Cullendulla_Creek
 35700,Cullendulla Creek,South East,2012,Saltmarsh,Cullendulla_Creek
+35700,Cullendulla Creek,South East,2023,Zostera,Cullendulla_Creek
+35700,Cullendulla Creek,South East,2023,Mangrove,Cullendulla_Creek
 35700,Cullendulla Creek,South East,2023,Saltmarsh,Cullendulla_Creek
 35705,Clyde River,South East,1982,Zostera,Clyde_River
-35705,Clyde River,South East,2005,Zostera,Clyde_River
-35705,Clyde River,South East,2012,Zostera,Clyde_River
-35705,Clyde River,South East,2023,Zostera,Clyde_River
-35705,Clyde River,South East,2005,Ruppia,Clyde_River
 35705,Clyde River,South East,1982,Mangrove,Clyde_River
-35705,Clyde River,South East,2005,Mangrove,Clyde_River
-35705,Clyde River,South East,2012,Mangrove,Clyde_River
-35705,Clyde River,South East,2023,Mangrove,Clyde_River
 35705,Clyde River,South East,1982,Saltmarsh,Clyde_River
+35705,Clyde River,South East,2005,Zostera,Clyde_River
+35705,Clyde River,South East,2005,Ruppia,Clyde_River
+35705,Clyde River,South East,2005,Mangrove,Clyde_River
 35705,Clyde River,South East,2005,Saltmarsh,Clyde_River
+35705,Clyde River,South East,2012,Zostera,Clyde_River
+35705,Clyde River,South East,2012,Mangrove,Clyde_River
 35705,Clyde River,South East,2012,Saltmarsh,Clyde_River
+35705,Clyde River,South East,2023,Zostera,Clyde_River
+35705,Clyde River,South East,2023,Mangrove,Clyde_River
 35705,Clyde River,South East,2023,Saltmarsh,Clyde_River
 35732,Batemans Bay,South East,1982,Posidonia,Batemans_Bay
-35732,Batemans Bay,South East,2005,Posidonia,Batemans_Bay
-35732,Batemans Bay,South East,2012,Posidonia,Batemans_Bay
-35732,Batemans Bay,South East,2023,Posidonia,Batemans_Bay
 35732,Batemans Bay,South East,1982,Zostera,Batemans_Bay
+35732,Batemans Bay,South East,2005,Posidonia,Batemans_Bay
 35732,Batemans Bay,South East,2005,Zostera,Batemans_Bay
-35732,Batemans Bay,South East,2012,Zostera,Batemans_Bay
-35732,Batemans Bay,South East,2023,Zostera,Batemans_Bay
-35732,Batemans Bay,South East,2012,Halophila,Batemans_Bay
 35732,Batemans Bay,South East,2005,Mangrove,Batemans_Bay
+35732,Batemans Bay,South East,2012,Posidonia,Batemans_Bay
+35732,Batemans Bay,South East,2012,Zostera,Batemans_Bay
+35732,Batemans Bay,South East,2012,Halophila,Batemans_Bay
 35732,Batemans Bay,South East,2012,Mangrove,Batemans_Bay
+35732,Batemans Bay,South East,2023,Posidonia,Batemans_Bay
+35732,Batemans Bay,South East,2023,Zostera,Batemans_Bay
 35732,Batemans Bay,South East,2023,Mangrove,Batemans_Bay
 35837,Tomaga River,South East,1982,Zostera,Tomaga_River
-35837,Tomaga River,South East,2005,Zostera,Tomaga_River
-35837,Tomaga River,South East,2012,Zostera,Tomaga_River
 35837,Tomaga River,South East,1982,Mangrove,Tomaga_River
-35837,Tomaga River,South East,2005,Mangrove,Tomaga_River
-35837,Tomaga River,South East,2012,Mangrove,Tomaga_River
 35837,Tomaga River,South East,1982,Saltmarsh,Tomaga_River
+35837,Tomaga River,South East,2005,Zostera,Tomaga_River
+35837,Tomaga River,South East,2005,Mangrove,Tomaga_River
 35837,Tomaga River,South East,2005,Saltmarsh,Tomaga_River
+35837,Tomaga River,South East,2012,Zostera,Tomaga_River
+35837,Tomaga River,South East,2012,Mangrove,Tomaga_River
 35837,Tomaga River,South East,2012,Saltmarsh,Tomaga_River
 35843,Candlagan Creek,South East,1982,Zostera,Candlagan_Creek
-35843,Candlagan Creek,South East,2005,Zostera,Candlagan_Creek
-35843,Candlagan Creek,South East,2012,Zostera,Candlagan_Creek
 35843,Candlagan Creek,South East,1982,Mangrove,Candlagan_Creek
-35843,Candlagan Creek,South East,2005,Mangrove,Candlagan_Creek
-35843,Candlagan Creek,South East,2012,Mangrove,Candlagan_Creek
 35843,Candlagan Creek,South East,1982,Saltmarsh,Candlagan_Creek
+35843,Candlagan Creek,South East,2005,Zostera,Candlagan_Creek
+35843,Candlagan Creek,South East,2005,Mangrove,Candlagan_Creek
 35843,Candlagan Creek,South East,2005,Saltmarsh,Candlagan_Creek
+35843,Candlagan Creek,South East,2012,Zostera,Candlagan_Creek
+35843,Candlagan Creek,South East,2012,Mangrove,Candlagan_Creek
 35843,Candlagan Creek,South East,2012,Saltmarsh,Candlagan_Creek
 35906,Moruya River,South East,1982,Zostera,Moruya_River
-35906,Moruya River,South East,2005,Zostera,Moruya_River
-35906,Moruya River,South East,2012,Zostera,Moruya_River
-35906,Moruya River,South East,2005,Ruppia,Moruya_River
 35906,Moruya River,South East,1982,Mangrove,Moruya_River
-35906,Moruya River,South East,2005,Mangrove,Moruya_River
-35906,Moruya River,South East,2012,Mangrove,Moruya_River
 35906,Moruya River,South East,1982,Saltmarsh,Moruya_River
+35906,Moruya River,South East,2005,Zostera,Moruya_River
+35906,Moruya River,South East,2005,Ruppia,Moruya_River
+35906,Moruya River,South East,2005,Mangrove,Moruya_River
 35906,Moruya River,South East,2005,Saltmarsh,Moruya_River
+35906,Moruya River,South East,2012,Zostera,Moruya_River
+35906,Moruya River,South East,2012,Mangrove,Moruya_River
 35906,Moruya River,South East,2012,Saltmarsh,Moruya_River
 35954,Congo Creek,South East,2005,Zostera,Congo_Creek
 35954,Congo Creek,South East,2005,Saltmarsh,Congo_Creek
 35978,Meringo Creek,South East,2005,Saltmarsh,Meringo_Creek
 36048,Coila Lake,South East,1982,Zostera,Coila_Lake
+36048,Coila Lake,South East,1982,Saltmarsh,Coila_Lake
 36048,Coila Lake,South East,2004,Zostera,Coila_Lake
 36048,Coila Lake,South East,2004,Ruppia,Coila_Lake
-36048,Coila Lake,South East,1982,Saltmarsh,Coila_Lake
 36048,Coila Lake,South East,2004,Saltmarsh,Coila_Lake
 36067,Tuross Lake,South East,1982,Zostera,Tuross_Lake
-36067,Tuross Lake,South East,2004,Zostera,Tuross_Lake
-36067,Tuross Lake,South East,2012,Zostera,Tuross_Lake
-36067,Tuross Lake,South East,2004,Halophila,Tuross_Lake
 36067,Tuross Lake,South East,1982,Mangrove,Tuross_Lake
-36067,Tuross Lake,South East,2004,Mangrove,Tuross_Lake
-36067,Tuross Lake,South East,2012,Mangrove,Tuross_Lake
 36067,Tuross Lake,South East,1982,Saltmarsh,Tuross_Lake
+36067,Tuross Lake,South East,2004,Zostera,Tuross_Lake
+36067,Tuross Lake,South East,2004,Halophila,Tuross_Lake
+36067,Tuross Lake,South East,2004,Mangrove,Tuross_Lake
 36067,Tuross Lake,South East,2004,Saltmarsh,Tuross_Lake
+36067,Tuross Lake,South East,2012,Zostera,Tuross_Lake
+36067,Tuross Lake,South East,2012,Mangrove,Tuross_Lake
 36067,Tuross Lake,South East,2012,Saltmarsh,Tuross_Lake
 36094,Lake Brunderee,South East,1982,Ruppia,Lake_Brunderee
-36094,Lake Brunderee,South East,2005,Ruppia,Lake_Brunderee
 36094,Lake Brunderee,South East,1982,Saltmarsh,Lake_Brunderee
+36094,Lake Brunderee,South East,2005,Ruppia,Lake_Brunderee
 36094,Lake Brunderee,South East,2005,Saltmarsh,Lake_Brunderee
 36128,Lake Brou,South East,1982,Zostera,Lake_Brou
 36128,Lake Brou,South East,1982,Ruppia,Lake_Brou
 36128,Lake Brou,South East,1982,Saltmarsh,Lake_Brou
 36128,Lake Brou,South East,2005,Saltmarsh,Lake_Brou
 36162,Lake Dalmeny,South East,1982,Zostera,Lake_Dalmeny
+36162,Lake Dalmeny,South East,1982,Saltmarsh,Lake_Dalmeny
 36162,Lake Dalmeny,South East,2002,Zostera,Lake_Dalmeny
 36162,Lake Dalmeny,South East,2002,Ruppia,Lake_Dalmeny
-36162,Lake Dalmeny,South East,1982,Saltmarsh,Lake_Dalmeny
 36162,Lake Dalmeny,South East,2002,Saltmarsh,Lake_Dalmeny
 36192,Kianga Lake,South East,1982,Ruppia,Kianga_Lake
-36192,Kianga Lake,South East,2005,Ruppia,Kianga_Lake
 36192,Kianga Lake,South East,1982,Saltmarsh,Kianga_Lake
+36192,Kianga Lake,South East,2005,Ruppia,Kianga_Lake
 36210,Wagonga Inlet,South East,1982,Posidonia,Wagonga_Inlet
-36210,Wagonga Inlet,South East,2002,Posidonia,Wagonga_Inlet
-36210,Wagonga Inlet,South East,2019,Posidonia,Wagonga_Inlet
 36210,Wagonga Inlet,South East,1982,Zostera,Wagonga_Inlet
-36210,Wagonga Inlet,South East,2002,Zostera,Wagonga_Inlet
-36210,Wagonga Inlet,South East,2019,Zostera,Wagonga_Inlet
 36210,Wagonga Inlet,South East,1982,Mangrove,Wagonga_Inlet
-36210,Wagonga Inlet,South East,2002,Mangrove,Wagonga_Inlet
-36210,Wagonga Inlet,South East,2019,Mangrove,Wagonga_Inlet
 36210,Wagonga Inlet,South East,1982,Saltmarsh,Wagonga_Inlet
+36210,Wagonga Inlet,South East,2002,Posidonia,Wagonga_Inlet
+36210,Wagonga Inlet,South East,2002,Zostera,Wagonga_Inlet
+36210,Wagonga Inlet,South East,2002,Mangrove,Wagonga_Inlet
 36210,Wagonga Inlet,South East,2002,Saltmarsh,Wagonga_Inlet
+36210,Wagonga Inlet,South East,2019,Posidonia,Wagonga_Inlet
+36210,Wagonga Inlet,South East,2019,Zostera,Wagonga_Inlet
+36210,Wagonga Inlet,South East,2019,Mangrove,Wagonga_Inlet
 36210,Wagonga Inlet,South East,2019,Saltmarsh,Wagonga_Inlet
-36252,Nangudga Lake,South East,2006,Zostera,Nangudga_Lake
 36252,Nangudga Lake,South East,1982,Ruppia,Nangudga_Lake
-36252,Nangudga Lake,South East,2006,Ruppia,Nangudga_Lake
 36252,Nangudga Lake,South East,1982,Saltmarsh,Nangudga_Lake
+36252,Nangudga Lake,South East,2006,Zostera,Nangudga_Lake
+36252,Nangudga Lake,South East,2006,Ruppia,Nangudga_Lake
 36252,Nangudga Lake,South East,2006,Saltmarsh,Nangudga_Lake
 36289,Corunna Lake,South East,1982,Zostera,Corunna_Lake
-36289,Corunna Lake,South East,2002,Zostera,Corunna_Lake
 36289,Corunna Lake,South East,1982,Saltmarsh,Corunna_Lake
+36289,Corunna Lake,South East,2002,Zostera,Corunna_Lake
 36289,Corunna Lake,South East,2002,Saltmarsh,Corunna_Lake
 36327,Tilba Tilba Lake,South East,2003,Ruppia,Tilba_Tilba_Lake
 36327,Tilba Tilba Lake,South East,2003,Saltmarsh,Tilba_Tilba_Lake
@@ -806,166 +811,166 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 36339,Little Lake,South East,1982,Saltmarsh,Little_Lake
 36339,Little Lake,South East,2006,Saltmarsh,Little_Lake
 36370,Wallaga Lake,South East,1982,Zostera,Wallaga_Lake
-36370,Wallaga Lake,South East,2002,Zostera,Wallaga_Lake
 36370,Wallaga Lake,South East,1982,Halophila,Wallaga_Lake
-36370,Wallaga Lake,South East,2002,Halophila,Wallaga_Lake
 36370,Wallaga Lake,South East,1982,Ruppia,Wallaga_Lake
 36370,Wallaga Lake,South East,1982,Saltmarsh,Wallaga_Lake
+36370,Wallaga Lake,South East,2002,Zostera,Wallaga_Lake
+36370,Wallaga Lake,South East,2002,Halophila,Wallaga_Lake
 36370,Wallaga Lake,South East,2002,Saltmarsh,Wallaga_Lake
 36422,Bermagui River,South East,1982,Posidonia,Bermagui_River
-36422,Bermagui River,South East,2002,Posidonia,Bermagui_River
-36422,Bermagui River,South East,2020,Posidonia,Bermagui_River
 36422,Bermagui River,South East,1982,Zostera,Bermagui_River
-36422,Bermagui River,South East,2002,Zostera,Bermagui_River
-36422,Bermagui River,South East,2020,Zostera,Bermagui_River
 36422,Bermagui River,South East,1982,Halophila,Bermagui_River
 36422,Bermagui River,South East,1982,Mangrove,Bermagui_River
-36422,Bermagui River,South East,2002,Mangrove,Bermagui_River
-36422,Bermagui River,South East,2020,Mangrove,Bermagui_River
 36422,Bermagui River,South East,1982,Saltmarsh,Bermagui_River
+36422,Bermagui River,South East,2002,Posidonia,Bermagui_River
+36422,Bermagui River,South East,2002,Zostera,Bermagui_River
+36422,Bermagui River,South East,2002,Mangrove,Bermagui_River
 36422,Bermagui River,South East,2002,Saltmarsh,Bermagui_River
+36422,Bermagui River,South East,2020,Posidonia,Bermagui_River
+36422,Bermagui River,South East,2020,Zostera,Bermagui_River
+36422,Bermagui River,South East,2020,Mangrove,Bermagui_River
 36422,Bermagui River,South East,2020,Saltmarsh,Bermagui_River
 36464,Barragoot Lake,South East,1982,Zostera,Barragoot_Lake
 36464,Barragoot Lake,South East,1982,Ruppia,Barragoot_Lake
-36464,Barragoot Lake,South East,2003,Ruppia,Barragoot_Lake
 36464,Barragoot Lake,South East,1982,Saltmarsh,Barragoot_Lake
+36464,Barragoot Lake,South East,2003,Ruppia,Barragoot_Lake
 36464,Barragoot Lake,South East,2003,Saltmarsh,Barragoot_Lake
 36488,Cuttagee Lake,South East,1982,Zostera,Cuttagee_Lake
-36488,Cuttagee Lake,South East,2003,Zostera,Cuttagee_Lake
 36488,Cuttagee Lake,South East,1982,Halophila,Cuttagee_Lake
-36488,Cuttagee Lake,South East,2003,Halophila,Cuttagee_Lake
 36488,Cuttagee Lake,South East,1982,Ruppia,Cuttagee_Lake
-36488,Cuttagee Lake,South East,2003,Ruppia,Cuttagee_Lake
 36488,Cuttagee Lake,South East,1982,Saltmarsh,Cuttagee_Lake
+36488,Cuttagee Lake,South East,2003,Zostera,Cuttagee_Lake
+36488,Cuttagee Lake,South East,2003,Halophila,Cuttagee_Lake
+36488,Cuttagee Lake,South East,2003,Ruppia,Cuttagee_Lake
 36488,Cuttagee Lake,South East,2003,Saltmarsh,Cuttagee_Lake
 36525,Murrah Lake,South East,1982,Zostera,Murrah_Lake
+36525,Murrah Lake,South East,1982,Saltmarsh,Murrah_Lake
 36525,Murrah Lake,South East,2003,Zostera,Murrah_Lake
 36525,Murrah Lake,South East,2003,Halophila,Murrah_Lake
 36525,Murrah Lake,South East,2003,Mangrove,Murrah_Lake
-36525,Murrah Lake,South East,1982,Saltmarsh,Murrah_Lake
 36525,Murrah Lake,South East,2003,Saltmarsh,Murrah_Lake
+36540,Bunga Lagoon,South East,1982,Saltmarsh,Bunga_Lagoon
 36540,Bunga Lagoon,South East,2003,Zostera,Bunga_Lagoon
 36540,Bunga Lagoon,South East,2003,Ruppia,Bunga_Lagoon
-36540,Bunga Lagoon,South East,1982,Saltmarsh,Bunga_Lagoon
 36540,Bunga Lagoon,South East,2003,Saltmarsh,Bunga_Lagoon
 36629,Wapengo Lake,South East,1982,Zostera,Wapengo_Lake
-36629,Wapengo Lake,South East,2003,Zostera,Wapengo_Lake
 36629,Wapengo Lake,South East,1982,Halophila,Wapengo_Lake
-36629,Wapengo Lake,South East,2003,Halophila,Wapengo_Lake
 36629,Wapengo Lake,South East,1982,Mangrove,Wapengo_Lake
-36629,Wapengo Lake,South East,2003,Mangrove,Wapengo_Lake
 36629,Wapengo Lake,South East,1982,Saltmarsh,Wapengo_Lake
+36629,Wapengo Lake,South East,2003,Zostera,Wapengo_Lake
+36629,Wapengo Lake,South East,2003,Halophila,Wapengo_Lake
+36629,Wapengo Lake,South East,2003,Mangrove,Wapengo_Lake
 36629,Wapengo Lake,South East,2003,Saltmarsh,Wapengo_Lake
 36647,Middle Lake,South East,1981,Zostera,Middle_Lake
-36647,Middle Lake,South East,2003,Zostera,Middle_Lake
 36647,Middle Lake,South East,1981,Ruppia,Middle_Lake
-36647,Middle Lake,South East,2003,Ruppia,Middle_Lake
 36647,Middle Lake,South East,1981,Saltmarsh,Middle_Lake
+36647,Middle Lake,South East,2003,Zostera,Middle_Lake
+36647,Middle Lake,South East,2003,Ruppia,Middle_Lake
 36647,Middle Lake,South East,2003,Saltmarsh,Middle_Lake
 36685,Nelson Lake,South East,1981,Zostera,Nelson_Lake
+36685,Nelson Lake,South East,1981,Mangrove,Nelson_Lake
+36685,Nelson Lake,South East,1981,Saltmarsh,Nelson_Lake
 36685,Nelson Lake,South East,2003,Zostera,Nelson_Lake
 36685,Nelson Lake,South East,2003,Halophila,Nelson_Lake
-36685,Nelson Lake,South East,1981,Mangrove,Nelson_Lake
 36685,Nelson Lake,South East,2003,Mangrove,Nelson_Lake
-36685,Nelson Lake,South East,1981,Saltmarsh,Nelson_Lake
 36685,Nelson Lake,South East,2003,Saltmarsh,Nelson_Lake
 36701,Bega River,South East,1981,Zostera,Bega_River
-36701,Bega River,South East,2003,Zostera,Bega_River
 36701,Bega River,South East,1981,Saltmarsh,Bega_River
+36701,Bega River,South East,2003,Zostera,Bega_River
 36701,Bega River,South East,2003,Saltmarsh,Bega_River
 36790,Wallagoot Lake,South East,1982,Zostera,Wallagoot_Lake
-36790,Wallagoot Lake,South East,2003,Zostera,Wallagoot_Lake
 36790,Wallagoot Lake,South East,1982,Ruppia,Wallagoot_Lake
-36790,Wallagoot Lake,South East,2003,Ruppia,Wallagoot_Lake
 36790,Wallagoot Lake,South East,1982,Saltmarsh,Wallagoot_Lake
+36790,Wallagoot Lake,South East,2003,Zostera,Wallagoot_Lake
+36790,Wallagoot Lake,South East,2003,Ruppia,Wallagoot_Lake
 36790,Wallagoot Lake,South East,2003,Saltmarsh,Wallagoot_Lake
 36821,Bournda Lagoon,South East,1982,Ruppia,Bournda_Lagoon
 36821,Bournda Lagoon,South East,2003,Ruppia,Bournda_Lagoon
 36821,Bournda Lagoon,South East,2003,Saltmarsh,Bournda_Lagoon
 36882,Back Lagoon,South East,1982,Zostera,Back_Lagoon
-36882,Back Lagoon,South East,2004,Halophila,Back_Lagoon
 36882,Back Lagoon,South East,1982,Ruppia,Back_Lagoon
 36882,Back Lagoon,South East,1982,Saltmarsh,Back_Lagoon
+36882,Back Lagoon,South East,2004,Halophila,Back_Lagoon
 36882,Back Lagoon,South East,2004,Saltmarsh,Back_Lagoon
 36882,Back Lagoon,South East,2022,Saltmarsh,Back_Lagoon
 36895,Merimbula Lake,South East,1982,Posidonia,Merimbula_Lake
-36895,Merimbula Lake,South East,2004,Posidonia,Merimbula_Lake
-36895,Merimbula Lake,South East,2022,Posidonia,Merimbula_Lake
 36895,Merimbula Lake,South East,1982,Zostera,Merimbula_Lake
-36895,Merimbula Lake,South East,2004,Zostera,Merimbula_Lake
-36895,Merimbula Lake,South East,2022,Zostera,Merimbula_Lake
 36895,Merimbula Lake,South East,1982,Halophila,Merimbula_Lake
 36895,Merimbula Lake,South East,1982,Mangrove,Merimbula_Lake
-36895,Merimbula Lake,South East,2004,Mangrove,Merimbula_Lake
-36895,Merimbula Lake,South East,2022,Mangrove,Merimbula_Lake
 36895,Merimbula Lake,South East,1982,Saltmarsh,Merimbula_Lake
+36895,Merimbula Lake,South East,2004,Posidonia,Merimbula_Lake
+36895,Merimbula Lake,South East,2004,Zostera,Merimbula_Lake
+36895,Merimbula Lake,South East,2004,Mangrove,Merimbula_Lake
 36895,Merimbula Lake,South East,2004,Saltmarsh,Merimbula_Lake
+36895,Merimbula Lake,South East,2022,Posidonia,Merimbula_Lake
+36895,Merimbula Lake,South East,2022,Zostera,Merimbula_Lake
+36895,Merimbula Lake,South East,2022,Mangrove,Merimbula_Lake
 36895,Merimbula Lake,South East,2022,Saltmarsh,Merimbula_Lake
 36948,Pambula Lake,South East,1982,Posidonia,Pambula_Lake
-36948,Pambula Lake,South East,2004,Posidonia,Pambula_Lake
-36948,Pambula Lake,South East,2022,Posidonia,Pambula_Lake
 36948,Pambula Lake,South East,1982,Zostera,Pambula_Lake
-36948,Pambula Lake,South East,2004,Zostera,Pambula_Lake
-36948,Pambula Lake,South East,2022,Zostera,Pambula_Lake
 36948,Pambula Lake,South East,1982,Mangrove,Pambula_Lake
-36948,Pambula Lake,South East,2004,Mangrove,Pambula_Lake
-36948,Pambula Lake,South East,2022,Mangrove,Pambula_Lake
 36948,Pambula Lake,South East,1982,Saltmarsh,Pambula_Lake
+36948,Pambula Lake,South East,2004,Posidonia,Pambula_Lake
+36948,Pambula Lake,South East,2004,Zostera,Pambula_Lake
+36948,Pambula Lake,South East,2004,Mangrove,Pambula_Lake
 36948,Pambula Lake,South East,2004,Saltmarsh,Pambula_Lake
+36948,Pambula Lake,South East,2022,Posidonia,Pambula_Lake
+36948,Pambula Lake,South East,2022,Zostera,Pambula_Lake
+36948,Pambula Lake,South East,2022,Mangrove,Pambula_Lake
 36948,Pambula Lake,South East,2022,Saltmarsh,Pambula_Lake
 37047,Curalo Lagoon,South East,1982,Zostera,Curalo_Lagoon
-37047,Curalo Lagoon,South East,2004,Zostera,Curalo_Lagoon
-37047,Curalo Lagoon,South East,2022,Zostera,Curalo_Lagoon
-37047,Curalo Lagoon,South East,2004,Halophila,Curalo_Lagoon
 37047,Curalo Lagoon,South East,1982,Ruppia,Curalo_Lagoon
-37047,Curalo Lagoon,South East,2022,Ruppia,Curalo_Lagoon
 37047,Curalo Lagoon,South East,1982,Saltmarsh,Curalo_Lagoon
+37047,Curalo Lagoon,South East,2004,Zostera,Curalo_Lagoon
+37047,Curalo Lagoon,South East,2004,Halophila,Curalo_Lagoon
 37047,Curalo Lagoon,South East,2004,Saltmarsh,Curalo_Lagoon
+37047,Curalo Lagoon,South East,2022,Zostera,Curalo_Lagoon
+37047,Curalo Lagoon,South East,2022,Ruppia,Curalo_Lagoon
 37047,Curalo Lagoon,South East,2022,Saltmarsh,Curalo_Lagoon
 37077,Shadrachs Creek,South East,1982,Zostera,Shadrachs_Creek
+37077,Shadrachs Creek,South East,1982,Saltmarsh,Shadrachs_Creek
 37077,Shadrachs Creek,South East,2004,Zostera,Shadrachs_Creek
 37077,Shadrachs Creek,South East,2022,Zostera,Shadrachs_Creek
-37077,Shadrachs Creek,South East,1982,Saltmarsh,Shadrachs_Creek
 37087,Twofold Bay,South East,1982,Posidonia,Twofold_Bay
 37087,Twofold Bay,South East,2004,Posidonia,Twofold_Bay
-37087,Twofold Bay,South East,2022,Posidonia,Twofold_Bay
 37087,Twofold Bay,South East,2004,Zostera,Twofold_Bay
+37087,Twofold Bay,South East,2022,Posidonia,Twofold_Bay
 37087,Twofold Bay,South East,2022,Zostera,Twofold_Bay
 37087,Twofold Bay,South East,2022,Halophila,Twofold_Bay
 37091,Nullica River,South East,1982,Zostera,Nullica_River
 37091,Nullica River,South East,2004,Zostera,Nullica_River
 37091,Nullica River,South East,2004,Halophila,Nullica_River
 37091,Nullica River,South East,2004,Mangrove,Nullica_River
-37091,Nullica River,South East,2022,Mangrove,Nullica_River
 37091,Nullica River,South East,2004,Saltmarsh,Nullica_River
+37091,Nullica River,South East,2022,Mangrove,Nullica_River
 37091,Nullica River,South East,2022,Saltmarsh,Nullica_River
 37103,Boydtown Creek,South East,1982,Saltmarsh,Boydtown_Creek
 37103,Boydtown Creek,South East,2004,Saltmarsh,Boydtown_Creek
 37103,Boydtown Creek,South East,2022,Saltmarsh,Boydtown_Creek
 37111,Fisheries Creek,South East,1982,Zostera,Fisheries_Creek
-37111,Fisheries Creek,South East,2004,Zostera,Fisheries_Creek
-37111,Fisheries Creek,South East,2022,Zostera,Fisheries_Creek
 37111,Fisheries Creek,South East,1982,Ruppia,Fisheries_Creek
-37111,Fisheries Creek,South East,2004,Ruppia,Fisheries_Creek
 37111,Fisheries Creek,South East,1982,Saltmarsh,Fisheries_Creek
+37111,Fisheries Creek,South East,2004,Zostera,Fisheries_Creek
+37111,Fisheries Creek,South East,2004,Ruppia,Fisheries_Creek
 37111,Fisheries Creek,South East,2004,Saltmarsh,Fisheries_Creek
+37111,Fisheries Creek,South East,2022,Zostera,Fisheries_Creek
 37111,Fisheries Creek,South East,2022,Saltmarsh,Fisheries_Creek
 37112,Towamba River,South East,1982,Zostera,Towamba_River
-37112,Towamba River,South East,2004,Zostera,Towamba_River
-37112,Towamba River,South East,2022,Zostera,Towamba_River
 37112,Towamba River,South East,1982,Mangrove,Towamba_River
-37112,Towamba River,South East,2004,Mangrove,Towamba_River
-37112,Towamba River,South East,2022,Mangrove,Towamba_River
 37112,Towamba River,South East,1982,Saltmarsh,Towamba_River
+37112,Towamba River,South East,2004,Zostera,Towamba_River
+37112,Towamba River,South East,2004,Mangrove,Towamba_River
 37112,Towamba River,South East,2004,Saltmarsh,Towamba_River
+37112,Towamba River,South East,2022,Zostera,Towamba_River
+37112,Towamba River,South East,2022,Mangrove,Towamba_River
 37112,Towamba River,South East,2022,Saltmarsh,Towamba_River
 37250,Wonboyn River,South East,1982,Zostera,Wonboyn_River
-37250,Wonboyn River,South East,2004,Zostera,Wonboyn_River
 37250,Wonboyn River,South East,1982,Halophila,Wonboyn_River
-37250,Wonboyn River,South East,2004,Halophila,Wonboyn_River
 37250,Wonboyn River,South East,1982,Mangrove,Wonboyn_River
-37250,Wonboyn River,South East,2004,Mangrove,Wonboyn_River
 37250,Wonboyn River,South East,1982,Saltmarsh,Wonboyn_River
+37250,Wonboyn River,South East,2004,Zostera,Wonboyn_River
+37250,Wonboyn River,South East,2004,Halophila,Wonboyn_River
+37250,Wonboyn River,South East,2004,Mangrove,Wonboyn_River
 37250,Wonboyn River,South East,2004,Saltmarsh,Wonboyn_River
 37296,Merrica River,South East,1982,Zostera,Merrica_River
 37406,Table Creek,South East,2006,Saltmarsh,Table_Creek
