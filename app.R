@@ -77,7 +77,7 @@ index_estuary <- 1
 list_habs <- c(levels(presence_dat$Macrophyte))
 index_habs <- 1
 # Cell size for building rasters at 250x250m
-cell_size <- 500
+cell_size <- 250
 
 myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84 + towgs8"
 
