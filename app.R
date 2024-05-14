@@ -880,12 +880,12 @@ server <- function(input, output, session) {
     })    
     
     # Set raster max and min based on estuary selection
-    lon_min <- reactive({min(raster_grd()$Easting)}) 
-    lon_max <- reactive({max(raster_grd()$Easting)})
-    lat_min <- reactive({min(raster_grd()$Northing)})
-    lat_max <- reactive({max(raster_grd()$Northing)})    
+    lon_min <- reactive({min(raster_grd()$Easting)-10}) 
+    lon_max <- reactive({max(raster_grd()$Easting)+10})
+    lat_min <- reactive({min(raster_grd()$Northing)-10})
+    lat_max <- reactive({max(raster_grd()$Northing)+10})    
     ncols <- reactive({((lon_max() - lon_min())/cell_size)}) 
-    nrows <- reactive({((lat_max() - lat_min())/cell_size)})  
+    nrows <- reactive({((lat_max() - lat_min())/cell_size)})    
     
     # Create and empty raster that covers the estuary selected
     empty_grd <- reactive({
