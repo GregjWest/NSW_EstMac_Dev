@@ -53,7 +53,7 @@ options(dplyr.summarise.inform = FALSE)
     geojson <- sf::st_read("estuary_grids.geojson")
     
 # read in spatial grid data
-    aquaculture <- readLines("aquaculture.geojson") %>% paste(collapse = "\n")
+    aquaculture <- sf::st_read("aquaculture.geojson") 
 
 # mangrove and saltmarsh plot background image    
     mvsimg <- readPNG("www/Man_SM_Background.png")
@@ -715,8 +715,7 @@ server <- function(input, output, session) {
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
             
-        #add aquaculture geojson
-        addGeoJSON(aquaculture, fillOpacity = 0.1, weight = 1.5, color = "black", group = "Aquaculture leases", options = pathOptions(pane="othermap", maxZoom=17)) %>%
+
         
         #Add aquaculture leases from DPI
         #    addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture1/MapServer/1", 
@@ -748,6 +747,7 @@ server <- function(input, output, session) {
                        secondaryAreaUnit = "hectares",
                        activeColor = "#3D535D",
                        completedColor = "#7D4479") %>%
+            hideGroup("Latest mapped habitat") %>%
             hideGroup("Foreshore") %>%
             hideGroup("2019 - 2020 Fire damage") %>%
             hideGroup("Artificial structures") %>%
@@ -768,11 +768,17 @@ server <- function(input, output, session) {
         input$date_t1
         input$estuary1
         leafletProxy("map") %>%
-            removeTiles("macmap") %>%
-            addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Historic mapping (selected estuary)", layerId = "macmap",
+            removeTiles("macromap") %>%
+          #hideGroup("Latest mapped habitat") %>% 
+          addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Historic mapping (selected estuary)", layerId = "macmap",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            hideGroup("Latest mapped habitat")
+          #add aquaculture geojson
+         # addGeoJSON(aquaculture, fillOpacity = 0.1, weight = 1.5, color = "black", group = "Aquaculture leases", options = pathOptions(pane="othermap", maxZoom=17)) %>%
+          
+          addPolygons(data = aquaculture, fillColor = "gray",  fillOpacity = 0.5, weight = .5, color = "black", 
+                      highlightOptions = highlightOptions(color = "white", weight = 2, bringToFront = TRUE), label = ~paste("Lease number:", LEASE_NO), labelOptions = labelOptions(style = list("font-size" = "14px")), options = pathOptions(pane="othermap", group = "Aquaculture leases")) 
+           
         
     })
     
@@ -908,8 +914,7 @@ server <- function(input, output, session) {
         
             #add vector change grid
             addPolygons(data = merged_data(), fillColor = ~grdpal(Diff),  fillOpacity = 0.5, weight = .1, color = "black", 
-                        highlightOptions = highlightOptions(color = "white", weight = 2, bringToFront = TRUE), label = ~paste("Change in area of", input$habitat3, ":", round(Diff,2), "m²"), 
-                        labelOptions = labelOptions(style = list("font-size" = "14px")), options = pathOptions(Pane ="Grid", group = "Change Grid")) %>%
+                        highlightOptions = highlightOptions(color = "white", weight = 2, bringToFront = TRUE), options = pathOptions(Pane ="Grid", group = "Change Grid")) %>%
 
         #add maps to side by side comparison  
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time1",
