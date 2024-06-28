@@ -90,6 +90,9 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 29888,Wooli Wooli River,North Coast,2005,Zostera,Wooli_Wooli_River
 29888,Wooli Wooli River,North Coast,2005,Mangrove,Wooli_Wooli_River
 29888,Wooli Wooli River,North Coast,2005,Saltmarsh,Wooli_Wooli_River
+29888,Wooli Wooli River,North Coast,2024,Zostera,Wooli_Wooli_River
+29888,Wooli Wooli River,North Coast,2024,Mangrove,Wooli_Wooli_River
+29888,Wooli Wooli River,North Coast,2024,Saltmarsh,Wooli_Wooli_River
 29949,Station Creek,North Coast,2005,Mangrove,Station_Creek
 29949,Station Creek,North Coast,2005,Saltmarsh,Station_Creek
 29980,Corindi River,North Coast,1983,Zostera,Corindi_River
@@ -101,6 +104,9 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 29980,Corindi River,North Coast,2011,Zostera,Corindi_River
 29980,Corindi River,North Coast,2011,Mangrove,Corindi_River
 29980,Corindi River,North Coast,2011,Saltmarsh,Corindi_River
+29980,Corindi River,North Coast,2024,Zostera,Corindi_River
+29980,Corindi River,North Coast,2024,Mangrove,Corindi_River
+29980,Corindi River,North Coast,2024,Saltmarsh,Corindi_River
 30059,Arrawarra Creek,North Coast,1983,Zostera,Arrawarra_Creek
 30059,Arrawarra Creek,North Coast,1983,Saltmarsh,Arrawarra_Creek
 30059,Arrawarra Creek,North Coast,2005,Zostera,Arrawarra_Creek
@@ -136,6 +142,9 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 30212,Moonee Creek,North Coast,2011,Zostera,Moonee_Creek
 30212,Moonee Creek,North Coast,2011,Mangrove,Moonee_Creek
 30212,Moonee Creek,North Coast,2011,Saltmarsh,Moonee_Creek
+30212,Moonee Creek,North Coast,2024,Zostera,Moonee_Creek
+30212,Moonee Creek,North Coast,2024,Mangrove,Moonee_Creek
+30212,Moonee Creek,North Coast,2024,Saltmarsh,Moonee_Creek
 30296,Coffs Harbour Creek,North Coast,1983,Zostera,Coffs_Harbour_Creek
 30296,Coffs Harbour Creek,North Coast,1983,Mangrove,Coffs_Harbour_Creek
 30296,Coffs Harbour Creek,North Coast,2004,Zostera,Coffs_Harbour_Creek
@@ -589,9 +598,9 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 34899,Shoalhaven River,South East,2010,Zostera,Shoalhaven_River
 34899,Shoalhaven River,South East,2010,Mangrove,Shoalhaven_River
 34899,Shoalhaven River,South East,2010,Saltmarsh,Shoalhaven_River
-34941,Lake Wollumboola,South East,1981,Ruppia,Lake_Wollumboola
-34941,Lake Wollumboola,South East,2004,Ruppia,Lake_Wollumboola
-35063,Jervis Bay,South East,1981,Posidonia,Jervis_Bay
+34899,Shoalhaven River,South East,2024,Zostera,Shoalhaven_River
+34899,Shoalhaven River,South East,2024,Mangrove,Shoalhaven_River
+34899,Shoalhaven River,South East,2024,Saltmarsh,Shoalhaven_River
 35063,Jervis Bay,South East,1981,Zostera,Jervis_Bay
 35063,Jervis Bay,South East,1981,Halophila,Jervis_Bay
 35063,Jervis Bay,South East,1981,Mangrove,Jervis_Bay
