@@ -27,19 +27,16 @@ if(!require(shinyWidgets)) install.packages("shinyWidgets", repos = "http://cran
 if(!require(leaflet)) install.packages("leaflet", repos = "http://cran.us.r-project.org")
 if(!require(RColorBrewer)) install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
 if(!require(raster)) install.packages("raster", repos = "http://cran.us.r-project.org")
-#if(!require(rgdal)) install.packages("rgdal", repos = "http://cran.us.r-project.org")
 if(!require(lazyeval)) install.packages("lazyeval", repos = "http://cran.us.r-project.org")
 if(!require(htmltools)) install.packages("htmltools", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.esri)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
-#if(!require(stars)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leafem)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.extras2)) install.packages("leaflet.extras2", repos = "http://cran.us.r-project.org")
-#if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.org")
 if(!require(png)) install.packages("png", repos = "http://cran.us.r-project.org")
 if(!require(grid)) install.packages("grid", repos = "http://cran.us.r-project.org")
 if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-project.org")
 if(!require(sf)) install.packages("sf", repos = "http://cran.us.r-project.org")
-
+if(!require(patchwork)) install.packages("patchwork", repos = "http://cran.us.r-project.org")
 
 
 # Read in data .csv
@@ -1014,7 +1011,7 @@ server <- function(input, output, session) {
             dplyr::filter(Estuary == input$estuary2) %>%
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Man_Sm", "Man_Biplot", "SM_Biplot")) %>%
+            dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Man_Sm", "Man_Biplot", "SM_Biplot", "Man_Dmg", "SM_VDmg")) %>%
             dplyr::filter(Area >= 0)%>%
             dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
         
@@ -1098,36 +1095,102 @@ server <- function(input, output, session) {
     })
     
     #Filter out mangroves, mangrove_saltmarsh and saltmarsh
+    # Filter data for the relevant habitats
     mansm_dat <- reactive({
-        dat1 %>%
-            dplyr::filter(Estuary == input$estuary2) %>%
-            dplyr::group_by(Habitat,Map_Year) %>%
-            dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Man_Sm")) %>%
-            dplyr::filter(Area >= 0)%>%
-            dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
-        
+      dat1 %>%
+        dplyr::filter(Estuary == input$estuary2) %>%
+        dplyr::group_by(Habitat, Map_Year) %>%
+        dplyr::summarise(Area = sum(Area)) %>%
+        dplyr::filter(Habitat %in% c("Mangrove", "Man_Dmg", "Saltmarsh", "SM_VDmg", "Man_Sm")) %>%
+        dplyr::filter(Area >= 0) %>%
+        dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
     })
     
+    # Separate datasets for each plot
+    mangrove_data <- reactive({
+      mansm_dat() %>%
+        dplyr::filter(Habitat %in% c("Mangrove", "Man_Dmg"))
+    })
     
+    saltmarsh_data <- reactive({
+      mansm_dat() %>%
+        dplyr::filter(Habitat %in% c("Saltmarsh", "SM_VDmg"))
+    })
     
-    # Mangrove, Mixed and Saltmarsh plots
+    man_sm_data <- reactive({
+      mansm_dat() %>%
+        dplyr::filter(Habitat == "Man_Sm")
+    })
+    
+    # Render plots
     output$mansm_plot <- renderPlot({
-        ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000, fill=ToHighlight)) + 
-            geom_bar(stat="identity", color="black", linewidth = 0.2, width = 0.7)+ 
-            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = "none" )+
-            #geom_text(aes(label=round(Area/10000, digits = 2)), position=position_dodge(width=0.9), vjust=-0.25)+
-            labs(y="Hectares", x="Years Mapped") +
-            scale_y_continuous(expand = expansion(mult = c(0, .1)))+
-            facet_wrap(~Habitat, labeller = mansm.names) +
-            theme_bw() +
-            theme(axis.title.x = element_text(face="bold", size=14), 
-                  axis.text.x  = element_text(vjust=0.5, size=12),
-                  axis.title.y = element_text(face="bold", size=14),
-                  axis.text.y  = element_text(size=14),
-                  strip.text.x = element_text(size = 14))
-    },height = 350, width = 1000 )
-    
+      
+      # Calculate the max y-range for plots
+      y_max <- max(mansm_dat()$Area / 10000)
+      
+      # Stacked bar plot for Mangrove and Mang_damage
+      
+      p1 <- ggplot(data = mangrove_data(), aes(x = factor(Map_Year), y = Area/10000, fill = interaction(Habitat, ToHighlight))) + 
+        geom_bar(stat = "identity", color = "black", linewidth = 0.2, width = 0.7) + 
+        scale_fill_manual(values = c("Mangrove.yes" = "#EEEEEE", "Mangrove.no" = "#B1B1B1",
+                                     "Man_Dmg.yes" = "#CC79A7", "Man_Dmg.no" = "#FF69B4"), guide = "none") +
+        labs(y = "Hectares", x = "Years Mapped", title = "Mangrove and Mangrove damage") +
+        scale_y_continuous(expand = expansion(mult = c(0, .1)), limits = c(0, y_max)) +
+        facet_wrap(~Habitat, scales = "free_y") +
+        theme_bw() +
+        theme(axis.title.x = element_blank(), 
+              axis.text.x  = element_text(vjust = 0.5, size = 12),
+              axis.title.y = element_text(face = "bold", size = 14),
+              axis.text.y  = element_text(size = 14),
+              axis.line.y = element_line(color = "black"),
+              axis.ticks.y = element_line(color = "black"),
+              axis.title.y.right = element_blank(),
+              axis.text.y.right = element_blank(),
+              strip.text.x = element_text(size = 14),
+              plot.title = element_blank(),
+              legend.position = "none")
+      
+      # Separate plot for Man_Sm
+      p2 <- ggplot(data = man_sm_data(), aes(x = factor(Map_Year), y = Area/10000, fill = interaction(Habitat, ToHighlight))) + 
+        geom_bar(stat = "identity", color = "black", linewidth = 0.2, width = 0.7) + 
+        scale_fill_manual(values = c("Man_Sm.yes" = "#EEEEEE", "Man_Sm.no" = "#B1B1B1",
+                                     "Man_Sm.yes" = "#CC79A7", "Man_Sm.no" = "#FF69B4"), guide = "none") +
+        labs(y = NULL, x = "Years Mapped", title = "Mixed Mangrove and Saltmarsh") +
+        scale_y_continuous(expand = expansion(mult = c(0, .1)), limits = c(0, y_max)) +
+        facet_wrap(~Habitat, scales = "free_y", labeller = mansm.names) +
+        theme_bw() +
+        theme(axis.title.x = element_text(face = "bold", size = 14), 
+              axis.text.x  = element_text(vjust = 0.5, size = 12),
+              axis.title.y = element_blank(),
+              axis.text.y  = element_blank(),
+              axis.line.y = element_blank(),
+              axis.ticks.y = element_blank(),
+              strip.text.x = element_text(size = 14),
+              plot.title = element_blank(),
+              legend.position = "none")
+      
+      # Stacked bar plot for Saltmarsh and Sm_damage
+      p3 <- ggplot(data = saltmarsh_data(), aes(x = factor(Map_Year), y = Area/10000, fill = interaction(Habitat, ToHighlight))) + 
+        geom_bar(stat = "identity", color = "black", linewidth = 0.2, width = 0.7) + 
+        scale_fill_manual(values = c("Saltmarsh.yes" = "#EEEEEE", "Saltmarsh.no" = "#B1B1B1",
+                                     "SM_VDmg.yes" = "#CC79A7", "SM_VDmg.no" = "#FF69B4"), guide = "none") +
+        labs(y = NULL, x = "Years Mapped", title = "Saltmarsh and Saltmarsh damage") +
+        scale_y_continuous(expand = expansion(mult = c(0, .1)), limits = c(0, y_max)) +
+        facet_wrap(~Habitat, scales = "free_y") +
+        theme_bw() +
+        theme(axis.title.x = element_blank(), 
+              axis.text.x  = element_text(vjust = 0.5, size = 12),
+              axis.title.y = element_blank(),
+              axis.text.y  = element_blank(),
+              axis.line.y = element_blank(),
+              axis.ticks.y = element_blank(),
+              strip.text.x = element_text(size = 14),
+              plot.title = element_blank(),
+              legend.position = "none")
+      
+      # Combine the three plots using patchwork
+      p1 + p2 + p3
+    }, height = 350, width = 1000)
     
     
     
