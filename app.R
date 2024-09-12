@@ -56,9 +56,9 @@ dat$fMap_Year <- factor(dat$Map_Year)
 
 # Transpose data to long format to enable filtering by species.
 dat1 <- dat %>%
-    gather("Habitat", "Area", 7:16)
+    gather("Habitat", "Area", 7:18)
     
-dat1$Habitat <- factor(dat1$Habitat, levels = c("Seagrass", "Mangrove", "Man_Sm", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
+dat1$Habitat <- factor(dat1$Habitat, levels = c("Seagrass", "Mangrove", "Man_Sm", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot", "Man_Dmg", "SM_VDmg"))
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
 # List the regions available, there are only 4 so a list here is easy.
@@ -716,9 +716,9 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/fire_damage/{z}/{x}/{y}.png", group = "2019 - 2020 Fire damage",
                      options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
                      attribution = "&copy; Department of Primary Industries 2020") %>% 
-            addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Disturbance/{z}/{x}/{y}.png", group = "Saltmarsh - Vehicle damage",
-                     options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
-                     attribution = "&copy; Department of Primary Industries 2021") %>%
+          #  addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/Disturbance/{z}/{x}/{y}.png", group = "Saltmarsh - Vehicle damage",
+          #           options = pathOptions(pane="macromap", maxZoom=17, opacity=.8),
+          #           attribution = "&copy; Department of Primary Industries 2021") %>%
             addTiles(urlTemplate = "https://gregjwest.github.io/CumulativeSG/{z}/{x}/{y}.png", group = "Cumulative Seagrass",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Transport for NSW 2020") %>% 
@@ -756,7 +756,7 @@ server <- function(input, output, session) {
             addScaleBar(position = "bottomleft", options = scaleBarOptions(maxWidth = 100, imperial = FALSE, updateWhenIdle = TRUE)) %>%
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Saltmarsh - Vehicle damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Cumulative Seagrass", "Mooring Areas", "Boat moorings"),
+                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Cumulative Seagrass", "Mooring Areas", "Boat moorings"),
                 options = layersControlOptions(collapsed = FALSE, opacity = 0.7)) %>%
             addMeasure(position = "topleft",
                        primaryLengthUnit = "meters",
@@ -767,7 +767,7 @@ server <- function(input, output, session) {
                        completedColor = "#7D4479") %>%
             hideGroup("Foreshore") %>%
             hideGroup("2019 - 2020 Fire damage") %>%
-            hideGroup("Saltmarsh - Vehicle damage") %>%
+           # hideGroup("Saltmarsh - Vehicle damage") %>%
             hideGroup("Artificial structures") %>%
             hideGroup("Aquaculture leases") %>%
             hideGroup("Estuarine reef") %>%
@@ -1101,7 +1101,7 @@ server <- function(input, output, session) {
         dplyr::filter(Estuary == input$estuary2) %>%
         dplyr::group_by(Habitat, Map_Year) %>%
         dplyr::summarise(Area = sum(Area)) %>%
-        dplyr::filter(Habitat %in% c("Mangrove", "Man_Dmg", "Saltmarsh", "SM_VDmg", "Man_Sm")) %>%
+        dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Man_Sm", "Man_Dmg", "SM_VDmg")) %>%
         dplyr::filter(Area >= 0) %>%
         dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
     })
@@ -1110,6 +1110,7 @@ server <- function(input, output, session) {
     mangrove_data <- reactive({
       mansm_dat() %>%
         dplyr::filter(Habitat %in% c("Mangrove", "Man_Dmg"))
+
     })
     
     saltmarsh_data <- reactive({
@@ -1126,17 +1127,14 @@ server <- function(input, output, session) {
     output$mansm_plot <- renderPlot({
       
       # Calculate the max y-range for plots
-      y_max <- max(mansm_dat()$Area / 10000)
+      y_max <- max(mansm_dat()$Area / 10000) * 1.1
       
       # Stacked bar plot for Mangrove and Mang_damage
-      
       p1 <- ggplot(data = mangrove_data(), aes(x = factor(Map_Year), y = Area/10000, fill = interaction(Habitat, ToHighlight))) + 
         geom_bar(stat = "identity", color = "black", linewidth = 0.2, width = 0.7) + 
-        scale_fill_manual(values = c("Mangrove.yes" = "#EEEEEE", "Mangrove.no" = "#B1B1B1",
-                                     "Man_Dmg.yes" = "#CC79A7", "Man_Dmg.no" = "#FF69B4"), guide = "none") +
-        labs(y = "Hectares", x = "Years Mapped", title = "Mangrove and Mangrove damage") +
+        scale_fill_manual(values = c("Mangrove.yes" = "#EEEEEE", "Mangrove.no" = "#B1B1B1", "Man_Dmg.no" = "#666"), guide = "none") +
+        labs(y = "Hectares", x = "Years Mapped", title = "Mangrove") +
         scale_y_continuous(expand = expansion(mult = c(0, .1)), limits = c(0, y_max)) +
-        facet_wrap(~Habitat, scales = "free_y") +
         theme_bw() +
         theme(axis.title.x = element_blank(), 
               axis.text.x  = element_text(vjust = 0.5, size = 12),
@@ -1147,17 +1145,14 @@ server <- function(input, output, session) {
               axis.title.y.right = element_blank(),
               axis.text.y.right = element_blank(),
               strip.text.x = element_text(size = 14),
-              plot.title = element_blank(),
-              legend.position = "none")
+              plot.title = element_text(hjust = 0.5, size = 14))
       
       # Separate plot for Man_Sm
       p2 <- ggplot(data = man_sm_data(), aes(x = factor(Map_Year), y = Area/10000, fill = interaction(Habitat, ToHighlight))) + 
         geom_bar(stat = "identity", color = "black", linewidth = 0.2, width = 0.7) + 
-        scale_fill_manual(values = c("Man_Sm.yes" = "#EEEEEE", "Man_Sm.no" = "#B1B1B1",
-                                     "Man_Sm.yes" = "#CC79A7", "Man_Sm.no" = "#FF69B4"), guide = "none") +
+        scale_fill_manual(values = c("Man_Sm.yes" = "#EEEEEE", "Man_Sm.no" = "#B1B1B1"), guide = "none") +
         labs(y = NULL, x = "Years Mapped", title = "Mixed Mangrove and Saltmarsh") +
         scale_y_continuous(expand = expansion(mult = c(0, .1)), limits = c(0, y_max)) +
-        facet_wrap(~Habitat, scales = "free_y", labeller = mansm.names) +
         theme_bw() +
         theme(axis.title.x = element_text(face = "bold", size = 14), 
               axis.text.x  = element_text(vjust = 0.5, size = 12),
@@ -1166,17 +1161,15 @@ server <- function(input, output, session) {
               axis.line.y = element_blank(),
               axis.ticks.y = element_blank(),
               strip.text.x = element_text(size = 14),
-              plot.title = element_blank(),
-              legend.position = "none")
+              plot.title = element_text(hjust = 0.5, size = 14))
+
       
       # Stacked bar plot for Saltmarsh and Sm_damage
       p3 <- ggplot(data = saltmarsh_data(), aes(x = factor(Map_Year), y = Area/10000, fill = interaction(Habitat, ToHighlight))) + 
         geom_bar(stat = "identity", color = "black", linewidth = 0.2, width = 0.7) + 
-        scale_fill_manual(values = c("Saltmarsh.yes" = "#EEEEEE", "Saltmarsh.no" = "#B1B1B1",
-                                     "SM_VDmg.yes" = "#CC79A7", "SM_VDmg.no" = "#FF69B4"), guide = "none") +
-        labs(y = NULL, x = "Years Mapped", title = "Saltmarsh and Saltmarsh damage") +
+        scale_fill_manual(values = c("Saltmarsh.yes" = "#EEEEEE", "Saltmarsh.no" = "#B1B1B1", "SM_VDmg.no" = "#555"), guide = "none") +
+        labs(y = NULL, x = "Years Mapped", title = "Saltmarsh") +
         scale_y_continuous(expand = expansion(mult = c(0, .1)), limits = c(0, y_max)) +
-        facet_wrap(~Habitat, scales = "free_y") +
         theme_bw() +
         theme(axis.title.x = element_blank(), 
               axis.text.x  = element_text(vjust = 0.5, size = 12),
@@ -1185,8 +1178,7 @@ server <- function(input, output, session) {
               axis.line.y = element_blank(),
               axis.ticks.y = element_blank(),
               strip.text.x = element_text(size = 14),
-              plot.title = element_blank(),
-              legend.position = "none")
+              plot.title = element_text(hjust = 0.5, size = 14))
       
       # Combine the three plots using patchwork
       p1 + p2 + p3
@@ -1212,7 +1204,7 @@ server <- function(input, output, session) {
     },height = 600, width = 600 )
     
     
-    #### PREDICTIVE MODELLING TAB ####
+    55#### PREDICTIVE MODELLING TAB ####
     # DATA PREPERATION
     
     observe({
