@@ -75,6 +75,9 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 29427,Clarence River,North Coast,2010,Halophila,Clarence_River
 29427,Clarence River,North Coast,2010,Mangrove,Clarence_River
 29427,Clarence River,North Coast,2010,Saltmarsh,Clarence_River
+29427,Clarence River,North Coast,2024,Zostera,Clarence_River
+29427,Clarence River,North Coast,2024,Mangrove,Clarence_River
+29427,Clarence River,North Coast,2024,Saltmarsh,Clarence_River
 29602,Cakora Lagoon,North Coast,2005,Zostera,Cakora_Lagoon
 29602,Cakora Lagoon,North Coast,2005,Mangrove,Cakora_Lagoon
 29602,Cakora Lagoon,North Coast,2005,Saltmarsh,Cakora_Lagoon
@@ -84,6 +87,9 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 29673,Sandon River,North Coast,2005,Zostera,Sandon_River
 29673,Sandon River,North Coast,2005,Mangrove,Sandon_River
 29673,Sandon River,North Coast,2005,Saltmarsh,Sandon_River
+29673,Sandon River,North Coast,2024,Zostera,Sandon_River
+29673,Sandon River,North Coast,2024,Mangrove,Sandon_River
+29673,Sandon River,North Coast,2024,Saltmarsh,Sandon_River
 29888,Wooli Wooli River,North Coast,1983,Zostera,Wooli_Wooli_River
 29888,Wooli Wooli River,North Coast,1983,Mangrove,Wooli_Wooli_River
 29888,Wooli Wooli River,North Coast,1983,Saltmarsh,Wooli_Wooli_River

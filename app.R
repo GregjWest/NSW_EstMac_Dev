@@ -700,7 +700,7 @@ server <- function(input, output, session) {
     output$map <- renderLeaflet({
         
         
-        leaflet(options = leafletOptions(maxZoom = 16)) %>% 
+        leaflet(options = leafletOptions(maxZoom = 17)) %>% 
             addMapPane("basemaps", zIndex=200) %>% #add map pane for baselayers
             addMapPane("macromap", zIndex=400) %>% #add map pane for macrophyte map
             addMapPane("othermap", zIndex=450) %>% #add map pane for all other layers
