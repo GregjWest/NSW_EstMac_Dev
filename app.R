@@ -46,7 +46,9 @@ if(!require(patchwork)) install.packages("patchwork", repos = "http://cran.us.r-
 
 # read in spatial grid data
     geojson <- sf::st_read("estuary_grids.geojson")
-    
+
+# read in spatial grid data
+    aquaculture <- readLines("aquaculture.geojson") %>% paste(collapse = "\n")        
     
 # mangrove and saltmarsh plot background image    
     mvsimg <- readPNG("www/Man_SM_Background.png")
@@ -400,7 +402,7 @@ tabPanel(
             
             h4("Change in mapped area of mangrove and saltmarsh"),
             tags$p("Change in area (hectares) of mapped mangrove and saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each 
-                   habitat for each time. Due to differences in mapping techniques, comparison of areas with data from the 1980s (light grey columns) should be used as an indication of the 
+                   habitat for each time. Dark grey shading indicates the area of mapped damaged habitat. Due to differences in mapping techniques, comparison of areas with data from the 1980s (light grey columns) should be used as an indication of the 
                    direction of change (increase vs decrease) rather than the magnitude of change area change."),
             
             column(6, offset = 0,
