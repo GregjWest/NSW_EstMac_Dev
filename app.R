@@ -736,10 +736,14 @@ server <- function(input, output, session) {
                      attribution = "&copy; Department of Primary Industries 2020") %>%
             
 
+            #add aquaculture geojson
+            addGeoJSON(aquaculture, fillOpacity = 0.1, weight = 1.5, color = "black", group = "Aquaculture leases", options = pathOptions(pane="othermap", maxZoom=17)) %>%
+        
+        
             
             #Add aquaculture leases from DPI
-            addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture1/MapServer/1", 
-                                useServiceSymbology = FALSE, options = pathOptions(pane="othermap", maxZoom=17), color = "black",  weight = "1.5", group = "Aquaculture leases")%>%
+            #addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture1/MapServer/1", 
+            #                    useServiceSymbology = FALSE, options = pathOptions(pane="othermap", maxZoom=17), color = "black",  weight = "1.5", group = "Aquaculture leases")%>%
             # set boundaries for map
             # fitBounds(lng1 = min(raster_points()$Lon), 
             #           lat1 = min(raster_points()$Lat), 
