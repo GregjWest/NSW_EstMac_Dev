@@ -181,8 +181,8 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
 # Overall layout of App.
 ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                  title = div(img(src= "DPI_LOGO_left.svg","Estuarine Habitat Dashboard",
-                                 style="margin-top: -15px;margin-left: -30;padding-right:10px", 
-                                 height = 50)),
+                                 style="margin-top: -20px;margin-left: -10;padding-right:20px", 
+                                 height = 60)),
                  windowTitle = "NSW Estuarine Mapping",
                  position = c("fixed-top"),
                  header=singleton(tags$head(includeHTML(("google-analytics.html")))),
@@ -223,7 +223,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                                             selected = "2017"),
                                                 tags$h6("A detailed list of all mapped estuaries and the features present can be viewed ",
                                                         tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),         
-                                                tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
+                                                tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPIRD Fisheries Spatial Data Portal.", 
                                                         tags$br(),tags$br(),
                                                         tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
                                                                tags$img(src='Fisheries_Portal.svg')) 
@@ -291,7 +291,7 @@ tabPanel(
             ),
             
         
-            tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
+            tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPIRD Fisheries Spatial Data Portal.", 
                     tags$br(),tags$br(),
                     tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
                            tags$img(src='Fisheries_Portal.svg')), 
@@ -514,12 +514,12 @@ tabPanel(
     "About",
     tags$div(
       tags$h3("Disclaimer"),
-      tags$p("The information contained in this website is based on knowledge and understanding at the time of publication (July 2021) and may not be accurate, current or complete. The State of New South Wales (including the Department of Regional NSW), the authors and the publisher take no responsibility, and will accept no liability, for the accuracy, currency, reliability or correctness of any information included in the document (including material provided by third parties). Readers should make their own inquiries and rely on their own advice when making decisions related to material contained in this publication."),
+      tags$p("The information contained in this website is based on knowledge and understanding at the time of publication (July 2024) and may not be accurate, current or complete. The State of New South Wales (including the Department of Primary Industries and Regional Development), the authors and the publisher take no responsibility, and will accept no liability, for the accuracy, currency, reliability or correctness of any information included in the document (including material provided by third parties). Readers should make their own inquiries and rely on their own advice when making decisions related to material contained in this publication."),
       
       tags$h3("Overview"),
       tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
       tags$p("More details on the estuarine habitats of NSW can be found on the ",
-             tags$a(href="https://www.dpi.nsw.gov.au/fishing/habitat/aquatic-habitats/estuarine", target="_blank", " NSW DPI Website")),
+             tags$a(href="https://www.dpi.nsw.gov.au/fishing/habitat/aquatic-habitats/estuarine", target="_blank", " NSW DPIRD Website")),
       tags$p("A detailed list of all mapped estuaries can be viewed ",
              tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
       tags$p("A full list of changes and updates to the dashboard can be viewed in the ",
@@ -545,7 +545,7 @@ tabPanel(
       tags$p("Details of the land use categories used to delineate urban/developed can be found ", tags$a(href="Landuse.html", target="_blank", "here."), "Due to data constraints projected distributions were only able to be created for 110 estuaries and a list of these estuaries and accuracy assessment results for the present day modelling can be found" , tags$a(href=" https://datasets.seed.nsw.gov.au/dataset/266cdf74-2da9-48cb-8ba1-acdce66928b7/resource/1d05f43d-095f-492b-9110-28a0a4b42923/download/table_1.pdf", target="_blank", "here.")),
       
       tags$h3("Acknowledgements"),
-      tags$p("The data used here is derived from many decades of work by DPI Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood. See ", tags$a(href="West_1985.pdf", target="_blank", "West et al. 1985")),
+      tags$p("The data used here is derived from many decades of work by DPIRD Fisheries staff.  The earliest macrophyte mapping project was led by Ron West and maps were created by Trudy Walford and Carol Thorogood. See ", tags$a(href="West_1985.pdf", target="_blank", "West et al. 1985")),
       tags$p("Subsequent mapping projects were led by Rob Williams, Bob Creese, Greg West and Tim Glasby.  We thank the many staff involved in producing these maps, including, but not limited to: Peter Gibson, Roger Laird, Isabelle Thiebaud, Brooke McCartin, Chris Gallen, Danielle Morrison, Joe Neilson and Trudy Walford."),
       tags$p("This website and the most recent maps were funded by the NSW State Government via the Marine Estate Management Strategy.  Funding for older mapping projects was from numerous NSW State Government sources and short-term contracts funded by organisations including: Lake Macquarie City Council, Eurobodalla Shire Council, North Rivers Catchment Management Authority, Sydney Metro Catchment Management Authority and NSW Roads and Maritime"),
       
