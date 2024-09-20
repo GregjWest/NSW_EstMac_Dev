@@ -1,9 +1,9 @@
 ### West, Williams, Glasby  Dec 2020
 ## A Shiny map to display and explore the estuarine macorphyte mapping data
 
-# Last update Feb 2021
+# Last updated Sept 2024
 
-# v0.9
+# v1.5
 
 #
 # This is a Shiny web application. You can run the application by clicking
@@ -299,10 +299,10 @@ tabPanel(
                            tags$img(src='Fisheries_Portal.svg')), 
             
                     absolutePanel(id = "legend1", class = "card", bottom = 300, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                  tags$img(src='Macrophyte_Legend.svg', width='170'))
+                                  tags$img(src='Macrophyte_Legend.svg', width='180'))
             ),
                     absolutePanel(id = "legend1", class = "card", bottom = 20, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
-                                tags$img(src='Grid_Legend_Curved.svg',height='275',width='170'))
+                                tags$img(src='Grid_Legend_Curved.svg',width='180'))
           
             )
         ),
