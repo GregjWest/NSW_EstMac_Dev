@@ -402,7 +402,7 @@ tabPanel(
             
             h4("Change in mapped area of mangrove and saltmarsh"),
             tags$p("Change in area (hectares) of mapped mangrove and saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each 
-                   habitat for each time. Dark grey shading indicates the area of mapped damaged habitat. Due to differences in mapping techniques, comparison of areas with data from the 1980s (light grey columns) should be used as an indication of the 
+                   habitat for each time. Dark grey shading indicates the area of damaged habitat. Due to differences in mapping techniques, comparison of areas with data from the 1980s (light grey columns) should be used as an indication of the 
                    direction of change (increase vs decrease) rather than the magnitude of change area change."),
             
             column(6, offset = 0,
@@ -555,21 +555,22 @@ tabPanel(
       tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
       tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
       tags$p(strong("Data compilation:"), "Greg West"),
-      tags$p(strong("Last mapping update:"), "Jan 2023"),
-      tags$p(strong("Last Shiny App update:"), "Jan 2023"),
+      tags$p(strong("Last mapping update:"), "September 2024"),
+      tags$p(strong("Last Shiny App update:"), "September 2024"),
       tags$br(),
       
       tags$h3("References"),
+      tags$a(href="https://doi.org/10.1007/s00227-023-04279-0", tags$p("Swadling, D.S., West, G.J., Gibson, P.T., Laird, R.J., Glasby. T.M., (2023), Multi-scale assessments reveal changes in the distribution of the endangered seagrass Posidonia australis and the role of disturbances. Mar Biol 170, 147"), target="_blank"),
       tags$a(href="https://doi.org/10.1111/emr.12572", tags$p("Glasby, T.M., Gibson, P.T., Laird, R., Swadling, D.S. and West, G. (2023), Black summer bushfires caused extensive damage to estuarine wetlands in New South Wales, Australia. Ecol Manag Restor."), target="_blank"),
-      tags$a(href="https://doi.org/10.3389/fenvs.2022.749950", tags$p("Hughes MG, Glasby TM, Hanslow DJ, West GJ, Wen L. (2022). Random Forest Classification Method for Predicting Intertidal Wetland Migration Under Sea Level Rise. Frontiers in Environmental Science 10."), target="_blank"),
-      tags$a(href="https://doi.org/10.1002/aqc.3905", tags$p("Swadling DS, West GJ, Gibson PT, Laird RJ, Glasby TM. (2022). Don't go breaking apart: Anthropogenic disturbances predict meadow fragmentation of an endangered seagrass. Aquatic Conservation: Marine and Freshwater Ecosystems"), target="_blank"),
-      tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", tags$p("West, G., Glasby, T.M., (2021). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."), target="_blank"),
+      tags$a(href="https://doi.org/10.3389/fenvs.2022.749950", tags$p("Hughes M.G., Glasby T.M., Hanslow D.J., West G.J., Wen L. (2022). Random Forest Classification Method for Predicting Intertidal Wetland Migration Under Sea Level Rise. Frontiers in Environmental Science 10."), target="_blank"),
+      tags$a(href="https://doi.org/10.1002/aqc.3905", tags$p("Swadling D.S., West G.J., Gibson P.T., Laird R.J., Glasby T.M. (2022). Don't go breaking apart: Anthropogenic disturbances predict meadow fragmentation of an endangered seagrass. Aquatic Conservation: Marine and Freshwater Ecosystems"), target="_blank"),
+      tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", tags$p("West, G.J., Glasby, T.M., (2021). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."), target="_blank"),
       tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
       tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
       tags$a(href="West_1985.pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
       
       tags$br(),
-      tags$br("The Shiny App is created using R v4.2.1, RStudio 2023.03.0 Build 386, and Leaflet v2.1.2"),
+      tags$br("The Shiny App is created using R v4.4.0, RStudio RStudio 2023.06.1 Build 524, and Leaflet v2.2.2"),
       tags$br(),
         
 
