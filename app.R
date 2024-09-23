@@ -40,6 +40,7 @@ if(!require(png)) install.packages("png", repos = "http://cran.us.r-project.org"
 if(!require(grid)) install.packages("grid", repos = "http://cran.us.r-project.org")
 if(!require(stringr)) install.packages("stringr", repos = "http://cran.us.r-project.org")
 if(!require(sf)) install.packages("sf", repos = "http://cran.us.r-project.org")
+if(!require(patchwork)) install.packages("patchwork", repos = "http://cran.us.r-project.org")
 
 
 # Read in data .csv
@@ -58,9 +59,9 @@ dat$fMap_Year <- factor(dat$Map_Year)
 
 # Transpose data to long format to enable filtering by species.
 dat1 <- dat %>%
-    gather("Habitat", "Area", 7:16)
+    gather("Habitat", "Area", 7:18)
     
-dat1$Habitat <- factor(dat1$Habitat, levels = c("Seagrass", "Mangrove", "Man_Sm", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot"))
+dat1$Habitat <- factor(dat1$Habitat, levels = c("Seagrass", "Mangrove", "Man_Sm", "Saltmarsh","Posidonia", "Zostera","Halophila","Ruppia", "Man_Biplot", "SM_Biplot", "Man_Dmg", "SM_VDmg"))
 
 # Index/select the default region based on order in the above list i.e. 3 = Port Stephens (at the test state)
 # List the regions available, there are only 4 so a list here is easy.
