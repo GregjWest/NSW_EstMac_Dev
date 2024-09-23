@@ -184,8 +184,8 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
 # Overall layout of App.
 ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                  title = div(img(src= "DPI_LOGO_left.svg","Estuarine Habitat Dashboard",
-                                 style="margin-top: -15px;margin-left: -30;padding-right:10px", 
-                                 height = 50)),
+                                 style="margin-top: -20px;margin-left: -10;padding-right:20px", 
+                                 height = 60)),
                  windowTitle = "NSW Estuarine Mapping",
                  position = c("fixed-top"),
                  header=singleton(tags$head(includeHTML(("google-analytics.html")))),
@@ -405,7 +405,7 @@ tabPanel(
             
             h4("Change in mapped area of mangrove and saltmarsh"),
             tags$p("Change in area (hectares) of mapped mangrove and saltmarsh for the selected estuary. Areas in the figures below represent the total mapped area for each 
-                   habitat for each time. Due to differences in mapping techniques, comparison of areas from the data mapped during the 1980s (light grey columns) should be used as an indication of the 
+                   habitat for each time. Dark grey shading indicates the area of damaged habitat. Due to differences in mapping techniques, comparison of areas from the data mapped during the 1980s (light grey columns) should be used as an indication of the 
                    direction of change (increase vs decrease) rather than the magnitude of change area change."),
             
             column(6, offset = 0,
@@ -553,21 +553,22 @@ tabPanel(
     tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
     tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
     tags$p(strong("Data compilation:"), "Greg West"),
-    tags$p(strong("Last mapping update:"), "Jan 2023"),
-    tags$p(strong("Last Shiny App update:"), "Jan 2023"),
+    tags$p(strong("Last mapping update:"), "September 2024"),
+    tags$p(strong("Last Shiny App update:"), "September 2024"),
     tags$br(),
     
     tags$h3("References"),
+    tags$a(href="https://doi.org/10.1007/s00227-023-04279-0", tags$p("Swadling, D.S., West, G.J., Gibson, P.T., Laird, R.J., Glasby. T.M., (2023), Multi-scale assessments reveal changes in the distribution of the endangered seagrass Posidonia australis and the role of disturbances. Mar Biol 170, 147"), target="_blank"),
     tags$a(href="https://doi.org/10.1111/emr.12572", tags$p("Glasby, T.M., Gibson, P.T., Laird, R., Swadling, D.S. and West, G. (2023), Black summer bushfires caused extensive damage to estuarine wetlands in New South Wales, Australia. Ecol Manag Restor."), target="_blank"),
-    tags$a(href="https://doi.org/10.3389/fenvs.2022.749950", tags$p("Hughes MG, Glasby TM, Hanslow DJ, West GJ, Wen L. (2022). Random Forest Classification Method for Predicting Intertidal Wetland Migration Under Sea Level Rise. Frontiers in Environmental Science 10."), target="_blank"),
-    tags$a(href="https://doi.org/10.1002/aqc.3905", tags$p("Swadling DS, West GJ, Gibson PT, Laird RJ, Glasby TM. (2022). Don't go breaking apart: Anthropogenic disturbances predict meadow fragmentation of an endangered seagrass. Aquatic Conservation: Marine and Freshwater Ecosystems"), target="_blank"),
-    tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", tags$p("West, G., Glasby, T.M., (2021). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."), target="_blank"),
+    tags$a(href="https://doi.org/10.3389/fenvs.2022.749950", tags$p("Hughes M.G., Glasby T.M., Hanslow D.J., West G.J., Wen L. (2022). Random Forest Classification Method for Predicting Intertidal Wetland Migration Under Sea Level Rise. Frontiers in Environmental Science 10."), target="_blank"),
+    tags$a(href="https://doi.org/10.1002/aqc.3905", tags$p("Swadling D.S., West G.J., Gibson P.T., Laird R.J., Glasby T.M. (2022). Don't go breaking apart: Anthropogenic disturbances predict meadow fragmentation of an endangered seagrass. Aquatic Conservation: Marine and Freshwater Ecosystems"), target="_blank"),
+    tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", tags$p("West, G.J., Glasby, T.M., (2021). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."), target="_blank"),
     tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
     tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
     tags$a(href="West_1985.pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
     
     tags$br(),
-    tags$br("The Shiny App is created using R v4.2.1, RStudio 2023.03.0 Build 386, and Leaflet v2.1.2"),
+    tags$br("The Shiny App is created using R v4.4.0, RStudio RStudio 2023.06.1 Build 524, and Leaflet v2.2.2"),
     tags$br(),
     
     )
@@ -1012,7 +1013,7 @@ server <- function(input, output, session) {
             dplyr::filter(Estuary == input$estuary2) %>%
             dplyr::group_by(Habitat,Map_Year) %>%
             dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Man_Sm", "Man_Biplot", "SM_Biplot")) %>%
+            dplyr::filter(!Habitat %in% c("Seagrass", "Mangrove", "Saltmarsh", "Man_Sm", "Man_Biplot", "SM_Biplot", "Man_Dmg", "SM_VDmg")) %>%
             dplyr::filter(Area >= 0)%>%
             dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
         
@@ -1097,35 +1098,94 @@ server <- function(input, output, session) {
     })
     
     #Filter out mangroves, mangrove_saltmarsh and saltmarsh
+    # Filter data for the relevant habitats
     mansm_dat <- reactive({
-        dat1 %>%
-            dplyr::filter(Estuary == input$estuary2) %>%
-            dplyr::group_by(Habitat,Map_Year) %>%
-            dplyr::summarise(Area = sum(Area)) %>%
-            dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Man_Sm")) %>%
-            dplyr::filter(Area >= 0)%>%
-            dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
-        
+      dat1 %>%
+        dplyr::filter(Estuary == input$estuary2) %>%
+        dplyr::group_by(Habitat, Map_Year) %>%
+        dplyr::summarise(Area = sum(Area)) %>%
+        dplyr::filter(Habitat %in% c("Mangrove", "Saltmarsh", "Man_Sm", "Man_Dmg", "SM_VDmg")) %>%
+        dplyr::filter(Area >= 0) %>%
+        dplyr::mutate(ToHighlight = ifelse(Map_Year <= 1990, "yes", "no"))
     })
     
+    # Separate datasets for each plot
+    mangrove_data <- reactive({
+      mansm_dat() %>%
+        dplyr::filter(Habitat %in% c("Mangrove", "Man_Dmg"))
+      
+    })
     
+    saltmarsh_data <- reactive({
+      mansm_dat() %>%
+        dplyr::filter(Habitat %in% c("Saltmarsh", "SM_VDmg"))
+    })
     
-    # Mangrove, Mixed and Saltmarsh plots
+    man_sm_data <- reactive({
+      mansm_dat() %>%
+        dplyr::filter(Habitat == "Man_Sm")
+    })
+    
+    # Render plots
     output$mansm_plot <- renderPlot({
-        ggplot(data=mansm_dat(), aes(x=factor(Map_Year), y=Area/10000, fill=ToHighlight)) + 
-            geom_bar(stat="identity", color="black", linewidth = 0.2, width = 0.7)+ 
-            scale_fill_manual(values = c("yes"="#EEEEEE", "no"="#B1B1B1"), guide = "none" )+
-            #geom_text(aes(label=round(Area/10000, digits = 2)), position=position_dodge(width=0.9), vjust=-0.25)+
-            labs(y="Hectares", x="Years Mapped") +
-            scale_y_continuous(expand = expansion(mult = c(0, .1)))+
-            facet_wrap(~Habitat, labeller = mansm.names) +
-            theme_bw() +
-            theme(axis.title.x = element_text(face="bold", size=14), 
-                  axis.text.x  = element_text(vjust=0.5, size=12),
-                  axis.title.y = element_text(face="bold", size=14),
-                  axis.text.y  = element_text(size=14),
-                  strip.text.x = element_text(size = 14))
-    },height = 350, width = 1000 )
+      
+      # Calculate the max y-range for plots
+      y_max <- max(mansm_dat()$Area / 10000) * 1.1
+      
+      # Stacked bar plot for Mangrove and Mang_damage
+      p1 <- ggplot(data = mangrove_data(), aes(x = factor(Map_Year), y = Area/10000, fill = interaction(Habitat, ToHighlight))) + 
+        geom_bar(stat = "identity", color = "black", linewidth = 0.2, width = 0.7) + 
+        scale_fill_manual(values = c("Mangrove.yes" = "#EEEEEE", "Mangrove.no" = "#B1B1B1", "Man_Dmg.no" = "#666"), guide = "none") +
+        labs(y = "Hectares", x = "Years Mapped", title = "Mangrove") +
+        scale_y_continuous(expand = expansion(mult = c(0, .1)), limits = c(0, y_max)) +
+        theme_bw() +
+        theme(axis.title.x = element_blank(), 
+              axis.text.x  = element_text(vjust = 0.5, size = 12),
+              axis.title.y = element_text(face = "bold", size = 14),
+              axis.text.y  = element_text(size = 14),
+              axis.line.y = element_line(color = "black"),
+              axis.ticks.y = element_line(color = "black"),
+              axis.title.y.right = element_blank(),
+              axis.text.y.right = element_blank(),
+              strip.text.x = element_text(size = 14),
+              plot.title = element_text(hjust = 0.5, size = 14))
+      
+      # Separate plot for Man_Sm
+      p2 <- ggplot(data = man_sm_data(), aes(x = factor(Map_Year), y = Area/10000, fill = interaction(Habitat, ToHighlight))) + 
+        geom_bar(stat = "identity", color = "black", linewidth = 0.2, width = 0.7) + 
+        scale_fill_manual(values = c("Man_Sm.yes" = "#EEEEEE", "Man_Sm.no" = "#B1B1B1"), guide = "none") +
+        labs(y = NULL, x = "Years Mapped", title = "Mixed Mangrove and Saltmarsh") +
+        scale_y_continuous(expand = expansion(mult = c(0, .1)), limits = c(0, y_max)) +
+        theme_bw() +
+        theme(axis.title.x = element_text(face = "bold", size = 14), 
+              axis.text.x  = element_text(vjust = 0.5, size = 12),
+              axis.title.y = element_blank(),
+              axis.text.y  = element_blank(),
+              axis.line.y = element_blank(),
+              axis.ticks.y = element_blank(),
+              strip.text.x = element_text(size = 14),
+              plot.title = element_text(hjust = 0.5, size = 14))
+      
+      
+      # Stacked bar plot for Saltmarsh and Sm_damage
+      p3 <- ggplot(data = saltmarsh_data(), aes(x = factor(Map_Year), y = Area/10000, fill = interaction(Habitat, ToHighlight))) + 
+        geom_bar(stat = "identity", color = "black", linewidth = 0.2, width = 0.7) + 
+        scale_fill_manual(values = c("Saltmarsh.yes" = "#EEEEEE", "Saltmarsh.no" = "#B1B1B1", "SM_VDmg.no" = "#555"), guide = "none") +
+        labs(y = NULL, x = "Years Mapped", title = "Saltmarsh") +
+        scale_y_continuous(expand = expansion(mult = c(0, .1)), limits = c(0, y_max)) +
+        theme_bw() +
+        theme(axis.title.x = element_blank(), 
+              axis.text.x  = element_text(vjust = 0.5, size = 12),
+              axis.title.y = element_blank(),
+              axis.text.y  = element_blank(),
+              axis.line.y = element_blank(),
+              axis.ticks.y = element_blank(),
+              strip.text.x = element_text(size = 14),
+              plot.title = element_text(hjust = 0.5, size = 14))
+      
+      # Combine the three plots using patchwork
+      p1 + p2 + p3
+    }, height = 350, width = 1000)
     
     
     
