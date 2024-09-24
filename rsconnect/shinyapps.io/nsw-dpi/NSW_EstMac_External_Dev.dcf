@@ -1,0 +1,12 @@
+name: NSW_EstMac_External_Dev
+title: NSW_EstMac_External_Dev
+username: nsw-dpi
+account: nsw-dpi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12791705
+bundleId: 9133883
+url: https://nsw-dpi.shinyapps.io/NSW_EstMac_External_Dev/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
