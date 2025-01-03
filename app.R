@@ -51,6 +51,9 @@ if(!require(patchwork)) install.packages("patchwork", repos = "http://cran.us.r-
 # read in spatial grid data
     geojson <- sf::st_read("estuary_grids.geojson")
     
+# read in spatial grid data
+    aquaculture <- readLines("aquaculture.geojson") %>% paste(collapse = "\n")    
+
 # mangrove and saltmarsh plot background image    
     mvsimg <- readPNG("www/Man_SM_Background.png")
     mvsbgimg <- rasterGrob(mvsimg, interpolate=TRUE)
@@ -733,9 +736,15 @@ server <- function(input, output, session) {
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2021") %>%
             
+            
+            #add aquaculture geojson
+            addGeoJSON(aquaculture, fillOpacity = 0.1, weight = 1.5, color = "black", group = "Aquaculture leases", options = pathOptions(pane="othermap", maxZoom=17)) %>%
+        
+        
+        
             #Add aquaculture leases from DPI
-            addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture1/MapServer/1", 
-                                useServiceSymbology = FALSE, options = pathOptions(pane="othermap", maxZoom=17), color = "black",  weight = "1.5", group = "Aquaculture leases")%>%
+            #addEsriFeatureLayer(url="https://spatial.industry.nsw.gov.au/arcgis/rest/services/Fisheries_Portal/Aquaculture1/MapServer/1", 
+            #                    useServiceSymbology = FALSE, options = pathOptions(pane="othermap", maxZoom=17), color = "black",  weight = "1.5", group = "Aquaculture leases")%>%
             
             # set boundaries for map
             # fitBounds(lng1 = min(raster_points()$Lon), 
