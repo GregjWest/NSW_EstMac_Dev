@@ -732,7 +732,7 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = "https://gregjwest.github.io/NSW_EstMacrophytes/reef/{z}/{x}/{y}.png", group = "Estuarine reef",
                      options = pathOptions(pane="othermap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2021") %>%
-            addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat",
+            addTiles(urlTemplate = "https://gregjwest.github.io/latest_mapping/{z}/{x}/{y}.png", group = "Latest mapped habitat (All NSW)",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2021") %>%
             
@@ -767,7 +767,7 @@ server <- function(input, output, session) {
             
             addLayersControl(
                 baseGroups = c("Open Street Map", "Photo basemap"),
-                overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef"),
+                overlayGroups = c("Latest mapped habitat (All NSW)", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef"),
                 options = layersControlOptions(collapsed = FALSE)) %>%
             
             addMeasure(position = "topleft",
@@ -799,7 +799,7 @@ server <- function(input, output, session) {
             addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat()$Est_Name}/${input$date_t1}/{z}/{x}/{y}.png"), group = "Historic mapping (selected estuary)", layerId = "macmap",
                      options = pathOptions(pane="macromap", maxZoom=17),
                      attribution = "&copy; Department of Primary Industries 2020") %>%
-            hideGroup("Latest mapped habitat")
+            hideGroup("Latest mapped habitat (All NSW)")
         
     })
     
