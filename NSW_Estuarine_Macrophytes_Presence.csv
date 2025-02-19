@@ -397,6 +397,10 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 33345,Tuggerah Lake,Greater Sydney,2005,Ruppia,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,2005,Mangrove,Tuggerah_Lake
 33345,Tuggerah Lake,Greater Sydney,2005,Saltmarsh,Tuggerah_Lake
+33345,Tuggerah Lake,Greater Sydney,2024,Zostera,Tuggerah_Lake
+33345,Tuggerah Lake,Greater Sydney,2024,Ruppia,Tuggerah_Lake
+33345,Tuggerah Lake,Greater Sydney,2024,Mangrove,Tuggerah_Lake
+33345,Tuggerah Lake,Greater Sydney,2024,Saltmarsh,Tuggerah_Lake
 33430,Wamberal Lagoon,Greater Sydney,1984,Zostera,Wamberal_Lagoon
 33430,Wamberal Lagoon,Greater Sydney,1984,Ruppia,Wamberal_Lagoon
 33430,Wamberal Lagoon,Greater Sydney,2006,Ruppia,Wamberal_Lagoon
@@ -574,6 +578,8 @@ ESTCODE,Estuary,Region,Map_Year,Macrophyte,Est_Name
 34560,Elliott lake,South East,2006,Zostera,Elliott_lake
 34560,Elliott lake,South East,2006,Mangrove,Elliott_lake
 34560,Elliott lake,South East,2006,Saltmarsh,Elliott_lake
+34560,Elliott lake,South East,2024,Mangrove,Elliott_lake
+34560,Elliott lake,South East,2024,Saltmarsh,Elliott_lake
 34628,Minnamurra River,South East,1982,Zostera,Minnamurra_River
 34628,Minnamurra River,South East,1982,Mangrove,Minnamurra_River
 34628,Minnamurra River,South East,1982,Saltmarsh,Minnamurra_River
