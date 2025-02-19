@@ -555,7 +555,7 @@ tabPanel(
       tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
       tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
       tags$p(strong("Data compilation:"), "Greg West"),
-      tags$p(strong("Last mapping update:"), "September 2024"),
+      tags$p(strong("Last mapping update:"), "February 2025"),
       tags$p(strong("Last Shiny App update:"), "September 2024"),
       tags$br(),
       
