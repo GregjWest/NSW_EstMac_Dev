@@ -5,9 +5,9 @@ account: nsw-dpi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4430702
-bundleId: 9821426
+bundleId: 9833265
 url: https://nsw-dpi.shinyapps.io/NSW_Estuarine_Habitat/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: data/Multi_Estuary_All_Years_Grid_2024.csv|data/Multi_Estuary_All_Years_Grid_2025.csv|data/NSW_Estuarine_Macrophytes_Presence.csv
+ignoredFiles: data/Multi_Estuary_All_Years_Grid_2024.csv|data/NSW_Estuarine_Macrophytes_Presence.csv
