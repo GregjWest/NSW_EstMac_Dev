@@ -5,8 +5,8 @@ account: nsw-dpi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2672519
-bundleId: 9821587
+bundleId: 9833227
 url: https://nsw-dpi.shinyapps.io/NSW-Macrophyte-Mapping/
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: data/Multi_Estuary_All_Years_Grid.csv|data/Multi_Estuary_All_Years_Grid_2024.csv|data/NSW_Estuarine_Macrophytes_Presence.csv
+ignoredFiles: data/Multi_Estuary_All_Years_Grid.csv|data/Multi_Estuary_All_Years_Grid_2024.csv|data/Multi_Estuary_All_Years_Grid_210225.xlsx|data/NSW_Estuarine_Macrophytes_Presence.csv
