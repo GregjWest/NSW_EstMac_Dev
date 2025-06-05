@@ -560,6 +560,7 @@ tabPanel(
       tags$br(),
       
       tags$h3("References"),
+      tags$a(href="https://doi.org/10.1007/s13157-025-01925-9", tags$p("West, G.J., Gibson, P.T. & Glasby, T.M., (2025), Monitoring Estuarine Habitats and Threats at a Regional Scale Using Aerial Photography, Object-Based Image Analysis and Deep Learning. Wetlands 45, 44"), target="_blank"),
       tags$a(href="https://doi.org/10.1007/s00227-023-04279-0", tags$p("Swadling, D.S., West, G.J., Gibson, P.T., Laird, R.J., Glasby. T.M., (2023), Multi-scale assessments reveal changes in the distribution of the endangered seagrass Posidonia australis and the role of disturbances. Mar Biol 170, 147"), target="_blank"),
       tags$a(href="https://doi.org/10.1111/emr.12572", tags$p("Glasby, T.M., Gibson, P.T., Laird, R., Swadling, D.S. and West, G. (2023), Black summer bushfires caused extensive damage to estuarine wetlands in New South Wales, Australia. Ecol Manag Restor."), target="_blank"),
       tags$a(href="https://doi.org/10.3389/fenvs.2022.749950", tags$p("Hughes M.G., Glasby T.M., Hanslow D.J., West G.J., Wen L. (2022). Random Forest Classification Method for Predicting Intertidal Wetland Migration Under Sea Level Rise. Frontiers in Environmental Science 10."), target="_blank"),
