@@ -531,7 +531,7 @@ tabPanel(
            tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
     
     tags$h3("Mapping Details"),
-    tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and ", tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", target="_blank", "West & Glasby (2021). "), "Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
+    tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and ", tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", target="_blank", "West & Glasby (2021). "), "and more recently in", tags$a(href="https://doi.org/10.1007/s13157-025-01925-9", target="_blank", "West, G.J., Gibson, P.T. & Glasby, T.M., (2025). "),  "Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
            tags$span(tags$em("Phragmites australis")),
            "and ", 
            tags$span(tags$em("Baumea juncea", .noWS = "outside"),.noWS = "outside")),
@@ -556,8 +556,8 @@ tabPanel(
     tags$p(strong("Concept/design:"), "Tim Glasby & Greg West"),
     tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
     tags$p(strong("Data compilation:"), "Greg West"),
-    tags$p(strong("Last mapping update:"), "September 2024"),
-    tags$p(strong("Last Shiny App update:"), "September 2024"),
+    tags$p(strong("Last mapping update:"), "April 2026"),
+    tags$p(strong("Last Shiny App update:"), "April 2026"),
     tags$br(),
     
     tags$h3("References"),
