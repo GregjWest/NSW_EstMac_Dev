@@ -1,7 +1,7 @@
 ### West, Williams, Glasby  Dec 2021
 ## A Shiny map to display and explore the estuarine macorphyte mapping data
 
-# Last update Nov 2021
+# Last update Aug 2026
 
 # v1.0.1
 
