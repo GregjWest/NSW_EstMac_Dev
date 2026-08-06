@@ -33,7 +33,7 @@ if(!require(lazyeval)) install.packages("lazyeval", repos = "http://cran.us.r-pr
 if(!require(htmltools)) install.packages("htmltools", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.esri)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
 #if(!require(stars)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
-if(!require(leafem)) install.packages("leaflet.esri", repos = "http://cran.us.r-project.org")
+if(!require(leafem)) install.packages("leafem", repos = "http://cran.us.r-project.org")
 if(!require(leaflet.extras2)) install.packages("leaflet.extras2", repos = "http://cran.us.r-project.org")
 #if(!require(Cairo)) install.packages("Cairo", repos = "http://cran.us.r-project.org")
 if(!require(png)) install.packages("png", repos = "http://cran.us.r-project.org")
@@ -232,7 +232,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                                               tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),         
                                        tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
                                                         tags$br(),tags$br(),
-                                                        tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
+                                                        tags$a(href="https://www.dpird.nsw.gov.au/fishing/fisheries-research/spatial-data-portal", target="_blank", 
                                                 tags$img(src='Fisheries_Portal.svg')) 
                                                )
                                        
@@ -299,7 +299,7 @@ tabPanel(
         
             tags$h6("The latest macrophyte maps for each estuary can be downloaded from the NSW DPI Fisheries Spatial Data Portal.", 
                     tags$br(),tags$br(),
-                    tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", 
+                    tags$a(href="https://www.dpird.nsw.gov.au/fishing/fisheries-research/spatial-data-portal", target="_blank", 
                            tags$img(src='Fisheries_Portal.svg')), 
                     
                     absolutePanel(id = "legend1", class = "card", bottom = 300, right = 15,  fixed=TRUE, draggable = FALSE, width= "auto", height = "auto",
@@ -382,7 +382,7 @@ tabPanel(
                    tags$br(),
                    
                     #tags$p("Macrophyte maps for the latest time of sampling can be downloaded from the", 
-                    #          tags$a(href="https://webmap.industry.nsw.gov.au/Html5Viewer/index.html?viewer=Fisheries_Data_Portal", target="_blank", "NSW Fisheries Spatial Data Portal.") ) 
+                    #          tags$a(href="https://www.dpird.nsw.gov.au/fishing/fisheries-research/spatial-data-portal", target="_blank", "NSW Fisheries Spatial Data Portal.") ) 
                    
                    
             )),
@@ -522,21 +522,21 @@ tabPanel(
     tags$h3("Overview"),
     tags$p("This website and the most recent maps were developed as part of the NSW Marine Estate Management Strategy (Initiative 2.5 'Delivering healthy coastal habitats with sustainable use and development'), which was funded by the NSW Government."),
     tags$p("More details on the estuarine habitats of NSW can be found on the ",
-           tags$a(href="https://www.dpi.nsw.gov.au/fishing/habitat/aquatic-habitats/estuarine", target="_blank", " NSW DPI Website")),
+           tags$a(href="https://www.dpird.nsw.gov.au/fishing/habitat/aquatic-habitats/estuarine", target="_blank", " NSW DPIRD Website")),
     tags$p("A detailed list of all mapped estuaries can be viewed ",
            tags$a(href="NSW_Estuaries.html", target="_blank", "here.")),
     tags$p("A full list of changes and updates to the dashboard can be viewed in the ",
            tags$a(href="Changelog.html", target="_blank", "Changelog.")),  
     tags$p("Macrophyte maps for the latest time of mapping can be downloaded from the", 
-           tags$a(href="https://www.dpi.nsw.gov.au/about-us/science-and-research/spatial-data-portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
+           tags$a(href="https://www.dpird.nsw.gov.au/fishing/fisheries-research/spatial-data-portal", target="_blank", "NSW Fisheries Spatial Data Portal.")),
     
     tags$h3("Mapping Details"),
-    tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)"), "and ", tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", target="_blank", "West & Glasby (2021). "), "and more recently in", tags$a(href="https://doi.org/10.1007/s13157-025-01925-9", target="_blank", "West, G.J., Gibson, P.T. & Glasby, T.M., (2025). "),  "Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
+    tags$p("Methods used for mapping are described in ", tags$a(href="https://www.dpird.nsw.gov.au/__data/assets/pdf_file/0010/545716/FFRS-113_Creese-et-al-2009.pdf", target="_blank", "Creese et al. (2009)"), "and ", tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", target="_blank", "West & Glasby (2021). "), "and more recently in", tags$a(href="https://doi.org/10.1007/s13157-025-01925-9", target="_blank", "West, G.J., Gibson, P.T. & Glasby, T.M., (2025). "),  "Mangrove and saltmarsh species have not been distinguished in these maps.  Saltmarshes include the low-marsh species described in Sainty (2012) and exclude higher-marsh species such as", 
            tags$span(tags$em("Phragmites australis")),
            "and ", 
            tags$span(tags$em("Baumea juncea", .noWS = "outside"),.noWS = "outside")),
     tags$p("The 2019 - 2020 Fire Damage layer represents an estimate of areas of mangrove and saltmarsh damaged in affected estuaries due to the 2020 NSW bushfires. Imagery was sourced from Nearmap and fire damage was mapped using eCognition. The layer may contain omissions or additional damage not present. More details can be found ", tags$a(href="NSW_Fire_Impacted_Estmac_metadata.html", target="_blank", "here.")),
-    tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project. Details on the estuaries mapped can be found in ", tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", target="_blank", "Creese et al. (2009)")),
+    tags$p("Foreshore mapping was completed as part of the Mapping the habitats of NSW estuaries project. Details on the estuaries mapped can be found in ", tags$a(href="https://www.dpird.nsw.gov.au/__data/assets/pdf_file/0010/545716/FFRS-113_Creese-et-al-2009.pdf", target="_blank", "Creese et al. (2009)")),
     tags$p("Artificial structures (pontoons and jetties) and habitat disturbances are currently being mapped and will be updated when available."),
     
     tags$h3("Projected distribution of mangrove and saltmarsh in NSW estuaries under sea level rise"),
@@ -568,7 +568,7 @@ tabPanel(
     tags$a(href="https://doi.org/10.1002/aqc.3905", tags$p("Swadling D.S., West G.J., Gibson P.T., Laird R.J., Glasby T.M. (2022). Don't go breaking apart: Anthropogenic disturbances predict meadow fragmentation of an endangered seagrass. Aquatic Conservation: Marine and Freshwater Ecosystems"), target="_blank"),
     tags$a(href="https://doi.org/10.1007/s12237-021-01026-w", tags$p("West, G.J., Glasby, T.M., (2021). Interpreting long-term patterns of seagrasses abundance: how seagrass variability is dependent on genus and estuary type. Estuaries and Coasts."), target="_blank"),
     tags$p("G. Sainty, J. Hosking, G. Carr, & P. Adam (Eds.). (2012). Estuary plants and what's happening to them in South-East Australia. Sainty and Associates Pty Ltd."),
-    tags$a(href="https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/306625/AE_2009_Output-1575_Creese-et-al_Habitat-Mapping-Final-Report-113_REPORT.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
+    tags$a(href="https://www.dpird.nsw.gov.au/__data/assets/pdf_file/0010/545716/FFRS-113_Creese-et-al-2009.pdf", tags$p("Creese, R.G., Glasby , T.M., West, G., Gallen, C. (2009). Mapping the habitats of NSW estuaries. Industry & Investment NSW, Nelson Bay, Australia, 95pp."), target="_blank"),
     tags$a(href="West_1985.pdf", tags$p("West, R.J., Thorogood, C.A., Walford, T.R. and Williams R.J. (1985). An estuarine inventory for New South Wales, Australia. Fisheries Bulletin 2. Department of Agriculture, New South Wales. 140 pp."), target="_blank"),
     
     tags$br(),
