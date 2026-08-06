@@ -3,8 +3,7 @@
 
 # Last update Aug 2026
 
-# v1.0.1
-
+# v1.7.0
 # credit needs to be given to NSW Department of Primary Industries - Fisheries
 
 #
