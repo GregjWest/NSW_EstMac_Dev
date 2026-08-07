@@ -27,7 +27,10 @@ if(!require(shinythemes)) install.packages("shinythemes", repos = "http://cran.u
 if(!require(shinyWidgets)) install.packages("shinyWidgets", repos = "http://cran.us.r-project.org")
 if(!require(leaflet)) install.packages("leaflet", repos = "http://cran.us.r-project.org")
 if(!require(RColorBrewer)) install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
-if(!require(raster)) install.packages("raster", repos = "http://cran.us.r-project.org")
+# NOTE: the 'raster' package was removed. It imports 'terra', and terra 1.9.x fails to
+# compile against the deploy server's GDAL 3.4.1 (GDALMDArray::AsClassicDataset arg mismatch).
+# raster was only used to build invisible extent-setting rasters; map bounds are now set with
+# fitBounds() using coordinates reprojected via sf (see utm_bounds_to_ll() below).
 if(!require(lazyeval)) install.packages("lazyeval", repos = "http://cran.us.r-project.org")
 if(!require(htmltools)) install.packages("htmltools", repos = "http://cran.us.r-project.org")
 # NOTE: leaflet.esri was archived from CRAN (2025-06-13) and is no longer installable.
@@ -83,6 +86,33 @@ index_habs <- 1
 cell_size <- 500
 
 myproj <- "+proj=utm +zone=56 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84 + towgs8"
+
+# Convert a UTM (zone 56S, EPSG:32756) bounding box to a WGS84 lat/long bbox for leaflet::fitBounds().
+# Uses sf (already a dependency) instead of raster/terra, so nothing needs to compile terra on deploy.
+utm_bounds_to_ll <- function(xmin, xmax, ymin, ymax, utm_epsg = 32756) {
+  corners <- sf::st_as_sf(
+    data.frame(x = c(xmin, xmax), y = c(ymin, ymax)),
+    coords = c("x", "y"), crs = utm_epsg
+  )
+  bb <- as.numeric(sf::st_bbox(sf::st_transform(corners, 4326)))  # order: xmin, ymin, xmax, ymax
+  stats::setNames(bb, c("xmin", "ymin", "xmax", "ymax"))
+}
+
+# Choose a valid estuary for a selectInput: keep the current selection if it is still available,
+# otherwise use the preferred landing estuary when present, else the first (northernmost) estuary.
+pick_estuary <- function(choices, current = NULL, prefer = "Pittwater") {
+  choices <- unique(as.character(choices))   # keep original (north-to-south) order
+  if (length(choices) == 0) return(NULL)
+  if (!is.null(current) && length(current) == 1 && nzchar(current) && current %in% choices) return(current)
+  if (!is.null(prefer) && prefer %in% choices) return(prefer)
+  choices[1]
+}
+
+# The estuaries available (north-to-south) for a dataset + region. Used to keep the cross-tab
+# estuary sync from pushing an estuary into a selector that doesn't contain it.
+estuaries_for <- function(data, region) {
+  unique(as.character(data$Estuary[data$Region == region]))
+}
 
 #Labels for mangrove, mixed and saltmarsh plots
 mansm.names <- as_labeller(c("Mangrove"="Mangrove", "Man_Sm"="Mixed mangrove and saltmarsh", "Saltmarsh"="Saltmarsh"))
@@ -597,74 +627,107 @@ server <- function(input, output, session) {
     size = c("l")
   ))
   
-  ## User selections carry through to each tab forwards and backwards
-  observeEvent(
-    input$region1,
-    updateSelectizeInput(session, "region2", selected = input$region1)
-  )
+  ## User selections carry through to each tab forwards and backwards.
+  ## Region sync is guarded (only push when the value differs) with ignoreInit, because
+  ## updateSelectizeInput re-fires a change event even when unchanged; without the guard the
+  ## regions ping-pong and repeatedly re-trigger the estuary selectors.
+  observeEvent(input$region1, {
+    if (!identical(input$region1, input$region2))
+      updateSelectizeInput(session, "region2", selected = input$region1)
+  }, ignoreInit = TRUE)
   
-  observeEvent(
-    input$region1,
-    updateSelectizeInput(session, "region3", selected = input$region1)
-  )
+  observeEvent(input$region1, {
+    if (!identical(input$region1, input$region3))
+      updateSelectizeInput(session, "region3", selected = input$region1)
+  }, ignoreInit = TRUE)
   
-  observeEvent(
-    input$region2,
-    updateSelectizeInput(session, "region1", selected = input$region2)
-  )
+  observeEvent(input$region2, {
+    if (!identical(input$region2, input$region1))
+      updateSelectizeInput(session, "region1", selected = input$region2)
+  }, ignoreInit = TRUE)
   
-  observeEvent(
-    input$region3,
-    updateSelectizeInput(session, "region1", selected = input$region3)
-  )
-  observeEvent(
-    input$region3,
-    updateSelectizeInput(session, "region2", selected = input$region3)
-  )
+  observeEvent(input$region3, {
+    if (!identical(input$region3, input$region1))
+      updateSelectizeInput(session, "region1", selected = input$region3)
+  }, ignoreInit = TRUE)
   
-  observeEvent(
-    input$estuary1,
-    updateSelectizeInput(session, "estuary2", selected = input$estuary1)
-  )
+  observeEvent(input$region3, {
+    if (!identical(input$region3, input$region2))
+      updateSelectizeInput(session, "region2", selected = input$region3)
+  }, ignoreInit = TRUE)
   
-  observeEvent(
-    input$estuary1,
-    updateSelectizeInput(session, "estuary3", selected = input$estuary1)
-  )
+  observeEvent(input$region1, {
+    if (!identical(input$region1, input$region4))
+      updateSelectizeInput(session, "region4", selected = input$region1)
+  }, ignoreInit = TRUE)
   
-  observeEvent(
-    input$estuary2,
-    updateSelectizeInput(session, "estuary1", selected = input$estuary2)
-  )
+  observeEvent(input$region4, {
+    if (!identical(input$region4, input$region1))
+      updateSelectizeInput(session, "region1", selected = input$region4)
+  }, ignoreInit = TRUE)
   
-  observeEvent(
-    input$estuary3,
-    updateSelectizeInput(session, "estuary1", selected = input$estuary3)
-  )
-  observeEvent(
-    input$estuary3,
-    updateSelectizeInput(session, "estuary2", selected = input$estuary3)
-  )
+  ## Cross-tab estuary sync via a SINGLE shared value (source of truth). A pairwise sync
+  ## (estuary1<->estuary2<->estuary3) can swap values: in one reactive flush two selectors read each
+  ## other's stale values and trade them, oscillating forever. Routing every selector through one
+  ## reactiveVal converges by construction: each selector feeds the shared value, and the shared value
+  ## is pushed back out only where it's valid and actually different, so updates stop once all match.
+  sel_estuary <- reactiveVal(NULL)
+  
+  observeEvent(input$estuary1, {
+    if (isTruthy(input$estuary1) && !identical(input$estuary1, sel_estuary()))
+      sel_estuary(input$estuary1)
+  }, ignoreInit = TRUE)
+  
+  observeEvent(input$estuary2, {
+    if (isTruthy(input$estuary2) && !identical(input$estuary2, sel_estuary()))
+      sel_estuary(input$estuary2)
+  }, ignoreInit = TRUE)
+  
+  observeEvent(input$estuary3, {
+    if (isTruthy(input$estuary3) && !identical(input$estuary3, sel_estuary()))
+      sel_estuary(input$estuary3)
+  }, ignoreInit = TRUE)
+  
+  observeEvent(input$estuary4, {
+    if (isTruthy(input$estuary4) && !identical(input$estuary4, sel_estuary()))
+      sel_estuary(input$estuary4)
+  }, ignoreInit = TRUE)
+  
+  observeEvent(sel_estuary(), {
+    e <- sel_estuary(); req(e)
+    if (!identical(e, input$estuary1) && e %in% estuaries_for(dat, input$region1))
+      updateSelectizeInput(session, "estuary1", selected = e)
+    if (!identical(e, input$estuary2))
+      updateSelectizeInput(session, "estuary2", selected = e)
+    if (!identical(e, input$estuary3) && e %in% estuaries_for(presence_dat, input$region3))
+      updateSelectizeInput(session, "estuary3", selected = e)
+    if (!identical(e, input$estuary4) && e %in% estuaries_for(dat, input$region4))
+      updateSelectizeInput(session, "estuary4", selected = e)
+  })
   
   
   ######## HABITAT EXPLORER TAB ########
   # DATA PREPERATION
   # Update Year selector to only provide the estuaries per region
   observe({
-    x0 <- dat %>% dplyr::filter(Region == input$region1) %>% dplyr::select(Estuary)
+    x0 <- dat$Estuary[dat$Region == input$region1]
     updateSelectInput(session, 
                       "estuary1", 
                       label = "Estuary:",
-                      choices = unique(x0))
+                      choices = unique(as.character(x0)),
+                      selected = pick_estuary(x0, isolate(input$estuary1)))
   })
   # Update Year selector to only provide the years that have been mapped
   observe({
-    #x1 <- dat %>% dplyr::filter(Estuary == input$estuary1) %>% dplyr::select(Map_Year)
-    x1 <- dat$Map_Year[dat$Estuary ==input$estuary1]
+    req(input$estuary1)
+    x1 <- sort(unique(dat$Map_Year[dat$Estuary == input$estuary1]), decreasing = TRUE)
+    current <- isolate(input$date_t1)
+    sel <- if (!is.null(current) && current %in% as.character(x1)) current else x1[1]
     updateSelectInput(session, 
                       "date_t1", 
                       label = "Year:",
-                      choices = sort(unique(x1) ,decreasing = TRUE))
+                      choices = x1,
+                      selected = sel)
   })
   
   estuary_report_dat <- reactive({ report_dat %>%
@@ -674,6 +737,7 @@ server <- function(input, output, session) {
   
   
   raster_points <- reactive({
+    req(input$estuary1)
     dat %>%
       dplyr::filter(Estuary == input$estuary1) %>%
       dplyr::select(Easting, Northing)
@@ -687,12 +751,9 @@ server <- function(input, output, session) {
   ncols <- reactive({((lon_max() - lon_min())/cell_size)}) 
   nrows <- reactive({((lat_max() - lat_min())/cell_size)})  
   
-  # Create and empty raster that covers the estuary selected
-  empty_raster <- reactive({
-    raster(nrows=nrows(), ncols=ncols(), 
-           xmn=lon_min(), xmx=lon_max(), 
-           ymn=lat_min(), ymx=lat_max(), 
-           res=c(cell_size,cell_size), crs=myproj)
+  # Lat/long bounding box covering the selected estuary, for fitBounds() (replaces empty raster)
+  bounds_map <- reactive({
+    utm_bounds_to_ll(lon_min(), lon_max(), lat_min(), lat_max())
   })
   
   
@@ -753,8 +814,10 @@ server <- function(input, output, session) {
       # 
       
       
-      #add empty file for map extent
-      addRasterImage(empty_raster()) %>% 
+      # Static initial view over coastal NSW. The map is framed on the selected estuary via
+      # leafletProxy() below (the fitBounds observer), so the base map is NOT rebuilt on estuary
+      # change and proxy-added layers (the historic mapping) persist when you switch tabs.
+      setView(lng = 152.5, lat = -32, zoom = 6) %>% 
       
       
       #addMiniMap() %>%
@@ -781,16 +844,31 @@ server <- function(input, output, session) {
       hideGroup("Artificial structures") %>%
       #hideGroup("Saltmarsh - Vehicle damage") %>%
       hideGroup("Aquaculture leases") %>%
-      hideGroup("Estuarine reef")
+      hideGroup("Estuarine reef") %>%
+      hideGroup("Latest mapped habitat (All NSW)")
     #hideGroup("Mooring Areas") %>%
     #hideGroup("Boat moorings")
     
     
   })
   
+  # Keep the explorer map rendered even when its tab is hidden, so leafletProxy() updates triggered
+  # from other tabs land on a live map and are still present when you return to the Interactive Explorer.
+  outputOptions(output, "map", suspendWhenHidden = FALSE)
+  
+  # Frame the map on the selected estuary via proxy (no rebuild, so the historic mapping layer persists)
+  observe({
+    req(input$estuary1)
+    b <- bounds_map()
+    leafletProxy("map") %>%
+      fitBounds(lng1 = b[["xmin"]], lat1 = b[["ymin"]],
+                lng2 = b[["xmax"]], lat2 = b[["ymax"]])
+  })
+  
   
   # watch the year selector and load macrophytes for the selected year without resetting the map
   observe({
+    req(input$estuary1, input$date_t1)
     input$date_t1
     input$estuary1
     leafletProxy("map") %>%
@@ -809,8 +887,10 @@ server <- function(input, output, session) {
   # Update Year selector to only provide the years that have been mapped
   # Update Year selector to only provide the estuaries per region
   observe({
-    x3_1 <- presence_dat %>% dplyr::filter(Region == input$region3) %>% dplyr::select(Estuary)
-    updateSelectInput(session, "estuary3", label = "Estuary:", choices = unique(x3_1), selected = index_estuary)
+    x3_1 <- presence_dat$Estuary[presence_dat$Region == input$region3]
+    updateSelectInput(session, "estuary3", label = "Estuary:",
+                      choices = unique(as.character(x3_1)),
+                      selected = pick_estuary(x3_1, isolate(input$estuary3)))
   })
   
   #select habitats based on selected years and estuary, only habitats present for the selected years will be listed
@@ -884,6 +964,7 @@ server <- function(input, output, session) {
   })
   
   raster_grd <- reactive({
+    req(input$estuary3)
     dat %>%
       dplyr::filter(Estuary == input$estuary3) %>%
       dplyr::select(Easting, Northing)
@@ -897,12 +978,9 @@ server <- function(input, output, session) {
   ncols <- reactive({((lon_max() - lon_min())/cell_size)}) 
   nrows <- reactive({((lat_max() - lat_min())/cell_size)})    
   
-  # Create and empty raster that covers the estuary selected
-  empty_grd <- reactive({
-    raster(nrows=nrows(), ncols=ncols(), 
-           xmn=lon_min(), xmx=lon_max(), 
-           ymn=lat_min(), ymx=lat_max(), 
-           res=c(cell_size,cell_size), crs=myproj)
+  # Lat/long bounding box covering the selected estuary, for fitBounds() (replaces empty raster)
+  bounds_change <- reactive({
+    utm_bounds_to_ll(lon_min(), lon_max(), lat_min(), lat_max())
   })
   
   
@@ -929,8 +1007,9 @@ server <- function(input, output, session) {
                options = pathOptions(pane="basemaps", maxZoom=17),
                attribution = "&copy; Spatial Services NSW") %>%
       
-      #add blank raster to set map bounds to estuary extent
-      addRasterImage(empty_grd()) %>% 
+      # set map extent to the selected estuary
+      fitBounds(lng1 = bounds_change()[["xmin"]], lat1 = bounds_change()[["ymin"]],
+                lng2 = bounds_change()[["xmax"]], lat2 = bounds_change()[["ymax"]]) %>% 
       
       
       #add change grid polygons, and colour them based on Diff and colour palette
@@ -1223,15 +1302,17 @@ server <- function(input, output, session) {
   # DATA PREPERATION
   
   observe({
-    x4_1 <- dat %>% dplyr::filter(Region == input$region4) %>% dplyr::select(Estuary)
+    x4_1 <- dat$Estuary[dat$Region == input$region4]
     updateSelectInput(session, 
                       "estuary4", 
                       label = "Estuary:",
-                      choices = unique(x4_1))
+                      choices = unique(as.character(x4_1)),
+                      selected = pick_estuary(x4_1, isolate(input$estuary4)))
   })
   
   
   raster_slr <- reactive({
+    req(input$estuary4)
     dat %>%
       dplyr::filter(Estuary == input$estuary4) %>%
       dplyr::select(Easting, Northing)
@@ -1245,12 +1326,9 @@ server <- function(input, output, session) {
   ncols <- reactive({((lon_max3() - lon_min3())/cell_size)}) 
   nrows <- reactive({((lat_max3() - lat_min3())/cell_size)})  
   
-  # Create and empty raster that covers the estuary selected
-  empty_slr <- reactive({
-    raster(nrows=nrows(), ncols=ncols(), 
-           xmn=lon_min3(), xmx=lon_max3(), 
-           ymn=lat_min3(), ymx=lat_max3(), 
-           res=c(cell_size,cell_size), crs=myproj)
+  # Lat/long bounding box covering the selected estuary, for fitBounds() (replaces empty raster)
+  bounds_slr <- reactive({
+    utm_bounds_to_ll(lon_min3(), lon_max3(), lat_min3(), lat_max3())
   })
   
   
@@ -1303,8 +1381,9 @@ server <- function(input, output, session) {
       # 
       
       
-      #add empty file for map extent
-      addRasterImage(empty_slr()) %>% 
+      # set map extent to the selected estuary
+      fitBounds(lng1 = bounds_slr()[["xmin"]], lat1 = bounds_slr()[["ymin"]],
+                lng2 = bounds_slr()[["xmax"]], lat2 = bounds_slr()[["ymax"]]) %>% 
       
       
       #addMiniMap() %>%
