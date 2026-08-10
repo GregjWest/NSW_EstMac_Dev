@@ -5,8 +5,9 @@ account: nsw-dpi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12731507
-bundleId: 9123686
+bundleId: 12387777
 url: https://nsw-dpi.shinyapps.io/NSW_EstMac_Test/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: data/Multi_Estuary_All_Years_Grid.csv|data/Multi_Estuary_All_Years_Grid_2024.csv|data/NSW_Estuarine_Macrophytes_Presence.csv
