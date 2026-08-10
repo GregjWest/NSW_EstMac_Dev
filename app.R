@@ -1,9 +1,9 @@
 ### West, Williams, Glasby  Dec 2020
 ## A Shiny map to display and explore the estuarine macorphyte mapping data
 
-# Last updated April 2026
+# Last updated August 2026
 
-# v1.6
+# v1.7
 
 #
 # This is a Shiny web application. You can run the application by clicking
@@ -591,7 +591,7 @@ ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
                      tags$p(strong("Shiny App development:"), "Greg West & Joel Williams"),
                      tags$p(strong("Data compilation:"), "Greg West"),
                      tags$p(strong("Last mapping update:"), "April 2026"),
-                     tags$p(strong("Last Shiny App update:"), "April 2026"),
+                     tags$p(strong("Last Shiny App update:"), "August 2026"),
                      tags$br(),
                      
                      tags$h3("References"),
