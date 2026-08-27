@@ -217,12 +217,22 @@ theme_geometry <- function(xvals, yvals, xgeo = 0, ygeo = 0,
 
 # Overall layout of App.
 ui <- navbarPage(theme = shinytheme("flatly"), collapsible = TRUE,
+                 id = "nav",   # lets the server know which tab is active (used to (re)build the side-by-side slider)
                  title = div(img(src= "DPI_LOGO_left.svg","Estuarine Habitat Dashboard",
                                  style="margin-top: -20px;margin-left: -10;padding-right:20px", 
                                  height = 60)),
                  windowTitle = "NSW Estuarine Mapping",
                  position = c("fixed-top"),
-                 header=singleton(tags$head(includeHTML(("google-analytics.html")))),
+                 header = singleton(tags$head(
+                   includeHTML(("google-analytics.html")),
+                   # When a navbar tab becomes visible, kick a window resize so any Leaflet map that
+                   # was built in a hidden (zero-size) tab recomputes its size. Helps the base map on
+                   # the Change over Time tab render cleanly on first show; the slider itself is handled
+                   # by the deferred rebuild in the server.
+                   tags$script(HTML(
+                     "$(document).on('shown.bs.tab', function(){ setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 200); });"
+                   ))
+                 )),
                  
                  
                  #### Habitat Explorer Tab UI                                  -----
@@ -777,8 +787,12 @@ server <- function(input, output, session) {
       addMapPane("macromap", zIndex=400) %>% #add map pane for macrophyte map
       addMapPane("othermap", zIndex=450) %>% #add map pane for all other layers
       
-      addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                       options = pathOptions(pane="basemaps", maxZoom=17)) %>%
+      addTiles(
+        urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{z}/{y}/{x}",
+        group   = "NSW Base Map",
+        attribution = "© NSW Spatial Services",
+        options = tileOptions(pane = "basemaps", maxZoom = 17, opacity = 0.5)
+      ) %>%
       addTiles(urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer/tile/{z}/{y}/{x}",
                group = "Photo basemap",
                options = pathOptions(pane="basemaps", maxZoom=17),
@@ -825,16 +839,16 @@ server <- function(input, output, session) {
       # 
       
       
-      # Static initial view over coastal NSW. The map is framed on the selected estuary via
-      # leafletProxy() below (the fitBounds observer), so the base map is NOT rebuilt on estuary
-      # change and proxy-added layers (the historic mapping) persist when you switch tabs.
-      setView(lng = 152.5, lat = -32, zoom = 6) %>% 
+    # Static initial view over coastal NSW. The map is framed on the selected estuary via
+    # leafletProxy() below (the fitBounds observer), so the base map is NOT rebuilt on estuary
+    # change and proxy-added layers (the historic mapping) persist when you switch tabs.
+    setView(lng = 152.5, lat = -32, zoom = 6) %>% 
       
       
       #addMiniMap() %>%
       addScaleBar(position = "bottomleft", options = scaleBarOptions(maxWidth = 100, imperial = FALSE, updateWhenIdle = TRUE)) %>%
       addLayersControl(
-        baseGroups = c("Open Street Map", "Photo basemap"),
+        baseGroups = c("NSW Base Map", "Photo basemap"),
         overlayGroups = c("Latest mapped habitat", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef", "Cumulative Seagrass", "Mooring Areas", "Boat moorings"),
         options = layersControlOptions(collapsed = FALSE, opacity = 0.7)) %>%
       addMeasure(position = "topleft",
@@ -862,14 +876,48 @@ server <- function(input, output, session) {
   # from other tabs land on a live map and are still present when you return to the Interactive Explorer.
   outputOptions(output, "map", suspendWhenHidden = FALSE)
   
-  # Frame the map on the selected estuary via proxy (no rebuild, so the historic mapping layer persists)
+  # Track which estuary each persistent map is currently FRAMED on. Used so the tab-show re-fits only
+  # fire when the estuary actually changed while the tab was hidden -- switching tabs without an estuary
+  # change then does no fitBounds at all (no flash), and the map just re-renders at its correct view.
+  framed_estuary_map    <- reactiveVal(NULL)   # Interactive Explorer map
+  framed_estuary_change <- reactiveVal(NULL)   # Change over Time map
+  
+  # Frame the map on the selected estuary via proxy (no rebuild, so the historic mapping layer persists).
+  # This map is kept alive while hidden (suspendWhenHidden = FALSE), so this observer can be triggered by
+  # an estuary1 change that originates on another tab (via the cross-tab sync). Calling fitBounds() on a
+  # hidden, zero-size map collapses it to the world view, which you then SEE flash back on return. So we
+  # only fit while the Explorer tab is actually visible; isolate() keeps this observer from taking a
+  # dependency on input$nav (it must not re-fire on tab switches -- the tab-show handler below does that,
+  # after the map is sized). While hidden the map simply keeps its last good view instead of going to world.
   observe({
     req(input$estuary1)
     b <- bounds_map()
+    if (!identical(isolate(input$nav), "Interactive Explorer")) return()
     leafletProxy("map") %>%
       fitBounds(lng1 = b[["xmin"]], lat1 = b[["ymin"]],
                 lng2 = b[["xmax"]], lat2 = b[["ymax"]])
+    framed_estuary_map(input$estuary1)
   })
+  
+  # Re-fit the Explorer map when you navigate TO its tab, but ONLY if the estuary changed while the tab
+  # was hidden (otherwise the map is already framed correctly and we skip -- no gratuitous fitBounds, so
+  # no flash on an ordinary tab switch). animate = FALSE makes the fit a direct jump instead of an
+  # animated zoom-out-then-in (which is what read as a "flick to the world"). Deferred ~0.35s so the map
+  # is sized before fitting.
+  observeEvent(input$nav, {
+    if (!identical(input$nav, "Interactive Explorer")) return()
+    req(input$estuary1)
+    est <- input$estuary1
+    if (identical(framed_estuary_map(), est)) return()   # already framed on this estuary
+    b <- bounds_map()
+    framed_estuary_map(est)
+    later::later(function() {
+      leafletProxy("map", session, deferUntilFlush = FALSE) %>%
+        fitBounds(lng1 = b[["xmin"]], lat1 = b[["ymin"]],
+                  lng2 = b[["xmax"]], lat2 = b[["ymax"]],
+                  options = list(animate = FALSE))
+    }, delay = 0.35)
+  }, ignoreInit = TRUE)
   
   
   # watch the year selector and load macrophytes for the selected year without resetting the map
@@ -899,12 +947,21 @@ server <- function(input, output, session) {
                       selected = pick_estuary(x3_1, isolate(input$estuary3)))
   })
   
-  #select habitats based on selected years and estuary, only habitats present for the selected years will be listed
+  # select habitats based on selected years and estuary, only habitats present for the selected years will be listed.
+  # FIX: preserve the current habitat3 selection instead of resetting to the first choice when a year changes.
+  # isolate() stops this observer taking a reactive dependency on habitat3 itself (otherwise it would
+  # re-fire every time the habitat changes and could fight the user's selection).
   observe({
     #x3_2 <- presence_dat %>% dplyr::filter(Map_Year == input$change_t1 | Map_Year== input$change_t2) %>% dplyr::filter(Estuary == input$estuary3) %>% dplyr::select(Macrophyte)
     x3_2 <- presence_dat %>% dplyr::filter(Map_Year == input$change_t1 | Map_Year== input$change_t2)
-    x3_3 <- x3_2$Macrophyte[x3_2$Estuary == input$estuary3]
-    updateSelectInput(session, "habitat3", label = "Habitat for change grid:", choices = unique(x3_3))
+    x3_3 <- unique(as.character(x3_2$Macrophyte[x3_2$Estuary == input$estuary3]))
+    
+    current <- isolate(input$habitat3)
+    keep <- if (!is.null(current) && current %in% x3_3) current else x3_3[1]
+    
+    updateSelectInput(session, "habitat3", label = "Habitat for change grid:",
+                      choices = x3_3,
+                      selected = keep)
   })
   
   observe({
@@ -970,22 +1027,26 @@ server <- function(input, output, session) {
   })
   
   raster_grd <- reactive({
+    req(input$estuary3)
     dat %>%
       dplyr::filter(Estuary == input$estuary3) %>%
       dplyr::select(Easting, Northing)
   })    
   
-  # Set raster max and min based on estuary selection
-  lon_min <- reactive({min(raster_points()$Easting)-10}) 
-  lon_max <- reactive({max(raster_points()$Easting)+10})
-  lat_min <- reactive({min(raster_points()$Northing)-10})
-  lat_max <- reactive({max(raster_points()$Northing)+10})    
-  ncols <- reactive({((lon_max() - lon_min())/cell_size)}) 
-  nrows <- reactive({((lat_max() - lat_min())/cell_size)}) 
+  # Set raster max and min based on estuary selection.
+  # FIX: wired to raster_grd() (estuary3, THIS tab's selector) and given their own names (..._c) so
+  # they no longer (a) read raster_points(), which follows the Explorer tab's estuary1, nor (b) clobber
+  # the Explorer's identically-named lon_min/lat_min reactives. Previously bounds_change() tracked
+  # estuary1, which the cross-tab sync updates one step behind estuary3 -- so the change map framed the
+  # PREVIOUS estuary (change once = no move, change again = jumps to the prior one).
+  lon_min_c <- reactive({min(raster_grd()$Easting)-10}) 
+  lon_max_c <- reactive({max(raster_grd()$Easting)+10})
+  lat_min_c <- reactive({min(raster_grd()$Northing)-10})
+  lat_max_c <- reactive({max(raster_grd()$Northing)+10})    
   
   # Lat/long bounding box covering the selected estuary, for fitBounds() (replaces empty raster)
   bounds_change <- reactive({
-    utm_bounds_to_ll(lon_min(), lon_max(), lat_min(), lat_max())
+    utm_bounds_to_ll(lon_min_c(), lon_max_c(), lat_min_c(), lat_max_c())
   })
   
   
@@ -994,6 +1055,23 @@ server <- function(input, output, session) {
   bins <- c(65000, 32000, 3200, 320, 32, .1, -.1, -32, -320, -3200, -32000, -65000)
   grdpal <- colorBin ("RdYlBu", bins = bins, na.color = "transparent") 
   
+  # ---------------------------------------------------------------------------
+  # CHANGE OVER TIME MAP
+  #
+  # Built in two parts so that changing the year / habitat / estuary NO LONGER
+  # rebuilds the whole map (which used to reset the base-layer choice, the overlay
+  # toggles, the current pan/zoom and the side-by-side slider):
+  #
+  #   1. renderLeaflet() below builds the STATIC base ONCE (panes, basemaps,
+  #      layers control, scale bar, measure tool). It reads no reactives, so it
+  #      never re-runs and the user's map state survives input changes.
+  #
+  #   2. Observers patch the live map in place with leafletProxy():
+  #        - the change grid   (estuary / year / habitat)
+  #        - the map extent      (estuary only)
+  #        - the side-by-side tiles + slider (estuary / year, plus a deferred
+  #          rebuild when the tab is first opened)
+  # ---------------------------------------------------------------------------
   output$map_change <- renderLeaflet({
     leaflet(options = leafletOptions(maxZoom = 17)) %>% 
       addMapPane("basemaps", zIndex=100) %>% #add map pane for baselayers
@@ -1002,42 +1080,30 @@ server <- function(input, output, session) {
       addMapPane("left", zIndex = 600) %>%
       addMapPane("right", zIndex = 600) %>%        
       
-      #leaflet::addTiles() %>%
       #Open Street Map base layer
-      addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                       options = pathOptions(pane="basemaps", maxZoom=17)) %>%
+      addTiles(
+        urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{z}/{y}/{x}",
+        group   = "NSW Base Map",
+        attribution = "© NSW Spatial Services",
+        options = tileOptions(pane = "basemaps", maxZoom = 17, opacity = 0.5)
+      ) %>%
       #Spatial Sevices Photo base layer
       addTiles(urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer/tile/{z}/{y}/{x}",
                group = "Photo basemap",
                options = pathOptions(pane="basemaps", maxZoom=17),
                attribution = "&copy; Spatial Services NSW") %>%
       
-      # set map extent to the selected estuary
-      fitBounds(lng1 = bounds_change()[["xmin"]], lat1 = bounds_change()[["ymin"]],
-                lng2 = bounds_change()[["xmax"]], lat2 = bounds_change()[["ymax"]]) %>% 
+      # Static initial view over coastal NSW so there is no world-view flash before the
+      # fitBounds observer frames the selected estuary (on load and on every estuary change).
+      setView(lng = 151.5, lat = -33, zoom = 8) %>%
       
-      
-      #add change grid polygons, and colour them based on Diff and colour palette
-      addPolygons(data = merged_data(), fillColor = ~grdpal(Diff),  fillOpacity = 0.5, weight = .1, color = "black", options = pathOptions(Pane ="Grid", group = "Change Grid")) %>%
-      
-      
-      #add maps to side by side comparison  
-      addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t1}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time1",
-               options = pathOptions(pane = "left", maxZoom=17),
-               attribution = "&copy; Department of Primary Industries 2020") %>%
-      addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${estuary_report_dat1()$Est_Name}/${input$change_t2}/{z}/{x}/{y}.png"), group = "Mapped habitat", layerId = "Time2",
-               options = pathOptions(pane = "right", maxZoom=17),
-               attribution = "&copy; Department of Primary Industries 2020") %>%
-      
+      # The layers control lists the group names for layers added later by proxy
+      # ("Change Grid" and "Mapped habitat"). The checkboxes toggle by group name,
+      # so they work even though those layers are attached after the base is built.
       addLayersControl(
-        baseGroups = c("Open Street Map", "Photo basemap"),
+        baseGroups = c("NSW Base Map", "Photo basemap"),
         overlayGroups = c("Change Grid", "Mapped habitat"),
         options = layersControlOptions(collapsed = FALSE)) %>%
-      
-      #Add side by Side control
-      addSidebyside(layerId = "sidecontrols",
-                    rightId = "Time2",
-                    leftId = "Time1") %>%
       
       addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) %>%
       addMeasure(position = "bottomleft",
@@ -1048,13 +1114,109 @@ server <- function(input, output, session) {
                  activeColor = "#3D535D",
                  completedColor = "#7D4479") %>%
       
-      #change map turned on by default
+      #side-by-side mapped habitat comparison is off by default; the change grid shows first
       hideGroup("Mapped habitat")
-    #hideGroup("Change grid")
-    
-    
-    
   })
+  
+  # Keep the change map live even when the tab is hidden, so proxy updates driven from other
+  # tabs (via the cross-tab estuary sync) land on a real map and persist on return.
+  outputOptions(output, "map_change", suspendWhenHidden = FALSE)
+  
+  # (1) CHANGE GRID -- rebuilt in place on estuary / year / habitat change.
+  # clearGroup() removes ONLY the previous grid polygons; basemaps, side-by-side tiles,
+  # zoom and the layers-control state are all left untouched.
+  # NOTE: this also fixes a latent bug in the original addPolygons() call, where
+  # `group`/`pane` were passed inside pathOptions() as `options = pathOptions(Pane=..., group=...)`.
+  # `group` belongs on addPolygons() directly and the pane key is lower-case `pane`, so the
+  # "Change Grid" toggle was not actually wired to these polygons before.
+  observe({
+    req(input$estuary3, input$change_t1, input$change_t2, input$habitat3)
+    leafletProxy("map_change") %>%
+      clearGroup("Change Grid") %>%
+      addPolygons(data = merged_data(),
+                  fillColor = ~grdpal(Diff), fillOpacity = 0.5,
+                  weight = 0.1, color = "black",
+                  group = "Change Grid",
+                  options = pathOptions(pane = "Grid"))
+  })
+  
+  # (2) MAP EXTENT -- only reframes on estuary change, so changing the year or habitat
+  # no longer yanks the user's pan/zoom around. Fires once on load for the default estuary.
+  # Like the Explorer map, only fit while this tab is visible: fitBounds() on the hidden, zero-size
+  # map would collapse it to the world view (seen as a flash on return). Estuary changes that arrive
+  # while hidden (via the cross-tab sync) are picked up by the deferred tab-show re-fit below instead.
+  observeEvent(input$estuary3, {
+    if (!identical(isolate(input$nav), "Change over Time")) return()
+    b <- bounds_change()
+    leafletProxy("map_change") %>%
+      fitBounds(lng1 = b[["xmin"]], lat1 = b[["ymin"]],
+                lng2 = b[["xmax"]], lat2 = b[["ymax"]])
+    framed_estuary_change(input$estuary3)
+  })
+  
+  # (3) SIDE-BY-SIDE TILES + SLIDER
+  # The two tile layers are removed and re-added under the same layerIds (Time1/Time2),
+  # then addSidebyside() is re-called so the slider re-clips the NEW tile objects.
+  #
+  # draw_sidebyside() takes plain values (not reactives) so it can be called both from a
+  # reactive observer AND from a delayed later::later() callback that runs OUTSIDE any reactive
+  # context. defer=TRUE queues messages until the next flush (in-context use); defer=FALSE sends
+  # immediately (needed from the later() callback, where there is no flush).
+  draw_sidebyside <- function(est, t1, t2, defer = TRUE) {
+    leafletProxy("map_change", session, deferUntilFlush = defer) %>%
+      removeTiles("Time1") %>%
+      removeTiles("Time2") %>%
+      addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${est}/${t1}/{z}/{x}/{y}.png"),
+               group = "Mapped habitat", layerId = "Time1",
+               options = pathOptions(pane = "left", maxZoom = 17),
+               attribution = "&copy; Department of Primary Industries 2020") %>%
+      addTiles(urlTemplate = stringr::str_interp("https://gregjwest.github.io/NSW_EstMacrophytes/Estuaries/${est}/${t2}/{z}/{x}/{y}.png"),
+               group = "Mapped habitat", layerId = "Time2",
+               options = pathOptions(pane = "right", maxZoom = 17),
+               attribution = "&copy; Department of Primary Industries 2020") %>%
+      addSidebyside(layerId = "sidecontrols",
+                    rightId = "Time2",
+                    leftId = "Time1")
+  }
+  
+  # (a) rebuild on estuary / year change. These changes only ever happen while the tab is
+  # visible (the selectors live on it), so the map is already sized and the slider clips correctly.
+  observe({
+    req(input$estuary3, input$change_t1, input$change_t2)
+    draw_sidebyside(estuary_report_dat1()$Est_Name, input$change_t1, input$change_t2)
+  })
+  
+  # (b) rebuild when the user opens the Change over Time tab, so the slider shows on the FIRST
+  # visit (not only after leaving and returning). On first show the map container has not been
+  # laid out to full size yet, and the side-by-side control clips to whatever size the map is at
+  # creation time -> a zero-size map means an invisible divider. Rebuilding immediately races the
+  # browser layout and loses, so we capture the values NOW (in reactive context) and defer the
+  # rebuild ~0.35s via later::later(), by which point the tab is laid out and the map is sized.
+  # The same hidden-map fitBounds problem applies here: this map is also kept alive while hidden, so
+  # changing the estuary from another tab reframes it at zero size (world view). So on tab-show we
+  # re-fit the extent as well as rebuilding the slider.
+  # On tab-show, ALWAYS rebuild the slider (it must be created while the map is visible/sized), but only
+  # re-fit the extent if the estuary changed while the tab was hidden -- and jump without animation. This
+  # removes the "flick to the world" that an animated fit produced on every visit.
+  observeEvent(input$nav, {
+    if (!identical(input$nav, "Change over Time")) return()
+    est <- estuary_report_dat1()$Est_Name
+    t1  <- input$change_t1
+    t2  <- input$change_t2
+    req(est, t1, t2)
+    refit    <- !identical(framed_estuary_change(), input$estuary3)
+    b        <- bounds_change()
+    if (refit) framed_estuary_change(input$estuary3)
+    later::later(function() {
+      p <- leafletProxy("map_change", session, deferUntilFlush = FALSE)
+      if (refit) {
+        p <- p %>% fitBounds(lng1 = b[["xmin"]], lat1 = b[["ymin"]],
+                             lng2 = b[["xmax"]], lat2 = b[["ymax"]],
+                             options = list(animate = FALSE))
+      }
+      draw_sidebyside(est, t1, t2, defer = FALSE)
+    }, delay = 0.35)
+  }, ignoreInit = TRUE)
   
   
   
@@ -1300,7 +1462,7 @@ server <- function(input, output, session) {
   },height = 600, width = 600 )
   
   
-  55#### PREDICTIVE MODELLING TAB ####
+  #### PREDICTIVE MODELLING TAB ####
   # DATA PREPERATION
   
   observe({
@@ -1344,8 +1506,12 @@ server <- function(input, output, session) {
       addMapPane("basemaps4", zIndex=200) %>% #add map pane for baselayers
       addMapPane("macromap4", zIndex=400) %>% #add map pane for macrophyte map
       
-      addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                       options = pathOptions(pane="basemaps4", maxZoom=16)) %>%
+      addTiles(
+        urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{z}/{y}/{x}",
+        group   = "NSW Base Map",
+        attribution = "© NSW Spatial Services",
+        options = tileOptions(pane = "basemaps4", maxZoom = 16, opacity = 0.5)
+      ) %>%
       
       addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Land use 2017", 
                   options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5, pane="basemaps4"),
@@ -1367,9 +1533,9 @@ server <- function(input, output, session) {
       
       
       
-      addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S0/{z}/{x}/{y}.png", group = "Sea level - Present day",
-               options = pathOptions(pane="macromap4", maxZoom=16),
-               attribution = "&copy; Department of Primary Industries 2020") %>%
+    addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S0/{z}/{x}/{y}.png", group = "Sea level - Present day",
+             options = pathOptions(pane="macromap4", maxZoom=16),
+             attribution = "&copy; Department of Primary Industries 2020") %>%
       
       addTiles(urlTemplate = "https://gregjwest.github.io/Sea_level_modelling/S1/{z}/{x}/{y}.png", group = "Sea level - 0.5m increase",
                options = pathOptions(pane="macromap4", maxZoom=16),
