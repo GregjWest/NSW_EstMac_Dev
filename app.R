@@ -768,8 +768,13 @@ server <- function(input, output, session) {
       addMapPane("macromap", zIndex=400) %>% #add map pane for macrophyte map
       addMapPane("othermap", zIndex=450) %>% #add map pane for all other layers
       
-      addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                       options = pathOptions(pane="basemaps", maxZoom=17)) %>%
+      addTiles(
+        urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{z}/{y}/{x}",
+        group   = "NSW Base Map",
+        attribution = "© NSW Spatial Services",
+        options = tileOptions(pane = "basemaps", maxZoom = 17, opacity = 0.5)
+      ) %>%
+      
       addTiles(urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer/tile/{z}/{y}/{x}",
                group = "Photo basemap",
                options = pathOptions(pane="basemaps", maxZoom=17),
@@ -828,7 +833,7 @@ server <- function(input, output, session) {
         updateWhenIdle = TRUE)) %>%
       
       addLayersControl(
-        baseGroups = c("Open Street Map", "Photo basemap"),
+        baseGroups = c("NSW Base Map", "Photo basemap"),
         overlayGroups = c("Latest mapped habitat (All NSW)", "Historic mapping (selected estuary)", "2019 - 2020 Fire damage", "Foreshore", "Artificial structures", "Aquaculture leases", "Estuarine reef"),
         options = layersControlOptions(collapsed = FALSE)) %>%
       
@@ -998,9 +1003,14 @@ server <- function(input, output, session) {
       addMapPane("right", zIndex = 600) %>%        
       
       #leaflet::addTiles() %>%
-      #Open Street Map base layer
-      addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                       options = pathOptions(pane="basemaps", maxZoom=17)) %>%
+      
+      addTiles(
+        urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{z}/{y}/{x}",
+        group   = "NSW Base Map",
+        attribution = "© NSW Spatial Services",
+        options = tileOptions(pane = "basemaps", maxZoom = 17, opacity = 0.5)
+      ) %>%
+      
       #Spatial Sevices Photo base layer
       addTiles(urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer/tile/{z}/{y}/{x}",
                group = "Photo basemap",
@@ -1025,7 +1035,7 @@ server <- function(input, output, session) {
                attribution = "&copy; Department of Primary Industries 2020") %>%
       
       addLayersControl(
-        baseGroups = c("Open Street Map", "Photo basemap"),
+        baseGroups = c("NSW Base Map", "Photo basemap"),
         overlayGroups = c("Change Grid", "Mapped habitat"),
         options = layersControlOptions(collapsed = FALSE)) %>%
       
@@ -1338,12 +1348,16 @@ server <- function(input, output, session) {
   output$slrmap <- renderLeaflet({
     
     
-    leaflet(options = leafletOptions(maxZoom = 17)) %>% 
+    leaflet(options = leafletOptions(maxZoom = 16)) %>% 
       addMapPane("basemaps4", zIndex=200) %>% #add map pane for baselayers
       addMapPane("macromap4", zIndex=400) %>% #add map pane for macrophyte map
       
-      addProviderTiles(providers$CartoDB.Positron, group = "Open Street Map",
-                       options = pathOptions(pane="basemaps4", maxZoom=16)) %>%
+      addTiles(
+        urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{z}/{y}/{x}",
+        group   = "NSW Base Map",
+        attribution = "© NSW Spatial Services",
+        options = tileOptions(pane = "basemaps4", maxZoom = 16, opacity = 0.5)
+      ) %>%
       
       addWMSTiles("https://mapprod1.environment.nsw.gov.au/arcgis/services/Landuse/LandUse2017/MapServer/WMSServer", group = "Land use 2017", 
                   options = WMSTileOptions(format = "image/png", transparent = TRUE, opacity = 0.5, pane="basemaps4"),
