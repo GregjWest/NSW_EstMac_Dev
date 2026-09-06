@@ -1008,7 +1008,7 @@ server <- function(input, output, session) {
         urlTemplate = "https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{z}/{y}/{x}",
         group   = "NSW Base Map",
         attribution = "© NSW Spatial Services",
-        options = tileOptions(pane = "basemaps", maxZoom = 17, opacity = 0.5)
+        options = pathOptions(pane="basemaps", maxZoom=17, opacity=0.5)
       ) %>%
       
       #Spatial Sevices Photo base layer
